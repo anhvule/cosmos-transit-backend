@@ -324,26 +324,39 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         primary_aspects = moon_house_aspects[:3]
     else:
         # Select from personal transit planets (excl. Moon, excl. self-to-self)
-        # Filter for separating OR exact aspects
         candidates = [
             a for a in active_aspects
             if a['transitPlanet'] in PERSONAL_PLANETS
             and a['transitPlanet'] != 'Moon'
             and a['transitPlanet'] != a['natalPlanet']  # no self-to-self
-            and (a['separating'] or a['exact'])
         ]
-        # Prioritize: personal natal planet first, then tightest orb
-        candidates.sort(key=lambda a: (
-            0 if a['natalPlanet'] in PERSONAL_PLANETS else 1,
-            a['orb'],
-        ))
-        # Select top stories (one per transit planet to avoid duplicates)
-        primary_aspects = []
-        seen_transit = set()
-        for c in candidates:
-            if c['transitPlanet'] not in seen_transit and len(primary_aspects) < MAX_STORIES:
-                primary_aspects.append(c)
-                seen_transit.add(c['transitPlanet'])
+
+        # Natal planet importance: personal > social > outer
+        def _natal_priority(planet):
+            if planet in PERSONAL_PLANETS:
+                return 0
+            if planet in ('Jupiter', 'Saturn'):
+                return 1
+            return 2
+
+        # For each transit planet, pick its best aspect (natal priority first, then orb)
+        best_per_transit = {}
+        for a in candidates:
+            tp = a['transitPlanet']
+            key = (_natal_priority(a['natalPlanet']), a['orb'])
+            prev = best_per_transit.get(tp)
+            if prev is None or key < (_natal_priority(prev['natalPlanet']), prev['orb']):
+                best_per_transit[tp] = a
+
+        # Rank transit planets by their best aspect's orb (tightest first)
+        ranked = sorted(best_per_transit.values(), key=lambda a: a['orb'])
+
+        # Select top MAX_STORIES, then order by natal priority for display
+        selected = ranked[:MAX_STORIES]
+        primary_aspects = sorted(
+            selected,
+            key=lambda a: (_natal_priority(a['natalPlanet']), a['orb']),
+        )
 
     # --- 4. Build grouped event list ---
     if moon_activates_house:
@@ -367,6 +380,35 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
             _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
                               include_transit_house=is_ending,
                               use_specific_aspect_name=False)
+
+        # --- 5. Moon stories for social natal planets (Jupiter/Saturn) ---
+        # When Moon aspects a social planet not already in primary stories,
+        # add that aspect with rulers/dispositor (no exact/ends qualifier).
+        involved_natal = {a['natalPlanet'] for a in primary_aspects}
+        involved_transit = {a['transitPlanet'] for a in primary_aspects}
+        moon_social_aspects = [
+            a for a in active_aspects
+            if a['transitPlanet'] == 'Moon'
+            and a['natalPlanet'] in ('Jupiter', 'Saturn')
+            and a['natalPlanet'] not in involved_natal
+            and a['orb'] < 4
+        ]
+        moon_social_aspects.sort(key=lambda a: a['orb'])
+        for aspect in moon_social_aspects:
+            # Suppress exact/ends qualifier for Moon social aspects
+            moon_aspect = {**aspect, 'exact': False, 'separating': False}
+            _add_aspect_story(events, moon_aspect, natal_map, transit_map, house_to_sign,
+                              include_transit_house=False, use_specific_aspect_name=False)
+
+        # --- 6. Mercury transit house (when Mercury not in primary stories) ---
+        if 'Mercury' not in involved_transit and transit_map.get('Mercury'):
+            merc_house = transit_map['Mercury']['natalHouse']
+            events.append({
+                'type': 'transit_house',
+                'planet': 'Mercury',
+                'house': merc_house,
+                'description': f'Mercury Transits the {ordinal(merc_house)} House',
+            })
 
     return events
 
@@ -506,87 +548,11 @@ def _run_json_bridge():
         sys.exit(1)
 
 
-# ─── CLI test runner ─────────────────────────────────────────────────────────
-
-def _run_test():
-    """Manual test with hardcoded birth data for verification."""
-    birth_data = {
-        'birthDate': '1991-12-29',
-        'birthTime': '13:30',
-        'latitude': 10.7755,       # 10°46'31.89" N
-        'longitude': 106.7021,     # 106°42'7.58" E
-        'timezone': 'Asia/Ho_Chi_Minh',
-    }
-
-    transit_date = '2026-04-02'
-
-    print(f'Birth: {birth_data["birthDate"]} {birth_data["birthTime"]}')
-    print(f'Location: {birth_data["latitude"]}N, {birth_data["longitude"]}E')
-    print(f'Transit date: {transit_date}')
-    print('=' * 60)
-
-    sidereal, tropical, transit = get_natal_transits(birth_data, transit_date)
-
-    print('\n--- Sidereal Natal (houses) ---')
-    for p in sidereal:
-        h = p["house"]
-        print(f'  {p["name"]:12s}  {p["sign"]:13s}  house={h:<3}  deg={p["fullDegree"]:.2f}')
-
-    print('\n--- Tropical Natal (degrees) ---')
-    for p in tropical:
-        print(f'  {p["name"]:12s}  {p["sign"]:13s}  deg={p["fullDegree"]:.2f}')
-
-    print('\n--- Tropical Transit ---')
-    for p in transit:
-        sign = p["sign"]
-        print(f'  {p["name"]:12s}  {sign:13s}  deg={p["fullDegree"]:.2f}  speed={p.get("speed", 0):.3f}')
-
-    print('\n--- Transit Report ---')
-    events = calculate_transit_report(sidereal, tropical, transit)
-
-    for e in events:
-        print(f'  {e["description"]}')
-
-    print('\n--- Expected ---')
-    expected = [
-        'Mars aspect Moon in 6th house : Ends',
-        'Moon ruler of the 4th House in the 6th House',
-        'Mercury in 8th (Dispositor)',
-        'Mars Transits the 12th House',
-        'Mercury aspect Jupiter in 5th house : Exact',
-        'Jupiter ruler of the 9th House in the 5th House',
-        'Jupiter ruler of the 12th House in the 5th House',
-        'Sun in 9th (Dispositor)',
-    ]
-    for line in expected:
-        print(f'  {line}')
-
-    print('\n--- Match Check ---')
-    actual = [e['description'] for e in events]
-    all_match = True
-    for i, exp in enumerate(expected):
-        if i < len(actual) and actual[i] == exp:
-            print(f'  ✓ {exp}')
-        elif i < len(actual):
-            print(f'  ✗ Expected: {exp}')
-            print(f'    Got:      {actual[i]}')
-            all_match = False
-        else:
-            print(f'  ✗ Missing:  {exp}')
-            all_match = False
-    for i in range(len(expected), len(actual)):
-        print(f'  ✗ Extra:    {actual[i]}')
-        all_match = False
-
-    if all_match:
-        print('\n  ✅ ALL MATCH!')
-    else:
-        print('\n  ❌ MISMATCH — needs adjustment')
-
-
 if __name__ == '__main__':
     import sys
     if '--json' in sys.argv:
         _run_json_bridge()
     else:
-        _run_test()
+        # Manual test runner moved to tests/astrology_kerykeion_test.py
+        print('Run tests with: pytest tests/astrology_kerykeion_test.py -v')
+        print('Or manual output: python tests/astrology_kerykeion_test.py')
