@@ -55,11 +55,27 @@ class TestTransit20260402:
         'Jupiter ruler of the 9th House in the 5th House',
         'Jupiter ruler of the 12th House in the 5th House',
         'Sun in 9th (Dispositor)',
+        'Moon aspect Mercury in 8th house',
+        'Mercury ruler of the 3rd House in the 8th House',
+        'Mercury ruler of the 6th House in the 8th House',
+        'Mars in 8th (Dispositor)',
+        'Moon aspect Rahu in 9th house',
+        'Jupiter in 5th (Dispositor)',
+        'Moon aspect Ketu in 3rd house',
+        'Mercury in 8th (Dispositor)',
+        'Moon aspect Sun in 9th house',
+        'Sun ruler of the 5th House in the 9th House',
+        'Jupiter in 5th (Dispositor)',
         'Venus Transits the 2nd House',
         'Jupiter aspect Mercury in 8th house : Exact',
         'Mercury ruler of the 3rd House in the 8th House',
         'Mercury ruler of the 6th House in the 8th House',
         'Mars in 8th (Dispositor)',
+        'Sun aspect Rahu in 9th house : Ends',
+        'Jupiter in 5th (Dispositor)',
+        'Sun aspect Ketu in 3rd house : Ends',
+        'Mercury in 8th (Dispositor)',
+        'Venus Aspecting Ascendant (ASC) : Exact',
         'Moon Transits the 7th House',
     ]
 
@@ -553,6 +569,426 @@ class TestTransit20260419:
             )
 
 
+# ─── Scenario: 2026-04-20 (API request body — Jack) ──────────────────────────
+
+class TestTransit20260420:
+    """
+    Transit date 2026-04-20 with precise coordinates from the /reading API request:
+
+        {
+          "name": "Jack",
+          "birthDate": "1991-12-29",
+          "birthTime": "13:30",
+          "latitude": "10.7765713",
+          "longitude": "106.7012093",
+          "timezone": "Asia/Ho_Chi_Minh",
+          "transitDate": "2026-04-20"
+        }
+
+    Result must contain:
+      - Mars aspect Ketu in 3rd house : Starts
+    """
+
+    TRANSIT_DATE = '2026-04-20'
+
+    REQUIRED_DESCRIPTIONS = [
+        'Mars aspect Ketu in 3rd house : Starts',
+    ]
+
+    def _get_events(self):
+        sidereal, tropical, transit = get_natal_transits(BIRTH_DATA_HCM_PRECISE, self.TRANSIT_DATE)
+        return calculate_transit_report(sidereal, tropical, transit)
+
+    def test_report_is_non_empty(self):
+        events = self._get_events()
+        assert len(events) > 0
+
+    def test_mars_aspect_ketu_in_3rd_starts(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Mars aspect Ketu in 3rd house : Starts' in descriptions, (
+            'Expected "Mars aspect Ketu in 3rd house : Starts" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_all_required_descriptions_present(self):
+        """All required descriptions must appear in the same report."""
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        missing = [d for d in self.REQUIRED_DESCRIPTIONS if d not in descriptions]
+        assert not missing, (
+            'Missing required descriptions:\n' + '\n'.join(f'  {d}' for d in missing) +
+            '\nActual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_ketu_aspect_event_type(self):
+        events = self._get_events()
+        ketu_aspect = next(
+            (e for e in events
+             if e.get('type') == 'aspect' and e.get('natalPlanet') == 'Ketu'
+             and e.get('transitPlanet') == 'Mars'),
+            None,
+        )
+        assert ketu_aspect is not None, 'Expected a Mars aspect Ketu event'
+        assert ketu_aspect.get('natalHouse') == 3, (
+            f'Ketu should be in 3rd house, got {ketu_aspect.get("natalHouse")}'
+        )
+
+
+# ─── Scenario: 2026-04-21 (API request body — Jack) ──────────────────────────
+
+class TestTransit20260421:
+    """
+    Transit date 2026-04-21 with precise coordinates from the /reading API request:
+
+        {
+          "name": "Jack",
+          "birthDate": "1991-12-29",
+          "birthTime": "13:30",
+          "latitude": "10.7765713",
+          "longitude": "106.7012093",
+          "timezone": "Asia/Ho_Chi_Minh",
+          "transitDate": "2026-04-21"
+        }
+
+    Result must contain:
+      - Moon aspect Mercury in 8th house
+      - Mercury ruler of the 3rd House in the 8th House
+      - Mercury ruler of the 6th House in the 8th House
+      - Ketu aspect Sun in 9th house : Exact
+      - Sun ruler of the 5th House in the 9th House
+      - Moon aspect Mars in 8th house
+      - Mars ruler of the 1st House in the 8th House
+      - Mars ruler of the 8th House in the 8th House
+    """
+
+    TRANSIT_DATE = '2026-04-21'
+
+    REQUIRED_DESCRIPTIONS = [
+        'Moon aspect Mercury in 8th house',
+        'Mercury ruler of the 3rd House in the 8th House',
+        'Mercury ruler of the 6th House in the 8th House',
+        'Ketu aspect Sun in 9th house : Exact',
+        'Sun ruler of the 5th House in the 9th House',
+        'Moon aspect Mars in 8th house',
+        'Mars ruler of the 1st House in the 8th House',
+        'Mars ruler of the 8th House in the 8th House',
+    ]
+
+    def _get_events(self):
+        sidereal, tropical, transit = get_natal_transits(BIRTH_DATA_HCM_PRECISE, self.TRANSIT_DATE)
+        return calculate_transit_report(sidereal, tropical, transit)
+
+    def test_report_is_non_empty(self):
+        events = self._get_events()
+        assert len(events) > 0
+
+    def test_moon_aspect_mercury_in_8th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Moon aspect Mercury in 8th house' in descriptions, (
+            'Expected "Moon aspect Mercury in 8th house" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_mercury_ruler_of_3rd_in_8th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Mercury ruler of the 3rd House in the 8th House' in descriptions, (
+            'Expected "Mercury ruler of the 3rd House in the 8th House" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_mercury_ruler_of_6th_in_8th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Mercury ruler of the 6th House in the 8th House' in descriptions, (
+            'Expected "Mercury ruler of the 6th House in the 8th House" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_ketu_aspect_sun_in_9th_exact(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Ketu aspect Sun in 9th house : Exact' in descriptions, (
+            'Expected "Ketu aspect Sun in 9th house : Exact" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_sun_ruler_of_5th_in_9th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Sun ruler of the 5th House in the 9th House' in descriptions, (
+            'Expected "Sun ruler of the 5th House in the 9th House" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_moon_aspect_mars_in_8th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Moon aspect Mars in 8th house' in descriptions, (
+            'Expected "Moon aspect Mars in 8th house" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_mars_ruler_of_1st_in_8th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Mars ruler of the 1st House in the 8th House' in descriptions, (
+            'Expected "Mars ruler of the 1st House in the 8th House" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_mars_ruler_of_8th_in_8th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Mars ruler of the 8th House in the 8th House' in descriptions, (
+            'Expected "Mars ruler of the 8th House in the 8th House" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_all_required_descriptions_present(self):
+        """All required descriptions must appear in the same report."""
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        missing = [d for d in self.REQUIRED_DESCRIPTIONS if d not in descriptions]
+        assert not missing, (
+            'Missing required descriptions:\n' + '\n'.join(f'  {d}' for d in missing) +
+            '\nActual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_ketu_aspect_event_type(self):
+        events = self._get_events()
+        ketu_sun = next(
+            (e for e in events
+             if e.get('type') == 'aspect' and e.get('transitPlanet') == 'Ketu'
+             and e.get('natalPlanet') == 'Sun'),
+            None,
+        )
+        assert ketu_sun is not None, 'Expected a Ketu aspect Sun event'
+        assert ketu_sun.get('exact') is True, 'Ketu aspect Sun should be exact'
+        assert ketu_sun.get('natalHouse') == 9, (
+            f'Sun should be in 9th house, got {ketu_sun.get("natalHouse")}'
+        )
+
+
+# ─── Scenario: 2026-04-22 (API request body — Jack) ──────────────────────────
+
+class TestTransit20260422:
+    """
+    Transit date 2026-04-22 with precise coordinates from the /reading API request:
+
+        {
+          "name": "Jack",
+          "birthDate": "1991-12-29",
+          "birthTime": "13:30",
+          "latitude": "10.7765713",
+          "longitude": "106.7012093",
+          "timezone": "Asia/Ho_Chi_Minh",
+          "transitDate": "2026-04-22"
+        }
+
+    Result must contain (Venus-Venus excluded):
+      - Moon aspect Sun in 9th house
+      - Sun ruler of the 5th House in the 9th House
+      - Moon aspect Rahu in 9th house
+      - Moon aspect Ketu in 3rd house
+    """
+
+    TRANSIT_DATE = '2026-04-22'
+
+    REQUIRED_DESCRIPTIONS = [
+        'Moon aspect Sun in 9th house',
+        'Sun ruler of the 5th House in the 9th House',
+        'Moon aspect Rahu in 9th house',
+        'Moon aspect Ketu in 3rd house',
+    ]
+
+    def _get_events(self):
+        sidereal, tropical, transit = get_natal_transits(BIRTH_DATA_HCM_PRECISE, self.TRANSIT_DATE)
+        return calculate_transit_report(sidereal, tropical, transit)
+
+    def test_report_is_non_empty(self):
+        events = self._get_events()
+        assert len(events) > 0
+
+    def test_moon_aspect_sun_in_9th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Moon aspect Sun in 9th house' in descriptions, (
+            'Expected "Moon aspect Sun in 9th house" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_sun_ruler_of_5th_in_9th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Sun ruler of the 5th House in the 9th House' in descriptions, (
+            'Expected "Sun ruler of the 5th House in the 9th House" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_moon_aspect_rahu_in_9th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Moon aspect Rahu in 9th house' in descriptions, (
+            'Expected "Moon aspect Rahu in 9th house" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_moon_aspect_ketu_in_3rd(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Moon aspect Ketu in 3rd house' in descriptions, (
+            'Expected "Moon aspect Ketu in 3rd house" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_no_venus_venus_self_aspect(self):
+        """Venus-Venus self-to-self aspects should be excluded."""
+        events = self._get_events()
+        venus_self = [
+            e for e in events
+            if e.get('transitPlanet') == 'Venus' and e.get('natalPlanet') == 'Venus'
+        ]
+        assert len(venus_self) == 0, (
+            'Venus-Venus self-aspect should not appear.\n'
+            'Found: ' + ', '.join(e['description'] for e in venus_self)
+        )
+
+    def test_all_required_descriptions_present(self):
+        """All required descriptions must appear in the same report."""
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        missing = [d for d in self.REQUIRED_DESCRIPTIONS if d not in descriptions]
+        assert not missing, (
+            'Missing required descriptions:\n' + '\n'.join(f'  {d}' for d in missing) +
+            '\nActual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+
+# ─── Scenario: 2026-04-24 (API request body — Jack) ──────────────────────────
+
+class TestTransit20260424:
+    """
+    Transit date 2026-04-24 with precise coordinates from the /reading API request.
+
+    Result must contain:
+      - Moon aspect Saturn in 10th house
+    """
+
+    TRANSIT_DATE = '2026-04-24'
+
+    def _get_events(self):
+        sidereal, tropical, transit = get_natal_transits(BIRTH_DATA_HCM_PRECISE, self.TRANSIT_DATE)
+        return calculate_transit_report(sidereal, tropical, transit)
+
+    def test_report_is_non_empty(self):
+        events = self._get_events()
+        assert len(events) > 0
+
+    def test_moon_aspect_saturn_in_10th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Moon aspect Saturn in 10th house' in descriptions, (
+            'Expected "Moon aspect Saturn in 10th house" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+
+# ─── Scenario: 2026-04-27 (API request body — Jack) ──────────────────────────
+
+class TestTransit20260427:
+    """
+    Transit date 2026-04-27 with precise coordinates from the /reading API request.
+
+    Result must contain:
+      - Sun Aspecting Ascendant (ASC) : Exact
+    """
+
+    TRANSIT_DATE = '2026-04-27'
+
+    def _get_events(self):
+        sidereal, tropical, transit = get_natal_transits(BIRTH_DATA_HCM_PRECISE, self.TRANSIT_DATE)
+        return calculate_transit_report(sidereal, tropical, transit)
+
+    def test_report_is_non_empty(self):
+        events = self._get_events()
+        assert len(events) > 0
+
+    def test_sun_aspecting_ascendant_exact(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Sun Aspecting Ascendant (ASC) : Exact' in descriptions, (
+            'Expected "Sun Aspecting Ascendant (ASC) : Exact" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_ascendant_aspect_event_type(self):
+        events = self._get_events()
+        asc_event = next(
+            (e for e in events if e.get('type') == 'ascendant_aspect' and e.get('transitPlanet') == 'Sun'),
+            None,
+        )
+        assert asc_event is not None, 'Expected an ascendant_aspect event for Sun'
+
+
+# ─── Scenario: 2026-05-03 (API request body — Jack) ──────────────────────────
+
+class TestTransit20260503:
+    """
+    Transit date 2026-05-03 with precise coordinates from the /reading API request.
+
+    Result must contain:
+      - Ketu aspect Sun in 9th house : Exact
+      - Sun ruler of the 5th House in the 9th House
+      - Jupiter in 5th (Dispositor)
+    """
+
+    TRANSIT_DATE = '2026-05-03'
+
+    REQUIRED_DESCRIPTIONS = [
+        'Ketu aspect Sun in 9th house : Exact',
+        'Sun ruler of the 5th House in the 9th House',
+        'Jupiter in 5th (Dispositor)',
+    ]
+
+    def _get_events(self):
+        sidereal, tropical, transit = get_natal_transits(BIRTH_DATA_HCM_PRECISE, self.TRANSIT_DATE)
+        return calculate_transit_report(sidereal, tropical, transit)
+
+    def test_report_is_non_empty(self):
+        events = self._get_events()
+        assert len(events) > 0
+
+    def test_ketu_aspect_sun_in_9th_exact(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Ketu aspect Sun in 9th house : Exact' in descriptions, (
+            'Expected "Ketu aspect Sun in 9th house : Exact" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_sun_ruler_of_5th_in_9th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Sun ruler of the 5th House in the 9th House' in descriptions
+
+    def test_jupiter_dispositor_in_5th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Jupiter in 5th (Dispositor)' in descriptions
+
+    def test_all_required_descriptions_present(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        missing = [d for d in self.REQUIRED_DESCRIPTIONS if d not in descriptions]
+        assert not missing, (
+            'Missing required descriptions:\n' + '\n'.join(f'  {d}' for d in missing) +
+            '\nActual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+
 # ─── Manual runner (mirrors the old _run_test behaviour) ─────────────────────
 
 def run_manual_test():
@@ -564,6 +1000,12 @@ def run_manual_test():
         (BIRTH_DATA_HCM_PRECISE, '2026-04-12', 'API request body — Jack (2026-04-12)'),
         (BIRTH_DATA_HCM_PRECISE, '2026-04-13', 'API request body — Jack (2026-04-13)'),
         (BIRTH_DATA_HCM_PRECISE, '2026-04-19', 'API request body — Jack (2026-04-19)'),
+        (BIRTH_DATA_HCM_PRECISE, '2026-04-20', 'API request body — Jack (2026-04-20)'),
+        (BIRTH_DATA_HCM_PRECISE, '2026-04-21', 'API request body — Jack (2026-04-21)'),
+        (BIRTH_DATA_HCM_PRECISE, '2026-04-22', 'API request body — Jack (2026-04-22)'),
+        (BIRTH_DATA_HCM_PRECISE, '2026-04-24', 'API request body — Jack (2026-04-24)'),
+        (BIRTH_DATA_HCM_PRECISE, '2026-04-27', 'API request body — Jack (2026-04-27)'),
+        (BIRTH_DATA_HCM_PRECISE, '2026-05-03', 'API request body — Jack (2026-05-03)'),
     ]:
         print(f'\n{"=" * 60}')
         print(f'Scenario: {label}')

@@ -42,6 +42,8 @@ SIGN_ABBR_MAP = {
 }
 
 PLANETS = ['Sun', 'Moon', 'Mercury', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto']
+LUNAR_NODES = ['Rahu', 'Ketu']
+NATAL_TARGETS = PLANETS + LUNAR_NODES  # All bodies that can be aspected natally
 SLOW_PLANETS = ['Jupiter', 'Saturn', 'Uranus', 'Neptune', 'Pluto']
 PERSONAL_PLANETS = ['Sun', 'Moon', 'Mercury', 'Venus', 'Mars']
 
@@ -139,6 +141,28 @@ def _extract_planet(subject, planet_name):
     }
 
 
+def _extract_node(subject, node_name):
+    """Extract a lunar node dict from a kerykeion AstrologicalSubject.
+
+    node_name: 'Rahu' (true_node) or 'Ketu' (true_south_node)
+    """
+    # Try v5 names first, fall back to legacy names
+    if node_name == 'Rahu':
+        attr = 'true_north_lunar_node' if hasattr(subject, 'true_north_lunar_node') else 'true_node'
+    else:
+        attr = 'true_south_lunar_node' if hasattr(subject, 'true_south_lunar_node') else 'true_south_node'
+    obj = getattr(subject, attr)
+    sign = full_sign(obj.sign)
+    return {
+        'name': node_name,
+        'sign': sign,
+        'fullDegree': obj.abs_pos,
+        'house': house_num(obj.house),
+        'signLord': SIGN_RULERS.get(sign, ''),
+        'speed': getattr(obj, 'speed', 0) or 0,
+    }
+
+
 # ─── Public API ──────────────────────────────────────────────────────────────
 
 def get_natal_transits(birth_data, transit_date=None):
@@ -211,6 +235,8 @@ def get_natal_transits(birth_data, transit_date=None):
     })
     for pname in PLANETS:
         sidereal_natal.append(_extract_planet(sidereal, pname))
+    for nname in LUNAR_NODES:
+        sidereal_natal.append(_extract_node(sidereal, nname))
 
     tropical_natal = []
     tropical_natal.append({
@@ -222,10 +248,14 @@ def get_natal_transits(birth_data, transit_date=None):
     })
     for pname in PLANETS:
         tropical_natal.append(_extract_planet(tropical, pname))
+    for nname in LUNAR_NODES:
+        tropical_natal.append(_extract_node(tropical, nname))
 
     tropical_transit = []
     for pname in PLANETS:
         tropical_transit.append(_extract_planet(transit_subj, pname))
+    for nname in LUNAR_NODES:
+        tropical_transit.append(_extract_node(transit_subj, nname))
 
     return sidereal_natal, tropical_natal, tropical_transit
 
@@ -262,7 +292,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
     # Build natal planet lookup (sidereal house + tropical degree)
     natal_map = {}
     for p in natal_planets:
-        if p['name'] in PLANETS:
+        if p['name'] in NATAL_TARGETS:
             trop = next((t for t in natal_planets_tropical if t['name'] == p['name']), None)
             natal_map[p['name']] = {
                 'name': p['name'],
@@ -276,17 +306,22 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
     # Build transit planet lookup (tropical sign → sidereal whole-sign house)
     transit_map = {}
     for p in transit_planets:
-        if p['name'] in PLANETS:
+        if p['name'] in NATAL_TARGETS:
             natal_house = sign_to_house.get(p['sign'], 1)
             transit_map[p['name']] = {**p, 'natalHouse': natal_house}
 
     # --- 1. Find ALL aspects between transit and natal planets ---
     active_aspects = []
-    for transit_name in PLANETS:
+    for transit_name in NATAL_TARGETS:
         transit = transit_map.get(transit_name)
         if not transit:
             continue
-        for natal_name in PLANETS:
+        for natal_name in NATAL_TARGETS:
+            if transit_name == natal_name:
+                continue  # skip self-to-self (e.g. transit Venus → natal Venus)
+            # Skip all node-to-node aspects (same node or cross-node)
+            if transit_name in LUNAR_NODES and natal_name in LUNAR_NODES:
+                continue
             natal = natal_map.get(natal_name)
             if not natal:
                 continue
@@ -385,20 +420,18 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                               include_transit_house=is_ending,
                               use_specific_aspect_name=False)
 
-        # --- 5. Moon aspect stories (social + personal natal planets) ---
-        # When Moon aspects a natal planet not already in primary stories,
-        # add that aspect with rulers/dispositor (no exact/ends qualifier).
-        # Social planets (Jupiter/Saturn): orb < 4
-        # Personal planets (Sun/Mercury/Venus/Mars): orb < 5, also not in involved_transit
+        # --- 5. Moon aspect stories (personal + social + node natal targets) ---
+        # Moon aspects to natal planets/nodes, shown with rulers/dispositor
+        # (no exact/ends qualifier). Social planets: orb < 4, Nodes: orb < 4.
         involved_natal = {a['natalPlanet'] for a in primary_aspects}
         involved_transit = {a['transitPlanet'] for a in primary_aspects}
         moon_extra_aspects = [
             a for a in active_aspects
             if a['transitPlanet'] == 'Moon'
-            and a['natalPlanet'] not in involved_natal
             and (
-                (a['natalPlanet'] in ('Jupiter', 'Saturn') and a['orb'] < 4)
-                or (a['natalPlanet'] in PERSONAL_PLANETS and a['natalPlanet'] not in involved_transit and a['orb'] < 5)
+                a['natalPlanet'] in PERSONAL_PLANETS
+                or (a['natalPlanet'] in ('Jupiter', 'Saturn') and a['orb'] < 4)
+                or (a['natalPlanet'] in LUNAR_NODES and a['orb'] < 4)
             )
         ]
         moon_extra_aspects.sort(key=lambda a: a['orb'])
@@ -419,41 +452,86 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                     'description': f'{inner_planet} Transits the {ordinal(inner_house)} House',
                 })
 
-        # --- 7. Exact slow-planet aspects to personal natal planets ---
-        # Slow transits (Jupiter, Saturn, Uranus, Neptune, Pluto) that form an
-        # exact aspect (orb < 1°) to a personal natal planet are rare and
-        # significant — always include them regardless of other stories.
-        slow_exact_aspects = [
-            a for a in active_aspects
-            if a['transitPlanet'] in SLOW_PLANETS
-            and a['natalPlanet'] in PERSONAL_PLANETS
-            and a['exact']
-        ]
-        slow_exact_aspects.sort(key=lambda a: a['orb'])
-        for aspect in slow_exact_aspects:
-            _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
-                              include_transit_house=False, use_specific_aspect_name=False)
+    # --- Steps below run regardless of Moon activation path ---
 
-        # --- 8. Moon transit house (always shown last in non-Moon-activation path) ---
-        if transit_map.get('Moon') and moon_house:
-            events.append({
-                'type': 'transit_house',
-                'planet': 'Moon',
-                'house': moon_house,
-                'description': f'Moon Transits the {ordinal(moon_house)} House',
-            })
+    # --- 8. Exact slow-planet/node aspects to personal natal planets ---
+    # Slow transits (Jupiter, Saturn, Uranus, Neptune, Pluto, Rahu, Ketu)
+    # that form an exact aspect (orb < 1°) to a personal natal planet are
+    # rare and significant — always include them regardless of other stories.
+    slow_exact_aspects = [
+        a for a in active_aspects
+        if (a['transitPlanet'] in SLOW_PLANETS or a['transitPlanet'] in LUNAR_NODES)
+        and a['natalPlanet'] in PERSONAL_PLANETS
+        and a['exact']
+    ]
+    slow_exact_aspects.sort(key=lambda a: a['orb'])
+    for aspect in slow_exact_aspects:
+        _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
+                          include_transit_house=False, use_specific_aspect_name=False)
+
+    # --- 9. Lunar node aspects (personal transit planets → Rahu/Ketu) ---
+    # When a personal transit planet (non-Moon) forms a tight aspect
+    # (orb < 3°) with a natal lunar node, include it.
+    node_aspects = [
+        a for a in active_aspects
+        if a['transitPlanet'] in PERSONAL_PLANETS
+        and a['transitPlanet'] != 'Moon'
+        and a['natalPlanet'] in LUNAR_NODES
+        and a['orb'] < 3
+    ]
+    node_aspects.sort(key=lambda a: a['orb'])
+    for aspect in node_aspects:
+        _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
+                          include_transit_house=False, use_specific_aspect_name=False,
+                          show_starts=True)
+
+    # --- 10. Ascendant aspects (transit planet conjunct natal Ascendant) ---
+    # When a transit planet is conjunct the tropical Ascendant within the
+    # standard conjunction orb, show a special "Aspecting Ascendant (ASC)" event.
+    asc_trop = next(
+        (p for p in natal_planets_tropical if p['name'] == 'Ascendant'), None
+    )
+    if asc_trop:
+        asc_deg = asc_trop['fullDegree']
+        conj_orb = next(a['orb'] for a in ASPECT_TYPES if a['name'] == 'conjunction')
+        for transit_name in PLANETS:
+            transit = transit_map.get(transit_name)
+            if not transit:
+                continue
+            diff = normalize_angle(transit['fullDegree'] - asc_deg)
+            orb = abs(diff)  # conjunction = 0°
+            if orb <= conj_orb:
+                events.append({
+                    'type': 'ascendant_aspect',
+                    'transitPlanet': transit_name,
+                    'orb': orb,
+                    'description': f'{transit_name} Aspecting Ascendant (ASC) : Exact',
+                })
+
+    # --- 11. Moon transit house (always last, non-Moon-activation path only) ---
+    if not moon_activates_house and transit_map.get('Moon') and moon_house:
+        events.append({
+            'type': 'transit_house',
+            'planet': 'Moon',
+            'house': moon_house,
+            'description': f'Moon Transits the {ordinal(moon_house)} House',
+        })
 
     return events
 
 
 def _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
-                      include_transit_house=False, use_specific_aspect_name=True):
+                      include_transit_house=False, use_specific_aspect_name=True,
+                      show_starts=False):
     """
     Append a complete transit story to the events list:
       1. The aspect itself
       2. House rulers for the aspected natal planet
       3. Dispositor (sign lord) of the aspected natal planet
       4. (Optional) Transit house for the transit planet
+
+    show_starts: if True, approaching (non-exact, non-separating) aspects
+                 get the ' : Starts' qualifier.
     """
     transit_name = aspect['transitPlanet']
     natal_name = aspect['natalPlanet']
@@ -465,21 +543,20 @@ def _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
     else:
         aspect_label = 'aspect'
 
+    # Build qualifier: Exact > Ends (separating) > Starts (approaching, opt-in)
     if aspect['exact']:
-        aspect['description'] = (
-            f"{transit_name} {aspect_label} {natal_name} "
-            f"in {ordinal(aspect['natalHouse'])} house : Exact"
-        )
+        qualifier = ' : Exact'
     elif aspect['separating']:
-        aspect['description'] = (
-            f"{transit_name} {aspect_label} {natal_name} "
-            f"in {ordinal(aspect['natalHouse'])} house : Ends"
-        )
+        qualifier = ' : Ends'
+    elif show_starts and not aspect['exact'] and not aspect['separating']:
+        qualifier = ' : Starts'
     else:
-        aspect['description'] = (
-            f"{transit_name} {aspect_label} {natal_name} "
-            f"in {ordinal(aspect['natalHouse'])} house"
-        )
+        qualifier = ''
+
+    aspect['description'] = (
+        f"{transit_name} {aspect_label} {natal_name} "
+        f"in {ordinal(aspect['natalHouse'])} house{qualifier}"
+    )
     events.append(aspect)
 
     if not natal:
