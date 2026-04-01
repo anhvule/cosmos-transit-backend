@@ -55,6 +55,12 @@ class TestTransit20260402:
         'Jupiter ruler of the 9th House in the 5th House',
         'Jupiter ruler of the 12th House in the 5th House',
         'Sun in 9th (Dispositor)',
+        'Venus Transits the 2nd House',
+        'Jupiter aspect Mercury in 8th house : Exact',
+        'Mercury ruler of the 3rd House in the 8th House',
+        'Mercury ruler of the 6th House in the 8th House',
+        'Mars in 8th (Dispositor)',
+        'Moon Transits the 7th House',
     ]
 
     def _get_events(self):
@@ -273,6 +279,280 @@ class TestTransit20260411:
         )
 
 
+# ─── Scenario: 2026-04-12 (API request body — Jack) ──────────────────────────
+
+class TestTransit20260412:
+    """
+    Transit date 2026-04-12 with precise coordinates from the /reading API request:
+
+        {
+          "name": "Jack",
+          "birthDate": "1991-12-29",
+          "birthTime": "13:30",
+          "latitude": "10.7765713",
+          "longitude": "106.7012093",
+          "timezone": "Asia/Ho_Chi_Minh",
+          "transitDate": "2026-04-12"
+        }
+
+    Result must contain:
+      - Sun aspect Moon in 6th house : Exact
+      - Moon ruler of the 4th House in the 6th House
+      - Mercury in 8th (Dispositor)
+    """
+
+    TRANSIT_DATE = '2026-04-12'
+
+    REQUIRED_DESCRIPTIONS = [
+        'Sun aspect Moon in 6th house : Exact',
+        'Moon ruler of the 4th House in the 6th House',
+        'Mercury in 8th (Dispositor)',
+    ]
+
+    def _get_events(self):
+        sidereal, tropical, transit = get_natal_transits(BIRTH_DATA_HCM_PRECISE, self.TRANSIT_DATE)
+        return calculate_transit_report(sidereal, tropical, transit)
+
+    def test_report_is_non_empty(self):
+        events = self._get_events()
+        assert len(events) > 0
+
+    def test_sun_aspect_moon_in_6th_exact(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Sun aspect Moon in 6th house : Exact' in descriptions, (
+            'Expected "Sun aspect Moon in 6th house : Exact" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_moon_ruler_of_4th_house_in_6th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Moon ruler of the 4th House in the 6th House' in descriptions, (
+            'Expected "Moon ruler of the 4th House in the 6th House" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_mercury_dispositor_in_8th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Mercury in 8th (Dispositor)' in descriptions, (
+            'Expected "Mercury in 8th (Dispositor)" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_all_required_descriptions_present(self):
+        """All three required descriptions must appear in the same report."""
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        missing = [d for d in self.REQUIRED_DESCRIPTIONS if d not in descriptions]
+        assert not missing, (
+            'Missing required descriptions:\n' + '\n'.join(f'  {d}' for d in missing) +
+            '\nActual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_sun_moon_aspect_is_exact(self):
+        events = self._get_events()
+        sun_moon = next(
+            (e for e in events
+             if e.get('type') == 'aspect' and e.get('transitPlanet') == 'Sun'
+             and e.get('natalPlanet') == 'Moon'),
+            None,
+        )
+        assert sun_moon is not None, 'Expected a Sun aspect Moon event'
+        assert sun_moon.get('exact') is True, 'Sun aspect Moon should be exact'
+        assert sun_moon.get('natalHouse') == 6, (
+            f'Sun aspect Moon should be in 6th house, got {sun_moon.get("natalHouse")}'
+        )
+
+    def test_moon_ruler_event_type(self):
+        events = self._get_events()
+        moon_ruler = next(
+            (e for e in events
+             if e.get('type') == 'ruler' and e.get('planet') == 'Moon'
+             and e.get('rulesHouse') == 4),
+            None,
+        )
+        assert moon_ruler is not None, 'Expected Moon ruler of 4th house event'
+        assert moon_ruler['inHouse'] == 6, (
+            f'Moon ruler of 4th should be in 6th house, got {moon_ruler["inHouse"]}'
+        )
+
+
+# ─── Scenario: 2026-04-13 (API request body — Jack) ──────────────────────────
+
+class TestTransit20260413:
+    """
+    Transit date 2026-04-13 with precise coordinates from the /reading API request:
+
+        {
+          "name": "Jack",
+          "birthDate": "1991-12-29",
+          "birthTime": "13:30",
+          "latitude": "10.7765713",
+          "longitude": "106.7012093",
+          "timezone": "Asia/Ho_Chi_Minh",
+          "transitDate": "2026-04-13"
+        }
+
+    Result must contain:
+      - Moon Transits the 11th House
+    """
+
+    TRANSIT_DATE = '2026-04-13'
+
+    def _get_events(self):
+        sidereal, tropical, transit = get_natal_transits(BIRTH_DATA_HCM_PRECISE, self.TRANSIT_DATE)
+        return calculate_transit_report(sidereal, tropical, transit)
+
+    def test_report_is_non_empty(self):
+        events = self._get_events()
+        assert len(events) > 0
+
+    def test_moon_transits_11th_house(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Moon Transits the 11th House' in descriptions, (
+            'Expected "Moon Transits the 11th House" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_moon_transit_house_event_type(self):
+        events = self._get_events()
+        moon_transit = next(
+            (e for e in events if e.get('type') == 'transit_house' and e.get('planet') == 'Moon'),
+            None,
+        )
+        assert moon_transit is not None, 'Expected a transit_house event for Moon'
+        assert moon_transit['house'] == 11, (
+            f'Moon should transit the 11th house, got {moon_transit["house"]}'
+        )
+
+    def test_moon_transit_is_last_event(self):
+        """Moon transit house should be the last event in the report."""
+        events = self._get_events()
+        last = events[-1]
+        assert last['type'] == 'transit_house' and last['planet'] == 'Moon', (
+            f'Expected Moon transit_house as last event, got: {last["description"]}'
+        )
+
+
+# ─── Scenario: 2026-04-19 (API request body — Jack) ──────────────────────────
+
+class TestTransit20260419:
+    """
+    Transit date 2026-04-19 with precise coordinates from the /reading API request:
+
+        {
+          "name": "Jack",
+          "birthDate": "1991-12-29",
+          "birthTime": "13:30",
+          "latitude": "10.7765713",
+          "longitude": "106.7012093",
+          "timezone": "Asia/Ho_Chi_Minh",
+          "transitDate": "2026-04-19"
+        }
+
+    Result must contain:
+      - Venus Transits the 2nd House
+      - Moon aspect Venus in 8th house
+      - Venus ruler of the 2nd House in the 8th House
+      - Venus ruler of the 7th House in the 8th House
+    """
+
+    TRANSIT_DATE = '2026-04-19'
+
+    REQUIRED_DESCRIPTIONS = [
+        'Venus Transits the 2nd House',
+        'Moon aspect Venus in 8th house',
+        'Venus ruler of the 2nd House in the 8th House',
+        'Venus ruler of the 7th House in the 8th House',
+    ]
+
+    def _get_events(self):
+        sidereal, tropical, transit = get_natal_transits(BIRTH_DATA_HCM_PRECISE, self.TRANSIT_DATE)
+        return calculate_transit_report(sidereal, tropical, transit)
+
+    def test_report_is_non_empty(self):
+        events = self._get_events()
+        assert len(events) > 0
+
+    def test_venus_transits_2nd_house(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Venus Transits the 2nd House' in descriptions, (
+            'Expected "Venus Transits the 2nd House" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_moon_aspect_venus_in_8th_house(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Moon aspect Venus in 8th house' in descriptions, (
+            'Expected "Moon aspect Venus in 8th house" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_venus_ruler_of_2nd_house_in_8th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Venus ruler of the 2nd House in the 8th House' in descriptions, (
+            'Expected "Venus ruler of the 2nd House in the 8th House" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_venus_ruler_of_7th_house_in_8th(self):
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        assert 'Venus ruler of the 7th House in the 8th House' in descriptions, (
+            'Expected "Venus ruler of the 7th House in the 8th House" in report.\n'
+            'Actual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_all_required_descriptions_present(self):
+        """All four required descriptions must appear in the same report."""
+        events = self._get_events()
+        descriptions = [e['description'] for e in events]
+        missing = [d for d in self.REQUIRED_DESCRIPTIONS if d not in descriptions]
+        assert not missing, (
+            'Missing required descriptions:\n' + '\n'.join(f'  {d}' for d in missing) +
+            '\nActual descriptions:\n' + '\n'.join(f'  {d}' for d in descriptions)
+        )
+
+    def test_venus_transit_house_event_type(self):
+        events = self._get_events()
+        venus_transit = next(
+            (e for e in events if e.get('type') == 'transit_house' and e.get('planet') == 'Venus'),
+            None,
+        )
+        assert venus_transit is not None, 'Expected a transit_house event for Venus'
+        assert venus_transit['house'] == 2, (
+            f'Venus should transit the 2nd house, got {venus_transit["house"]}'
+        )
+
+    def test_venus_ruler_events_are_ruler_type(self):
+        events = self._get_events()
+        venus_rulers = [
+            e for e in events
+            if e.get('type') == 'ruler' and e.get('planet') == 'Venus'
+        ]
+        houses_ruled = {e['rulesHouse'] for e in venus_rulers}
+        assert 2 in houses_ruled, f'Venus should rule the 2nd house. Ruled: {houses_ruled}'
+        assert 7 in houses_ruled, f'Venus should rule the 7th house. Ruled: {houses_ruled}'
+
+    def test_venus_ruler_events_in_8th_house(self):
+        events = self._get_events()
+        venus_rulers = [
+            e for e in events
+            if e.get('type') == 'ruler' and e.get('planet') == 'Venus'
+        ]
+        for ruler in venus_rulers:
+            assert ruler['inHouse'] == 8, (
+                f'Venus ruler of {ruler["rulesHouse"]}th should be in 8th house, '
+                f'got {ruler["inHouse"]}'
+            )
+
+
 # ─── Manual runner (mirrors the old _run_test behaviour) ─────────────────────
 
 def run_manual_test():
@@ -281,6 +561,9 @@ def run_manual_test():
         (BIRTH_DATA_HCM,         '2026-04-02', 'Original regression (2026-04-02)'),
         (BIRTH_DATA_HCM_PRECISE, '2026-03-31', 'API request body (2026-03-31)'),
         (BIRTH_DATA_HCM_PRECISE, '2026-04-11', 'API request body — Jack (2026-04-11)'),
+        (BIRTH_DATA_HCM_PRECISE, '2026-04-12', 'API request body — Jack (2026-04-12)'),
+        (BIRTH_DATA_HCM_PRECISE, '2026-04-13', 'API request body — Jack (2026-04-13)'),
+        (BIRTH_DATA_HCM_PRECISE, '2026-04-19', 'API request body — Jack (2026-04-19)'),
     ]:
         print(f'\n{"=" * 60}')
         print(f'Scenario: {label}')

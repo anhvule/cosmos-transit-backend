@@ -331,13 +331,17 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
             and a['transitPlanet'] != a['natalPlanet']  # no self-to-self
         ]
 
-        # Natal planet importance: personal > social > outer
+        # Natal planet importance: Moon (luminary) > personal > social > outer
+        # Moon gets top priority as natal target because it is the primary
+        # luminary for daily transit activations.
         def _natal_priority(planet):
+            if planet == 'Moon':
+                return 0  # Moon (luminary) — highest natal priority
             if planet in PERSONAL_PLANETS:
-                return 0
+                return 1  # Sun, Mercury, Venus, Mars
             if planet in ('Jupiter', 'Saturn'):
-                return 1
-            return 2
+                return 2  # social
+            return 3  # outer
 
         # For each transit planet, pick its best aspect (natal priority first, then orb)
         best_per_transit = {}
@@ -381,33 +385,62 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                               include_transit_house=is_ending,
                               use_specific_aspect_name=False)
 
-        # --- 5. Moon stories for social natal planets (Jupiter/Saturn) ---
-        # When Moon aspects a social planet not already in primary stories,
+        # --- 5. Moon aspect stories (social + personal natal planets) ---
+        # When Moon aspects a natal planet not already in primary stories,
         # add that aspect with rulers/dispositor (no exact/ends qualifier).
+        # Social planets (Jupiter/Saturn): orb < 4
+        # Personal planets (Sun/Mercury/Venus/Mars): orb < 5, also not in involved_transit
         involved_natal = {a['natalPlanet'] for a in primary_aspects}
         involved_transit = {a['transitPlanet'] for a in primary_aspects}
-        moon_social_aspects = [
+        moon_extra_aspects = [
             a for a in active_aspects
             if a['transitPlanet'] == 'Moon'
-            and a['natalPlanet'] in ('Jupiter', 'Saturn')
             and a['natalPlanet'] not in involved_natal
-            and a['orb'] < 4
+            and (
+                (a['natalPlanet'] in ('Jupiter', 'Saturn') and a['orb'] < 4)
+                or (a['natalPlanet'] in PERSONAL_PLANETS and a['natalPlanet'] not in involved_transit and a['orb'] < 5)
+            )
         ]
-        moon_social_aspects.sort(key=lambda a: a['orb'])
-        for aspect in moon_social_aspects:
-            # Suppress exact/ends qualifier for Moon social aspects
+        moon_extra_aspects.sort(key=lambda a: a['orb'])
+        for aspect in moon_extra_aspects:
+            # Suppress exact/ends qualifier for Moon extra aspects
             moon_aspect = {**aspect, 'exact': False, 'separating': False}
             _add_aspect_story(events, moon_aspect, natal_map, transit_map, house_to_sign,
                               include_transit_house=False, use_specific_aspect_name=False)
 
-        # --- 6. Mercury transit house (when Mercury not in primary stories) ---
-        if 'Mercury' not in involved_transit and transit_map.get('Mercury'):
-            merc_house = transit_map['Mercury']['natalHouse']
+        # --- 6. Inner-planet transit houses (Mercury/Venus not in primary stories) ---
+        for inner_planet in ('Mercury', 'Venus'):
+            if inner_planet not in involved_transit and transit_map.get(inner_planet):
+                inner_house = transit_map[inner_planet]['natalHouse']
+                events.append({
+                    'type': 'transit_house',
+                    'planet': inner_planet,
+                    'house': inner_house,
+                    'description': f'{inner_planet} Transits the {ordinal(inner_house)} House',
+                })
+
+        # --- 7. Exact slow-planet aspects to personal natal planets ---
+        # Slow transits (Jupiter, Saturn, Uranus, Neptune, Pluto) that form an
+        # exact aspect (orb < 1°) to a personal natal planet are rare and
+        # significant — always include them regardless of other stories.
+        slow_exact_aspects = [
+            a for a in active_aspects
+            if a['transitPlanet'] in SLOW_PLANETS
+            and a['natalPlanet'] in PERSONAL_PLANETS
+            and a['exact']
+        ]
+        slow_exact_aspects.sort(key=lambda a: a['orb'])
+        for aspect in slow_exact_aspects:
+            _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
+                              include_transit_house=False, use_specific_aspect_name=False)
+
+        # --- 8. Moon transit house (always shown last in non-Moon-activation path) ---
+        if transit_map.get('Moon') and moon_house:
             events.append({
                 'type': 'transit_house',
-                'planet': 'Mercury',
-                'house': merc_house,
-                'description': f'Mercury Transits the {ordinal(merc_house)} House',
+                'planet': 'Moon',
+                'house': moon_house,
+                'description': f'Moon Transits the {ordinal(moon_house)} House',
             })
 
     return events
