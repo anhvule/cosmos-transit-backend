@@ -95,7 +95,7 @@ router.post('/debug', async (req, res) => {
 
     res.json({
       date: today,
-      aspects: transitEvents,
+      aspects: transitEvents.map(e => e.description),
     });
   } catch (error) {
     console.error('Reading endpoint error:', error.message);
