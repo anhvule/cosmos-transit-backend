@@ -11,6 +11,27 @@ astrologyService = require('../services/astrology_kerykeion_bridge');
 console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 
 const { generateReading } = require('../services/gemini');
+const db = require('../db/index');
+
+// Pre-compile lookup statement for performance
+const lookupEvent = db.prepare('SELECT description FROM events WHERE name = ?');
+
+/**
+ * Strip : Exact / : Starts / : Ends qualifiers from an event description
+ * to produce the base key used in the events table.
+ */
+function baseEventName(description) {
+  return description.replace(/\s*:\s*(Exact|Starts|Ends)$/, '').trim();
+}
+
+/**
+ * Look up the interpretation text for a transit event description.
+ * Returns null if no match is found.
+ */
+function getEventInterpretation(description) {
+  const row = lookupEvent.get(baseEventName(description));
+  return row ? row.description : '';
+}
 
 router.post('/reading', async (req, res) => {
   try {
@@ -58,6 +79,7 @@ router.post('/reading', async (req, res) => {
       transitEvents: transitEvents.map(e => ({
         type: e.type,
         description: e.description,
+        interpretation: getEventInterpretation(e.description),
       })),
     });
   } catch (error) {
@@ -98,6 +120,7 @@ router.post('/debug', async (req, res) => {
       aspects: transitEvents.map(e => ({
         impact: e.impact,
         description: e.description,
+        interpretation: getEventInterpretation(e.description),
       })),
     });
   } catch (error) {
