@@ -257,6 +257,15 @@ def get_natal_transits(birth_data, transit_date=None):
         'house': 1,
         'speed': 0,
     })
+    mc_sign = full_sign(tropical.tenth_house.sign)
+    tropical_natal.append({
+        'name': 'MC',
+        'sign': mc_sign,
+        'fullDegree': tropical.tenth_house.abs_pos,
+        'house': 10,
+        'speed': 0,
+        'signLord': SIGN_RULERS.get(mc_sign, ''),
+    })
     for pname in PLANETS:
         tropical_natal.append(_extract_planet(tropical, pname))
     for nname in LUNAR_NODES:
@@ -321,6 +330,19 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                 'fullDegree': trop['fullDegree'] if trop else p['fullDegree'],
                 'speed': p.get('speed', 0),
             }
+
+    # Add MC (Midheaven) to natal_map as an aspectable angle
+    mc_entry = next((p for p in natal_planets_tropical if p['name'] == 'MC'), None)
+    if mc_entry:
+        mc_sign = mc_entry['sign']
+        natal_map['MC'] = {
+            'name': 'MC',
+            'house': 10,
+            'sign': mc_sign,
+            'signLord': mc_entry.get('signLord') or SIGN_RULERS.get(mc_sign, ''),
+            'fullDegree': mc_entry['fullDegree'],
+            'speed': 0,
+        }
 
     # Build transit planet lookup using tropical sign for behavioral logic
     # (moon_activates_house, inner-planet house display). A separate
@@ -682,6 +704,58 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                 'description': f'{transit_name} Aspecting Ascendant (ASC){qualifier}',
             })
 
+    # --- 10b. MC aspects (transit planet aspecting natal Midheaven) ---
+    # Check all major aspect types. Emit a qualifier (Exact / Ends / Starts)
+    # and the MC sign ruler as a dispositor event.
+    mc_natal = natal_map.get('MC')
+    if mc_natal:
+        mc_deg = mc_natal['fullDegree']
+        mc_fake_natal = {'fullDegree': mc_deg}
+        ends_orb_mc = 2  # extra window for separating (Ends) past standard orb
+        for transit_name in PLANETS:
+            transit = transit_map.get(transit_name)
+            if not transit:
+                continue
+            diff = normalize_angle(transit['fullDegree'] - mc_deg)
+            best = None  # (orb, aspect_type)
+            for aspect_type in ASPECT_TYPES:
+                orb = abs(diff - aspect_type['angle'])
+                extended_orb = aspect_type['orb'] + ends_orb_mc
+                if orb <= extended_orb:
+                    if best is None or orb < best[0]:
+                        best = (orb, aspect_type)
+            if best is None:
+                continue
+            orb, aspect_type = best
+            separating = is_separating(transit, mc_fake_natal, aspect_type['angle'])
+            # Skip if beyond standard orb and not separating (approaching but not in range yet)
+            if orb > aspect_type['orb'] and not separating:
+                continue
+            if orb < 1:
+                qualifier = ' : Exact'
+            elif separating:
+                qualifier = ' : Ends'
+            else:
+                qualifier = ' : Starts'
+            events.append({
+                'type': 'mc_aspect',
+                'transitPlanet': transit_name,
+                'orb': orb,
+                'description': f'{transit_name} Aspecting Midheaven (MC){qualifier}',
+            })
+            # Emit the MC sign ruler as dispositor
+            mc_sign_lord = mc_natal.get('signLord', '')
+            if mc_sign_lord and mc_sign_lord != transit_name:
+                lord_natal = natal_map.get(mc_sign_lord)
+                if lord_natal:
+                    events.append({
+                        'type': 'dispositor',
+                        'planet': mc_sign_lord,
+                        'house': lord_natal['house'],
+                        'forPlanet': 'MC',
+                        'description': f'{mc_sign_lord} in {ordinal(lord_natal["house"])} (Dispositor)',
+                    })
+
     # --- 11. Moon transit house (always last, non-Moon-activation path only) ---
     if not moon_activates_house and transit_map.get('Moon') and moon_display_house:
         events.append({
@@ -705,22 +779,30 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
 
     # --- 13. Add impact level to each event ---
     # Rules derived from event type and the planet involved:
-    #   ruler / dispositor                      → Extremely Impactful
+    #   ruler / dispositor                             → Extremely Impactful
+    #   aspect where transit planet is Jupiter/Saturn  → Extremely Impactful
     #   transit_house / aspect / ascendant_aspect
-    #     where the active planet is Moon       → Slightly impactful
-    #   everything else                         → Impactful
+    #     where the active planet is Moon              → Slightly impactful
+    #   everything else                                → Impactful
     for event in deduped:
         event_type = event.get('type')
+        transit_planet = event.get('transitPlanet') or event.get('planet')
         if event_type in ('ruler', 'dispositor'):
             event['impact'] = 'Extremely Impactful'
+        elif event_type == 'aspect' and transit_planet in ('Jupiter', 'Saturn'):
+            event['impact'] = 'Extremely Impactful'
         elif event_type == 'transit_house':
-            event['impact'] = 'Slightly impactful' if event.get('planet') == 'Moon' else 'Impactful'
+            event['impact'] = 'Slightly impactful' if transit_planet == 'Moon' else 'Impactful'
         elif event_type == 'aspect':
-            event['impact'] = 'Slightly impactful' if event.get('transitPlanet') == 'Moon' else 'Impactful'
-        elif event_type == 'ascendant_aspect':
-            event['impact'] = 'Slightly impactful' if event.get('transitPlanet') == 'Moon' else 'Impactful'
+            event['impact'] = 'Slightly impactful' if transit_planet == 'Moon' else 'Impactful'
+        elif event_type in ('ascendant_aspect', 'mc_aspect'):
+            event['impact'] = 'Slightly impactful' if transit_planet == 'Moon' else 'Impactful'
         else:
             event['impact'] = 'Impactful'
+
+    # --- 14. Sort by impact level (stable sort preserves relative order within tier) ---
+    _impact_order = {'Extremely Impactful': 0, 'Impactful': 1, 'Slightly impactful': 2}
+    deduped.sort(key=lambda e: _impact_order.get(e.get('impact', ''), 1))
 
     return deduped
 
