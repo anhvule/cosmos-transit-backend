@@ -134,4 +134,58 @@ router.post('/debug', async (req, res) => {
   }
 });
 
+/**
+ * POST /api/events-calendar
+ *
+ * Returns all dates in the given month where at least one of the requested
+ * events appears in the transit report.
+ *
+ * Request body:
+ * {
+ *   "name":      "Alice",
+ *   "birthDate": "1991-09-27",
+ *   "birthTime": "07:40",
+ *   "latitude":  6.9271,
+ *   "longitude": 79.8612,
+ *   "timezone":  "Asia/Colombo",   // optional
+ *   "month":     "2026-05",        // YYYY-MM
+ *   "events":    ["Moon Transits the 8th House", "Mercury ruler of the 6th House in the 8th House"]
+ * }
+ *
+ * Response:
+ * {
+ *   "month": "2026-05",
+ *   "events": ["Moon Transits the 8th House", ...],
+ *   "matchingDates": ["2026-05-04", "2026-05-17", ...]
+ * }
+ */
+router.post('/events-calendar', async (req, res) => {
+  try {
+    const { name, birthDate, birthTime, latitude, longitude, timezone, month, events } = req.body;
+
+    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
+      return res.status(400).json({
+        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
+      });
+    }
+    if (!month || !/^\d{4}-\d{2}$/.test(month)) {
+      return res.status(400).json({ error: 'month must be in YYYY-MM format' });
+    }
+    if (!Array.isArray(events) || events.length === 0) {
+      return res.status(400).json({ error: 'events must be a non-empty array of event names' });
+    }
+
+    const matchingDates = await astrologyService.getMatchingDatesForMonth(
+      { birthDate, birthTime, latitude, longitude, timezone },
+      month,
+      events,
+    );
+
+    res.json({ month, events, matchingDates });
+  } catch (error) {
+    console.error('events-calendar error:', error.message);
+    res.status(500).json({ error: 'Failed to compute events calendar. Please try again later.' });
+  }
+});
+
 module.exports = router;

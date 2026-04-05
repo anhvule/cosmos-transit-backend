@@ -617,6 +617,11 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
                           include_transit_house=False, use_specific_aspect_name=False)
 
+    # Major aspects only — quincunx is excluded for slow planets because
+    # Jupiter/Saturn move so slowly that a 3° quincunx orb can persist for
+    # 30+ days and drowns out genuinely significant events.
+    _MAJOR_ASPECTS = {'conjunction', 'opposition', 'trine', 'square', 'sextile'}
+
     # --- 8. Exact slow-planet/node aspects to personal natal planets ---
     # Slow transits (Jupiter, Saturn, Uranus, Neptune, Pluto, Rahu, Ketu)
     # that form an exact aspect (orb < 1°) to a personal natal planet are
@@ -625,6 +630,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         a for a in active_aspects
         if (a['transitPlanet'] in SLOW_PLANETS or a['transitPlanet'] in LUNAR_NODES)
         and a['natalPlanet'] in PERSONAL_PLANETS
+        and a['aspect'] in _MAJOR_ASPECTS
         and a['exact']
     ]
     slow_exact_aspects.sort(key=lambda a: a['orb'])
@@ -633,22 +639,41 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                           include_transit_house=False, use_specific_aspect_name=False)
 
     # --- 8b. Approaching Jupiter/Saturn aspects to personal natal planets ---
-    # When Jupiter or Saturn is within 3° of forming an exact aspect to a
+    # When Jupiter or Saturn is within 2.5° of forming an exact aspect to a
     # personal natal planet (approaching, not yet exact), include it with
-    # a : Starts qualifier.
+    # a : Starts qualifier. 2.5° matches planner start dates more accurately
+    # than 3° (which fires ~2 days too early).
     approaching_slow = [
         a for a in active_aspects
         if a['transitPlanet'] in ('Jupiter', 'Saturn')
         and a['natalPlanet'] in PERSONAL_PLANETS
+        and a['aspect'] in _MAJOR_ASPECTS
         and not a['exact']
         and not a['separating']
-        and a['orb'] < 3
+        and a['orb'] < 2.5
     ]
     approaching_slow.sort(key=lambda a: a['orb'])
     for aspect in approaching_slow:
         _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
                           include_transit_house=False, use_specific_aspect_name=False,
                           show_starts=True)
+
+    # --- 8c. Separating Jupiter/Saturn aspects to personal natal planets ---
+    # Mirror of 8b: after the exact point, include the aspect with a : Ends
+    # qualifier while still within 2.5° on the separating side.
+    separating_slow = [
+        a for a in active_aspects
+        if a['transitPlanet'] in ('Jupiter', 'Saturn')
+        and a['natalPlanet'] in PERSONAL_PLANETS
+        and a['aspect'] in _MAJOR_ASPECTS
+        and not a['exact']
+        and a['separating']
+        and a['orb'] < 2.5
+    ]
+    separating_slow.sort(key=lambda a: a['orb'])
+    for aspect in separating_slow:
+        _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
+                          include_transit_house=False, use_specific_aspect_name=False)
 
     # --- 9. Lunar node aspects (personal transit planets → Rahu/Ketu) ---
     # When a personal transit planet (non-Moon) forms a tight aspect
@@ -807,25 +832,55 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         'Moon Transits the 2nd House',
         'Sun Transit the 2nd House',
         'Moon Transits the 8th House',
-        'Mercury ruler of the 6th House in the 8th House',
         'Mars Transits the 12th House',
+        'Moon Transits the 5th House',
+        'Moon Transits the 9th House',
     }
     # Category 2 – Behavioural Warnings: psychological triggers that cause
     #              impulsive or emotionally-driven decisions.
     _BEHAVIOURAL_WARNING_EVENTS = {
         'Mars Transits the 1st House',
         'Uranus conjunct Venus',
-        'Moon Transits the 5th House',
-        'Sun aspect Venus in 8th house',
         'Mars Aspecting Ascendant (ASC)',
     }
-    # Category 3 – Information Warnings: execution / data reliability risks.
-    _INFORMATION_WARNING_EVENTS = {
-        'Mercury aspect Ketu in 3rd house',
-        'Moon Transits the 10th House',
-        'Mars aspect Ketu in 3rd house',
+
+    _ALL_WARNINGS = {
+        "Moon Transits the 8th House",
+        "Moon Transits the 2nd House",
+        "Sun Transit the 2nd House",
+        "Mars Transits the 12th House",
+        "Mars Transits the 1st House",
+        "Uranus conjunct Venus",
+        "Mars Aspecting Ascendant (ASC)",
+        "Moon Transits the 9th House"
     }
 
+    _SPECULATIVE_POWERHOUSE_WARNING_EVENTS = {
+        'Mars aspect Jupiter in 5th House',
+        'Mercury aspect Jupiter in 5th House',
+        'Jupiter aspect Mars in 8th house',
+        'Jupiter aspect Mercury in 8th house',
+    }
+
+    _WHALE_MOVEMENT_WARNING_EVENTS = {
+        'Jupiter aspect Venus in 8th House',
+        'Jupiter aspect Mercury in 8th House',
+        'Uranus conjunct Venus',
+        'Venus Transits the 2nd House',
+        'Mercury Transits the 2nd House',
+    }
+
+    _ALL_AUSPICIOUS_EVENTS = {
+        "Mars aspect Jupiter in 5th House",
+        "Mercury aspect Jupiter in 5th House",
+        "Jupiter aspect Venus in 8th House",
+        "Jupiter aspect Mercury in 8th House",
+        "Jupiter aspect Mars in 8th House",
+        "Uranus conjunct Venus",
+        "Venus Transits the 2nd House",
+        "Mercury Transits the 2nd House"
+    }
+    
     import re as _re
     def _base_desc(desc):
         return _re.sub(r'\s*:\s*(Exact|Starts|Ends)$', '', desc or '').strip()
@@ -836,8 +891,10 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
             event['warning'] = 'High Alert'
         elif base in _BEHAVIOURAL_WARNING_EVENTS:
             event['warning'] = 'Behavioural Warnings'
-        elif base in _INFORMATION_WARNING_EVENTS:
-            event['warning'] = 'Information Warnings'
+        elif base in _SPECULATIVE_POWERHOUSE_WARNING_EVENTS:
+            event['warning'] = 'Explosive Speculative Powerhouse'
+        elif base in _WHALE_MOVEMENT_WARNING_EVENTS:
+            event['warning'] = 'Quick Speculative Whale Movement'
         else:
             event['warning'] = None
 
@@ -991,9 +1048,103 @@ def _run_json_bridge():
         sys.exit(1)
 
 
+def _run_json_batch():
+    """
+    Batch mode: compute transit events for multiple dates in a single Python process.
+
+    Expected stdin JSON:
+    {
+      "birthDate": "1991-12-29",
+      "birthTime": "13:30",
+      "latitude": 10.7755,
+      "longitude": 106.7021,
+      "timezone": "Asia/Ho_Chi_Minh",
+      "transitDates": ["2026-05-01", "2026-05-02", ...]
+    }
+
+    Output JSON:
+    {
+      "results": {
+        "2026-05-01": [{ "description": "...", ... }, ...],
+        "2026-05-02": [...],
+        ...
+      }
+    }
+    """
+    import sys
+    import json
+
+    try:
+        input_data = json.loads(sys.stdin.read())
+
+        birth_data = {
+            'birthDate': input_data['birthDate'],
+            'birthTime': input_data['birthTime'],
+            'latitude': input_data['latitude'],
+            'longitude': input_data['longitude'],
+            'timezone': input_data.get('timezone', 'Asia/Ho_Chi_Minh'),
+        }
+        transit_dates = input_data.get('transitDates', [])
+        # Optional baseline date (day before the month) for ingress detection
+        baseline_date = input_data.get('baselineDate')
+
+        # Compute natal chart once — reused for every transit date
+        all_dates = ([baseline_date] if baseline_date else []) + transit_dates
+        sidereal, tropical, _ = get_natal_transits(birth_data, all_dates[0] if all_dates else None)
+
+        # Build sign_to_house from the sidereal natal chart so we can look up
+        # a transit planet's house from its tropical sign independently of the
+        # full event calculation (needed for ingress detection).
+        asc_sign = next((p['sign'] for p in sidereal if p['name'] == 'Ascendant'), None)
+        if asc_sign and asc_sign in SIGN_ORDER:
+            asc_idx = SIGN_ORDER.index(asc_sign)
+            _sign_to_house = {SIGN_ORDER[(asc_idx + i) % 12]: i + 1 for i in range(12)}
+        else:
+            _sign_to_house = {}
+
+        INNER_PLANETS = {'Mercury', 'Venus', 'Sun', 'Mars'}
+
+        def planet_houses_for(transit_planets):
+            """Return {planet_name: house_number} for non-Moon inner planets."""
+            houses = {}
+            for p in transit_planets:
+                if p['name'] in INNER_PLANETS:
+                    houses[p['name']] = _sign_to_house.get(p['sign'], 0)
+            return houses
+
+        results = {}
+        planet_houses = {}   # date -> {planet: house}
+        baseline_events = []  # events for the baseline date
+
+        for date in all_dates:
+            try:
+                _, _, transit = get_natal_transits(birth_data, date)
+                events = calculate_transit_report(sidereal, tropical, transit)
+                planet_houses[date] = planet_houses_for(transit)
+                if date in transit_dates:
+                    results[date] = events
+                elif date == baseline_date:
+                    baseline_events = events
+            except Exception as day_err:
+                planet_houses[date] = {}
+                if date == baseline_date:
+                    baseline_events = []
+
+        print(json.dumps({
+            'results': results,
+            'planetHouses': planet_houses,
+            'baselineEvents': baseline_events,
+        }))
+    except Exception as e:
+        print(json.dumps({'error': str(e)}), file=sys.stderr)
+        sys.exit(1)
+
+
 if __name__ == '__main__':
     import sys
-    if '--json' in sys.argv:
+    if '--json-batch' in sys.argv:
+        _run_json_batch()
+    elif '--json' in sys.argv:
         _run_json_bridge()
     else:
         # Manual test runner moved to tests/astrology_kerykeion_test.py
