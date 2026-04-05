@@ -800,7 +800,48 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         else:
             event['impact'] = 'Impactful'
 
-    # --- 14. Sort by impact level (stable sort preserves relative order within tier) ---
+    # --- 14. Assign warning category based on event description ---
+    # Category 1 – High Alert: external financial environment is unstable /
+    #              prone to unexpected drains.
+    _HIGH_ALERT_EVENTS = {
+        'Moon Transits the 2nd House',
+        'Sun Transit the 2nd House',
+        'Moon Transits the 8th House',
+        'Mercury ruler of the 6th House in the 8th House',
+        'Mars Transits the 12th House',
+    }
+    # Category 2 – Behavioural Warnings: psychological triggers that cause
+    #              impulsive or emotionally-driven decisions.
+    _BEHAVIOURAL_WARNING_EVENTS = {
+        'Mars Transits the 1st House',
+        'Uranus conjunct Venus',
+        'Moon Transits the 5th House',
+        'Sun aspect Venus in 8th house',
+        'Mars Aspecting Ascendant (ASC)',
+    }
+    # Category 3 – Information Warnings: execution / data reliability risks.
+    _INFORMATION_WARNING_EVENTS = {
+        'Mercury aspect Ketu in 3rd house',
+        'Moon Transits the 10th House',
+        'Mars aspect Ketu in 3rd house',
+    }
+
+    import re as _re
+    def _base_desc(desc):
+        return _re.sub(r'\s*:\s*(Exact|Starts|Ends)$', '', desc or '').strip()
+
+    for event in deduped:
+        base = _base_desc(event.get('description', ''))
+        if base in _HIGH_ALERT_EVENTS:
+            event['warning'] = 'High Alert'
+        elif base in _BEHAVIOURAL_WARNING_EVENTS:
+            event['warning'] = 'Behavioural Warnings'
+        elif base in _INFORMATION_WARNING_EVENTS:
+            event['warning'] = 'Information Warnings'
+        else:
+            event['warning'] = None
+
+    # --- 15. Sort by impact level (stable sort preserves relative order within tier) ---
     _impact_order = {'Extremely Impactful': 0, 'Impactful': 1, 'Slightly impactful': 2}
     deduped.sort(key=lambda e: _impact_order.get(e.get('impact', ''), 1))
 

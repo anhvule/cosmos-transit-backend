@@ -80,6 +80,7 @@ router.post('/reading', async (req, res) => {
         type: e.type,
         description: e.description,
         interpretation: getEventInterpretation(e.description),
+        warning: e.warning ?? null,
       })),
     });
   } catch (error) {
@@ -121,8 +122,10 @@ router.post('/debug', async (req, res) => {
         impact: e.impact,
         description: e.description,
         interpretation: getEventInterpretation(e.description),
+        warning: e.warning ?? null,
       })),
     });
+    
   } catch (error) {
     console.error('Reading endpoint error:', error.message);
     res.status(500).json({
