@@ -841,9 +841,14 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         else:
             event['warning'] = None
 
-    # --- 15. Sort by impact level (stable sort preserves relative order within tier) ---
+    # --- 15. Sort: warned events first, then by impact level (stable sort) ---
+    # Primary key: events with a warning come before events without (0 vs 1).
+    # Secondary key: impact tier (Extremely Impactful → Impactful → Slightly impactful).
     _impact_order = {'Extremely Impactful': 0, 'Impactful': 1, 'Slightly impactful': 2}
-    deduped.sort(key=lambda e: _impact_order.get(e.get('impact', ''), 1))
+    deduped.sort(key=lambda e: (
+        0 if e.get('warning') else 1,
+        _impact_order.get(e.get('impact', ''), 1),
+    ))
 
     return deduped
 
