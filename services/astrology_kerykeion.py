@@ -554,49 +554,52 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                     'description': f'{slow_planet} Transits the {ordinal(t_house)} House',
                 })
 
-        # --- 7. Tight approaching personal aspects not in primary stories ---
-        # When a personal transit planet (non-Moon) has a tight approaching
-        # aspect (orb < 2°, not exact, not separating) to a personal natal
-        # planet, and it wasn't selected as a primary story, show it.
-        primary_keys = {(a['transitPlanet'], a['natalPlanet']) for a in primary_aspects}
-        approaching_aspects = [
-            a for a in active_aspects
-            if a['transitPlanet'] in PERSONAL_PLANETS
-            and a['transitPlanet'] != 'Moon'
-            and a['natalPlanet'] in PERSONAL_PLANETS
-            and not a['exact']
-            and not a['separating']
-            and a['orb'] < 2
-            and (a['transitPlanet'], a['natalPlanet']) not in primary_keys
-        ]
-        approaching_aspects.sort(key=lambda a: a['orb'])
-        for aspect in approaching_aspects:
-            _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
-                              include_transit_house=False, use_specific_aspect_name=False,
-                              show_starts=True)
-
-        # --- 7b. Tight separating personal aspects not in primary stories ---
-        # When a personal transit planet (non-Moon) has a recently-exact
-        # separating aspect (orb < 3°) to a personal natal planet, and it
-        # wasn't selected as a primary story, show it with its transit house.
-        ending_aspects = [
-            a for a in active_aspects
-            if a['transitPlanet'] in PERSONAL_PLANETS
-            and a['transitPlanet'] != 'Moon'
-            and a['natalPlanet'] in PERSONAL_PLANETS
-            and not a['exact']
-            and a['separating']
-            and a['orb'] < 3
-            and (a['transitPlanet'], a['natalPlanet']) not in primary_keys
-        ]
-        ending_aspects.sort(key=lambda a: a['orb'])
-        for aspect in ending_aspects:
-            _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
-                              include_transit_house=True, use_specific_aspect_name=False)
-
     # --- Steps below run regardless of Moon activation path ---
 
-    # --- 8a. Exact personal-transit → personal-natal aspects (always) ---
+    # --- 7. Tight approaching personal aspects (always) ---
+    # Emit : Starts for personal-planet approaches within 1.5° regardless of
+    # whether the same aspect is already in the primary story. Python dedup drops
+    # duplicates. Running outside the Moon-activation branch ensures no gaps on
+    # Moon-activation days, giving the calendar bridge a consecutive daily run.
+    # Personal planets + social planets (Jupiter/Saturn) as valid natal targets.
+    # This covers aspects like "Mars square natal Jupiter" which are meaningful
+    # calendar events but Jupiter is not in PERSONAL_PLANETS.
+    _PERSONAL_AND_SOCIAL = set(PERSONAL_PLANETS) | {'Jupiter', 'Saturn'}
+
+    approaching_aspects = [
+        a for a in active_aspects
+        if a['transitPlanet'] in PERSONAL_PLANETS
+        and a['transitPlanet'] != 'Moon'
+        and a['natalPlanet'] in _PERSONAL_AND_SOCIAL
+        and not a['exact']
+        and not a['separating']
+        and a['orb'] < 1.6
+    ]
+    approaching_aspects.sort(key=lambda a: a['orb'])
+    for aspect in approaching_aspects:
+        _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
+                          include_transit_house=False, use_specific_aspect_name=False,
+                          show_starts=True)
+
+    # --- 7b. Tight separating personal aspects (always) ---
+    # Emit : Ends for personal-planet separating aspects within 3°. Running
+    # outside the Moon-activation branch prevents gaps that would split a single
+    # consecutive run into two, causing the bridge to see two : Ends entries.
+    ending_aspects = [
+        a for a in active_aspects
+        if a['transitPlanet'] in PERSONAL_PLANETS
+        and a['transitPlanet'] != 'Moon'
+        and a['natalPlanet'] in _PERSONAL_AND_SOCIAL
+        and not a['exact']
+        and a['separating']
+        and a['orb'] < 3
+    ]
+    ending_aspects.sort(key=lambda a: a['orb'])
+    for aspect in ending_aspects:
+        _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
+                          include_transit_house=True, use_specific_aspect_name=False)
+
+    # --- 8a. Exact personal-transit → personal/social-natal aspects (always) ---
     # In the Moon-activation path, personal transit stories are fully suppressed,
     # so exact aspects like Mars opposite natal Moon are silently dropped.
     # In the non-Moon path, a transit planet already selected for one natal target
@@ -608,7 +611,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         a for a in active_aspects
         if a['transitPlanet'] in PERSONAL_PLANETS
         and a['transitPlanet'] != 'Moon'
-        and a['natalPlanet'] in PERSONAL_PLANETS
+        and a['natalPlanet'] in _PERSONAL_AND_SOCIAL
         and a['exact']
         and (a['transitPlanet'], a['natalPlanet']) not in covered_aspect_keys
     ]
@@ -622,14 +625,18 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
     # 30+ days and drowns out genuinely significant events.
     _MAJOR_ASPECTS = {'conjunction', 'opposition', 'trine', 'square', 'sextile'}
 
-    # --- 8. Exact slow-planet/node aspects to personal natal planets ---
+    # Slow planets + social planets as valid natal targets for slow-transit sections.
+    # This covers slow-vs-slow aspects like "Jupiter trine natal Saturn".
+    _SLOW_NATAL_TARGETS = set(PERSONAL_PLANETS) | {'Jupiter', 'Saturn'}
+
+    # --- 8. Exact slow-planet/node aspects to personal/social natal planets ---
     # Slow transits (Jupiter, Saturn, Uranus, Neptune, Pluto, Rahu, Ketu)
-    # that form an exact aspect (orb < 1°) to a personal natal planet are
-    # rare and significant — always include them regardless of other stories.
+    # that form an exact aspect (orb < 0.5° for Jupiter/Saturn, < 1° for others)
+    # to a personal or social natal planet are rare and significant.
     slow_exact_aspects = [
         a for a in active_aspects
         if (a['transitPlanet'] in SLOW_PLANETS or a['transitPlanet'] in LUNAR_NODES)
-        and a['natalPlanet'] in PERSONAL_PLANETS
+        and a['natalPlanet'] in _SLOW_NATAL_TARGETS
         and a['aspect'] in _MAJOR_ASPECTS
         and a['exact']
     ]
@@ -638,19 +645,18 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
                           include_transit_house=False, use_specific_aspect_name=False)
 
-    # --- 8b. Approaching Jupiter/Saturn aspects to personal natal planets ---
-    # When Jupiter or Saturn is within 2.5° of forming an exact aspect to a
-    # personal natal planet (approaching, not yet exact), include it with
-    # a : Starts qualifier. 2.5° matches planner start dates more accurately
-    # than 3° (which fires ~2 days too early).
+    # --- 8b. Approaching Jupiter/Saturn aspects to personal/social natal planets ---
+    # When Jupiter or Saturn is within 2.6° of forming an exact aspect to a
+    # personal or social natal planet (approaching, not yet exact), include it
+    # with a : Starts qualifier.
     approaching_slow = [
         a for a in active_aspects
         if a['transitPlanet'] in ('Jupiter', 'Saturn')
-        and a['natalPlanet'] in PERSONAL_PLANETS
+        and a['natalPlanet'] in _SLOW_NATAL_TARGETS
         and a['aspect'] in _MAJOR_ASPECTS
         and not a['exact']
         and not a['separating']
-        and a['orb'] < 2.5
+        and a['orb'] < 2.6
     ]
     approaching_slow.sort(key=lambda a: a['orb'])
     for aspect in approaching_slow:
@@ -658,17 +664,17 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                           include_transit_house=False, use_specific_aspect_name=False,
                           show_starts=True)
 
-    # --- 8c. Separating Jupiter/Saturn aspects to personal natal planets ---
+    # --- 8c. Separating Jupiter/Saturn aspects to personal/social natal planets ---
     # Mirror of 8b: after the exact point, include the aspect with a : Ends
-    # qualifier while still within 2.5° on the separating side.
+    # qualifier while still within 3.5° on the separating side.
     separating_slow = [
         a for a in active_aspects
         if a['transitPlanet'] in ('Jupiter', 'Saturn')
-        and a['natalPlanet'] in PERSONAL_PLANETS
+        and a['natalPlanet'] in _SLOW_NATAL_TARGETS
         and a['aspect'] in _MAJOR_ASPECTS
         and not a['exact']
         and a['separating']
-        and a['orb'] < 2.5
+        and a['orb'] < 3.5
     ]
     separating_slow.sort(key=lambda a: a['orb'])
     for aspect in separating_slow:

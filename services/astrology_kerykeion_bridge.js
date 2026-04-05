@@ -201,12 +201,22 @@ async function getMatchingDatesForMonth(birthData, month, events) {
     events.map(e => e.replace(/\s*:\s*(Exact|Starts|Ends)$/, '').trim().toLowerCase()),
   );
 
-  // Compute the day before the month so we know each planet's starting house.
-  // This lets us detect true ingresses (house changes) rather than relying on
-  // whether the transit_house event was emitted that day (it's suppressed on
-  // days when the planet has an active primary aspect).
-  const baselineDateObj = new Date(year, mon - 1, 0); // last day of previous month
-  const baselineDateStr = baselineDateObj.toISOString().substring(0, 10);
+  // Compute the day before the month (last day of previous month) for the
+  // planet-house baseline.  Use arithmetic formatting to avoid UTC/local-time
+  // mismatch that toISOString() would introduce on UTC+ machines.
+  const prevMonthLastDay = new Date(year, mon - 1, 0).getDate(); // e.g. 30 for June
+  const prevMonthNum = mon === 1 ? 12 : mon - 1;
+  const prevMonthYear = mon === 1 ? year - 1 : year;
+  const baselineDateStr = `${prevMonthYear}-${String(prevMonthNum).padStart(2, '0')}-${String(prevMonthLastDay).padStart(2, '0')}`;
+
+  // Add a one-day lookahead (1st of next month) so that the :Ends / :Exact
+  // pre-passes can peek beyond month end.  This prevents falsely firing :Ends
+  // on the last day of the month when the aspect window actually continues into
+  // the next month.  Arithmetic formatting avoids the UTC/local-time mismatch.
+  const lookaheadMonNum = mon === 12 ? 1 : mon + 1;
+  const lookaheadYear = mon === 12 ? year + 1 : year;
+  const lookaheadDateStr = `${lookaheadYear}-${String(lookaheadMonNum).padStart(2, '0')}-01`;
+  const batchDates = [...transitDates, lookaheadDateStr];
 
   const input = {
     birthDate: birthData.birthDate,
@@ -214,7 +224,7 @@ async function getMatchingDatesForMonth(birthData, month, events) {
     latitude: birthData.latitude,
     longitude: birthData.longitude,
     timezone: birthData.timezone || 'Asia/Ho_Chi_Minh',
-    transitDates,
+    transitDates: batchDates,
     baselineDate: baselineDateStr,
   };
 
@@ -224,18 +234,37 @@ async function getMatchingDatesForMonth(birthData, month, events) {
   // every day and are meaningless for calendar matching.
   const STATIC_TYPES = new Set(['ruler', 'dispositor']);
 
-  // ── Pre-pass: for each aspect : Exact event, find the single day with the
-  // minimum orb (the true peak-exact day) across the full month.
-  // Applies to all transit planets — even fast ones can span multiple orb<1° days.
-  // key = base description (without qualifier), value = { date, orb }
-  const exactPeak = {}; // base_desc -> { date, orb }
-  for (const date of transitDates) {
+  // ── Pre-pass: for each aspect : Exact event, find the LAST day of each
+  // consecutive run (mirrors the : Ends / : Starts approach).
+  // The planner defines "Exact day" as the last day the aspect stays within the
+  // 1° orb window — not the astronomical minimum-orb day — so we use the same
+  // last-consecutive-run logic as : Ends.
+  // Slow planets (Jupiter/Saturn) use a tighter 0.6° orb for "Exact day"
+  // because their aspect window can span 10+ days at 1° orb. The planner's
+  // exact date matches the last day the orb stays below 0.6°.
+  // Personal planets keep the standard 1° window (no cap needed).
+  const SLOW_PLANETS_SET = new Set(['Jupiter', 'Saturn']);
+  const exactOrbCap = e => SLOW_PLANETS_SET.has(e.transitPlanet) ? 0.6 : Infinity;
+
+  const exactLastDay = new Set(); // "date|base_desc"
+  for (let i = 0; i < batchDates.length; i++) {
+    const date = batchDates[i];
+    const nextDate = batchDates[i + 1];
     for (const e of results[date] || []) {
-      if (e.type === 'aspect' && (e.description || '').endsWith(': Exact')) {
+      if (
+        e.type === 'aspect' &&
+        (e.description || '').endsWith(': Exact') &&
+        (typeof e.orb !== 'number' || e.orb < exactOrbCap(e))
+      ) {
         const base = e.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase();
-        const orb = typeof e.orb === 'number' ? e.orb : Infinity;
-        if (!exactPeak[base] || orb < exactPeak[base].orb) {
-          exactPeak[base] = { date, orb };
+        const nextHasIt = nextDate && (results[nextDate] || []).some(ne =>
+          ne.type === 'aspect' &&
+          (ne.description || '').endsWith(': Exact') &&
+          (typeof ne.orb !== 'number' || ne.orb < exactOrbCap(ne)) &&
+          ne.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase() === base,
+        );
+        if (!nextHasIt) {
+          exactLastDay.add(`${date}|${base}`);
         }
       }
     }
@@ -246,15 +275,23 @@ async function getMatchingDatesForMonth(birthData, month, events) {
   // Applies to all transit planets.
   // A day is the "last" when the NEXT day does not carry the same : Ends event.
   const endsLastDay = new Set(); // "date|base_desc"
-  for (let i = 0; i < transitDates.length; i++) {
-    const date = transitDates[i];
-    const nextDate = transitDates[i + 1]; // undefined on the last day of the month
+  for (let i = 0; i < batchDates.length; i++) {
+    const date = batchDates[i];
+    const nextDate = batchDates[i + 1]; // undefined on the last day of batchDates
     for (const e of results[date] || []) {
       if (e.type === 'aspect' && (e.description || '').endsWith(': Ends')) {
+        // Slow planets: allow up to 4° (section 8c emits up to 3.5°; the extra
+        // margin keeps the cap from clipping the final day).
+        // Personal planets: cap at 3° to exclude large-orb primary-story : Ends
+        // events that bleed beyond section 7b's window.
+        const orbCap = SLOW_PLANETS_SET.has(e.transitPlanet) ? 4 : 3;
+        if (typeof e.orb === 'number' && e.orb >= orbCap) continue;
+
         const base = e.description.replace(/\s*:\s*Ends$/, '').trim().toLowerCase();
         const nextHasIt = nextDate && (results[nextDate] || []).some(ne =>
           ne.type === 'aspect' &&
           (ne.description || '').endsWith(': Ends') &&
+          (typeof ne.orb !== 'number' || ne.orb < (SLOW_PLANETS_SET.has(ne.transitPlanet) ? 4 : 3)) &&
           ne.description.replace(/\s*:\s*Ends$/, '').trim().toLowerCase() === base,
         );
         if (!nextHasIt) {
@@ -304,10 +341,11 @@ async function getMatchingDatesForMonth(birthData, month, events) {
             return false;
           }
 
-          // For any aspect : Exact — only keep the single peak (minimum-orb) day.
+          // For any aspect : Exact — only keep the last day of the consecutive
+          // orb<1° window (matches the planner's "Exact day" convention).
           if (e.type === 'aspect' && (e.description || '').endsWith(': Exact')) {
             const base = e.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase();
-            if (exactPeak[base]?.date !== date) return false;
+            if (!exactLastDay.has(`${date}|${base}`)) return false;
           }
 
           // For any aspect : Ends — only keep the last day of each consecutive
