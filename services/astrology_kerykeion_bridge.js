@@ -202,12 +202,19 @@ async function getMatchingDatesForMonth(birthData, month, events) {
   );
 
   // Compute the day before the month (last day of previous month) for the
-  // planet-house baseline.  Use arithmetic formatting to avoid UTC/local-time
-  // mismatch that toISOString() would introduce on UTC+ machines.
-  const prevMonthLastDay = new Date(year, mon - 1, 0).getDate(); // e.g. 30 for June
+  // :Starts baseline and aspect seeding.  Use arithmetic formatting to avoid
+  // UTC/local-time mismatch that toISOString() would introduce on UTC+ machines.
+  const prevMonthLastDay = new Date(year, mon - 1, 0).getDate(); // e.g. 31 for March
   const prevMonthNum = mon === 1 ? 12 : mon - 1;
   const prevMonthYear = mon === 1 ? year - 1 : year;
   const baselineDateStr = `${prevMonthYear}-${String(prevMonthNum).padStart(2, '0')}-${String(prevMonthLastDay).padStart(2, '0')}`;
+
+  // For house-ingress detection on day 1 of the month, compare against the
+  // SECOND-to-last day of the previous month.  This ensures that if a planet
+  // ingresses on the very last day of the previous month (the baseline date),
+  // day 1 of this month still sees the house change and fires the transit event.
+  const houseBaselineDay = prevMonthLastDay - 1; // always ≥ 1 (shortest month = Feb with 28d)
+  const houseBaselineDateStr = `${prevMonthYear}-${String(prevMonthNum).padStart(2, '0')}-${String(houseBaselineDay).padStart(2, '0')}`;
 
   // Add a one-day lookahead (1st of next month) so that the :Ends / :Exact
   // pre-passes can peek beyond month end.  This prevents falsely firing :Ends
@@ -216,7 +223,10 @@ async function getMatchingDatesForMonth(birthData, month, events) {
   const lookaheadMonNum = mon === 12 ? 1 : mon + 1;
   const lookaheadYear = mon === 12 ? year + 1 : year;
   const lookaheadDateStr = `${lookaheadYear}-${String(lookaheadMonNum).padStart(2, '0')}-01`;
-  const batchDates = [...transitDates, lookaheadDateStr];
+  // Include houseBaselineDateStr in the batch so Python computes planetHouses for it.
+  // It is prepended so the sorted all_dates in Python includes it; it will not appear
+  // in the returned transitDates loop (JS only iterates April 1–30).
+  const batchDates = [houseBaselineDateStr, ...transitDates, lookaheadDateStr];
 
   const input = {
     birthDate: birthData.birthDate,
@@ -251,6 +261,7 @@ async function getMatchingDatesForMonth(birthData, month, events) {
     const date = batchDates[i];
     const nextDate = batchDates[i + 1];
     for (const e of results[date] || []) {
+      // ── Regular aspects ──
       if (
         e.type === 'aspect' &&
         (e.description || '').endsWith(': Exact') &&
@@ -260,6 +271,28 @@ async function getMatchingDatesForMonth(birthData, month, events) {
         const nextHasIt = nextDate && (results[nextDate] || []).some(ne =>
           ne.type === 'aspect' &&
           (ne.description || '').endsWith(': Exact') &&
+          (typeof ne.orb !== 'number' || ne.orb < exactOrbCap(ne)) &&
+          ne.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase() === base,
+        );
+        if (!nextHasIt) {
+          exactLastDay.add(`${date}|${base}`);
+        }
+      }
+      // ── MC/ASC aspects: only APPROACHING :Exact days (not separating) ──
+      // The :Exact milestone for chart-angle aspects is the last approaching day
+      // within the 0.6° window. Separating :Exact days (inside 1° but past the
+      // minimum) are suppressed — they belong to the :Ends phase.
+      if (
+        e.type === 'mc_aspect' &&
+        (e.description || '').endsWith(': Exact') &&
+        e.separating === false &&
+        (typeof e.orb !== 'number' || e.orb < exactOrbCap(e))
+      ) {
+        const base = e.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase();
+        const nextHasIt = nextDate && (results[nextDate] || []).some(ne =>
+          ne.type === 'mc_aspect' &&
+          (ne.description || '').endsWith(': Exact') &&
+          ne.separating === false &&
           (typeof ne.orb !== 'number' || ne.orb < exactOrbCap(ne)) &&
           ne.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase() === base,
         );
@@ -279,6 +312,7 @@ async function getMatchingDatesForMonth(birthData, month, events) {
     const date = batchDates[i];
     const nextDate = batchDates[i + 1]; // undefined on the last day of batchDates
     for (const e of results[date] || []) {
+      // ── Regular aspects ──
       if (e.type === 'aspect' && (e.description || '').endsWith(': Ends')) {
         // Slow planets: allow up to 4° (section 8c emits up to 3.5°; the extra
         // margin keeps the cap from clipping the final day).
@@ -292,6 +326,22 @@ async function getMatchingDatesForMonth(birthData, month, events) {
           ne.type === 'aspect' &&
           (ne.description || '').endsWith(': Ends') &&
           (typeof ne.orb !== 'number' || ne.orb < (SLOW_PLANETS_SET.has(ne.transitPlanet) ? 4 : 3)) &&
+          ne.description.replace(/\s*:\s*Ends$/, '').trim().toLowerCase() === base,
+        );
+        if (!nextHasIt) {
+          endsLastDay.add(`${date}|${base}`);
+        }
+      }
+      // ── MC/ASC aspects: cap :Ends at 3° so only the planner's window fires ──
+      if (e.type === 'mc_aspect' && (e.description || '').endsWith(': Ends')) {
+        const MC_ENDS_ORB_CAP = 3;
+        if (typeof e.orb === 'number' && e.orb >= MC_ENDS_ORB_CAP) continue;
+
+        const base = e.description.replace(/\s*:\s*Ends$/, '').trim().toLowerCase();
+        const nextHasIt = nextDate && (results[nextDate] || []).some(ne =>
+          ne.type === 'mc_aspect' &&
+          (ne.description || '').endsWith(': Ends') &&
+          (typeof ne.orb !== 'number' || ne.orb < MC_ENDS_ORB_CAP) &&
           ne.description.replace(/\s*:\s*Ends$/, '').trim().toLowerCase() === base,
         );
         if (!nextHasIt) {
@@ -313,8 +363,11 @@ async function getMatchingDatesForMonth(birthData, month, events) {
     .map((date, idx) => {
       const dayEvents = results[date] || [];
 
-      // Previous day for house-ingress comparison
-      const prevDate = idx === 0 ? baselineDateStr : transitDates[idx - 1];
+      // Previous day for house-ingress comparison.
+      // Day 1 uses houseBaselineDateStr (second-to-last day of the prior month)
+      // so a planet that ingressed on the very last day of the previous month
+      // (the baseline date) is still detected as a house change on day 1.
+      const prevDate = idx === 0 ? houseBaselineDateStr : transitDates[idx - 1];
       const prevHouses = planetHouses[prevDate] || {};
       const currHouses = planetHouses[date] || {};
 
@@ -348,9 +401,23 @@ async function getMatchingDatesForMonth(birthData, month, events) {
             if (!exactLastDay.has(`${date}|${base}`)) return false;
           }
 
+          // For mc_aspect : Exact — suppress separating :Exact days (orb rising
+          // after the minimum); only the last APPROACHING day within the cap fires.
+          if (e.type === 'mc_aspect' && (e.description || '').endsWith(': Exact')) {
+            if (e.separating) return false; // past the minimum — belongs to :Ends phase
+            const base = e.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase();
+            if (!exactLastDay.has(`${date}|${base}`)) return false;
+          }
+
           // For any aspect : Ends — only keep the last day of each consecutive
           // run (mirrors : Starts which keeps the first day of its run).
           if (e.type === 'aspect' && (e.description || '').endsWith(': Ends')) {
+            const base = e.description.replace(/\s*:\s*Ends$/, '').trim().toLowerCase();
+            if (!endsLastDay.has(`${date}|${base}`)) return false;
+          }
+
+          // For mc_aspect : Ends — only keep the last day within the 3° cap.
+          if (e.type === 'mc_aspect' && (e.description || '').endsWith(': Ends')) {
             const base = e.description.replace(/\s*:\s*Ends$/, '').trim().toLowerCase();
             if (!endsLastDay.has(`${date}|${base}`)) return false;
           }

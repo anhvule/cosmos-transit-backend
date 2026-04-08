@@ -66,7 +66,7 @@ const events = [
     description: "Fluctuations and changes in leadership at work may come as a surprise. The management or company is going through a renovation or change. The changes may not be permanent only fleeting thoughts. Women superiors may be unpredictable and send mixed messages. Don't be attached to the messages or thoughts because everything is subject to change. Tomorrow is another day.",
   },
   {
-    name: 'Sun Transit the 12th House',
+    name: 'Sun Transits the 12th House',
     description: "Quality time spent alone for solitude rebuilds the spirit and gives time to meditate and find peace. It is time to retire and end and bring closure to many projects. Children may be a source of emotional drain and sadness. Past memories are awakening a new awareness and reality of the changes that have occurred over the years. Responsibility for others who need help keeps you awake at night with worry.",
   },
   {
@@ -242,7 +242,7 @@ const events = [
     description: 'Financial planning gives a clear perspective on what can be afforded and where the money should be distributed. This is a good time to discuss expectations in love and money. Spending money on learning, classes, computers or travel seems appropriate now. Look for sales, as bargains will bring big savings. A business in sales will prosper.',
   },
   {
-    name: 'Sun Transit the 2nd House',
+    name: 'Sun Transits the 2nd House',
     description: 'Money and financial matters are a focus and create unexpected problems. There may be some unexpected expenses this month with the mood to spend. The partner may create a financial drain. Pay attention to diet and daily habits, certain foods can cause upsets or health issues.',
   },
   {
@@ -342,7 +342,7 @@ const events = [
     description: 'Opportunities for career growth are likely, and taking calculated risks could lead to substantial rewards. However, stay grounded and ensure that these opportunities align with your long-term financial and personal goals.',
   },
   {
-    name: 'Sun Transit the 3rd House',
+    name: 'Sun Transits the 3rd House',
     description: 'Siblings take charge and become bossy around areas of concern. Let them take the lead and life will be easier. Strength and ambition allow one to take on new projects without procrastination. Short travels open the mind to learning valuable information.',
   },
   {
@@ -352,6 +352,226 @@ const events = [
   {
     name: 'Venus aspect Saturn in 10th house',
     description: 'You are given more responsibility at work, discipline and focus will bring future success. Your boss may feel threatened by your talent, it may be time to consider your own business plan.',
+  },
+  {
+    name: 'Sun Transits the 12th House',
+    description: 'Quality time spent alone for solitude rebuilds the spirit and gives time to meditate and find peace. It is time to retire and end and bring closure to many projects. Children may be a source of emotional drain and sadness. Past memories are awakening a new awareness and reality of the changes that have occurred over the years. Responsibility for others who need help keeps you awake at night with worry.',
+  },
+  {
+    name: 'Mercury aspects the Moon in the 6th house',
+    description: 'Your work becomes the focus, as you will have more ideas for problem solving. Listen to your co-workers or employees as they will have good ideas and are easier to work with today. Thoughts concerning your health and diet are on target. You can devise a new eating or exercise program today. You may spend more time with your pets today. Go for a walk and commune with nature.',
+  },
+  {
+    name: 'Sun Transits the 2nd House',
+    description: 'Money and financial matters are a focus and create unexpected problems. There may be some unexpected expenses this month with the mood to spend. The partner may create a financial drain. Pay attention to diet and daily habits, certain foods can cause upsets or health issues',
+  },
+  {
+    name: 'Sun Transits the 3rd House',
+    description: 'Siblings take charge and become bossy around areas of concern. Let them take the lead and life will be easier. Strength and ambition allow one to take on new projects without procrastination. Short travels open the mind to learning valuable information.',
+  },
+  {
+    name: 'Mars Transits the 2nd House',
+    description: 'Easy come easy go is the mantra around money these days. Impulsive spending is a compelling force while financial gains are good, just be careful not to overspend. Shopping directs the mind of the family problems brewing at home. Be aware of the power of speech, insulting, abrupt words can anger others. Take the time to sit down and eat, for eating in a hurry and on the run will cause digestive upsets.',
+  },
+  {
+    name: 'Mercury Transits the 4th House',
+    description: 'There is a need to reconnect with family. The mother has a message and will make contact. Dreams are of old youthful times. Gatherings of people meet in the home for classes or conversation. Work is brought, reading and writing. Time spent at home is used for learning and education.',
+  },
+  {
+    name: 'Pluto conjunct Saturn',
+    description: 'You will be in a position to learn great discipline and control now. Your sense of responsibility will be tested, as there is an incredible burden now. Many restrictions come with new responsibilities. The care of others in need weighs heavy on your mind. Organize your time wisely as there are many time-consuming restraints.',
+  },
+  {
+    name: 'Sun aspects Sun in 9th house',
+    description: 'A new perspective on life comes from an invigorating trust in beliefs. Courses or books that teach human development may be the focus, and inspire a change in beliefs. Contact with a father figure will give guidance, and council. Travel plans to exotic places bring freedom and vision. Judgment of others can have a negative effect on future events.',
+  },
+  {
+    name: 'Sun aspect Ketu in the 3rd house',
+    description: 'Your usual ambitious attitude is derailed due to a certain set back or humiliation. If you are able to learn the lesson being presented, you will accomplish a great lesson today. There can be problems from siblings or friends. They create more problems without solutions, as they cannot hear you.',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house',
+    description: 'Today\u2019s thoughts involve education and teachers. You question the purpose of your studies, realizing you have more than they provide already. Disappointment and disillusionment with your beliefs, teachings and teachers causes confusion and separation from what you once believed to be right.',
+  },
+  {
+    name: 'Venus Transits the 5th House',
+    description: 'Artistic pursuits may surface with inspiration to express creativity. Beautiful things, music, art, or creative writing help fulfill a desire to break out of reality. Plays, music, and dancing connect to the soul. Attraction and an openhearted attitude bring love or a relationship. It is time to begin a romance. Children open their hearts to see things from an innocent and pure-minded perspective. Luck with speculation, the stock market, or lotteries are indicated.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house',
+    description: 'Take advantage of a spontaneous trip, you will enjoy this adventure. Inspirational teachers create a new passion for learning and exploring ideas that open a new perspective and awareness. Upsets from the father cause family discord possibly with a sibling. Be patient with others; they may not be as evolved emotionally.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house',
+    description: 'Unexpected trips come up at the last minute, and the travel plans do not go as planned. School and education runs into problems due to a difficult teacher or professor. Disappointment with a teacher, guru or spiritual belief comes under scrutiny. You are confused and forced into searching for a new belief system. Issues concerning your father come to your attention, it may on involve a problem with a sibling.',
+  },
+  {
+    name: 'Jupiter aspect Saturn in 10th house',
+    description: 'Hard work and discipline will award you with a new position or expansion in your business. The company or business finally recognizes your effort, and gives the respect you deserve. Career opportunities lead you into a cycle of success. Your reputation will gain public recognition, you are due for a raise. Be open to change if you receive other invitations or opportunities.',
+  },
+  {
+    name: 'Sun Transits the 4th House',
+    description: 'Home affairs are a major concern. There may be repairs or expenses in the home. Family gatherings or reunions bring warmth and happiness home. Time spent at home is appreciated. Security is an issue, look into home surety systems. There is a desire to change residence.',
+  },
+  {
+    name: 'Sun Aspecting Midheaven (MC)',
+    description: 'Your career and public image are highlighted, making it an ideal time to pursue professional goals and take on leadership roles. Recognition is likely, but ensure your actions align with long-term objectives and don\u2019t disrupt other areas of life.',
+  },
+  {
+    name: 'Venus aspect Jupiter in 5th house',
+    description: 'Creativity is at a peak and you become more involved in artistic pursuits. Involvement in all aspects of the arts inspires more original ideas. Interest in investing, such as the stock market can be very successful now. Children bring blessings and open your heart. Be open to dating for now is the time for love.',
+  },
+  {
+    name: 'Sun aspect Saturn in 10th house',
+    description: 'Your career is changing and there are indications that your work is not so satisfying. Be careful not to rock the boat or you may be reprimanded. The boss or company is under pressure, you are made aware of the problems in upper management and stresses involved with being a boss.',
+  },
+  {
+    name: 'Venus Transits the 6th House',
+    description: 'Work is fun and easy with the support of well-intentioned people. There is romance in the place of work. A work project requires creative genius, and a different perspective is required. Healthy foods will improve health, but sweets must be avoided. A pet can be a source of love and comfort.',
+  },
+  {
+    name: 'Mars Transits the 3rd House',
+    description: 'Ambition and drive promotes a new level of expertise. Competition motivates and inspires improvement. Athletics and strenuous exercise give energy and health. Short travels bring opportunities and money. Sales are up and business is good. Arguments conflict and jealousy come from siblings. Courage to accomplish important goals is achieved.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC)',
+    description: 'Your ambition is heightened, pushing you to take decisive action in your career. While this energy can lead to success, be mindful of potential conflicts with colleagues and the impact on your personal life.',
+  },
+  {
+    name: 'Mercury Aspecting Midheaven (MC)',
+    description: 'Communication in your professional life is key during this time. Express your ideas clearly, and be aware of how your words and actions might influence your public image and close relationships.',
+  },
+  {
+    name: 'Mercury aspect Saturn in 10th house',
+    description: 'Negotiating business plans are at a standstill due to conflicts with management. There are business adjustments to account for the many regulations now being imposed. It is time to simplify your life, not complicate it. Your boss may not be open to your brainstorming, keep it for a later date.',
+  },
+  {
+    name: 'Sun Transits the 5th House',
+    description: 'Inspiration to be more creative comes with flashes of insight. With an expanded consciousness it is good to write down the flood of ideas. Children are an important part of life. Advice is sought for a special area of expertise. Music and the arts are a form of entertainment. Sudden invitations to art galleries, plays, or movies are a great escape. Dating or going out is a new pastime. It is time to open your heart and find love.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house',
+    description: 'Problems with the government cause setbacks at work. Your boss is tired and set in their ways and anything new may upset them. You may get a job opportunity that is far better than your current position but feel a responsibility or somehow locked into the old job.',
+  },
+  {
+    name: 'Mercury Transits the 5th House',
+    description: 'Ideas have to be captured so it is time to begin writing. Incredible information may produce an article or even a book. The mind is full of ideas and needs to be creative and express. New information and discoveries are the basis of talks or speeches. There is a compelling need to teach, a very specific talent that is beginning to emerge. Talking to children will bring pleasure and happiness for they inspire youthfulness.',
+  },
+  {
+    name: 'Jupiter aspect Mercury in 8th house',
+    description: 'Deep thought and study of the deeper aspects of the meaning of life always are a part of your life, but now you are investigating these realities all the more. Understanding what makes people tick is a part of your studies. You are making great financial plans for the future now.',
+  },
+  {
+    name: 'Venus Transits the 7th House',
+    description: 'Attention and appreciation come from receiving and giving love and compassion. There are many admirers, be open to their sentiments. Powers of attraction are strong, don\u2019t hesitate to give invitations or be ready for invitations for intimate affairs. Attempts to get more attention or advancement from the boss will give a welcome outcome.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house',
+    description: 'Karmic debts surface to be healed around issues with the father. Abiding by certain laws and regulations are restrictive but necessary to your growth. Unrealistic beliefs are balanced with a new understanding and lessons.',
+  },
+  {
+    name: 'Mercury Transits the 6th House',
+    description: 'Travel for work changes the typical routine. As a messenger for work, there is a need to communicate with others. Younger people have a message. Depending on the sign Mercury could indicate problems with breathing. Nerves weaken your immune system.',
+  },
+  {
+    name: 'Sun aspect Jupiter in the 5th house',
+    description: 'Optimistic views expand the mind with a heightened awareness and creativity. Possibilities of a new vision in the world of investments opens for financial gains . You will be asked to be an advisor for others. Your heart will open to the possibilities of a new love romance.',
+  },
+  {
+    name: 'Sun Transits the 6th House',
+    description: 'Health concerns become a priority. There is an interest in becoming stronger and healthier. Exercise and muscle building are easier with increased energy and stamina. Work can be more demanding and with much stress. A demanding boss and bossy coworkers make the workplace very difficult. It is time to change bad habits.',
+  },
+  {
+    name: 'Mars Transits the 4th House',
+    description: 'Disturbances around the home cause upsets and problems. Arguments and disagreements are a part of the family life affording no peace at home. The mother finds fault and has issues over the decisions. Be careful with lit candles or fire around the house, there can be destruction or breakage. Get the car inspected before it causes major problems.',
+  },
+  {
+    name: 'Mercury Transits the 7th House',
+    description: 'Communications and agreements for future plans are made with the partner. Connections with younger people will help to perceive things in a different more open-minded way. Take time to find the humorous side of life. Laughter can be healing. Travel plans for a vacation will give a fresh new perspective on a stalemate. Don\u2019t forget to include others in any plans, for they will reciprocate in the offerings. Your maternal grandmother may call or be a part of your thoughts.',
+  },
+  {
+    name: 'Sun Transits the 7th House',
+    description: 'The partner is bossy and demanding. Let others feel they are in control to avoid disruption. Stay clear of the controlling forces of others. Time is important so rely on others to help you get the work done. Don\u2019t let others take control and power, quietly get the job done. The maternal grandmother may try to help but is overbearing.',
+  },
+  {
+    name: 'Jupiter Transits the 5th House',
+    description: 'New ideas expand life and business. This is the house of entertainment, opening the door to new places and people. Sporting events, theater, and movies give an escape from reality. Likeminded people validate new ideas and discoveries. Be alert to cutting-edge ideas that can make a fortune. This is the house of speculation and investments to make money; keen insights for gains must be realized. This house can also have a connection to actors, film, or entertainers so be open to these expanding opportunities. Advisory positions are offered, for knowledge and expertise is valuable. Children can bring blessings, there may be a new birth, or your children can achieve awards and great accomplishments.',
+  },
+  {
+    name: 'Mars Transits the 5th House',
+    description: 'A competitive drive and fun spirit wants to be entertained with sporting events. It is time to let loose and enjoy the company of friends. Inspiration may come from siblings as they encourage the use of talents. Children can be a cause of concern with disrespect and belligerent attitudes. Aggressive love can instigate a passionate romance.',
+  },
+  {
+    name: 'Sun Transits the 8th House',
+    description: 'The life force and resistance is low, beware of flues and illness. A sudden weakness can cause depression. There is a low sense of self-esteem. Take time to rest and don\u2019t forget to take vitamins. This is not the time to push an agenda on others. Past Problems that have been ignored need to be addressed now. There are consequences for any unpaid dues resulting in humiliation. The partner may be responsible for financial problems due to impulsive overspending.',
+  },
+  {
+    name: 'Rahu Transits the 10th House',
+    description: 'Expect major changes in your career. There will be an overhaul at your institution of work. It is a time of transition in the career and a new type of work may be necessary. Time is spent away from home life. A career loss can move life in a different direction, with the change of home and residence. There is more expenditure and cost on the home or car. Cars can cause major trouble, breaking down. Do not purchase a car or a home at this time. There are security issues concerning home and family. Financial matters can cause problems with self-esteem. An emptiness in the heart yearns to feel a connection to home and family. Loss around the mother can bring the family closer. Family reunions bring back memories and lost feelings. Changes in residence are not permanent. There is a wandering unsettled feeling in the soul.',
+  },
+  {
+    name: 'Ketu Transits the 4th House',
+    description: 'Time is spent away from home life. A career loss can move life in a different direction. There is more expenditure and cost on the home or car. Cars can cause major trouble, breaking down. Do not purchase a car or a home at this time. There are security issues concerning home and family. Financial matters can cause problems with self-esteem. An empty feeling in the heart yearns to feel a connection to home and family. Loss around the mother can bring the family closer. Family reunions bring back memories and lost feelings. Changes in residence are not permanent. There is a wandering unsettled feeling in the soul.',
+  },
+  {
+    name: 'Mercury Transits the 8th House',
+    description: 'Powers of research are vast and far-reaching. Being abreast of the news and what others are talking about for this can lead in the right direction. Be open to ideas and conversations with others for the information revealed can be enlightening. There is a message that will shed light on a past problem that needs to be resolved. Write a list of things that are being presented, this information will be useful at a later date.',
+  },
+  {
+    name: 'Ketu aspect Mars in 8th house',
+    description: 'The resurgence of emotional issues of repressed anger opens awareness and an opportunity for final healing. Issues around sexuality are questioned as there is a problem that needs to be addressed. Deep analysis and research can lead to psychological revelations. Scientific work will have major breakthroughs. Focus on elimination and cleansing of the body.',
+  },
+  {
+    name: 'Rahu aspect Moon in the 6th house',
+    description: 'Slow down and pay attention to your eating habits, your digestion is a problem. Issues around the stomach strike out unexpectedly. Food and diet become an interest as you change the way you eat and may even take up cooking. Women around the workplace cause problems, as gossip upsets workers. Emotional issues may be due to hormonal changes in the body.',
+  },
+  {
+    name: 'Sun Transits the 9th House',
+    description: 'Optimism brings a renewed sense of peace and contentment. A new perspective on life comes from an invigorating trust in beliefs and the spiritual core. Courses or books that teach human development may be the focus, and inspire a change in beliefs and the attitude toward life. A trip or getaway can give the change of heart that is needed. Contact with a father figure will give guidance and counsel. Travel plans to exotic places bring freedom and vision. Judgment of others can have a negative effect on future events.',
+  },
+  {
+    name: 'Mercury Transits the 9th House',
+    description: 'Traveling or learning new information will open up a new wave of information that changes life. Listen to teachers who appear, they have an important message. It is time to teach and be a part of a progressive group. It is time to listen to the younger generation, for a new lease on life. Spiritual teachings that focus on self-renewal and improvement will make a difference. Open-mindedness opens new possibilities and opportunities.',
+  },
+  {
+    name: 'Venus Transits the 8th House',
+    description: 'Disappointment in love and relationships ruins trust in partnerships and the ability to make choices in financial affairs. Their lack of commitment and expectations fall short. It is time to renegotiate these decisions. Suspicion and mistrust come from fear of betrayal. Passion may run high but reality may prove disappointing. Protection and insurance give a sense of security. Money may come from others in an unexpected way, be open and receptive.',
+  },
+  {
+    name: 'Mercury Transits the 10th House',
+    description: 'Meetings and conferences in work are necessary to open up a new line of communication. Expectations are expressed to clear the air for new business possibilities. Plans are developed; take notes because the ideas expressed will become a reality. Be adaptable and open to suggestions, especially to new ideas and thoughts from a younger generation. All lines of communication must be open to ensure a successful meeting of minds. Business prospects are good keep an open mind.',
+  },
+  {
+    name: 'Sun Transits the 10th House',
+    description: 'This is time to shine in the work and career. An advisory position is presented as an authority. Now is the time to schedule interviews and apply for the dream job. Expect awards and a possible promotion. As a rising star, the sky is the limit. Self-confidence is at a peak, attention and recognition compliments a job well done.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house',
+    description: 'Your scientific mind is delving into deep analysis and research as you make great new discoveries. It is a time of reflection as you probe into psychological reasons for your life\u2019s experiences. Make sure your partner is handling the money fairly.',
+  },
+  {
+    name: 'Moon Aspecting Midheaven (MC)',
+    description: 'Your emotions are closely tied to your career, making you more sensitive to how others perceive you at work. Trust your intuition, but avoid letting emotions overly influence professional decisions or relationships.',
+  },
+  {
+    name: 'Mercury Transits the 11th House',
+    description: 'Friends call with interesting news, talking excessively on the phone. Connecting to a new group of people with progressive thoughts and ideas is inspiring. Be open to the ideas of young people for they are the wave of the future. Pay attention to a message that brings hope for a better future. Optimism will bring new gains and prosperity. The elder sibling has something important to say, be open and listen.',
+  },
+  {
+    name: 'Moon Aspecting Ascendant (ASC)',
+    description: 'You may feel more introspective and emotionally sensitive, impacting how you present yourself. It\u2019s a good time for self-care, but be cautious of letting fluctuating moods affect your health or important decisions.',
+  },
+  {
+    name: 'Venus Transits the 9th House',
+    description: 'A new way of thinking opens the heart and soul. Don\u2019t be afraid to go with the flow of new thoughts and ideas because they offer a newfound freedom. Female teachers gracefully offer a new way of life that is appealing. There is approval from the higher mind to a new life direction. Alignment with the truth and belief in a new hopeful future cures a difficult past. The usual fears dissolve clearing the air for a life of adventure full of mystery and magic.',
+  },
+  {
+    name: 'Sun Transits the 11th House',
+    description: 'Powerful people revered as influential authority figures offer help. Friendships with important people and social circles are broadening. Respected leaders or fathers will give the career a boost. Opportunities for growth are presented in the community. Friends are a focus on bringing new opportunities, but they may have ulterior motives for looking out for themselves. There may be difficult news concerning the mother or the oldest sibling is demanding.',
+  },
+  {
+    name: 'Venus Transits the 10th House',
+    description: 'Business ventures will change and come from a fresh positive perspective. Look to options that include expansion and growth. Look for an invitation to be involved in artistic creative projects in music, and fashion. Eye-appealing advertisements with design and color can be the missing link to promote a product or business. Women will be a driving force in the workplace and should be honored with respect.',
   },
 ];
 

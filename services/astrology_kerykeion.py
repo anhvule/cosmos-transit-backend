@@ -503,9 +503,16 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         # (no exact/ends qualifier). Social planets: orb < 6, Nodes: orb < 8.
         involved_natal = {a['natalPlanet'] for a in primary_aspects}
         involved_transit = {a['transitPlanet'] for a in primary_aspects}
+        # Only emit a Moon-aspect event for a natal planet when the natal house
+        # in the aspect matches that planet's actual natal house.  This prevents
+        # spurious cross-house duplicates for any birth chart.
+        def _natal_house(planet_name):
+            return natal_map.get(planet_name, {}).get('house')
+
         moon_extra_aspects = [
             a for a in active_aspects
             if a['transitPlanet'] == 'Moon'
+            and a.get('natalHouse') == _natal_house(a['natalPlanet'])
             and (
                 a['natalPlanet'] in PERSONAL_PLANETS
                 or (a['natalPlanet'] in ('Jupiter', 'Saturn') and a['orb'] < 6)
@@ -571,6 +578,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         if a['transitPlanet'] in PERSONAL_PLANETS
         and a['transitPlanet'] != 'Moon'
         and a['natalPlanet'] in _PERSONAL_AND_SOCIAL
+        and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
         and not a['exact']
         and not a['separating']
         and a['orb'] < 1.6
@@ -590,6 +598,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         if a['transitPlanet'] in PERSONAL_PLANETS
         and a['transitPlanet'] != 'Moon'
         and a['natalPlanet'] in _PERSONAL_AND_SOCIAL
+        and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
         and not a['exact']
         and a['separating']
         and a['orb'] < 3
@@ -636,7 +645,9 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
     slow_exact_aspects = [
         a for a in active_aspects
         if (a['transitPlanet'] in SLOW_PLANETS or a['transitPlanet'] in LUNAR_NODES)
+        and a['transitPlanet'] != 'Pluto'
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
+        and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
         and a['aspect'] in _MAJOR_ASPECTS
         and a['exact']
     ]
@@ -653,6 +664,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         a for a in active_aspects
         if a['transitPlanet'] in ('Jupiter', 'Saturn')
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
+        and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
         and a['aspect'] in _MAJOR_ASPECTS
         and not a['exact']
         and not a['separating']
@@ -671,6 +683,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         a for a in active_aspects
         if a['transitPlanet'] in ('Jupiter', 'Saturn')
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
+        and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
         and a['aspect'] in _MAJOR_ASPECTS
         and not a['exact']
         and a['separating']
@@ -690,6 +703,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         and a['transitPlanet'] != 'Moon'
         and a['natalPlanet'] in LUNAR_NODES
         and a['orb'] < 3
+        and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
     ]
     node_aspects.sort(key=lambda a: a['orb'])
     for aspect in node_aspects:
@@ -712,6 +726,8 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         ends_orb = conj_orb + 2  # wider window for separating (Ends)
         asc_fake_natal = {'fullDegree': asc_deg}
         for transit_name in PLANETS:
+            if transit_name == 'Pluto':
+                continue
             transit = transit_map.get(transit_name)
             if not transit:
                 continue
@@ -743,7 +759,8 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         mc_deg = mc_natal['fullDegree']
         mc_fake_natal = {'fullDegree': mc_deg}
         ends_orb_mc = 2  # extra window for separating (Ends) past standard orb
-        for transit_name in PLANETS:
+        _MC_PLANETS = [p for p in PLANETS if p not in ('Saturn', 'Uranus', 'Neptune', 'Pluto')]
+        for transit_name in _MC_PLANETS:
             transit = transit_map.get(transit_name)
             if not transit:
                 continue
@@ -762,6 +779,11 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
             # Skip if beyond standard orb and not separating (approaching but not in range yet)
             if orb > aspect_type['orb'] and not separating:
                 continue
+            # For approaching aspects, only emit :Starts once within the tight 3.5°
+            # window. This prevents the bridge's activeStarts dedup from being seeded
+            # by the baseline day (which sits at orb 5-6° for slow planets).
+            if not separating and orb >= 3.5 and orb >= 1:
+                continue
             if orb < 1:
                 qualifier = ' : Exact'
             elif separating:
@@ -772,6 +794,8 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                 'type': 'mc_aspect',
                 'transitPlanet': transit_name,
                 'orb': orb,
+                'separating': separating,
+                'aspectAngle': aspect_type['angle'],
                 'description': f'{transit_name} Aspecting Midheaven (MC){qualifier}',
             })
             # Emit the MC sign ruler as dispositor
@@ -1111,11 +1135,25 @@ def _run_json_batch():
         INNER_PLANETS = {'Mercury', 'Venus', 'Sun', 'Mars'}
 
         def planet_houses_for(transit_planets):
-            """Return {planet_name: house_number} for non-Moon inner planets."""
+            """Return {planet_name: house_number} for non-Moon inner planets.
+
+            Uses the end-of-day sidereal position (noon + half the daily speed)
+            so that late-day sign crossings are attributed to the correct date,
+            matching the planner's ingress dates.  Mirrors the Moon EOD logic.
+            """
             houses = {}
             for p in transit_planets:
-                if p['name'] in INNER_PLANETS:
-                    houses[p['name']] = _sign_to_house.get(p['sign'], 0)
+                if p['name'] not in INNER_PLANETS:
+                    continue
+                sid_noon = p.get('sidereal_abs_pos')
+                if sid_noon is None:
+                    # Fallback: derive from the tropical sign if sidereal data missing
+                    houses[p['name']] = _sign_to_house.get(p.get('sidereal_sign', p['sign']), 0)
+                    continue
+                speed = p.get('speed', 0)
+                sid_eod = (sid_noon + speed * 0.5) % 360
+                sign_eod = SIGN_ORDER[int(sid_eod // 30)]
+                houses[p['name']] = _sign_to_house.get(sign_eod, 0)
             return houses
 
         results = {}
