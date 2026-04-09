@@ -509,13 +509,23 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         def _natal_house(planet_name):
             return natal_map.get(planet_name, {}).get('house')
 
+        # Personal planets: conjunction, trine, opposition only.
+        #   - moon_activates_house limits to ~3 firing days/month
+        #   - square is excluded (fires too frequently, not in planner)
+        # Slow planets (Jupiter/Saturn): conjunction + opposition only (~2/month).
+        # Nodes: all aspects within 8° orb (unchanged).
+        _PERSONAL_MOON_ASPECTS = {'conjunction', 'opposition'}
+        _SLOW_MOON_ASPECTS    = {'conjunction', 'opposition'}
         moon_extra_aspects = [
             a for a in active_aspects
             if a['transitPlanet'] == 'Moon'
             and a.get('natalHouse') == _natal_house(a['natalPlanet'])
             and (
-                a['natalPlanet'] in PERSONAL_PLANETS
-                or (a['natalPlanet'] in ('Jupiter', 'Saturn') and a['orb'] < 6)
+                (a['natalPlanet'] in PERSONAL_PLANETS
+                 and a['aspect'] in _PERSONAL_MOON_ASPECTS)
+                or (a['natalPlanet'] in ('Jupiter', 'Saturn')
+                    and a['orb'] < 6
+                    and a['aspect'] in _SLOW_MOON_ASPECTS)
                 or (a['natalPlanet'] in LUNAR_NODES and a['orb'] < 8)
             )
         ]
@@ -640,20 +650,36 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
 
     # --- 8. Exact slow-planet/node aspects to personal/social natal planets ---
     # Slow transits (Jupiter, Saturn, Uranus, Neptune, Pluto, Rahu, Ketu)
-    # that form an exact aspect (orb < 0.5° for Jupiter/Saturn, < 1° for others)
-    # to a personal or social natal planet are rare and significant.
+    # that form an exact aspect to a personal or social natal planet.
+    # For Saturn specifically: only fire on the day Saturn actually crossed the
+    # exact point — requires separating AND orb < one day's movement (abs(speed)).
+    # This gives a single-day ":Exact" event rather than firing for all days
+    # where orb < 1°.
+    _SATURN_NATAL_TARGETS = {'Sun', 'Rahu'}
+
+    def _saturn_is_exact_today(a):
+        """True only on the day Saturn crosses the exact aspect point."""
+        if not a['separating']:
+            return False
+        speed = abs(transit_map.get(a['transitPlanet'], {}).get('speed', 0.05))
+        return a['orb'] < speed
+
     slow_exact_aspects = [
         a for a in active_aspects
         if (a['transitPlanet'] in SLOW_PLANETS or a['transitPlanet'] in LUNAR_NODES)
         and a['transitPlanet'] != 'Pluto'
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
+        and (a['transitPlanet'] != 'Saturn' or a['natalPlanet'] in _SATURN_NATAL_TARGETS)
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
         and a['aspect'] in _MAJOR_ASPECTS
-        and a['exact']
+        and (a['exact'] if a['transitPlanet'] != 'Saturn' else _saturn_is_exact_today(a))
     ]
     slow_exact_aspects.sort(key=lambda a: a['orb'])
     for aspect in slow_exact_aspects:
-        _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
+        # Force exact=True so _add_aspect_story emits ": Exact" qualifier even
+        # when the aspect is technically separating (orb > 0 but < daily speed).
+        _add_aspect_story(events, {**aspect, 'exact': True, 'separating': False},
+                          natal_map, transit_map, house_to_sign,
                           include_transit_house=False, use_specific_aspect_name=False)
 
     # --- 8b. Approaching Jupiter/Saturn aspects to personal/social natal planets ---
@@ -664,6 +690,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         a for a in active_aspects
         if a['transitPlanet'] in ('Jupiter', 'Saturn')
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
+        and (a['transitPlanet'] != 'Saturn' or a['natalPlanet'] in _SATURN_NATAL_TARGETS)
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
         and a['aspect'] in _MAJOR_ASPECTS
         and not a['exact']
@@ -683,6 +710,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         a for a in active_aspects
         if a['transitPlanet'] in ('Jupiter', 'Saturn')
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
+        and (a['transitPlanet'] != 'Saturn' or a['natalPlanet'] in _SATURN_NATAL_TARGETS)
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
         and a['aspect'] in _MAJOR_ASPECTS
         and not a['exact']
@@ -820,13 +848,17 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
             'description': f'Moon Transits the {ordinal(moon_display_house)} House',
         })
 
-    # --- 12. Deduplicate — preserve first occurrence of each description ---
-    # Multiple transit planets aspecting the same natal planet each emit the
-    # same ruler / dispositor sub-events. Remove the repeated entries while
-    # keeping the original order.
+    # --- 12. Deduplicate — preserve first occurrence of each non-ruler description ---
+    # Ruler/dispositor events are intentionally kept per-story (each aspect emits
+    # its own transit-planet rulers so JS can nest them under the correct parent).
+    # Only primary events (aspect, transit_house, mc_aspect, etc.) are deduped.
+    RULER_TYPES = {'ruler', 'dispositor'}
     seen_descriptions = set()
     deduped = []
     for event in events:
+        if event.get('type') in RULER_TYPES:
+            deduped.append(event)
+            continue
         desc = event.get('description', '')
         if desc not in seen_descriptions:
             seen_descriptions.add(desc)
@@ -982,33 +1014,23 @@ def _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
     if not natal:
         return
 
-    # 2. House rulers — which houses does the natal planet rule?
-    for house_num_val in range(1, 13):
-        cusp_sign = house_to_sign.get(house_num_val)
-        if cusp_sign and SIGN_RULERS.get(cusp_sign) == natal_name:
-            events.append({
-                'type': 'ruler',
-                'planet': natal_name,
-                'rulesHouse': house_num_val,
-                'inHouse': natal['house'],
-                'description': (
-                    f'{natal_name} ruler of the {ordinal(house_num_val)} House '
-                    f'in the {ordinal(natal["house"])} House'
-                ),
-            })
+    # 2. House rulers — which houses does the TRANSIT planet rule (its natal position)?
+    transit_natal = natal_map.get(transit_name)
+    if transit_natal and transit_name != natal_name:
+        for house_num_val in range(1, 13):
+            cusp_sign = house_to_sign.get(house_num_val)
+            if cusp_sign and SIGN_RULERS.get(cusp_sign) == transit_name:
+                events.append({
+                    'type': 'ruler',
+                    'planet': transit_name,
+                    'rulesHouse': house_num_val,
+                    'inHouse': transit_natal['house'],
+                    'description': (
+                        f'{transit_name} ruler of the {ordinal(house_num_val)} House '
+                        f'in the {ordinal(transit_natal["house"])} House'
+                    ),
+                })
 
-    # 3. Dispositor — sign lord of the natal planet's sign
-    dispositor_name = natal['signLord']
-    if dispositor_name and dispositor_name != natal_name:
-        dispositor_natal = natal_map.get(dispositor_name)
-        if dispositor_natal:
-            events.append({
-                'type': 'dispositor',
-                'planet': dispositor_name,
-                'house': dispositor_natal['house'],
-                'forPlanet': natal_name,
-                'description': f'{dispositor_name} in {ordinal(dispositor_natal["house"])} (Dispositor)',
-            })
 
     # 4. Transit house (where the transit planet currently sits)
     if include_transit_house:
@@ -1132,18 +1154,19 @@ def _run_json_batch():
         else:
             _sign_to_house = {}
 
-        INNER_PLANETS = {'Mercury', 'Venus', 'Sun', 'Mars'}
+        HOUSE_TRACKED_PLANETS = {'Mercury', 'Venus', 'Sun', 'Mars', 'Moon'}
 
         def planet_houses_for(transit_planets):
-            """Return {planet_name: house_number} for non-Moon inner planets.
+            """Return {planet_name: house_number} for personal transit planets.
 
+            Includes Moon so its transit-house ingress can be detected day-by-day.
             Uses the end-of-day sidereal position (noon + half the daily speed)
             so that late-day sign crossings are attributed to the correct date,
-            matching the planner's ingress dates.  Mirrors the Moon EOD logic.
+            matching the planner's ingress dates.
             """
             houses = {}
             for p in transit_planets:
-                if p['name'] not in INNER_PLANETS:
+                if p['name'] not in HOUSE_TRACKED_PLANETS:
                     continue
                 sid_noon = p.get('sidereal_abs_pos')
                 if sid_noon is None:

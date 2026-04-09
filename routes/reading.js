@@ -76,12 +76,18 @@ router.post('/reading', async (req, res) => {
       reading: aiResponse.reading,
       focusAreas: aiResponse.focusAreas,
       transitSummary: aiResponse.transitSummary,
-      transitEvents: transitEvents.map(e => ({
+      aspects: transitEvents.map(e => ({
         type: e.type,
         description: e.description,
         interpretation: getEventInterpretation(e.description),
         warning: e.warning ?? null,
       })),
+      rulers: transitEvents.flatMap(e =>
+        (e.rulers || []).map(r => ({
+          description: r.description,
+          interpretation: getEventInterpretation(r.description),
+        })),
+      ),
     });
   } catch (error) {
     console.error('Reading endpoint error:', error.message);
@@ -124,6 +130,12 @@ router.post('/debug', async (req, res) => {
         interpretation: getEventInterpretation(e.description),
         warning: e.warning ?? null,
       })),
+      rulers: transitEvents.flatMap(e =>
+        (e.rulers || []).map(r => ({
+          description: r.description,
+          interpretation: getEventInterpretation(r.description),
+        })),
+      ),
     });
     
   } catch (error) {

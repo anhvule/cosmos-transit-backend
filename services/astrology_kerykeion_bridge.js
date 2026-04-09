@@ -143,6 +143,42 @@ async function getNatalTransitsAndReport(birthData, transitDate) {
     result.transitEvents.map(e => e.description).join(' | '),
   );
 
+  // ── Group events: each primary event absorbs trailing ruler/dispositor events
+  // ── Then filter transit_house groups by ingress, and nest rulers on each event
+  const RULER_TYPES = new Set(['ruler', 'dispositor']);
+
+  const planetDataMap = Object.fromEntries(
+    (result.transitPlanets || []).map(p => [p.name, p]),
+  );
+
+  const isIngress = planet => {
+    const pd = planetDataMap[planet];
+    if (!pd || pd.sidereal_abs_pos == null || pd.speed == null) return true;
+    const todayEod     = (pd.sidereal_abs_pos + pd.speed * 0.5 + 360) % 360;
+    const yesterdayEod = (pd.sidereal_abs_pos - pd.speed * 0.5 + 360) % 360;
+    return Math.floor(todayEod / 30) !== Math.floor(yesterdayEod / 30);
+  };
+
+  // Step 1 — group consecutive ruler/dispositor events under their primary event
+  const groups = [];
+  let cur = null;
+  for (const e of result.transitEvents) {
+    if (!RULER_TYPES.has(e.type)) {
+      cur = { primary: e, rulers: [] };
+      groups.push(cur);
+    } else if (cur) {
+      cur.rulers.push(e);
+    }
+  }
+
+  // Step 2 — filter transit_house groups by ingress (orphaned rulers are auto-dropped)
+  const filteredGroups = groups.filter(g =>
+    g.primary.type !== 'transit_house' || isIngress(g.primary.planet),
+  );
+
+  // Step 3 — flatten with rulers nested on each primary event
+  result.transitEvents = filteredGroups.map(g => ({ ...g.primary, rulers: g.rulers }));
+
   return result;
 }
 
@@ -359,6 +395,16 @@ async function getMatchingDatesForMonth(birthData, month, events) {
       .map(e => e.description),
   );
 
+  // Seed active Moon aspects from the baseline day. Moon aspects have no
+  // qualifier, so we suppress them on days after their first appearance —
+  // only the first day in a consecutive run is shown (same logic as :Starts).
+  const activeMoonAspects = new Set(
+    (baselineEvents || [])
+      .filter(e => e.type === 'aspect' && e.transitPlanet === 'Moon'
+                && !/:\s*(Starts|Exact|Ends)$/.test(e.description || ''))
+      .map(e => e.description),
+  );
+
   return transitDates
     .map((date, idx) => {
       const dayEvents = results[date] || [];
@@ -378,20 +424,33 @@ async function getMatchingDatesForMonth(birthData, month, events) {
           .map(e => e.description),
       );
 
+      // Build today's active Moon aspects (before filtering)
+      const todayMoonAspects = new Set(
+        dayEvents
+          .filter(e => e.type === 'aspect' && e.transitPlanet === 'Moon'
+                    && !/:\s*(Starts|Exact|Ends)$/.test(e.description || ''))
+          .map(e => e.description),
+      );
+
       const matched = dayEvents
         .filter(e => {
           if (STATIC_TYPES.has(e.type)) return false;
 
-          // For non-Moon transit_house: only match on the true ingress day.
-          if (e.type === 'transit_house' && e.planet !== 'Moon') {
+          // For all transit_house events: only match on the true ingress day
+          // (the first day the planet is in that house). Moon is included so
+          // its rapid house changes are shown once per ingress, not every day.
+          if (e.type === 'transit_house') {
             if ((prevHouses[e.planet] ?? null) === (currHouses[e.planet] ?? null)) return false;
           }
 
           // Aspect events without a qualifier (plain approaching primary aspects)
           // are active every day within the orb window and carry no calendar
           // significance. Only :Starts / :Exact / :Ends are meaningful milestones.
+          // Exception: Moon aspects have no qualifier (Moon moves ~12°/day).
+          // Only fire on the FIRST day the Moon aspect appears in a consecutive run.
           if (e.type === 'aspect' && !/:\s*(Starts|Exact|Ends)$/.test(e.description || '')) {
-            return false;
+            if (e.transitPlanet !== 'Moon') return false;
+            if (activeMoonAspects.has(e.description)) return false;
           }
 
           // For any aspect : Exact — only keep the last day of the consecutive
@@ -440,6 +499,10 @@ async function getMatchingDatesForMonth(birthData, month, events) {
       // Advance active-starts window: keep only descriptions still present today
       activeStarts.clear();
       for (const d of todayStarts) activeStarts.add(d);
+
+      // Advance active Moon aspects: keep only those still present today
+      activeMoonAspects.clear();
+      for (const d of todayMoonAspects) activeMoonAspects.add(d);
 
       return { date, events: matched };
     })
