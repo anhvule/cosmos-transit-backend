@@ -8,6 +8,7 @@ const useKerykeion = process.env.ASTROLOGY_ENGINE === 'kerykeion';
 
 let astrologyService;
 astrologyService = require('../services/astrology_kerykeion_bridge');
+const { getInvestmentLossDaysForMonth } = astrologyService;
 console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 
 const { generateReading } = require('../services/gemini');
@@ -128,7 +129,6 @@ router.post('/debug', async (req, res) => {
         impact: e.impact,
         description: e.description,
         interpretation: getEventInterpretation(e.description),
-        warning: e.warning ?? null,
       })),
       rulers: transitEvents.flatMap(e =>
         (e.rulers || []).map(r => ({
@@ -197,6 +197,67 @@ router.post('/events-calendar', async (req, res) => {
   } catch (error) {
     console.error('events-calendar error:', error.message);
     res.status(500).json({ error: 'Failed to compute events calendar. Please try again later.' });
+  }
+});
+
+/**
+ * POST /api/investment-loss-days
+ *
+ * Returns all days in the given month that show astrological signs linked to
+ * sudden investment losses (based on Vedic astrology principles):
+ *   - Moon in 6th / 8th / 12th house
+ *   - Moon conjunct or opposite natal Rahu/Ketu (Grahan Yoga)
+ *   - Rahu/Ketu transiting natal Jupiter or Venus
+ *   - Saturn ingressing into the 8th house (Ashtam Shani)
+ *   - Sun aspecting natal Rahu/Ketu (Grahan Yoga)
+ *
+ * Request body:
+ * {
+ *   "name":      "Alice",
+ *   "birthDate": "1991-09-27",
+ *   "birthTime": "07:40",
+ *   "latitude":  6.9271,
+ *   "longitude": 79.8612,
+ *   "timezone":  "Asia/Colombo",   // optional
+ *   "month":     "2026-05"         // YYYY-MM
+ * }
+ *
+ * Response:
+ * {
+ *   "month": "2026-05",
+ *   "riskDates": [
+ *     {
+ *       "date": "2026-05-04",
+ *       "signs": [
+ *         { "sign": "Moon in 8th House (sudden events, unexpected losses)", "description": "Moon in 8th House" },
+ *         { "sign": "Moon conjunct/opposite Rahu or Ketu ...", "description": "Moon conjunction Rahu in 2nd house" }
+ *       ]
+ *     }
+ *   ]
+ * }
+ */
+router.post('/investment-loss-days', async (req, res) => {
+  try {
+    const { name, birthDate, birthTime, latitude, longitude, timezone, month } = req.body;
+
+    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
+      return res.status(400).json({
+        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
+      });
+    }
+    if (!month || !/^\d{4}-\d{2}$/.test(month)) {
+      return res.status(400).json({ error: 'month must be in YYYY-MM format' });
+    }
+
+    const riskDates = await getInvestmentLossDaysForMonth(
+      { birthDate, birthTime, latitude, longitude, timezone },
+      month,
+    );
+
+    res.json({ month, riskDates });
+  } catch (error) {
+    console.error('investment-loss-days error:', error.message);
+    res.status(500).json({ error: 'Failed to compute investment loss days. Please try again later.' });
   }
 });
 

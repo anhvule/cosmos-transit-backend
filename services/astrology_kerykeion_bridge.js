@@ -509,9 +509,135 @@ async function getMatchingDatesForMonth(birthData, month, events) {
     .filter(entry => entry.events.length > 0);
 }
 
+/**
+ * Investment-loss signs based on Vedic astrology rules (SuddenLossesSigns):
+ * - Moon in 6th, 8th, or 12th house
+ * - Moon conjunct/opposite natal Rahu or Ketu (panic, emotional trading)
+ * - Rahu/Ketu transiting conjunct/opposite natal Jupiter or Venus (high-risk period)
+ * - Saturn near ingress into 8th house (Ashtam Shani)
+ * - Sun-Rahu/Ketu aspect (Grahan Yoga)
+ *
+ * Returns all days in the month that show at least one sign, along with the
+ * matched sign descriptions.
+ *
+ * @param {Object} birthData - { birthDate, birthTime, latitude, longitude, timezone }
+ * @param {string} month     - "YYYY-MM"
+ * @returns {Promise<Array>} Array of { date, signs: [{ sign, description }] }
+ */
+async function getInvestmentLossDaysForMonth(birthData, month) {
+  const [year, mon] = month.split('-').map(Number);
+  const daysInMonth = new Date(year, mon, 0).getDate();
+
+  const transitDates = Array.from({ length: daysInMonth }, (_, i) => {
+    const d = String(i + 1).padStart(2, '0');
+    return `${month}-${d}`;
+  });
+
+  const input = {
+    birthDate: birthData.birthDate,
+    birthTime: birthData.birthTime,
+    latitude: birthData.latitude,
+    longitude: birthData.longitude,
+    timezone: birthData.timezone || 'Asia/Ho_Chi_Minh',
+    transitDates,
+  };
+
+  const { results, planetHouses } = await callPythonBatch(input);
+
+  // Each rule defines a label and a check function.
+  // check(events, houses) returns false | string (the triggering event description).
+  const LOSS_RULES = [
+    {
+      id: 'moon_8th_house',
+      label: 'Moon in 8th House (sudden events, unexpected losses)',
+      check: (_events, houses) => houses['Moon'] === 8 && 'Moon in 8th House',
+    },
+    {
+      id: 'moon_12th_house',
+      label: 'Moon in 12th House (losses, hidden expenses)',
+      check: (_events, houses) => houses['Moon'] === 12 && 'Moon in 12th House',
+    },
+    {
+      id: 'moon_6th_house',
+      label: 'Moon in 6th House (disputes, conflict, obstacles)',
+      check: (_events, houses) => houses['Moon'] === 6 && 'Moon in 6th House',
+    },
+    {
+      id: 'moon_node_conjunction',
+      label: 'Moon conjunct/opposite Rahu or Ketu (Grahan Yoga — panic, emotional trading)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ev.transitPlanet === 'Moon' &&
+          ['conjunction', 'opposition'].includes(ev.aspect) &&
+          ['Rahu', 'Ketu'].includes(ev.natalPlanet),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'rahu_ketu_on_jupiter_venus',
+      label: 'Rahu/Ketu transiting natal Jupiter or Venus (high-risk investment period)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ['Rahu', 'Ketu'].includes(ev.transitPlanet) &&
+          ['Jupiter', 'Venus'].includes(ev.natalPlanet),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'saturn_8th_house',
+      label: 'Saturn in 8th House (Ashtam Shani — unpredictable financial setbacks)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'transit_house' &&
+          ev.planet === 'Saturn' &&
+          ev.house === 8,
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'sun_rahu_grahan',
+      label: 'Sun aspecting natal Rahu/Ketu (Grahan Yoga — ego-driven wrong decisions)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ev.transitPlanet === 'Sun' &&
+          ['Rahu', 'Ketu'].includes(ev.natalPlanet),
+        );
+        return e ? e.description : false;
+      },
+    },
+  ];
+
+  const riskDates = [];
+  for (const date of transitDates) {
+    const dayEvents = results[date] || [];
+    const dayHouses = planetHouses[date] || {};
+
+    const signs = [];
+    for (const rule of LOSS_RULES) {
+      const result = rule.check(dayEvents, dayHouses);
+      if (result) {
+        signs.push({ sign: rule.label, description: typeof result === 'string' ? result : null });
+      }
+    }
+
+    if (signs.length > 0) {
+      riskDates.push({ date, signs });
+    }
+  }
+
+  return riskDates;
+}
+
 module.exports = {
   getNatalTransits,
   getNatalTransitsAndReport,
   calculateTransitReport,
   getMatchingDatesForMonth,
+  getInvestmentLossDaysForMonth,
 };
