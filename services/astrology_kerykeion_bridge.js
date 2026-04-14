@@ -611,12 +611,57 @@ async function getInvestmentLossDaysForMonth(birthData, month) {
         return e ? e.description : false;
       },
     },
+    {
+      id: 'mercury_sun_mars_overtrading',
+      label: 'Mercury or Sun aspecting natal Mars in 6th/8th/12th House (overtrading, impulsive decisions)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ['Mercury', 'Sun'].includes(ev.transitPlanet) &&
+          ev.natalPlanet === 'Mars' &&
+          [6, 8, 12].includes(ev.natalHouse),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'mercury_jupiter_5th_overtrading',
+      label: 'Mercury aspecting natal Jupiter in 5th House (overconfident speculation, overtrading)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ev.transitPlanet === 'Mercury' &&
+          ev.natalPlanet === 'Jupiter' &&
+          ev.natalHouse === 5,
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'mars_mars_overtrading',
+      label: 'Mars aspecting natal Mars in 6th/8th/12th House (over-aggressive trading, overtrading)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ev.transitPlanet === 'Mars' &&
+          ev.natalPlanet === 'Mars' &&
+          [6, 8, 12].includes(ev.natalHouse),
+        );
+        return e ? e.description : false;
+      },
+    },
   ];
 
   const riskDates = [];
   for (const date of transitDates) {
-    const dayEvents = results[date] || [];
+    const allDayEvents = results[date] || [];
     const dayHouses = planetHouses[date] || {};
+
+    // Only consider :Exact events (or unqualified events like Moon aspects / transit_house).
+    // Drop any event whose description ends with ": Starts" or ": Ends".
+    const dayEvents = allDayEvents.filter(
+      e => !/(:\s*(Starts|Ends))$/.test(e.description || ''),
+    );
 
     const signs = [];
     for (const rule of LOSS_RULES) {
@@ -634,10 +679,191 @@ async function getInvestmentLossDaysForMonth(birthData, month) {
   return riskDates;
 }
 
+/**
+ * Investment-gain signs based on Vedic astrology rules (SuddenGainSigns):
+ * - Moon in 2nd, 5th, 9th, or 11th house
+ * - Moon conjunct/trine/sextile natal Mars (Chandra-Mangal Yoga)
+ * - Moon conjunct/trine/sextile natal Jupiter (expansion + luck)
+ * - Moon conjunct/trine/sextile natal Venus (financial abundance)
+ * - Jupiter transiting 5th or 11th house
+ * - Venus aspecting natal Jupiter in 5th/11th house (abundance in speculation)
+ * - Sun aspecting natal Jupiter in 5th house (luck in speculation)
+ * - Mercury aspecting natal Venus in 2nd/5th/9th/11th house (profitable decisions)
+ *
+ * Only :Exact (or unqualified) events are considered — :Starts and :Ends are dropped.
+ *
+ * @param {Object} birthData - { birthDate, birthTime, latitude, longitude, timezone }
+ * @param {string} month     - "YYYY-MM"
+ * @returns {Promise<Array>} Array of { date, signs: [{ sign, description }] }
+ */
+async function getInvestmentGainDaysForMonth(birthData, month) {
+  const [year, mon] = month.split('-').map(Number);
+  const daysInMonth = new Date(year, mon, 0).getDate();
+
+  const transitDates = Array.from({ length: daysInMonth }, (_, i) => {
+    const d = String(i + 1).padStart(2, '0');
+    return `${month}-${d}`;
+  });
+
+  const input = {
+    birthDate: birthData.birthDate,
+    birthTime: birthData.birthTime,
+    latitude: birthData.latitude,
+    longitude: birthData.longitude,
+    timezone: birthData.timezone || 'Asia/Ho_Chi_Minh',
+    transitDates,
+  };
+
+  const { results, planetHouses } = await callPythonBatch(input);
+
+  const BENEFIC_ASPECTS = new Set(['conjunction', 'trine', 'sextile']);
+
+  const GAIN_RULES = [
+    {
+      id: 'moon_5th_house',
+      label: 'Moon in 5th House (speculation, intuition, past-life merits)',
+      check: (_events, houses) => houses['Moon'] === 5 && 'Moon in 5th House',
+    },
+    {
+      id: 'moon_11th_house',
+      label: 'Moon in 11th House (gains, income, fulfilled desires)',
+      check: (_events, houses) => houses['Moon'] === 11 && 'Moon in 11th House',
+    },
+    {
+      id: 'moon_2nd_house',
+      label: 'Moon in 2nd House (wealth accumulation)',
+      check: (_events, houses) => houses['Moon'] === 2 && 'Moon in 2nd House',
+    },
+    {
+      id: 'moon_9th_house',
+      label: 'Moon in 9th House (fortune, divine luck)',
+      check: (_events, houses) => houses['Moon'] === 9 && 'Moon in 9th House',
+    },
+    {
+      id: 'chandra_mangal',
+      label: 'Moon conjunct/trine/sextile natal Mars (Chandra-Mangal Yoga — aggressive, successful trading)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ev.transitPlanet === 'Moon' &&
+          ev.natalPlanet === 'Mars' &&
+          BENEFIC_ASPECTS.has(ev.aspect),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'moon_jupiter',
+      label: 'Moon conjunct/trine/sextile natal Jupiter (expansion, good intuition, luck)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ev.transitPlanet === 'Moon' &&
+          ev.natalPlanet === 'Jupiter' &&
+          BENEFIC_ASPECTS.has(ev.aspect),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'moon_venus',
+      label: 'Moon conjunct/trine/sextile natal Venus (financial abundance, material comfort)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ev.transitPlanet === 'Moon' &&
+          ev.natalPlanet === 'Venus' &&
+          BENEFIC_ASPECTS.has(ev.aspect),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'jupiter_gain_house',
+      label: 'Jupiter transiting 5th or 11th House (expansion in speculation/gains)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'transit_house' &&
+          ev.planet === 'Jupiter' &&
+          [5, 11].includes(ev.house),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'venus_jupiter_gain',
+      label: 'Venus aspecting natal Jupiter in 5th/11th House (abundance in speculation)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ev.transitPlanet === 'Venus' &&
+          ev.natalPlanet === 'Jupiter' &&
+          [5, 11].includes(ev.natalHouse) &&
+          BENEFIC_ASPECTS.has(ev.aspect),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'sun_jupiter_5th',
+      label: 'Sun aspecting natal Jupiter in 5th House (luck and success in speculation)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ev.transitPlanet === 'Sun' &&
+          ev.natalPlanet === 'Jupiter' &&
+          ev.natalHouse === 5 &&
+          BENEFIC_ASPECTS.has(ev.aspect),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'mercury_venus_gain',
+      label: 'Mercury aspecting natal Venus in 2nd/5th/9th/11th House (quick, profitable trading decisions)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ev.transitPlanet === 'Mercury' &&
+          ev.natalPlanet === 'Venus' &&
+          [2, 5, 9, 11].includes(ev.natalHouse) &&
+          BENEFIC_ASPECTS.has(ev.aspect),
+        );
+        return e ? e.description : false;
+      },
+    },
+  ];
+
+  const gainDates = [];
+  for (const date of transitDates) {
+    const allDayEvents = results[date] || [];
+    const dayHouses = planetHouses[date] || {};
+
+    // Include :Exact and :Ends (benefic energy still active while separating).
+    // Drop :Starts only (approaching window not yet materialised).
+    const dayEvents = allDayEvents;
+
+    const signs = [];
+    for (const rule of GAIN_RULES) {
+      const result = rule.check(dayEvents, dayHouses);
+      if (result) {
+        signs.push({ sign: rule.label, description: typeof result === 'string' ? result : null });
+      }
+    }
+
+    if (signs.length > 0) {
+      gainDates.push({ date, signs });
+    }
+  }
+
+  return gainDates;
+}
+
 module.exports = {
   getNatalTransits,
   getNatalTransitsAndReport,
   calculateTransitReport,
   getMatchingDatesForMonth,
   getInvestmentLossDaysForMonth,
+  getInvestmentGainDaysForMonth,
 };

@@ -8,7 +8,7 @@ const useKerykeion = process.env.ASTROLOGY_ENGINE === 'kerykeion';
 
 let astrologyService;
 astrologyService = require('../services/astrology_kerykeion_bridge');
-const { getInvestmentLossDaysForMonth } = astrologyService;
+const { getInvestmentLossDaysForMonth, getInvestmentGainDaysForMonth } = astrologyService;
 console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 
 const { generateReading } = require('../services/gemini');
@@ -258,6 +258,47 @@ router.post('/investment-loss-days', async (req, res) => {
   } catch (error) {
     console.error('investment-loss-days error:', error.message);
     res.status(500).json({ error: 'Failed to compute investment loss days. Please try again later.' });
+  }
+});
+
+/**
+ * POST /api/investment-gain-days
+ *
+ * Returns all days in the given month that show astrological signs favorable
+ * for speculation and sudden gains (based on SuddenGainSigns.docx):
+ *   - Moon in 2nd / 5th / 9th / 11th house
+ *   - Moon conjunct/trine/sextile natal Mars (Chandra-Mangal Yoga)
+ *   - Moon conjunct/trine/sextile natal Jupiter (luck + expansion)
+ *   - Moon conjunct/trine/sextile natal Venus (financial abundance)
+ *   - Jupiter transiting 5th or 11th house
+ *   - Venus aspecting natal Jupiter in 5th/11th house
+ *   - Sun aspecting natal Jupiter in 5th house
+ *   - Mercury aspecting natal Venus in 2nd/5th/9th/11th house
+ *
+ * Only :Exact (or unqualified) events are considered.
+ */
+router.post('/investment-gain-days', async (req, res) => {
+  try {
+    const { name, birthDate, birthTime, latitude, longitude, timezone, month } = req.body;
+
+    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
+      return res.status(400).json({
+        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
+      });
+    }
+    if (!month || !/^\d{4}-\d{2}$/.test(month)) {
+      return res.status(400).json({ error: 'month must be in YYYY-MM format' });
+    }
+
+    const gainDates = await getInvestmentGainDaysForMonth(
+      { birthDate, birthTime, latitude, longitude, timezone },
+      month,
+    );
+
+    res.json({ month, gainDates });
+  } catch (error) {
+    console.error('investment-gain-days error:', error.message);
+    res.status(500).json({ error: 'Failed to compute investment gain days. Please try again later.' });
   }
 });
 
