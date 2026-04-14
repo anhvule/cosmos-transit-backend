@@ -544,68 +544,21 @@ async function getInvestmentLossDaysForMonth(birthData, month) {
 
   const { results, planetHouses } = await callPythonBatch(input);
 
-  // Each rule defines a label and a check function.
+  // Each rule defines a label, a statistical weight (from frequency analysis), and a check function.
+  // Weights are derived from occurrence frequency across historical loss dates:
+  //   moon_node_aspect=9 (49%), mercury_sun_mars=8 (17%), mars_mars=7 (13%),
+  //   rahu_ketu_jup_ven=6 (10%), moon_12th=5 (10%), moon_6th=4 (9%),
+  //   mercury_jup_5th=3 (6%), moon_8th=2 (6%), sun_rahu=1 (3%), saturn_8th=1
   // check(events, houses) returns false | string (the triggering event description).
   const LOSS_RULES = [
     {
-      id: 'moon_8th_house',
-      label: 'Moon in 8th House (sudden events, unexpected losses)',
-      check: (_events, houses) => houses['Moon'] === 8 && 'Moon in 8th House',
-    },
-    {
-      id: 'moon_12th_house',
-      label: 'Moon in 12th House (losses, hidden expenses)',
-      check: (_events, houses) => houses['Moon'] === 12 && 'Moon in 12th House',
-    },
-    {
-      id: 'moon_6th_house',
-      label: 'Moon in 6th House (disputes, conflict, obstacles)',
-      check: (_events, houses) => houses['Moon'] === 6 && 'Moon in 6th House',
-    },
-    {
-      id: 'moon_node_conjunction',
-      label: 'Moon conjunct/opposite Rahu or Ketu (Grahan Yoga — panic, emotional trading)',
+      id: 'moon_node_aspect',
+      weight: 9,
+      label: 'Moon aspecting Rahu or Ketu (volatile market energy — panic trading, high-beta risk)',
       check: (events) => {
         const e = events.find(ev =>
           ev.type === 'aspect' &&
           ev.transitPlanet === 'Moon' &&
-          ['conjunction', 'opposition'].includes(ev.aspect) &&
-          ['Rahu', 'Ketu'].includes(ev.natalPlanet),
-        );
-        return e ? e.description : false;
-      },
-    },
-    {
-      id: 'rahu_ketu_on_jupiter_venus',
-      label: 'Rahu/Ketu transiting natal Jupiter or Venus (high-risk investment period)',
-      check: (events) => {
-        const e = events.find(ev =>
-          ev.type === 'aspect' &&
-          ['Rahu', 'Ketu'].includes(ev.transitPlanet) &&
-          ['Jupiter', 'Venus'].includes(ev.natalPlanet),
-        );
-        return e ? e.description : false;
-      },
-    },
-    {
-      id: 'saturn_8th_house',
-      label: 'Saturn in 8th House (Ashtam Shani — unpredictable financial setbacks)',
-      check: (events) => {
-        const e = events.find(ev =>
-          ev.type === 'transit_house' &&
-          ev.planet === 'Saturn' &&
-          ev.house === 8,
-        );
-        return e ? e.description : false;
-      },
-    },
-    {
-      id: 'sun_rahu_grahan',
-      label: 'Sun aspecting natal Rahu/Ketu (Grahan Yoga — ego-driven wrong decisions)',
-      check: (events) => {
-        const e = events.find(ev =>
-          ev.type === 'aspect' &&
-          ev.transitPlanet === 'Sun' &&
           ['Rahu', 'Ketu'].includes(ev.natalPlanet),
         );
         return e ? e.description : false;
@@ -613,6 +566,7 @@ async function getInvestmentLossDaysForMonth(birthData, month) {
     },
     {
       id: 'mercury_sun_mars_overtrading',
+      weight: 8,
       label: 'Mercury or Sun aspecting natal Mars in 6th/8th/12th House (overtrading, impulsive decisions)',
       check: (events) => {
         const e = events.find(ev =>
@@ -625,7 +579,47 @@ async function getInvestmentLossDaysForMonth(birthData, month) {
       },
     },
     {
+      id: 'mars_mars_overtrading',
+      weight: 7,
+      label: 'Mars aspecting natal Mars in 6th/8th/12th House (over-aggressive trading, overtrading)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ev.transitPlanet === 'Mars' &&
+          ev.natalPlanet === 'Mars' &&
+          [6, 8, 12].includes(ev.natalHouse),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'rahu_ketu_on_jupiter_venus',
+      weight: 6,
+      label: 'Rahu/Ketu transiting natal Jupiter or Venus (high-risk investment period)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'aspect' &&
+          ['Rahu', 'Ketu'].includes(ev.transitPlanet) &&
+          ['Jupiter', 'Venus'].includes(ev.natalPlanet),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'moon_12th_house',
+      weight: 5,
+      label: 'Moon in 12th House (losses, hidden expenses)',
+      check: (_events, houses) => houses['Moon'] === 12 && 'Moon in 12th House',
+    },
+    {
+      id: 'moon_6th_house',
+      weight: 4,
+      label: 'Moon in 6th House (disputes, conflict, obstacles)',
+      check: (_events, houses) => houses['Moon'] === 6 && 'Moon in 6th House',
+    },
+    {
       id: 'mercury_jupiter_5th_overtrading',
+      weight: 3,
       label: 'Mercury aspecting natal Jupiter in 5th House (overconfident speculation, overtrading)',
       check: (events) => {
         const e = events.find(ev =>
@@ -638,14 +632,33 @@ async function getInvestmentLossDaysForMonth(birthData, month) {
       },
     },
     {
-      id: 'mars_mars_overtrading',
-      label: 'Mars aspecting natal Mars in 6th/8th/12th House (over-aggressive trading, overtrading)',
+      id: 'moon_8th_house',
+      weight: 2,
+      label: 'Moon in 8th House (sudden events, unexpected losses)',
+      check: (_events, houses) => houses['Moon'] === 8 && 'Moon in 8th House',
+    },
+    {
+      id: 'sun_rahu_grahan',
+      weight: 1,
+      label: 'Sun aspecting natal Rahu/Ketu (Grahan Yoga — ego-driven wrong decisions)',
       check: (events) => {
         const e = events.find(ev =>
           ev.type === 'aspect' &&
-          ev.transitPlanet === 'Mars' &&
-          ev.natalPlanet === 'Mars' &&
-          [6, 8, 12].includes(ev.natalHouse),
+          ev.transitPlanet === 'Sun' &&
+          ['Rahu', 'Ketu'].includes(ev.natalPlanet),
+        );
+        return e ? e.description : false;
+      },
+    },
+    {
+      id: 'saturn_8th_house',
+      weight: 1,
+      label: 'Saturn in 8th House (Ashtam Shani — unpredictable financial setbacks)',
+      check: (events) => {
+        const e = events.find(ev =>
+          ev.type === 'transit_house' &&
+          ev.planet === 'Saturn' &&
+          ev.house === 8,
         );
         return e ? e.description : false;
       },
@@ -664,15 +677,17 @@ async function getInvestmentLossDaysForMonth(birthData, month) {
     );
 
     const signs = [];
+    let weight = 0;
     for (const rule of LOSS_RULES) {
       const result = rule.check(dayEvents, dayHouses);
       if (result) {
         signs.push({ sign: rule.label, description: typeof result === 'string' ? result : null });
+        if (rule.weight > weight) weight = rule.weight;
       }
     }
 
     if (signs.length > 0) {
-      riskDates.push({ date, signs });
+      riskDates.push({ date, weight, signs });
     }
   }
 
