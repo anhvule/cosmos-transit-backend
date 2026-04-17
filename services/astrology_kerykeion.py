@@ -658,19 +658,11 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
 
     # --- 8. Exact slow-planet/node aspects to personal/social natal planets ---
     # Slow transits (Jupiter, Saturn, Uranus, Neptune, Pluto, Rahu, Ketu)
-    # that form an exact aspect to a personal or social natal planet.
-    # For Saturn specifically: only fire on the day Saturn actually crossed the
-    # exact point — requires separating AND orb < one day's movement (abs(speed)).
-    # This gives a single-day ":Exact" event rather than firing for all days
-    # where orb < 1°.
+    # that form an exact aspect to a personal or social natal planet. Slow
+    # planets use _MAJOR_ASPECTS (conj/opp/trine/square/sextile) because their
+    # conjunction/opposition cycles are rare (Saturn: 29y, Jupiter: 12y), so
+    # restricting to conj/opp would effectively delete most slow :Exact events.
     _SATURN_NATAL_TARGETS = {'Sun', 'Rahu'}
-
-    def _saturn_is_exact_today(a):
-        """True only on the day Saturn crosses the exact aspect point."""
-        if not a['separating']:
-            return False
-        speed = abs(transit_map.get(a['transitPlanet'], {}).get('speed', 0.05))
-        return a['orb'] < speed
 
     slow_exact_aspects = [
         a for a in active_aspects
@@ -679,8 +671,8 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
         and (a['transitPlanet'] != 'Saturn' or a['natalPlanet'] in _SATURN_NATAL_TARGETS)
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
-        and a['aspect'] in {'conjunction', 'opposition'}
-        and (a['exact'] if a['transitPlanet'] != 'Saturn' else _saturn_is_exact_today(a))
+        and a['aspect'] in _MAJOR_ASPECTS
+        and a['exact']
     ]
     slow_exact_aspects.sort(key=lambda a: a['orb'])
     for aspect in slow_exact_aspects:
@@ -700,7 +692,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
         and (a['transitPlanet'] != 'Saturn' or a['natalPlanet'] in _SATURN_NATAL_TARGETS)
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
-        and a['aspect'] in {'conjunction', 'opposition'}
+        and a['aspect'] in _MAJOR_ASPECTS
         and not a['exact']
         and not a['separating']
         and a['orb'] < 2.6
@@ -720,7 +712,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
         and (a['transitPlanet'] != 'Saturn' or a['natalPlanet'] in _SATURN_NATAL_TARGETS)
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
-        and a['aspect'] in {'conjunction', 'opposition'}
+        and a['aspect'] in _MAJOR_ASPECTS
         and not a['exact']
         and a['separating']
         and a['orb'] < 3.5
