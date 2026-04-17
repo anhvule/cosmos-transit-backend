@@ -419,12 +419,16 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         # Moon story leads — use the same Moon-first logic
         primary_aspects = moon_house_aspects[:3]
     else:
-        # Select from personal transit planets (excl. Moon, excl. self-to-self)
+        # Select from personal transit planets (excl. Moon, excl. self-to-self).
+        # Restrict to conjunction/opposition — other aspect types (quincunx,
+        # trine, square, sextile) are suppressed from the primary-story layer to
+        # match the "conjunction/opposition only" policy used in sections 7–9.
         candidates = [
             a for a in active_aspects
             if a['transitPlanet'] in PERSONAL_PLANETS
             and a['transitPlanet'] != 'Moon'
             and a['transitPlanet'] != a['natalPlanet']  # no self-to-self
+            and a['aspect'] in {'conjunction', 'opposition'}
         ]
 
         # Natal planet importance: Moon (luminary) > personal > social > outer
@@ -526,7 +530,8 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                 or (a['natalPlanet'] in ('Jupiter', 'Saturn')
                     and a['orb'] < 6
                     and a['aspect'] in _SLOW_MOON_ASPECTS)
-                or (a['natalPlanet'] in LUNAR_NODES and a['orb'] < 8)
+                or (a['natalPlanet'] in LUNAR_NODES and a['orb'] < 8
+                    and a['aspect'] in {'conjunction', 'opposition'})
             )
         ]
         moon_extra_aspects.sort(key=lambda a: a['orb'])
@@ -589,6 +594,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         and a['transitPlanet'] != 'Moon'
         and a['natalPlanet'] in _PERSONAL_AND_SOCIAL
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
+        and a['aspect'] in {'conjunction', 'opposition'}
         and not a['exact']
         and not a['separating']
         and a['orb'] < 1.6
@@ -609,6 +615,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         and a['transitPlanet'] != 'Moon'
         and a['natalPlanet'] in _PERSONAL_AND_SOCIAL
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
+        and a['aspect'] in {'conjunction', 'opposition'}
         and not a['exact']
         and a['separating']
         and a['orb'] < 3
@@ -631,6 +638,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         if a['transitPlanet'] in PERSONAL_PLANETS
         and a['transitPlanet'] != 'Moon'
         and a['natalPlanet'] in _PERSONAL_AND_SOCIAL
+        and a['aspect'] in {'conjunction', 'opposition'}
         and a['exact']
         and (a['transitPlanet'], a['natalPlanet']) not in covered_aspect_keys
     ]
@@ -671,7 +679,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
         and (a['transitPlanet'] != 'Saturn' or a['natalPlanet'] in _SATURN_NATAL_TARGETS)
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
-        and a['aspect'] in _MAJOR_ASPECTS
+        and a['aspect'] in {'conjunction', 'opposition'}
         and (a['exact'] if a['transitPlanet'] != 'Saturn' else _saturn_is_exact_today(a))
     ]
     slow_exact_aspects.sort(key=lambda a: a['orb'])
@@ -692,7 +700,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
         and (a['transitPlanet'] != 'Saturn' or a['natalPlanet'] in _SATURN_NATAL_TARGETS)
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
-        and a['aspect'] in _MAJOR_ASPECTS
+        and a['aspect'] in {'conjunction', 'opposition'}
         and not a['exact']
         and not a['separating']
         and a['orb'] < 2.6
@@ -712,7 +720,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         and a['natalPlanet'] in _SLOW_NATAL_TARGETS
         and (a['transitPlanet'] != 'Saturn' or a['natalPlanet'] in _SATURN_NATAL_TARGETS)
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
-        and a['aspect'] in _MAJOR_ASPECTS
+        and a['aspect'] in {'conjunction', 'opposition'}
         and not a['exact']
         and a['separating']
         and a['orb'] < 3.5
@@ -730,6 +738,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         if a['transitPlanet'] in PERSONAL_PLANETS
         and a['transitPlanet'] != 'Moon'
         and a['natalPlanet'] in LUNAR_NODES
+        and a['aspect'] in {'conjunction', 'opposition'}
         and a['orb'] < 3
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
     ]

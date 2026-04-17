@@ -109,14 +109,61 @@ router.post('/debug', async (req, res) => {
       });
     }
 
-    let transitEvents;
+    // Compute tomorrow's date (needed to detect whether an :Exact aspect persists
+    // into the next day — we only keep :Exact on the last day of its consecutive run).
+    const baseDate = transitDate
+      ? new Date(transitDate)
+      : new Date();
+    const tomorrowDate = new Date(baseDate);
+    tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+    const tomorrowStr = tomorrowDate.toISOString().substring(0, 10);
 
-    // Kerykeion path: single Python call returns everything
-    const result = await astrologyService.getNatalTransitsAndReport(
-      { birthDate, birthTime, latitude, longitude, timezone },
-      transitDate,
+    // Kerykeion path: run today + tomorrow in parallel so we can filter :Exact
+    // aspects to the last day of each consecutive orb<cap run (mirrors the
+    // events-calendar bridge behavior).
+    const [todayResult, tomorrowResult] = await Promise.all([
+      astrologyService.getNatalTransitsAndReport(
+        { birthDate, birthTime, latitude, longitude, timezone },
+        transitDate,
+      ),
+      astrologyService.getNatalTransitsAndReport(
+        { birthDate, birthTime, latitude, longitude, timezone },
+        tomorrowStr,
+      ),
+    ]);
+
+    // Slow-planet :Exact needs a tighter 0.6° orb cap because Jupiter/Saturn
+    // windows can span 10+ days at 1°. Personal planets use 1° (Infinity cap).
+    const SLOW_PLANETS_SET = new Set(['Jupiter', 'Saturn']);
+    const exactOrbCap = e => SLOW_PLANETS_SET.has(e.transitPlanet) ? 0.6 : Infinity;
+
+    // Build a set of ":Exact" aspect base descriptions present tomorrow
+    // (within the orb cap). Any today :Exact with the same base is a
+    // continuation — drop it.
+    const tomorrowExact = new Set(
+      (tomorrowResult.transitEvents || [])
+        .filter(e =>
+          e.type === 'aspect' &&
+          (e.description || '').endsWith(': Exact') &&
+          (typeof e.orb !== 'number' || e.orb < exactOrbCap(e)),
+        )
+        .map(e => e.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase()),
     );
-    transitEvents = result.transitEvents;
+
+    const transitEvents = (todayResult.transitEvents || []).filter(e => {
+      const desc = e.description || '';
+      // Drop :Starts and :Ends qualified events — only :Exact (and unqualified)
+      // events are surfaced on /api/debug.
+      if (/\s*:\s*(Starts|Ends)$/.test(desc)) return false;
+      if (e.type === 'aspect' && desc.endsWith(': Exact')) {
+        const base = desc.replace(/\s*:\s*Exact$/, '').trim().toLowerCase();
+        // Drop if orb is beyond this planet's :Exact cap
+        if (typeof e.orb === 'number' && e.orb >= exactOrbCap(e)) return false;
+        // Drop if tomorrow still carries the same :Exact aspect (not the last day of the run)
+        if (tomorrowExact.has(base)) return false;
+      }
+      return true;
+    });
 
     // Return formatted response with transit events
     const today = transitDate

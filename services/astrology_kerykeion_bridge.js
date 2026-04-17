@@ -233,9 +233,19 @@ async function getMatchingDatesForMonth(birthData, month, events) {
     return `${month}-${d}`;
   });
 
-  const eventSet = new Set(
-    events.map(e => e.replace(/\s*:\s*(Exact|Starts|Ends)$/, '').trim().toLowerCase()),
-  );
+  // Map base description (lowercase, no qualifier) → required qualifier set.
+  // When a query includes an explicit qualifier (":Exact" / ":Starts" / ":Ends")
+  // only events ending with that qualifier match. Queries with no qualifier
+  // match any qualifier (backwards-compatible).
+  const eventQualifiers = new Map(); // base -> Set<'Exact'|'Starts'|'Ends'|null>  (null = any)
+  for (const raw of events) {
+    const m = raw.match(/\s*:\s*(Exact|Starts|Ends)$/);
+    const qual = m ? m[1] : null;
+    const base = raw.replace(/\s*:\s*(Exact|Starts|Ends)$/, '').trim().toLowerCase();
+    if (!eventQualifiers.has(base)) eventQualifiers.set(base, new Set());
+    eventQualifiers.get(base).add(qual);
+  }
+  const eventSet = new Set(eventQualifiers.keys());
 
   // Compute the day before the month (last day of previous month) for the
   // :Starts baseline and aspect seeding.  Use arithmetic formatting to avoid
@@ -488,11 +498,15 @@ async function getMatchingDatesForMonth(birthData, month, events) {
             if (activeStarts.has(e.description)) return false;
           }
 
-          const base = (e.description || '')
-            .replace(/\s*:\s*(Exact|Starts|Ends)$/, '')
-            .trim()
-            .toLowerCase();
-          return eventSet.has(base);
+          const desc = e.description || '';
+          const qm = desc.match(/\s*:\s*(Exact|Starts|Ends)$/);
+          const eventQual = qm ? qm[1] : null;
+          const base = desc.replace(/\s*:\s*(Exact|Starts|Ends)$/, '').trim().toLowerCase();
+          const allowed = eventQualifiers.get(base);
+          if (!allowed) return false;
+          // Match when the query didn't specify a qualifier (any) OR the event's
+          // qualifier exactly matches one of the requested qualifiers.
+          return allowed.has(null) || allowed.has(eventQual);
         })
         .map(e => e.description);
 
@@ -554,12 +568,13 @@ async function getInvestmentLossDaysForMonth(birthData, month) {
     {
       id: 'moon_node_aspect',
       weight: 9,
-      label: 'Moon aspecting Rahu or Ketu (volatile market energy — panic trading, high-beta risk)',
+      label: 'Moon conjunction/opposition Rahu or Ketu (Grahan Yoga — panic trading, high-beta risk)',
       check: (events) => {
         const e = events.find(ev =>
           ev.type === 'aspect' &&
           ev.transitPlanet === 'Moon' &&
-          ['Rahu', 'Ketu'].includes(ev.natalPlanet),
+          ['Rahu', 'Ketu'].includes(ev.natalPlanet) &&
+          ['conjunction', 'opposition'].includes(ev.aspect),
         );
         return e ? e.description : false;
       },
