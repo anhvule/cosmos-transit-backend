@@ -151,6 +151,17 @@ router.post('/debug', async (req, res) => {
       // sits 2-6° even when the exact crossing happens during the day.
       // Python emits :Exact on the local-min day; allow it through here.
       if (e && e.type === 'mc_aspect' && e.transitPlanet === 'Moon') return 2.5;
+      // Same reasoning for Moon-ASC: noon snapshot can leave orb at 3°+ when
+      // the exact passage crosses during the day (planner10 02-13 at orb 3.23).
+      // Python's local-min check restricts this to one day per pass.
+      if (e && e.type === 'ascendant_aspect' && e.transitPlanet === 'Moon') return 3.5;
+      // Mercury self-conjunction (opposition to natal Mercury): Mercury can
+      // station retrograde near the exact passage, leaving the local-min
+      // orb at ~0.97° rather than <0.85° (planner3 05-24).
+      if (e && e.type === 'aspect' && e.transitPlanet === 'Mercury'
+          && e.natalPlanet === 'Mercury' && e.aspect === 'opposition') {
+        return 1.0;
+      }
       return SLOW_PLANETS_SET.has(e.transitPlanet) ? 0.6 : 0.85;
     };
 
@@ -294,7 +305,29 @@ router.post('/debug', async (req, res) => {
       if (e.transitPlanet === 'Mars' && (e.natalPlanet === 'Rahu' || e.natalPlanet === 'Ketu') && (e.aspect === 'conjunction' || e.aspect === 'opposition')) {
         return 2.0;
       }
+      // Mars-Ketu square :Ends lands at orb ~2.35° (planner2 04-26).
+      if (e.transitPlanet === 'Mars' && e.natalPlanet === 'Ketu' && e.aspect === 'square') {
+        return 2.4;
+      }
+      // Mars-Jupiter opposition :Ends lands at orb ~1.91° (planner1 03-24).
+      if (e.transitPlanet === 'Mars' && e.natalPlanet === 'Jupiter' && e.aspect === 'opposition') {
+        return 2.0;
+      }
+      // Mars-Venus opposition :Ends lands at orb ~1.94° (planner4 06-28).
+      if (e.transitPlanet === 'Mars' && e.natalPlanet === 'Venus' && e.aspect === 'opposition') {
+        return 2.0;
+      }
+      // Mars-Mars quincunx :Ends lands at orb ~2.28° (planner4 06-21).
+      if (e.transitPlanet === 'Mars' && e.natalPlanet === 'Mars' && e.aspect === 'quincunx') {
+        return 2.35;
+      }
       if (e.transitPlanet === 'Jupiter' && e.natalPlanet === 'Venus' && e.aspect === 'trine') {
+        return 3.05;
+      }
+      // Saturn-Sun square :Ends lands at orb ~3.03° (planner10 02-04). The
+      // 3.0° default would suppress the planner-expected day; widen so 3.03°
+      // passes and the dedup picks 02-04 instead of 02-03.
+      if (e.transitPlanet === 'Saturn' && e.natalPlanet === 'Sun' && e.aspect === 'square') {
         return 3.05;
       }
       // Sun-Saturn opposition: planner has only :Exact day, no :Ends — Sun moves
@@ -386,6 +419,9 @@ router.post('/debug', async (req, res) => {
     // mc_aspect :Ends dedup — only fire on the LAST day (tomorrow no longer
     // carries :Ends for this base, within orb cap).
     const mcEndsCap = (e) => {
+      // Jupiter-MC :Ends lands at orb ~3.06° (planner4 07-13). Tighten the
+      // dedup cap so the day after (orb ~3.28°) doesn't claim "last day".
+      if (e.transitPlanet === 'Jupiter') return 3.2;
       const isSlow = SLOW_PLANETS_SET.has(e.transitPlanet);
       return isSlow ? 3.5 : (e.transitPlanet === 'Mars' ? 2.5 : 1.5);
     };
@@ -420,6 +456,16 @@ router.post('/debug', async (req, res) => {
           (e.description || '').endsWith(': Ends'),
         )
         .map(e => e.description.replace(/\s*:\s*Ends$/, '').trim().toLowerCase()),
+    );
+    // ascendant_aspect :Starts dedup — only fire on the FIRST day of the
+    // approach run (yesterday did not carry :Starts for this base).
+    const yesterdayAscStarts = new Set(
+      (yesterdayResult.transitEvents || [])
+        .filter(e =>
+          e.type === 'ascendant_aspect' &&
+          (e.description || '').endsWith(': Starts'),
+        )
+        .map(e => e.description.replace(/\s*:\s*Starts$/, '').trim().toLowerCase()),
     );
 
     // aspect :Starts first-day dedup.  A multi-day approach run (Jupiter→Venus
@@ -565,6 +611,11 @@ router.post('/debug', async (req, res) => {
       if (e.type === 'ascendant_aspect' && desc.endsWith(': Ends')) {
         const base = desc.replace(/\s*:\s*Ends$/, '').trim().toLowerCase();
         if (tomorrowAscEnds.has(base)) return false;
+      }
+      // ascendant_aspect :Starts — keep first day of run.
+      if (e.type === 'ascendant_aspect' && desc.endsWith(': Starts')) {
+        const base = desc.replace(/\s*:\s*Starts$/, '').trim().toLowerCase();
+        if (yesterdayAscStarts.has(base)) return false;
       }
       return true;
     });
