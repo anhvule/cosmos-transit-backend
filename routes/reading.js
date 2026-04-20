@@ -17,6 +17,7 @@ const investmentDb = require('../db/investment');
 const careerDb = require('../db/career');
 const relationshipDb = require('../db/relationship');
 const networkDb = require('../db/network');
+const engineeringDb = require('../db/engineering');
 
 // Pre-compile lookup statement for performance
 const lookupEvent = db.prepare('SELECT description FROM events WHERE name = ?');
@@ -24,6 +25,7 @@ const lookupInvestmentEvent = investmentDb.prepare('SELECT description FROM even
 const lookupCareerEvent = careerDb.prepare('SELECT description FROM events WHERE name = ?');
 const lookupRelationshipEvent = relationshipDb.prepare('SELECT description FROM events WHERE name = ?');
 const lookupNetworkEvent = networkDb.prepare('SELECT description FROM events WHERE name = ?');
+const lookupEngineeringEvent = engineeringDb.prepare('SELECT description FROM events WHERE name = ?');
 
 /**
  * Strip : Exact / : Starts / : Ends qualifiers from an event description
@@ -59,6 +61,11 @@ function getRelationshipEventInterpretation(description) {
 
 function getNetworkEventInterpretation(description) {
   const row = lookupNetworkEvent.get(baseEventName(description));
+  return row ? row.description : '';
+}
+
+function getEngineeringEventInterpretation(description) {
+  const row = lookupEngineeringEvent.get(baseEventName(description));
   return row ? row.description : '';
 }
 
@@ -691,6 +698,7 @@ router.post('/investment', makeDebugHandler(getInvestmentEventInterpretation));
 router.post('/career', makeDebugHandler(getCareerEventInterpretation));
 router.post('/relationship', makeDebugHandler(getRelationshipEventInterpretation));
 router.post('/network', makeDebugHandler(getNetworkEventInterpretation));
+router.post('/engineering', makeDebugHandler(getEngineeringEventInterpretation));
 
 /**
  * POST /api/events-calendar
