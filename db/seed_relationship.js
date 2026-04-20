@@ -1,0 +1,592 @@
+const db = require('./relationship');
+
+const events = [
+  {
+    name: 'Moon Transits the 8th House',
+    description: "Deep-seated emotional insecurities and fears of betrayal rise to the surface, potentially triggering sudden bouts of depression. Sexual intimacy may feel intense but emotionally fraught, leading to power struggles or misunderstandings with your partner. Guard against irrational paranoia that can provoke unnecessary conflict and secretive behavior.",
+  },
+  {
+    name: 'Moon aspect Venus in 8th house',
+    description: "A powerful, almost obsessive longing for deep emotional and sexual fusion takes over. You may be drawn to secretive or taboo romantic encounters, or experience a profound rekindling of intimacy with a past partner. While magnetism is extraordinarily high, emotional vulnerability can lead to painful misunderstandings if trust is not established.",
+  },
+  {
+    name: 'Venus ruler of the 2nd House in the 8th House',
+    description: "Conflicts with your partner frequently revolve around shared finances, deep-rooted values, and hidden emotional needs. Intimacy is heavily intertwined with feelings of material security, and a lack of transparency can lead to intense arguments. Healing comes through uncovering childhood secrets that have subconsciously sabotaged your capacity for open love.",
+  },
+  {
+    name: 'Venus ruler of the 7th House in the 8th house',
+    description: "This is a highly transformative but challenging karmic placement for partnerships, heavily predisposing the relationship to secretive behavior, sexual intensity, or sudden upheaval. Trust is intensely tested, and fears of abandonment or betrayal can lead to deep emotional crises or divorce. Intimacy becomes a battlefield where profound psychological wounds must be resolved.",
+  },
+  {
+    name: 'Moon aspect Mercury in 8th house',
+    description: "Overthinking your relationship dynamics can trap you in a cycle of anxiety and emotional detachment. You may find yourself neurotically analyzing your partner's words, looking for hidden meanings that spark misunderstandings. However, clear, deeply psychological conversations about your sex life and hidden fears can foster profound emotional healing.",
+  },
+  {
+    name: 'Mercury ruler of the 3rd House in the 8th House',
+    description: "Communication in relationships is often defensive, secretive, or easily misunderstood, leading to sudden and explosive arguments. Early developmental traumas make it difficult to articulate your true emotional needs to a partner, fostering isolation and depression. Deep psychological self-analysis is required to stop projecting your inner turmoil onto loved ones.",
+  },
+  {
+    name: 'Mercury ruler of the 6th House in the 8th House',
+    description: "Anxiety and stress from daily life severely disrupt your emotional equilibrium, often manifesting as a loss of sexual desire or petty arguments with your partner. Misunderstandings frequently arise from an obsessive focus on flaws within the relationship. You must consciously separate your mental exhaustion from your romantic life to avoid chronic conflict.",
+  },
+  {
+    name: 'Moon aspect Mars in 8th house',
+    description: "Volatile emotions and repressed anger can erupt into intense, passionate arguments with your partner. Sexual energy is aggressive and can be used as a weapon for dominance or a tool for profound, raw connection. You must actively redirect jealous or vindictive feelings to avoid destructive misunderstandings.",
+  },
+  {
+    name: 'Mars ruler of the 1st House in the 8th House',
+    description: "You project an aura of intense, brooding passion, but inner emotional struggles often sabotage your relationships. A deep-seated fear of vulnerability makes you defensive, leading to frequent conflicts and a tendency to attract chaotic or secretive partners. Confronting your own psychological darkness is essential to achieving stable, trusting intimacy.",
+  },
+  {
+    name: 'Mars ruler of the 8th House in the 8th House',
+    description: "Your sexual and emotional needs are profound, possessing a raw, almost psychic intensity that can overwhelm a partner. Issues of shame, guilt, or past trauma make you fiercely private, sometimes leading to emotional withdrawal or depression. When trust is established, the relationship becomes a powerful vehicle for mutual psychological and sexual transformation.",
+  },
+  {
+    name: 'Moon Transits the 9th House',
+    description: "Emotional conflicts may arise from fundamental differences in beliefs, morals, or future visions with your partner. You may feel restless or disconnected, seeking higher meaning and feeling depressed if the relationship feels spiritually stagnant. Open, philosophical discussions are needed to bridge the gap and prevent ideological arguments.",
+  },
+  {
+    name: 'Moon aspect Sun in 9th house',
+    description: "A harmonious alignment where your core identity and emotional needs find common ground in shared beliefs with your partner. Misunderstandings can be resolved by appealing to your mutual moral compass and higher ideals. It is a time of emotional renewal, where love is strengthened through a shared vision of the future.",
+  },
+  {
+    name: 'Sun ruler of the 5th House in the 9th House',
+    description: "Romantic love is idealized, and you seek a partner who is also a spiritual or philosophical guide. Conflicts rarely stem from petty issues but rather from clashes over fundamental truths or child-rearing philosophies. There is a deep, warm emotional connection that thrives on mutual respect and shared adventures.",
+  },
+  {
+    name: 'Moon aspect Rahu in 9th house',
+    description: "Fanatical emotions or obsessive beliefs can severely disrupt relationship harmony, causing you to project unrealistic expectations onto your partner. Sudden, intense arguments may flare up over cultural differences or moral judgments. You are prone to emotional illusions, confusing obsessive attachment with spiritual connection.",
+  },
+  {
+    name: 'Moon aspect Ketu in 3rd house',
+    description: "Communication with your partner feels disjointed, leading to a profound sense of emotional isolation or apathy. You may lack the desire to engage in arguments, instead withdrawing into a detached, depressive state. A unique, non-verbal emotional understanding is required to navigate this lack of conventional intimacy.",
+  },
+  {
+    name: 'Moon Transits the 10th House',
+    description: "Public reputation and career stressors heavily infiltrate your emotional life, leading to coldness or neglect in your partnership. You may project authority onto your partner or resent them for not supporting your ambitions, sparking power struggles. Emotional vulnerability is suppressed in favor of maintaining control, creating distance.",
+  },
+  {
+    name: 'Sun Transits the 12th House',
+    description: "A period of deep emotional withdrawal where past relationship failures and repressed grief come to the surface, often triggering depression. You may feel an urge to isolate yourself from your partner, leading them to feel abandoned or rejected. Hidden enemies or secret romantic desires can create significant inner conflict and misunderstanding.",
+  },
+  {
+    name: 'Moon aspect Saturn in 10th house',
+    description: "A heavy, depressive energy pervades your emotional expression, making you feel unloved or burdened by relationship responsibilities. You may perceive your partner as critical or demanding, leading to defensive walls and a lack of sexual intimacy. Conflict arises from emotional starvation and the rigid enforcement of boundaries.",
+  },
+  {
+    name: 'Saturn ruler of the 10th House in the 10th House',
+    description: "Your primary emotional investment is in your public life, often leaving your romantic partner feeling neglected and starved for affection. Intimacy is treated as a duty rather than a passion, leading to a sterile or highly structured relationship dynamic. Deep-seated fears of failure prevent you from fully surrendering to emotional vulnerability.",
+  },
+  {
+    name: 'Saturn ruler of the 11th House in the 10th House',
+    description: "You seek practical, grounded support from a partner rather than passionate romance, valuing loyalty over emotional depth. Conflicts arise if your partner demands excessive emotional validation that you are unwilling to provide. Misunderstandings occur when your pragmatic approach to love is mistaken for coldness or lack of interest.",
+  },
+  {
+    name: 'Moon Transits the 11th House',
+    description: "Interference from friends or social groups can create unexpected friction and jealousy within your romantic partnership. You may feel emotionally drained by the demands of others, causing you to emotionally neglect your primary relationship. Misunderstandings arise from a lack of clear boundaries between your social life and private intimacy.",
+  },
+  {
+    name: 'Moon aspect Jupiter in 5th house',
+    description: "A beautiful period of emotional generosity, where your heart is open to giving and receiving deep, joyful love. Sexual intimacy is warm, playful, and spiritually uplifting, dissolving past resentments. Arguments are easily resolved through mutual forgiveness and a shared desire for happiness.",
+  },
+  {
+    name: 'Jupiter ruler of the 9th House in the 5th House',
+    description: "You attract partners who act as teachers or guides, and your emotional connection is rooted in shared wisdom and spiritual growth. Conflicts are rare but may occur if there is a perceived lack of moral integrity. Love is expansive, and physical intimacy is viewed as a sacred, joyful celebration of life.",
+  },
+  {
+    name: 'Jupiter ruler of the 12th House in the 5th House',
+    description: "Romantic relationships often carry a theme of sacrifice, secret sorrow, or karmic lessons that trigger deep introspection. You may fall in love with unavailable people or experience emotional misunderstandings due to your tendency to over-idealize partners. Healing requires channeling this emotional longing into profound spiritual or creative expression.",
+  },
+  {
+    name: 'Moon Transits the 12th House',
+    description: "Subconscious fears, past traumas, and deep-seated insecurities flood your mind, making you highly susceptible to depression and emotional isolation. You may unconsciously push your partner away or misinterpret their actions through a lens of past pain. Secret affairs or hidden desires may surface, leading to complex moral conflicts.",
+  },
+  {
+    name: 'Mars aspect Jupiter in 5th house',
+    description: "High physical energy and a strong desire for fun inject intense passion and sexual excitement into your romantic life. You are direct and bold in pursuing love, which can be thrilling but may lead to arguments if your partner feels overwhelmed. Overconfidence can lead to impulsive emotional decisions or dramatic, short-lived romances.",
+  },
+  {
+    name: 'Sun in 9th (Dispositor)',
+    description: "Your ego and sense of self-worth are deeply tied to your moral compass, meaning you cannot tolerate a partner who acts with deceit. Righteous indignation can cause severe arguments if you feel your partner lacks integrity. Emotional distance occurs when you judge your loved one rather than seeking to understand them.",
+  },
+  {
+    name: 'Moon aspect Moon in 6th house',
+    description: "Your emotional state is highly sensitive to the daily routines and criticisms of your partner, making you prone to nagging or petty arguments. Anxiety over the relationship's stability can manifest as physical illness or digestive issues. You must avoid adopting a victim mentality or treating your partner as a project to be fixed.",
+  },
+  {
+    name: 'Moon ruler of the 4th House in the 6th House',
+    description: "Childhood conditioning and deep-seated family trauma heavily influence your adult relationships, often leading to a subconscious attraction to conflict. You may feel emotionally burdened by your partner, viewing love as an act of service or a heavy debt to be paid. Chronic misunderstandings arise from unhealed emotional wounds regarding security and maternal care.",
+  },
+  {
+    name: 'Moon Transits the 1st House',
+    description: "You wear your heart on your sleeve, demanding immediate emotional validation and projecting your shifting moods directly onto your partner. Heightened sensitivity makes you easily offended, leading to defensive arguments. However, this transit also brings profound emotional honesty and the potential for a deeply nurturing, romantic reset.",
+  },
+  {
+    name: 'Moon Transits the 2nd House',
+    description: "Emotional security is heavily tethered to financial stability and physical affection, making you feel unloved if resources or touch are lacking. Arguments may flare up over shared expenses, spending habits, or perceived possessiveness. Comfort eating or emotional withdrawal can occur if you feel your self-worth is unappreciated by your partner.",
+  },
+  {
+    name: 'Venus aspect Moon in 6th house',
+    description: "A desire to nurture and harmonize clashes with a tendency to overly criticize your partner's habits or daily routines. Love is expressed through acts of service, but resentment builds if these efforts are not acknowledged, leading to passive-aggressive conflict. Intimacy requires overcoming a need for perfection and embracing emotional messiness.",
+  },
+  {
+    name: 'Mercury in 8th (Dispositor)',
+    description: "Your mind is a steel trap for emotional grievances, and you possess the ability to cut deeply with your words during arguments. You overanalyze your partner's psychology, often uncovering hidden truths but risking profound misunderstandings through suspicion. Open, brutally honest communication is the only way to release pent-up sexual and emotional tension.",
+  },
+  {
+    name: 'Moon Transits the 3rd House',
+    description: "Restless emotions and a hyperactive mind lead to rapid-fire communication that can easily be misinterpreted by your partner. You may use words to distance yourself emotionally, engaging in superficial chatter rather than vulnerable connection. Flirtation or emotional curiosity outside the relationship could spark jealousy or conflict.",
+  },
+  {
+    name: 'Venus Transits the 1st House',
+    description: "Your romantic magnetism and physical allure are dramatically heightened, making you incredibly attractive to your partner and others. You possess the charm to smooth over any recent arguments and reignite deep, sensual intimacy. However, narcissism or a demand for constant admiration can cause friction if your partner feels overshadowed.",
+  },
+  {
+    name: 'Moon Transits the 4th House',
+    description: "A deep craving for emotional safety and domestic harmony takes over, making you highly sensitive to your partner's moods within the home. Unresolved issues from your past or childhood may be unconsciously projected onto your lover, leading to nostalgic sadness or depression. True intimacy is found in quiet, private vulnerability and physical closeness.",
+  },
+  {
+    name: 'Mars aspect Moon in 6th house',
+    description: "Irritability and emotional impatience lead to sharp, stinging arguments with your partner over daily chores or responsibilities. You may feel a burning resentment that your emotional needs are being ignored, leading to impulsive outbursts. Sexual frustration is high, and physical intimacy may be used as a way to release pent-up aggressive energy.",
+  },
+  {
+    name: 'Uranus conjunct Venus',
+    description: "A highly volatile transit that injects shocking, electrifying energy into your love life, often leading to sudden attractions or abrupt breakups. The need for absolute emotional freedom clashes with traditional commitment, causing severe misunderstandings with a possessive partner. Sexual experimentation and unconventional relationship dynamics are favored, but stability is practically nonexistent.",
+  },
+  {
+    name: 'Mars in 8th (Dispositor)',
+    description: "Deep, combative psychological urges dominate your emotional landscape, making you crave intense, almost destructive levels of intimacy. Power struggles, jealousy, and possessiveness are common, as you view vulnerability as a threat. Transformative sexual encounters can heal trauma, but unresolved anger will poison the relationship from the inside out.",
+  },
+  {
+    name: 'Moon Transits the 5th House',
+    description: "A dramatic, expressive emotional state demands romance, attention, and playful interaction from your partner. If you feel ignored, you may resort to theatrical arguments or emotional manipulation to regain the spotlight. Sexual energy is creative and joyous, providing a perfect opportunity to reignite the spark and clear away depressive thoughts.",
+  },
+  {
+    name: 'Mars Transits the 12th House',
+    description: "Repressed anger and subconscious resentments simmer just below the surface, severely disrupting your sleep and emotional peace. You may engage in secretive behavior or attract partners who drain your energy and exacerbate feelings of depression. Confronting hidden enemies, including your own self-sabotaging sexual desires, is necessary to avoid toxic relationship patterns.",
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house',
+    description: "Communication with your partner flows effortlessly, filled with optimism, humor, and shared visions for the future. You are able to discuss complex emotional issues or past conflicts without defensiveness, leading to beautiful resolutions. This intellectual synergy heavily stimulates sexual attraction and romantic playfulness.",
+  },
+  {
+    name: 'Sun aspect Moon in 6th house',
+    description: "Ego and emotional needs clash over the balance of power in daily routines, leading to a critical and nitpicking dynamic with your partner. You may feel unappreciated for the unseen sacrifices you make, causing you to withdraw into a mild depression. Resolving these misunderstandings requires a humble evaluation of how you both serve the relationship.",
+  },
+  {
+    name: 'Sun Transits the 1st House',
+    description: "A surge of self-focus and vitality can make you appear domineering or insensitive to your partner's emotional needs. While your confidence is attractive and can lead to passionate encounters, a refusal to compromise will trigger fierce arguments. You must balance your desire for independence with the collaborative requirements of love.",
+  },
+  {
+    name: 'Mercury Transits the 12th House',
+    description: "Communication breaks down as you struggle to articulate complex, subconscious emotions, leading to profound misunderstandings with your partner. You may keep secrets to avoid conflict, but this emotional evasion only deepens feelings of isolation and depression. Intuitive, non-verbal connection and deep psychological reflection are required to maintain intimacy.",
+  },
+  {
+    name: 'Ketu aspect Sun in the 9th house: Exact',
+    description: "A deep sense of spiritual detachment or disillusionment affects your relationship, making you question the core purpose of your partnership. You may feel a karmic urge to walk away from a partner who does not align with your true path, leading to sudden, unexplainable distance. Ego clashes dissolve into apathy, and emotional fulfillment is sought purely within.",
+  },
+  {
+    name: 'Venus Aspecting Ascendant (ASC)',
+    description: "You project an aura of warmth, harmony, and sensual grace, drawing your partner closer and effortlessly resolving past arguments. Your desire for peace makes you highly agreeable, though you must be careful not to suppress your true feelings just to avoid conflict. Intimacy is deep, affectionate, and focused on mutual emotional and physical pleasure.",
+  },
+  {
+    name: 'Jupiter in 5th (Dispositor)',
+    description: "A deeply optimistic and expansive energy blesses your romantic life, allowing for grand gestures of love and profound emotional healing. You are generous with your affection, which naturally dissolves any lingering misunderstandings or depression. If single, you are highly likely to attract a partner who brings joy, wisdom, and vibrant sexual energy into your life.",
+  },
+  {
+    name: 'Moon Transits the 6th House',
+    description: "Emotional hypochondria and a hyper-focus on your partner's flaws create a tense, unromantic atmosphere prone to bickering. You may use acts of service as a shield against true vulnerability, leading to an emotionally sterile dynamic. Managing your own anxiety and digestive health is crucial to preventing minor irritations from escalating into major conflicts.",
+  },
+  {
+    name: 'Moon Transits the 7th House',
+    description: "Your emotional well-being is entirely dependent on your partner's mood, making you highly reactive and prone to codependency. You actively seek deep connection and sexual union, but fear of rejection can cause you to compromise your own boundaries. Open, balanced negotiation is required to prevent resentment and maintain emotional equilibrium.",
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house',
+    description: "A heavy, restrictive energy stifles emotional expression, causing you to feel judged or inadequate in the eyes of your partner. Rigid beliefs or a pessimistic outlook can lead to chronic depression and a deep sense of isolation within the relationship. Intimacy requires breaking down walls of pride and accepting that vulnerability is not a weakness.",
+  },
+  {
+    name: 'Venus Transits the 2nd House',
+    description: "You seek tangible proof of love through gifts, physical touch, and financial security, feeling unloved if these are withheld. Sensuality is heightened, making sexual intimacy slow, deeply physical, and deeply comforting. Misunderstandings only arise if you mistake material possessiveness for genuine emotional connection.",
+  },
+  {
+    name: 'Venus aspect Venus in 8th house',
+    description: "An incredibly intense, almost karmic pull toward deep sexual and emotional merging dominates your relationships. You crave a love that transforms you, but this intensity can easily tip into jealousy, possessiveness, and fear of betrayal. When channeled positively, this energy heals old wounds through profound, unshakable intimacy.",
+  },
+  {
+    name: 'Sun Aspecting Ascendant (ASC)',
+    description: "Your confidence and radiant energy command attention, bringing passion and vitality to your romantic life. However, an inflated ego may cause you to steamroll your partner's emotional needs, sparking arguments over who is in control. Mutual respect is necessary to ensure your bright light warms the relationship rather than burning it.",
+  },
+  {
+    name: 'Mercury Aspecting Ascendant (ASC)',
+    description: "Your mind is highly active, demanding constant intellectual stimulation and verbal engagement from your partner. While this allows for the rapid clearing of misunderstandings through logic, you may struggle to connect on a purely emotional or sexual level. Guard against using sharp sarcasm or logic as a weapon during moments of vulnerability.",
+  },
+  {
+    name: 'Venus aspect Mercury in 8th house',
+    description: "You are able to articulate your deepest, most hidden desires and fears to your partner with beautiful clarity. Conversations about sex, shared resources, and psychological triggers heal old wounds and bring you closer. It is a powerful time for pillow talk that transforms the foundation of your intimacy.",
+  },
+  {
+    name: 'Venus aspect Mars in 8th house',
+    description: "A volatile mix of lust, jealousy, and extreme passion creates a highly charged atmosphere in your relationship. Sexual chemistry is magnetic and explosive, often serving as the primary way you resolve deep-seated arguments. You must be cautious of toxic power struggles, as the line between love and destructive obsession is perilously thin.",
+  },
+  {
+    name: 'Mars aspect Venus in 8th house',
+    description: "Aggressive sexual desires and a craving for absolute emotional possession dominate your interactions. You may intentionally provoke conflict with your partner just to experience the passionate intensity of making up. If trust is lacking, this aspect breeds severe paranoia, betrayal, and deeply wounding misunderstandings.",
+  },
+  {
+    name: 'Venus Transits the 3rd House',
+    description: "Love is expressed through sweet words, flirtatious text messages, and playful banter, keeping the relationship light and free of depression. You seek a partner who is also a friend, and intellectual compatibility becomes the primary driver of sexual attraction. Misunderstandings are easily smoothed over through charming and diplomatic communication.",
+  },
+  {
+    name: 'Mercury Transits the 2nd House',
+    description: "Conversations with your partner heavily center around finances, shared values, and material security, requiring pragmatic honesty. You may use logical arguments to mask deep emotional insecurities regarding your self-worth. Clear communication about what you truly value will prevent stubborn conflicts over money and possession.",
+  },
+  {
+    name: 'Sun Transits the 2nd House',
+    description: "Your ego is closely tied to your ability to provide or maintain control over shared resources, leading to potential power struggles with your partner. Arguments about money mask deeper emotional issues regarding self-esteem and feeling valued. You must learn to separate your inherent worth from your financial contributions to maintain harmony.",
+  },
+  {
+    name: 'Mercury Transits the 1st House',
+    description: "You are eager to express your feelings and discuss the relationship dynamic, but your approach may be overly analytical and lacking emotional depth. You run the risk of talking *at* your partner rather than *with* them, sparking arguments born of intellectual arrogance. True connection requires listening just as fiercely as you speak.",
+  },
+  {
+    name: 'Mars Transits the 1st House',
+    description: "A surge of fiery independence makes you highly combative, impatient, and easily provoked into fierce arguments with your partner. Sexual energy is aggressive and self-focused, demanding immediate gratification rather than emotional communion. You must consciously channel this aggressive energy into physical activity to avoid burning down your relationship.",
+  },
+  {
+    name: 'Mars aspect Ketu in 3rd house',
+    description: "Deep-seated anger and frustration become blocked, leading to a volatile internal state where you feel completely misunderstood by your partner. You may abruptly cut off communication or walk away from arguments, causing severe emotional whiplash. The inability to express your passions verbally can lead to depressive apathy or sudden, inexplicable severances.",
+  },
+  {
+    name: 'Mercury aspect Venus in 8th house',
+    description: "You possess the psychological insight to lovingly dissect your relationship dynamics, bringing hidden resentments into the light for healing. Conversations about intimacy, shared trauma, and sexual desires flow easily, deepening the bond. It is an excellent time to renegotiate boundaries and clear up any lingering misunderstandings regarding trust.",
+  },
+  {
+    name: 'Sun aspect Venus in 8th house',
+    description: "Your ego demands intense, transformative love, and you may purposefully test your partner to ensure their absolute loyalty. Jealousy and possessiveness can overshadow genuine affection, leading to painful power struggles. True intimacy is achieved only when you stop trying to control the relationship and surrender to deep emotional vulnerability.",
+  },
+  {
+    name: 'Mercury aspect Mercury in 8th house',
+    description: "Your mind becomes obsessive, analyzing every detail of your partner's behavior for signs of deceit or hidden agendas. This hyper-focus can breed profound misunderstandings if you substitute paranoid logic for actual emotional truth. Channel this psychological acuity into understanding your own fears rather than interrogating your loved one.",
+  },
+  {
+    name: 'Venus aspect Sun in 9th house',
+    description: "Love is expansive, generous, and closely tied to a shared sense of higher purpose and moral integrity. You view your partner with deep admiration, and conflicts are easily resolved by focusing on your mutual long-term vision. The relationship serves as a guiding light, protecting you both from feelings of despair or depression.",
+  },
+  {
+    name: 'Mars Aspecting Ascendant (ASC)',
+    description: "You project an intimidating, highly sexualized energy that can either deeply attract or aggressively repel a partner. Your quick temper means arguments ignite rapidly, often over trivial matters where you refuse to yield. You must learn to soften your approach to intimacy, ensuring passion does not devolve into emotional bullying.",
+  },
+  {
+    name: 'Venus aspect Rahu in 9th house',
+    description: "An intoxicating but potentially illusionary desire for an exotic or idealized romance sweeps you away. You may project unrealistic, almost fanatical expectations onto your partner, setting the stage for deep disappointment and misunderstanding. Cross-cultural love affairs or unconventional sexual explorations are highly favored, but require strong grounding in reality.",
+  },
+  {
+    name: 'Venus aspect Ketu in 3rd house',
+    description: "A profound sense of emotional detachment characterizes your interactions, making you feel disconnected even during physical intimacy. You may feel karmically drawn to past lovers, or experience a sudden loss of desire for your current partner. Misunderstandings arise from your inability to verbalize this strange, fading affection, leading to mutual confusion.",
+  },
+  {
+    name: 'Mercury aspect Mars in 8th house',
+    description: "Your communication style becomes razor-sharp, piercing, and highly combative, making arguments with your partner deeply wounding. You possess a psychological edge that you may use to attack their insecurities when you feel threatened. Transform this destructive mental energy by engaging in honest, unfiltered discussions about your mutual sexual and emotional frustrations.",
+  },
+  {
+    name: 'Mercury Transits the 3rd House',
+    description: "Your mind is eager to connect, making you highly communicative, flirtatious, and attentive to your partner's daily needs. Misunderstandings are rare because you are willing to discuss every detail until a logical resolution is found. However, beware of prioritizing logical debates over deep, silent emotional resonance.",
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house',
+    description: "Intense mental agitation and a paranoid focus on hidden secrets drive you to interrogate your partner ruthlessly. Arguments escalate quickly as you refuse to let go of perceived slights, turning minor disagreements into deep psychological warfare. You must consciously step back from obsessive thoughts to prevent destroying the trust in your relationship.",
+  },
+  {
+    name: 'Jupiter Transits the 4th House',
+    description: "A beautiful period of domestic peace, emotional healing, and a deep sense of security within your partnership. Past resentments and underlying depression melt away as you focus on creating a loving, nurturing home environment together. Intimacy is deeply comforting, grounded in mutual support and a shared foundation.",
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house',
+    description: "A highly fortunate aspect that brings profound emotional healing, sexual abundance, and deep psychological understanding to your partnership. You are able to forgive past betrayals and expand your capacity for transformative, unconditional love. Hidden resources—both emotional and financial—become available, strengthening the bond significantly.",
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house',
+    description: "Your conscious mind is deeply focused on the underlying mechanics of your relationship, seeking to understand the root causes of conflict. You may become overly analytical, demanding clear explanations for your partner's complex emotions. True clarity comes when you align your logical inquiries with genuine empathy and psychological insight.",
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house',
+    description: "Communication with your partner is elevated, focusing on shared truths, philosophies, and long-term goals. You find emotional validation through intellectual agreement, and arguments are resolved by appealing to higher moral standards. This transit fosters a deep respect that acts as a strong foundation for lasting intimacy.",
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house',
+    description: "Communication severely breaks down, characterized by misunderstandings, misread signals, and a profound inability to articulate your emotional needs. You may feel a depressive apathy toward discussing relationship issues, preferring silence over futile arguments. You must rely on intuitive, non-verbal connection to bridge the gap until mental clarity returns.",
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house',
+    description: "Your mind races with unconventional ideas and obsessive thoughts regarding the future of your relationship. You may engage in frantic, overly intellectualized arguments with your partner regarding beliefs or moral superiority. Beware of deceit or self-delusion in communication, as you are prone to making promises you cannot spiritually uphold.",
+  },
+  {
+    name: 'Venus Transits the 4th House',
+    description: "You seek absolute peace, emotional safety, and deep affection within the private sanctuary of your home. You and your partner bond over shared domestic bliss, creating a strong buffer against outside stress or depression. Physical intimacy is gentle, deeply romantic, and heavily tied to feelings of emotional belonging.",
+  },
+  {
+    name: 'Sun aspect Mars in 8th house',
+    description: "Ego and raw aggression collide in the deepest, most vulnerable areas of your relationship, sparking intense power struggles. You may fiercely guard your secrets while demanding absolute transparency from your partner, leading to explosive, damaging arguments. Sexual intimacy can be highly dominant or combative, requiring immense trust to prevent emotional trauma.",
+  },
+  {
+    name: 'Venus Aspecting Midheaven (MC)',
+    description: "Your public image and career are deeply intertwined with your romantic life, and you may seek a partner who elevates your social status. You project charm and grace, making it easy to attract love, but conflicts may arise if the relationship feels more like a PR arrangement than genuine intimacy. Ensure true emotional depth supports your outward harmony.",
+  },
+  {
+    name: 'Saturn in 10th (Dispositor)',
+    description: "The immense pressure of public duty and career ambition crushes your emotional availability, leaving your partner feeling chronically isolated. A deep-seated fear of failure leads to functional depression, where romance and sex are discarded as frivolous distractions. Misunderstandings crystallize into rigid walls if you refuse to prioritize emotional vulnerability over professional control.",
+  },
+  {
+    name: 'Jupiter Aspecting Midheaven (MC)',
+    description: "A sense of grand optimism and expansive growth blesses your approach to both career and relationships. You offer generous support to your partner's ambitions, and conflicts are easily dissolved by your overarching desire for mutual success. Joy and public validation act as strong antidotes to any lingering private depression.",
+  },
+  {
+    name: 'Sun Transits the 3rd House',
+    description: "Your ego seeks validation through clear, decisive communication, and you demand intellectual respect from your partner. Arguments may occur if you adopt a condescending or overly authoritative tone during everyday discussions. However, your strong, confident energy can also sweep away misunderstandings and reignite mental attraction.",
+  },
+  {
+    name: 'Mars aspect Mars in 8th house',
+    description: "A highly volatile placement where primal aggression meets deep psychological vulnerability, creating a powder keg in relationships. You fight fiercely with your partner, and sexual intimacy is often raw, dominant, and driven by a need for ultimate control. Unresolved anger easily mutates into paranoia, making it vital to practice emotional surrender.",
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house',
+    description: "Love is viewed through a lens of duty, restriction, and public expectation, making spontaneous romance incredibly difficult. You may feel unloved or heavily criticized by your partner, leading to a cold, depressive emotional environment. Intimacy requires breaking through immense walls of fear and learning to trust that vulnerability will not lead to rejection.",
+  },
+  {
+    name: 'Sun Transits the 12th House',
+    description: "Your vitality drops, and ego defenses crumble, forcing you to confront deep subconscious fears and unresolved relationship karma. You may isolate yourself from your partner, triggering profound misunderstandings and feelings of mutual abandonment. Secret emotional affairs or hidden grief can severely impact your capacity for true, present-moment intimacy.",
+  },
+  {
+    name: 'Mercury aspects the Moon in the 6th house',
+    description: "You hyper-analyze every emotional nuance and minor flaw in your relationship, leading to chronic anxiety and nagging. Arguments frequently erupt over chores, health, or daily habits, leaving both you and your partner emotionally exhausted. You must calm your nervous system to prevent your critical mind from destroying romantic affection.",
+  },
+  {
+    name: 'Sun Transits the 2nd House',
+    description: "Conflicts over self-worth, possessiveness, and financial control dominate the relationship dynamic. You demand tangible, material proof of your partner's loyalty, and arguments flare fiercely if you feel emotionally undervalued. Balancing the ego's need for security with the heart's need for unconditional love is required to restore peace.",
+  },
+  {
+    name: 'Sun Transits the 3rd House',
+    description: "You assert your willpower through communication, often insisting on having the final word in any disagreement with your partner. While your clarity can swiftly cut through confusion, your refusal to compromise can lead to bitter, ego-driven arguments. Intellectual dominance must be softened with emotional empathy to maintain connection.",
+  },
+  {
+    name: 'Mars Transits the 2nd House',
+    description: "Fierce arguments erupt over money, shared resources, and fundamental values, severely threatening emotional security. You use your words as weapons, engaging in harsh, impulsive speech that causes deep misunderstandings and wounds your partner. Sexual energy is intensely physical and possessive, demanding complete surrender.",
+  },
+  {
+    name: 'Mercury Transits the 4th House',
+    description: "Your mind turns inward to family dynamics and childhood memories, deeply coloring how you communicate with your partner. You may intellectually dissect your emotional foundations, which can heal past traumas or lead to neurotic over-analysis of your shared domestic life. Intimate conversations in the safety of your home foster deep connection.",
+  },
+  {
+    name: 'Pluto conjunct Saturn',
+    description: "An incredibly heavy, karmic aspect that enforces brutal structural changes in your relationship through intense pressure and restriction. You may endure prolonged periods of emotional depression, facing deep fears of abandonment or control. Only relationships built on absolute truth and resilience can survive this profound, grueling transformation.",
+  },
+  {
+    name: 'Sun aspects Sun in 9th house',
+    description: "A powerful alignment of ego and higher purpose, bringing immense clarity and mutual respect to your partnership. You inspire your partner to grow, and arguments are virtually non-existent when you share a unified moral and spiritual vision. This aspect burns away petty insecurities, replacing them with a confident, enlightened love.",
+  },
+  {
+    name: 'Sun aspect Ketu in the 3rd house',
+    description: "Your ego feels dissolved or rejected in communication, making you feel entirely unheard and misunderstood by your partner. You lack the willpower to argue, often withdrawing into a state of quiet depression and emotional apathy. You must let go of the need for constant validation and find peace in silent, spiritual detachment.",
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house',
+    description: "A relentless, obsessive drive to impose your beliefs and ego onto your partner causes severe ideological clashes. You may suffer from delusions of grandeur, causing deep misunderstandings as your partner rebels against your dogmatic control. Emotional connection is lost in the chaotic pursuit of a false or fanatical truth.",
+  },
+  {
+    name: 'Venus Transits the 5th House',
+    description: "A beautiful, deeply romantic transit that brings profound joy, playful flirtation, and a surge of creative sexual expression. You fall in love easily, and existing partnerships are revitalized through shared fun and deep emotional warmth. Misunderstandings evaporate in the face of genuine affection and an open, generous heart.",
+  },
+  {
+    name: 'Mars aspect Sun in 9th house',
+    description: "Aggressive passions and strong egos clash over philosophical differences or moral judgments within the relationship. You are fiercely defensive of your beliefs, leading to fiery arguments where neither you nor your partner will back down. Sexual energy is vibrant but competitive, requiring mutual respect to avoid turning the bedroom into a battleground.",
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house',
+    description: "Explosive, fanatical anger erupts abruptly, causing severe disruptions and potential severances over ideological differences with your partner. You act impulsively and aggressively, driven by a chaotic, obsessive energy that destroys trust and breeds profound misunderstandings. Physical and emotional volatility makes this a dangerous time for relationship stability.",
+  },
+  {
+    name: 'Jupiter aspect Saturn in 10th house',
+    description: "A period of stabilizing growth where you and your partner work hard to build a solid, respectable foundation for your shared future. Emotional patience and loyalty replace the need for fleeting passion, curing underlying anxieties or depression regarding commitment. Misunderstandings are handled with mature grace and a long-term perspective.",
+  },
+  {
+    name: 'Sun Transits the 4th House',
+    description: "Your ego and vital energy withdraw into the private domestic sphere, making you fiercely protective of your emotional boundaries. Conflicts arise if your partner disturbs your sanctuary or challenges your authority within the home. Deep introspection can heal old family wounds, but isolation may lead to a heavy, brooding mood.",
+  },
+  {
+    name: 'Sun Aspecting Midheaven (MC)',
+    description: "Your relationship dynamic is put on public display, and your partner's actions deeply affect your ego and reputation. You desire a powerful 'power couple' dynamic, but power struggles will ensue if one partner feels overshadowed. Ensure your outward success does not come at the cost of authentic, private intimacy.",
+  },
+  {
+    name: 'Venus aspect Jupiter in 5th house',
+    description: "An incredibly auspicious time for love, characterized by deep emotional fulfillment, extreme generosity, and passionate romance. You and your partner share a joyous, expansive physical intimacy that heals all past grievances. There is a profound sense of mutual appreciation that actively repels depression and conflict.",
+  },
+  {
+    name: 'Sun aspect Saturn in 10th house',
+    description: "The heavy burden of career and public expectation crushes your emotional vitality, leaving the relationship feeling cold and burdensome. You may project authority and criticism onto your partner, or feel intensely restricted by their demands, leading to chronic depression. True intimacy is blocked by an immense fear of vulnerability and failure.",
+  },
+  {
+    name: 'Venus Transits the 6th House',
+    description: "Love is expressed through dutiful service, but an over-analytical focus on your partner's flaws can drain the romance completely. You may feel unappreciated, leading to passive-aggressive behavior and petty arguments over daily chores. Intimacy is hindered by anxiety, requiring you to let go of perfectionism to truly connect.",
+  },
+  {
+    name: 'Mars Transits the 3rd House',
+    description: "You are highly combative, quick-witted, and prone to using harsh, aggressive words that cut your partner deeply. Arguments flare up instantly, often over minor misunderstandings or a desire to prove your intellectual dominance. Sexual energy is fast and impulsive, but lacks the emotional depth needed for lasting satisfaction.",
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC)',
+    description: "Fierce ambition and aggressive energy dominate your life, heavily bleeding into your relationship and causing power struggles. You demand absolute support from your partner and will initiate conflict if you feel held back. Sexual tension is high, but the relationship risks becoming a battleground for dominance rather than a sanctuary of love.",
+  },
+  {
+    name: 'Mercury Aspecting Midheaven (MC)',
+    description: "Your communication with your partner is heavily focused on practical matters, career goals, and public image. While this ensures alignment on future plans, it can leave the relationship feeling devoid of emotional warmth or romance. Ensure you take time to articulate your feelings, not just your strategies, to prevent emotional distance.",
+  },
+  {
+    name: 'Mercury aspect Saturn in 10th house',
+    description: "Communication becomes rigid, pessimistic, and heavily guarded, leading to profound misunderstandings and a depressive emotional atmosphere. You expect rejection and therefore speak with a cold authority that alienates your partner. Breaking this deadlock requires immense patience and the courage to articulate your deepest fears of inadequacy.",
+  },
+  {
+    name: 'Sun Transits the 5th House',
+    description: "Your heart opens with dramatic flair, demanding center stage in your romantic life. You seek passionate, joyful connection, but immense pride can lead to fierce arguments if you feel your partner is ignoring your needs. Sexual expression is confident and vital, burning away depressive thoughts through sheer creative energy.",
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house',
+    description: "Intense frustration builds as your aggressive desires clash with rigid boundaries, leading to severe emotional blockages and explosive, bitter arguments. You feel controlled or restricted by your partner, resulting in deep resentment and a complete shutdown of sexual intimacy. This toxic pressure cooker demands a safe, structural release to avoid destroying the partnership.",
+  },
+  {
+    name: 'Mercury Transits the 5th House',
+    description: "You crave intellectual stimulation and playful banter in your romantic life, finding deep emotional connection through shared ideas. Misunderstandings are swiftly cleared up through rational, creative discussions. However, beware of treating your partner's deep emotions as mere psychological puzzles to be solved rather than feelings to be held.",
+  },
+  {
+    name: 'Jupiter aspect Mercury in 8th house',
+    description: "A brilliant time for deep psychological exploration with your partner, allowing you to unravel complex emotional traumas with optimism and grace. You communicate about taboo subjects, sex, and shared fears with profound understanding, completely eliminating misunderstandings. This mental synergy acts as a powerful healing force against depression.",
+  },
+  {
+    name: 'Venus Transits the 7th House',
+    description: "A transit dedicated entirely to harmony, where you seek deep emotional and physical union with your partner above all else. You are highly compromising, eager to resolve past conflicts, and deeply invested in mutual pleasure. However, a fear of being alone can lead to codependency, causing you to sweep genuine issues under the rug.",
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house',
+    description: "Deep, karmic fears clash with chaotic, obsessive desires, creating a terrifying internal conflict that severely destabilizes your relationship. You may project heavy blame onto your partner for your spiritual or ideological failures, leading to bitter, irreconcilable arguments. A profound, depressive crisis of faith requires radical honesty to overcome.",
+  },
+  {
+    name: 'Mercury Transits the 6th House',
+    description: "Your mind is plagued by nervous anxiety, causing you to constantly critique and nag your partner over trivial daily matters. Communication is fraught with worry, and hypochondria can severely dampen any desire for sexual intimacy. You must actively stop dissecting the relationship to prevent chronic misunderstandings and emotional exhaustion.",
+  },
+  {
+    name: 'Sun aspect Jupiter in the 5th house',
+    description: "Ego and optimism blend perfectly, bringing an era of immense joy, generosity, and romantic success to your partnership. You possess a bright, healing energy that naturally dissolves your partner's insecurities and wards off depression. Mutual respect and a shared desire for a beautiful life make conflicts incredibly rare.",
+  },
+  {
+    name: 'Sun Transits the 6th House',
+    description: "Ego clashes occur over issues of service, health, and unequal division of labor, making you deeply resentful of your partner. You feel emotionally drained and unappreciated, which can manifest as physical illness or a heavy, depressive mood. Healing requires setting strict boundaries and demanding mutual respect in the daily grind of life.",
+  },
+  {
+    name: 'Mars Transits the 4th House',
+    description: "Aggressive, volatile energy invades your home, turning your private sanctuary into a war zone of domestic disputes. Unresolved childhood trauma and deep-seated emotional pain trigger explosive anger toward your partner. You must find a safe outlet for this intense emotional pain to prevent permanently damaging the foundation of your trust.",
+  },
+  {
+    name: 'Mercury Transits the 7th House',
+    description: "Open, objective negotiation is the dominant theme, allowing you and your partner to clearly define boundaries and clear up past misunderstandings. You seek a mental equal, and emotional intimacy is achieved through mutual understanding rather than pure passion. Guard against over-intellectualizing your love life, ensuring you still connect on a heart level.",
+  },
+  {
+    name: 'Sun Transits the 7th House',
+    description: "Your ego identity is intensely wrapped up in your partnership, often leading to power struggles over who dictates the relationship's direction. You may project your own insecurities onto your partner, demanding they validate you constantly to stave off depression. True balance requires surrendering dominance and treating your partner as a true equal.",
+  },
+  {
+    name: 'Jupiter Transits the 5th House',
+    description: "A highly fortunate transit that expands your heart, bringing immense joy, romantic opportunities, and deep emotional healing. You are generous and forgiving, naturally dissolving any past conflicts or misunderstandings with your partner. Sexual intimacy is viewed as a joyous, spiritual celebration, deeply protecting the relationship from negativity.",
+  },
+  {
+    name: 'Mars Transits the 5th House',
+    description: "Passionate, dramatic, and intensely competitive energy rules your love life, leading to thrilling romance but also explosive, ego-driven arguments. You demand constant excitement and may provoke your partner just to feel the rush of conflict and the ensuing sexual makeup. You must control your impatience and impulsive anger to avoid burning out the relationship.",
+  },
+  {
+    name: 'Sun Transits the 8th House',
+    description: "The ego descends into the underworld, triggering deep psychological crises, fears of abandonment, and intense power struggles with your partner. You are highly suspicious, prone to depression, and may use sex as a tool for control rather than connection. Immense transformation is possible, but only by facing your darkest fears of betrayal and surrendering to vulnerability.",
+  },
+  {
+    name: 'Rahu Transits the 10th House',
+    description: "An obsessive, chaotic ambition for worldly success consumes you, causing severe neglect of your emotional life and partnership. The illusion of status makes you emotionally distant, leading to deep misunderstandings as your partner feels abandoned. This relentless outward drive often masks a profound inner emptiness and fear of genuine intimacy.",
+  },
+  {
+    name: 'Ketu Transits the 4th House',
+    description: "A profound sense of emotional detachment from your home and roots makes you feel utterly isolated, even when lying next to your partner. You experience a deep, unexplainable depression and a desire to escape domestic responsibilities, leading to intense misunderstandings. Healing requires acknowledging this karmic emotional void without blaming your loved ones.",
+  },
+  {
+    name: 'Mercury Transits the 8th House',
+    description: "Your mind probes the deepest, darkest secrets of your relationship, leading to intense conversations about sex, trauma, and shared resources. While you can uncover hidden truths and heal past betrayals, paranoia can also cause you to twist your partner's words, creating severe misunderstandings. Use this psychological depth for healing, not interrogation.",
+  },
+  {
+    name: 'Ketu aspect Mars in 8th house',
+    description: "Aggression and sexual desire are bizarrely suppressed or deeply misunderstood, leading to intense frustration and emotional paralysis. You may feel a sudden, inexplicable repulsion toward intimacy, severely confusing your partner and sparking conflict. This karmic aspect demands the release of toxic, unresolved anger from the past to cure deep psychological impotence.",
+  },
+  {
+    name: 'Rahu aspect Moon in the 6th house',
+    description: "Obsessive, neurotic fears regarding your health or daily routines severely destabilize your emotional equilibrium, leading to irrational arguments. You project your chaotic internal state onto your partner, constantly finding fault and creating a toxic, stressful environment. You must ground your mind to escape this cycle of emotional illusions and petty conflicts.",
+  },
+  {
+    name: 'Sun Transits the 9th House',
+    description: "Ego and beliefs merge, bringing a period of deep philosophical alignment and mutual respect with your partner. However, if your morals clash, you may exhibit extreme self-righteousness, causing severe, unyielding arguments. A shared vision for the future and adherence to truth are the ultimate healers of any underlying depression.",
+  },
+  {
+    name: 'Mercury Transits the 9th House',
+    description: "You seek a partner who stimulates your mind, finding emotional connection through deep philosophical debates and shared learning. Misunderstandings are resolved by looking at the bigger picture and refusing to get bogged down in petty details. Be careful not to preach or adopt an intellectually superior tone during disagreements.",
+  },
+  {
+    name: 'Venus Transits the 8th House',
+    description: "Love becomes an intense, life-or-death experience filled with extreme passion, jealousy, and a profound fear of betrayal. You crave soul-deep sexual and emotional merging, but mistrust can lead to manipulative power struggles and devastating heartbreak. Only absolute emotional honesty can transform this turbulent energy into an unbreakable bond.",
+  },
+  {
+    name: 'Mercury Transits the 10th House',
+    description: "Your emotional communication takes on a formal, authoritative tone, potentially making your partner feel managed rather than loved. You prioritize practical goals and public reputation over private intimacy, which can lead to misunderstandings regarding your emotional investment. You must intentionally drop your professional mask to connect authentically behind closed doors.",
+  },
+  {
+    name: 'Sun Transits the 10th House',
+    description: "Your sense of self is elevated, bringing confidence that can either deeply attract your partner or alienate them through arrogance. You demand respect and may prioritize your career over emotional availability, leading to conflicts if your partner feels neglected. Ensure your desire for authority does not crush the equal, vulnerable partnership required for true love.",
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house',
+    description: "A powerful combination that brings immense psychological courage, allowing you to confront and heal deep-seated relationship traumas and sexual hangups. You and your partner can resolve intense conflicts through honest, expansive dialogue, transforming anger into passionate devotion. This aspect fiercely protects against depression by illuminating the darkest corners of intimacy.",
+  },
+  {
+    name: 'Moon Aspecting Midheaven (MC)',
+    description: "Your private emotional fluctuations are highly visible to the world, making it difficult to hide relationship conflicts. You rely heavily on your partner for emotional support regarding your life path, and feel deeply insecure if they lack faith in you. Nurturing your private foundation is essential to maintaining your public composure.",
+  },
+  {
+    name: 'Mercury Transits the 11th House',
+    description: "Communication with your partner thrives when integrated with broader social circles and shared future aspirations. You seek a relationship built on friendship and intellectual equality, easily talking through any minor misunderstandings. However, prioritizing group dynamics over one-on-one intimacy can sometimes leave your partner feeling emotionally sidelined.",
+  },
+  {
+    name: 'Moon Aspecting Ascendant (ASC)',
+    description: "You are intensely emotionally porous, projecting your feelings directly into your environment and absorbing your partner's moods. This deep empathy fosters profound romantic connection but makes you highly vulnerable to their stress or anger. You must learn to separate your emotional identity from theirs to avoid codependency and reactive arguments.",
+  },
+  {
+    name: 'Venus Transits the 9th House',
+    description: "You seek a love that is expansive, adventurous, and free from the restrictive chains of petty jealousy or emotional possessiveness. You may be drawn to partners from different backgrounds, finding intimacy through shared spiritual or physical journeys. Clinging to past traumas or narrow beliefs will immediately suffocate this beautiful, freeing romantic energy.",
+  },
+  {
+    name: 'Sun Transits the 11th House',
+    description: "Your ego seeks validation through group acceptance, and you desire a partner who enhances your social standing. Arguments may arise if you prioritize friends or networking over your partner's emotional needs, causing them to feel undervalued. True happiness requires balancing your extensive social ambitions with deep, private devotion.",
+  },
+  {
+    name: 'Venus Transits the 10th House',
+    description: "You are attracted to power, success, and maturity, seeking a partner who offers both emotional and public stability. Love is expressed practically, but an over-concern with reputation can cause you to suppress genuine emotions to maintain appearances. Ensure that your relationship is a source of profound private comfort, not just a successful public merger.",
+  },
+];
+
+const insert = db.prepare('INSERT OR IGNORE INTO events (name, description) VALUES (?, ?)');
+
+const seedAll = db.transaction(() => {
+  let inserted = 0;
+  let skipped = 0;
+  for (const event of events) {
+    const result = insert.run(event.name, event.description);
+    if (result.changes > 0) inserted++;
+    else skipped++;
+  }
+  return { inserted, skipped };
+});
+
+const { inserted, skipped } = seedAll();
+console.log(`Seeding complete: ${inserted} inserted, ${skipped} already existed.`);

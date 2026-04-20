@@ -14,10 +14,16 @@ console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 const { generateReading } = require('../services/gemini');
 const db = require('../db/index');
 const investmentDb = require('../db/investment');
+const careerDb = require('../db/career');
+const relationshipDb = require('../db/relationship');
+const networkDb = require('../db/network');
 
 // Pre-compile lookup statement for performance
 const lookupEvent = db.prepare('SELECT description FROM events WHERE name = ?');
 const lookupInvestmentEvent = investmentDb.prepare('SELECT description FROM events WHERE name = ?');
+const lookupCareerEvent = careerDb.prepare('SELECT description FROM events WHERE name = ?');
+const lookupRelationshipEvent = relationshipDb.prepare('SELECT description FROM events WHERE name = ?');
+const lookupNetworkEvent = networkDb.prepare('SELECT description FROM events WHERE name = ?');
 
 /**
  * Strip : Exact / : Starts / : Ends qualifiers from an event description
@@ -38,6 +44,21 @@ function getEventInterpretation(description) {
 
 function getInvestmentEventInterpretation(description) {
   const row = lookupInvestmentEvent.get(baseEventName(description));
+  return row ? row.description : '';
+}
+
+function getCareerEventInterpretation(description) {
+  const row = lookupCareerEvent.get(baseEventName(description));
+  return row ? row.description : '';
+}
+
+function getRelationshipEventInterpretation(description) {
+  const row = lookupRelationshipEvent.get(baseEventName(description));
+  return row ? row.description : '';
+}
+
+function getNetworkEventInterpretation(description) {
+  const row = lookupNetworkEvent.get(baseEventName(description));
   return row ? row.description : '';
 }
 
@@ -667,6 +688,9 @@ function makeDebugHandler(interpretationLookup) {
 
 router.post('/debug', makeDebugHandler(getEventInterpretation));
 router.post('/investment', makeDebugHandler(getInvestmentEventInterpretation));
+router.post('/career', makeDebugHandler(getCareerEventInterpretation));
+router.post('/relationship', makeDebugHandler(getRelationshipEventInterpretation));
+router.post('/network', makeDebugHandler(getNetworkEventInterpretation));
 
 /**
  * POST /api/events-calendar
