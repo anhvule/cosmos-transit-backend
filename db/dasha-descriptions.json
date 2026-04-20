@@ -1,0 +1,479 @@
+{
+  "Jupiter": {
+    "mahadasha": {
+      "planet": "Jupiter",
+      "house": 5,
+      "description": "The major period of Jupiter in the 5th house brings a profound focus on higher education, creativity, children, and spiritual wisdom. This 16-year cycle encourages expanding your intellect, embracing your dharma, and reaping the rewards of past good karma through joyful self-expression."
+    },
+    "antardashas": [
+      {
+        "planet": "Jupiter",
+        "house": 5,
+        "description": "With Jupiter in the 5th house for both the mahadasha and antardasha, this foundational period deeply amplifies themes of spiritual growth, academic success, and joy through creativity or children.",
+        "pratyantardashas": [
+          {
+            "planet": "Jupiter",
+            "house": 5,
+            "description": "With Jupiter in the 5th house dominating this period, your creativity, wisdom, and spiritual pursuits are immensely magnified. It is a highly auspicious time for education, childbirth, and finding deep philosophical fulfillment."
+          },
+          {
+            "planet": "Saturn",
+            "house": 10,
+            "description": "With Jupiter in the 5th house enhancing creativity and Saturn in the 10th house bringing career focus, this period asks you to discipline your creative talents for professional growth. Hard work now will solidify your public standing and long-term goals."
+          },
+          {
+            "planet": "Mercury",
+            "house": 8,
+            "description": "With Jupiter in the 5th house fostering wisdom and Mercury in the 8th house triggering deep research, this phase sharpens your intellect for the occult or hidden knowledge. You may uncover valuable secrets through intuitive and analytical thinking."
+          },
+          {
+            "planet": "Ketu",
+            "house": 3,
+            "description": "With Jupiter in the 5th house encouraging spiritual learning and Ketu in the 3rd house bringing detachment from mundane efforts, you may feel drawn to solitary studies or esoteric writing. Short travels may take on a deeply spiritual tone."
+          },
+          {
+            "planet": "Venus",
+            "house": 8,
+            "description": "With Jupiter in the 5th house expanding joy and Venus in the 8th house highlighting hidden wealth and intense relationships, this period blends creativity with deep emotional transformation. Unexpected financial or romantic shifts may occur."
+          },
+          {
+            "planet": "Sun",
+            "house": 9,
+            "description": "With Jupiter in the 5th house enhancing your intellect and the Sun in the 9th house illuminating your dharma, this is an incredibly fortunate period. Connections with gurus, higher education, and divine grace bring major life success."
+          },
+          {
+            "planet": "Moon",
+            "house": 6,
+            "description": "With Jupiter in the 5th house enhancing creativity and Moon in the 6th house highlighting daily responsibilities, this period encourages finding joy in your routines. You may discover ways to make work enjoyable or incorporate creative approaches into daily tasks."
+          },
+          {
+            "planet": "Mars",
+            "house": 8,
+            "description": "With Jupiter in the 5th house offering protection and Mars in the 8th house bringing sudden, intense energy, you are pushed to courageously navigate transformations. Channel this dynamic force into deep research rather than unnecessary conflicts."
+          },
+          {
+            "planet": "Rahu",
+            "house": 9,
+            "description": "With Jupiter in the 5th house expanding traditional wisdom and Rahu in the 9th house sparking a drive for unorthodox knowledge, you may experience a sudden urge for foreign travel. This period aggressively expands your philosophical horizons."
+          }
+        ]
+      },
+      {
+        "planet": "Saturn",
+        "house": 10,
+        "description": "With Jupiter in the 5th house enhancing creativity and Saturn in the 10th house demanding professional discipline, this antardasha shifts the focus toward career, public standing, and structuring your long-term creative goals.",
+        "pratyantardashas": [
+          {
+            "planet": "Saturn",
+            "house": 10,
+            "description": "With Jupiter in the 5th house offering visionary ideas and Saturn in the 10th house ruling this sub-period, intense focus on career advancement is required. Patience and taking on significant public responsibilities will eventually yield solid rewards."
+          },
+          {
+            "planet": "Mercury",
+            "house": 8,
+            "description": "With Saturn in the 10th house demanding structural work and Mercury in the 8th house triggering sudden changes, strategic thinking is vital. You must navigate research-oriented professional projects or hidden workplace dynamics carefully."
+          },
+          {
+            "planet": "Ketu",
+            "house": 3,
+            "description": "With Saturn in the 10th house pushing for career success and Ketu in the 3rd house creating a sense of detachment in your efforts, you may feel disconnected from usual ambitions. Restructuring your communication style is highly beneficial now."
+          },
+          {
+            "planet": "Venus",
+            "house": 8,
+            "description": "With Saturn in the 10th house stabilizing career and Venus in the 8th house bringing sudden financial or relationship shifts, diplomacy is needed. Workplace transformations may require you to gracefully manage hidden resources."
+          },
+          {
+            "planet": "Sun",
+            "house": 9,
+            "description": "With Saturn in the 10th house representing duty and the Sun in the 9th house bringing divine fortune, your hard work aligns perfectly with your higher dharma. Expect recognition from authorities and stable, long-term career growth."
+          },
+          {
+            "planet": "Moon",
+            "house": 6,
+            "description": "With Saturn in the 10th house bringing heavy responsibilities and the Moon in the 6th house causing emotional fluctuations regarding health and service, stress management is key. Build emotional resilience to handle demanding professional routines."
+          },
+          {
+            "planet": "Mars",
+            "house": 8,
+            "description": "With Saturn in the 10th house demanding patience and Mars in the 8th house triggering sudden workplace conflicts, avoid impulsive actions. Channel this intense, aggressive energy into problem-solving and profound career transformations."
+          },
+          {
+            "planet": "Rahu",
+            "house": 9,
+            "description": "With Saturn in the 10th house grounding you and Rahu in the 9th house pushing for foreign exploration, unconventional approaches to your career emerge. This may lead to opportunities abroad or a sudden expansion of your professional belief system."
+          },
+          {
+            "planet": "Jupiter",
+            "house": 5,
+            "description": "With both Jupiter in the 5th house and Saturn in the 10th house active, your hard work finally pays off through creative recognition. Beneficial advice from mentors and promotions in your field bring joy and stability."
+          }
+        ]
+      },
+      {
+        "planet": "Mercury",
+        "house": 8,
+        "description": "With Jupiter in the 5th house providing wisdom and Mercury in the 8th house bringing profound psychological transformation, this antardasha is a phase of deep research, dealing with hidden matters, and exploring the occult.",
+        "pratyantardashas": [
+          {
+            "planet": "Mercury",
+            "house": 8,
+            "description": "With Jupiter in the 5th house supporting higher learning and Mercury heavily active in the 8th house, heightened intuition and analytical skills take over. Your focus shifts entirely to hidden matters, intense research, astrology, or joint finances."
+          },
+          {
+            "planet": "Ketu",
+            "house": 3,
+            "description": "With Mercury in the 8th house probing secrets and Ketu in the 3rd house bringing detachment to communications, you may feel misunderstood. This is a highly intuitive period excellent for esoteric writing or solitary, deep research."
+          },
+          {
+            "planet": "Venus",
+            "house": 8,
+            "description": "With both Mercury and Venus in the 8th house, intense emotional and financial transformations occur. You are encouraged to explore the deeper, more secretive aspects of relationships, sensuality, and hidden wealth using your analytical mind."
+          },
+          {
+            "planet": "Sun",
+            "house": 9,
+            "description": "With Mercury in the 8th house uncovering secrets and the Sun in the 9th house shining light on truth, hidden knowledge is illuminated. You may resolve inheritance issues or find spiritual guidance through transformative research."
+          },
+          {
+            "planet": "Moon",
+            "house": 6,
+            "description": "With Mercury in the 8th house causing mental intensity and the Moon in the 6th house triggering emotional sensitivity in daily routines, anxiety may rise. Avoid overthinking sudden changes and focus on maintaining a stable, healing daily schedule."
+          },
+          {
+            "planet": "Mars",
+            "house": 8,
+            "description": "With Mercury and Mars together highlighting the 8th house, there is a risk of sudden arguments, accidents, or abrupt endings. You must actively channel this intense, sharp mental energy into strict, disciplined investigation rather than conflict."
+          },
+          {
+            "planet": "Rahu",
+            "house": 9,
+            "description": "With Mercury in the 8th house digging into the unknown and Rahu in the 9th house breaking philosophical traditions, obsessive thoughts may arise. This is a powerful time to break taboos in higher education or unorthodox spiritual practices."
+          },
+          {
+            "planet": "Jupiter",
+            "house": 5,
+            "description": "With Mercury in the 8th house bringing sudden shifts and Jupiter in the 5th house offering divine protection, a sudden blessing in disguise arrives. Your intellect and past good karma help you navigate transformations with deep wisdom."
+          },
+          {
+            "planet": "Saturn",
+            "house": 10,
+            "description": "With Mercury in the 8th house providing deep insights and Saturn in the 10th house demanding professional structure, you can successfully implement hidden knowledge into your career. Patiently navigate professional restructuring during this time."
+          }
+        ]
+      },
+      {
+        "planet": "Ketu",
+        "house": 3,
+        "description": "With Jupiter in the 5th house calling for spiritual wisdom and Ketu in the 3rd house creating detachment from personal ambitions, this antardasha focuses heavily on intuitive growth, short spiritual trips, and redefining your efforts.",
+        "pratyantardashas": [
+          {
+            "planet": "Ketu",
+            "house": 3,
+            "description": "With Ketu strongly active in the 3rd house, a profound desire for isolation or spiritual retreats takes hold. Personal efforts may feel unrewarding, prompting a search for deeper inner meaning over material communication."
+          },
+          {
+            "planet": "Venus",
+            "house": 8,
+            "description": "With Ketu in the 3rd house detaching you from mundane efforts and Venus in the 8th house bringing sudden shifts in wealth and love, you are asked to practice detachment regarding sensual desires and hidden transformations."
+          },
+          {
+            "planet": "Sun",
+            "house": 9,
+            "description": "With Ketu in the 3rd house encouraging spiritual pursuits and the Sun in the 9th house illuminating higher dharma, you may undertake spiritual travels. Connecting with a father figure or guru in a detached, philosophical manner brings absolute truths."
+          },
+          {
+            "planet": "Moon",
+            "house": 6,
+            "description": "With Ketu in the 3rd house causing mental isolation and the Moon in the 6th house bringing emotional sensitivity toward enemies or daily struggles, intuition is your best tool. Use spiritual wisdom to overcome obstacles without falling into depression."
+          },
+          {
+            "planet": "Mars",
+            "house": 8,
+            "description": "With Ketu in the 3rd house bringing unpredictable efforts and Mars in the 8th house sparking sudden events, minor accidents or impulsive actions are possible. Practice extreme caution and use this sharp energy for deep self-inquiry."
+          },
+          {
+            "planet": "Rahu",
+            "house": 9,
+            "description": "With Ketu in the 3rd house seeking detachment and Rahu in the 9th house driving unorthodox ambitions, you face a confusing period of conflicting desires. This inner tug-of-war often triggers sudden, transformative foreign travel."
+          },
+          {
+            "planet": "Jupiter",
+            "house": 5,
+            "description": "With Ketu in the 3rd house enhancing intuition and Jupiter in the 5th house expanding wisdom, divine insight flows easily. This is an excellent time for spiritual practices, chanting mantras, and engaging in unconventional creative hobbies."
+          },
+          {
+            "planet": "Saturn",
+            "house": 10,
+            "description": "With Ketu in the 3rd house bringing detachment and Saturn in the 10th house ruling career, you may feel dissatisfaction with recent achievements. It is a period to redefine your professional goals with a more spiritual or service-oriented perspective."
+          },
+          {
+            "planet": "Mercury",
+            "house": 8,
+            "description": "With Ketu in the 3rd house scattering communication and Mercury in the 8th house probing the unknown, nervous energy may peak. It is an excellent time for researching the occult, though challenging for standard, everyday communications."
+          }
+        ]
+      },
+      {
+        "planet": "Venus",
+        "house": 8,
+        "description": "With Jupiter in the 5th house fostering expansive joy and Venus in the 8th house highlighting sudden transformations, this antardasha deeply merges your creative expression with mystical, secretive, and intense relational experiences.",
+        "pratyantardashas": [
+          {
+            "planet": "Venus",
+            "house": 8,
+            "description": "With Venus heavily emphasized in the 8th house, expect intense, perhaps secretive, romantic encounters or sudden financial fluctuations. This period brings profound emotional and material transformation that reshapes your inner desires."
+          },
+          {
+            "planet": "Sun",
+            "house": 9,
+            "description": "With Venus in the 8th house bringing hidden transformations and the Sun in the 9th house shining divine luck, you will find grace and fortune after a sudden change. Spiritual teachers or fatherly figures provide vital support now."
+          },
+          {
+            "planet": "Moon",
+            "house": 6,
+            "description": "With Venus in the 8th house dealing with secrets and the Moon in the 6th house focusing on health and service, emotional vulnerabilities in relationships emerge. Healing the female connections in your life or navigating a workplace romance may be necessary."
+          },
+          {
+            "planet": "Mars",
+            "house": 8,
+            "description": "With both Venus and Mars activating the 8th house, high passion and potential for sudden relationship conflicts or financial upheavals are highly likely. This intense combination requires careful, mature management of desires to avoid crisis."
+          },
+          {
+            "planet": "Rahu",
+            "house": 9,
+            "description": "With Venus in the 8th house seeking intense connections and Rahu in the 9th house driving foreign pursuits, unorthodox attractions or sudden opportunities abroad arise. These experiences will fundamentally transform your core belief systems."
+          },
+          {
+            "planet": "Jupiter",
+            "house": 5,
+            "description": "With Venus in the 8th house unlocking hidden wealth and Jupiter in the 5th house enhancing creativity, unexpected gains positively impact your artistic projects. This period also brings unexpected joy and growth regarding children or education."
+          },
+          {
+            "planet": "Saturn",
+            "house": 10,
+            "description": "With Venus in the 8th house triggering sudden shifts and Saturn in the 10th house demanding professional order, transformations in your career occur. Navigating public standing requires practical management of hidden resources or diplomatic relations."
+          },
+          {
+            "planet": "Mercury",
+            "house": 8,
+            "description": "With both Venus and Mercury in the 8th house, deep analytical thinking is applied directly to your finances or intimate relationships. It is a highly communicative period regarding secretive, esoteric, or taboo subjects."
+          },
+          {
+            "planet": "Ketu",
+            "house": 3,
+            "description": "With Venus in the 8th house dealing with deep sensual themes and Ketu in the 3rd house enforcing detachment, you may suddenly step back from material pleasures. Short trips or sudden changes in communication transform your immediate environment."
+          }
+        ]
+      },
+      {
+        "planet": "Sun",
+        "house": 9,
+        "description": "With Jupiter in the 5th house expanding wisdom and the Sun in the 9th house illuminating your higher purpose, this highly fortunate antardasha emphasizes dharma, higher education, spiritual gurus, and leadership.",
+        "pratyantardashas": [
+          {
+            "planet": "Sun",
+            "house": 9,
+            "description": "With the Sun strongly dignified in the 9th house, this is a powerful period of spiritual awakening. Connecting with father figures or gurus, excelling in higher education, and experiencing divine fortune take center stage."
+          },
+          {
+            "planet": "Moon",
+            "house": 6,
+            "description": "With the Sun in the 9th house illuminating higher ideals and the Moon in the 6th house emphasizing daily struggles, you are tasked with balancing dharma and practical duties. Finding emotional peace through acts of service is highly encouraged."
+          },
+          {
+            "planet": "Mars",
+            "house": 8,
+            "description": "With the Sun in the 9th house representing beliefs and Mars in the 8th house bringing sudden upheaval, unexpected events may challenge your worldview or relate to your father's health. Immense courage is required to navigate these deep spiritual transformations."
+          },
+          {
+            "planet": "Rahu",
+            "house": 9,
+            "description": "With both the Sun and Rahu active in the 9th house, an intense desire to break traditional religious boundaries emerges. There is a high potential for significant long-distance travel, unconventional foreign education, or ideological clashes."
+          },
+          {
+            "planet": "Jupiter",
+            "house": 5,
+            "description": "With the Sun in the 9th house and Jupiter in the 5th house forming a powerful dharma connection, this period is extremely auspicious. Expect divine grace, massive success in education, profound spiritual wisdom, and joyful developments regarding children."
+          },
+          {
+            "planet": "Saturn",
+            "house": 10,
+            "description": "With the Sun in the 9th house bringing fortune and Saturn in the 10th house demanding hard work, you can successfully apply your higher knowledge to your career. Diligence now brings authoritative recognition and solidifies your public dharma."
+          },
+          {
+            "planet": "Mercury",
+            "house": 8,
+            "description": "With the Sun in the 9th house focusing on truth and Mercury in the 8th house diving into the occult, deep philosophical research is favored. You will uncover hidden truths that fundamentally reshape your worldview and religious understanding."
+          },
+          {
+            "planet": "Ketu",
+            "house": 3,
+            "description": "With the Sun in the 9th house highlighting spirituality and Ketu in the 3rd house bringing detached efforts, undertaking short spiritual pilgrimages is highly rewarding. Publishing esoteric knowledge or intuitive writing brings a deep sense of purpose."
+          },
+          {
+            "planet": "Venus",
+            "house": 8,
+            "description": "With the Sun in the 9th house governing beliefs and Venus in the 8th house bringing relational transformations, your spiritual path is altered by intense relationships or sudden financial shifts. You will find harmony and beauty in exploring occult subjects."
+          }
+        ]
+      },
+      {
+        "planet": "Moon",
+        "house": 6,
+        "description": "With Jupiter in the 5th house bringing optimism and the Moon in the 6th house focusing on health and daily routines, this antardasha tests your emotional resilience through acts of service, healing, and resolving conflicts.",
+        "pratyantardashas": [
+          {
+            "planet": "Moon",
+            "house": 6,
+            "description": "With the Moon dominating the 6th house, your emotional focus shifts heavily to physical health, improving daily work routines, and nurturing yourself. Use your intuition to overcome minor conflicts, debts, and enemies."
+          },
+          {
+            "planet": "Mars",
+            "house": 8,
+            "description": "With the Moon in the 6th house bringing emotional sensitivity and Mars in the 8th house triggering sudden events, emotional volatility is high. Potential for sudden fevers or workplace disputes requires channeling aggressive energy into constructive healing."
+          },
+          {
+            "planet": "Rahu",
+            "house": 9,
+            "description": "With the Moon in the 6th house grounding you in daily duties and Rahu in the 9th house pulling you toward foreign beliefs, emotional confusion may arise. There is a strong need to balance your spiritual desires with practical, mundane responsibilities."
+          },
+          {
+            "planet": "Jupiter",
+            "house": 5,
+            "description": "With the Moon in the 6th house highlighting struggles and Jupiter in the 5th house bringing divine grace, you are able to use wisdom and creativity to resolve conflicts. This comforting period brings optimism and healing to your daily ailments."
+          },
+          {
+            "planet": "Saturn",
+            "house": 10,
+            "description": "With the Moon in the 6th house causing workplace sensitivity and Saturn in the 10th house bringing heavy professional duties, emotional pressure in your career increases. Strict discipline and patience are required to overcome these professional obstacles."
+          },
+          {
+            "planet": "Mercury",
+            "house": 8,
+            "description": "With the Moon in the 6th house governing health and Mercury in the 8th house causing overthinking, anxiety or nervous tension regarding hidden matters may peak. Use your analytical skills to systematically solve complex workplace or health problems."
+          },
+          {
+            "planet": "Ketu",
+            "house": 3,
+            "description": "With the Moon in the 6th house facing daily stressors and Ketu in the 3rd house bringing detachment, emotional withdrawal from enemies is likely. Intuition guides your efforts, but physical energy and motivation to fight battles may be low."
+          },
+          {
+            "planet": "Venus",
+            "house": 8,
+            "description": "With the Moon in the 6th house seeking healing and Venus in the 8th house bringing sudden relational shifts, transformational therapies are highly beneficial. You must carefully manage emotional turbulence regarding hidden wealth or secret workplace romances."
+          },
+          {
+            "planet": "Sun",
+            "house": 9,
+            "description": "With the Moon in the 6th house focusing on ailments and the Sun in the 9th house bringing vitality and fortune, your overall health improves significantly. You will find powerful support from mentors, bosses, or father figures to overcome legal disputes."
+          }
+        ]
+      },
+      {
+        "planet": "Mars",
+        "house": 8,
+        "description": "With Jupiter in the 5th house protecting your dharma and Mars in the 8th house sparking sudden, intense events, this antardasha is a highly transformative period. It requires channeling dynamic energy carefully into research or occult studies to avoid crisis.",
+        "pratyantardashas": [
+          {
+            "planet": "Mars",
+            "house": 8,
+            "description": "With Mars heavily emphasized in the 8th house, this is a highly energetic but volatile period. You are prone to sudden changes, potential surgeries, or intense occult research; extreme caution and discipline are required to navigate this energy."
+          },
+          {
+            "planet": "Rahu",
+            "house": 9,
+            "description": "With Mars in the 8th house bringing aggressive transformations and Rahu in the 9th house driving unorthodox beliefs, explosive energy pushes you toward foreign travels. Beware of ideological conflicts or sudden, unplanned long-distance journeys."
+          },
+          {
+            "planet": "Jupiter",
+            "house": 5,
+            "description": "With Mars in the 8th house bringing sudden risks and Jupiter in the 5th house offering divine protection, your wisdom and grace protect against mishaps. Channel your intense energy into creative projects, sports, or deeper spiritual learning."
+          },
+          {
+            "planet": "Saturn",
+            "house": 10,
+            "description": "With Mars in the 8th house causing sudden shifts and Saturn in the 10th house demanding career stability, intense friction occurs. Immense hard work and careful strategy are required to avoid a professional crisis or public scandal."
+          },
+          {
+            "planet": "Mercury",
+            "house": 8,
+            "description": "With both Mars and Mercury in the 8th house, your sharp intellect is fiercely focused on uncovering secrets. However, you are highly prone to sudden arguments or nervous exhaustion, making mindful communication essential."
+          },
+          {
+            "planet": "Ketu",
+            "house": 3,
+            "description": "With Mars in the 8th house bringing abrupt events and Ketu in the 3rd house causing detachment, sudden bursts of courage may lead to minor accidents during short trips. It is an excellent time, however, for decisively cutting ties with toxic habits."
+          },
+          {
+            "planet": "Venus",
+            "house": 8,
+            "description": "With both Mars and Venus in the 8th house, intense, passionate transformations in relationships or joint finances dominate. Sudden, powerful sensual desires must be managed maturely to avoid massive relational upheaval."
+          },
+          {
+            "planet": "Sun",
+            "house": 9,
+            "description": "With Mars in the 8th house triggering sudden crises and the Sun in the 9th house governing dharma, unexpected events may affect your belief system or your father. Find the courage to align with your true path despite the dramatic changes."
+          },
+          {
+            "planet": "Moon",
+            "house": 6,
+            "description": "With Mars in the 8th house bringing aggressive energy and the Moon in the 6th house focusing on health, high emotional stress or acute health issues are possible. It is vital to practice patience and actively avoid workplace confrontations."
+          }
+        ]
+      },
+      {
+        "planet": "Rahu",
+        "house": 9,
+        "description": "With Jupiter in the 5th house expanding traditional wisdom and Rahu in the 9th house driving unorthodox exploration, this antardasha is characterized by an intense desire for foreign travel, breaking philosophical boundaries, and expanding your horizons.",
+        "pratyantardashas": [
+          {
+            "planet": "Rahu",
+            "house": 9,
+            "description": "With Rahu dominating the 9th house, an intense obsession with higher learning, unconventional philosophy, or foreign cultures takes over. This is a powerful period of expanding your mental boundaries and actively breaking orthodox traditions."
+          },
+          {
+            "planet": "Jupiter",
+            "house": 5,
+            "description": "With Rahu in the 9th house pulling toward the unorthodox and Jupiter in the 5th house grounding you in spiritual dharma, a balancing act between worldly desires and deep wisdom occurs. Great potential exists for unconventional creative success."
+          },
+          {
+            "planet": "Saturn",
+            "house": 10,
+            "description": "With Rahu in the 9th house seeking foreign horizons and Saturn in the 10th house ruling career, unorthodox approaches to advancement emerge. Striving for professional success may heavily involve foreign lands, new technology, or international companies."
+          },
+          {
+            "planet": "Mercury",
+            "house": 8,
+            "description": "With Rahu in the 9th house breaking boundaries and Mercury in the 8th house probing secrets, obsessive research into the occult or hidden knowledge is favored. Sudden technological or financial shifts require highly adaptable, out-of-the-box thinking."
+          },
+          {
+            "planet": "Ketu",
+            "house": 3,
+            "description": "With Rahu in the 9th house fueling intense desires and Ketu in the 3rd house bringing detachment, profound confusion may set in. While your communication becomes highly intuitive, there is a strong potential for misunderstandings with siblings or neighbors."
+          },
+          {
+            "planet": "Venus",
+            "house": 8,
+            "description": "With Rahu in the 9th house expanding desires and Venus in the 8th house bringing hidden transformations, sudden, intense karmic relationships or unconventional financial windfalls occur. Deep psychological transformation happens through sensual experiences."
+          },
+          {
+            "planet": "Sun",
+            "house": 9,
+            "description": "With both Rahu and the Sun in the 9th house, dramatic clashes with authority or father figures over unorthodox beliefs are highly likely. You are pushed to find your unique, non-traditional spiritual path through these intense experiences."
+          },
+          {
+            "planet": "Moon",
+            "house": 6,
+            "description": "With Rahu in the 9th house causing over-ambition and the Moon in the 6th house triggering emotional sensitivity, turbulence is expected. You must actively protect your mental health amidst daily stress and navigate highly unusual workplace dynamics."
+          },
+          {
+            "planet": "Mars",
+            "house": 8,
+            "description": "With Rahu in the 9th house amplifying volatile desires and Mars in the 8th house sparking sudden events, reckless energy is a danger. Avoid impulsive decisions regarding travel, beliefs, or higher education to prevent unexpected, severe crises."
+          }
+        ]
+      }
+    ]
+  }
+}

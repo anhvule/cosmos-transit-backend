@@ -13,6 +13,27 @@ console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 
 const { generateReading } = require('../services/gemini');
 const { computeDashaAtDate, getNakshatra } = require('../services/dasha');
+const dashaDescriptions = require('../db/dasha-descriptions.json');
+
+/**
+ * Look up MD/AD/PD descriptions for the active dasha.
+ * Returns { mdDesc, adDesc, pdDesc } — empty strings if not found.
+ * Lookup is keyed by (MD planet, AD planet, PD planet); house metadata in the
+ * fixture is informational only.
+ */
+function getDashaDescriptions(mdPlanet, adPlanet, pdPlanet) {
+  const empty = { mdDesc: '', adDesc: '', pdDesc: '' };
+  const md = dashaDescriptions[mdPlanet];
+  if (!md) return empty;
+  const ad = (md.antardashas || []).find(a => a.planet === adPlanet);
+  if (!ad) return { mdDesc: md.mahadasha?.description || '', adDesc: '', pdDesc: '' };
+  const pd = (ad.pratyantardashas || []).find(p => p.planet === pdPlanet);
+  return {
+    mdDesc: md.mahadasha?.description || '',
+    adDesc: ad.description || '',
+    pdDesc: pd?.description || '',
+  };
+}
 const db = require('../db/index');
 const investmentDb = require('../db/investment');
 const careerDb = require('../db/career');
@@ -893,19 +914,26 @@ router.post('/dasha', async (req, res) => {
 
     const result = computeDashaAtDate(birthMoment, moonLongitude, queryDate);
 
-    const fmt = p => p && {
+    const fmt = (p, description) => p && {
       planet: p.planet,
       startDate: p.startDate.toISOString(),
       endDate: p.endDate.toISOString(),
+      description: description || '',
     };
+
+    const { mdDesc, adDesc, pdDesc } = getDashaDescriptions(
+      result.mahadasha?.planet,
+      result.antardasha?.planet,
+      result.pratyantardasha?.planet,
+    );
 
     res.json({
       date: dateStr,
       moonLongitude,
       nakshatra: result.nakshatra,
-      mahadasha: fmt(result.mahadasha),
-      antardasha: fmt(result.antardasha),
-      pratyantardasha: fmt(result.pratyantardasha),
+      mahadasha: fmt(result.mahadasha, mdDesc),
+      antardasha: fmt(result.antardasha, adDesc),
+      pratyantardasha: fmt(result.pratyantardasha, pdDesc),
     });
   } catch (error) {
     console.error('Dasha endpoint error:', error.message);
