@@ -12,6 +12,7 @@ const { getInvestmentLossDaysForMonth, getInvestmentGainDaysForMonth } = astrolo
 console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 
 const { generateReading } = require('../services/gemini');
+const { computeDashaAtDate, getNakshatra } = require('../services/dasha');
 const db = require('../db/index');
 const investmentDb = require('../db/investment');
 const careerDb = require('../db/career');
@@ -830,6 +831,81 @@ router.post('/engineering', makeDebugHandler(getEngineeringEventInterpretation))
 
 router.post('/investment-weekly', makePeriodHandler('week', getInvestmentEventInterpretation));
 router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEventInterpretation));
+
+/**
+ * POST /api/dasha
+ *
+ * Compute the active Vimshottari Mahadasha (MD) and Antardasha (AD) for a
+ * given date based on the Moon's sidereal (Lahiri) longitude at birth.
+ *
+ * Request body:
+ * {
+ *   "name":      "Alice",
+ *   "birthDate": "1991-09-27",
+ *   "birthTime": "07:40",
+ *   "latitude":  6.9271,
+ *   "longitude": 79.8612,
+ *   "timezone":  "Asia/Colombo",   // optional
+ *   "transitDate": "2026-04-20"    // optional; defaults to today
+ * }
+ *
+ * Response:
+ * {
+ *   "date": "2026-04-20",
+ *   "moonLongitude": 123.456,
+ *   "nakshatra": { "index": 9, "name": "Magha", "lord": "Ketu", "pada": 2, "fractionElapsed": 0.37 },
+ *   "mahadasha": { "planet": "Venus", "startDate": "...", "endDate": "..." },
+ *   "antardasha": { "planet": "Jupiter", "startDate": "...", "endDate": "..." }
+ * }
+ */
+router.post('/dasha', async (req, res) => {
+  try {
+    const { name, birthDate, birthTime, latitude, longitude, timezone, transitDate } = req.body;
+
+    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
+      return res.status(400).json({
+        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
+      });
+    }
+
+    // Fetch natal chart to get the Moon's sidereal (Lahiri) longitude.
+    const { natalPlanets } = await astrologyService.getNatalTransits(
+      { birthDate, birthTime, latitude, longitude, timezone },
+      null,
+    );
+    const moon = (natalPlanets || []).find(p => p.name === 'Moon');
+    if (!moon || moon.sidereal_abs_pos == null) {
+      return res.status(500).json({ error: 'Could not determine Moon sidereal longitude from natal chart' });
+    }
+
+    // Treat birth and query moments as naive instants in the same frame — the
+    // absolute offset cancels out when we back-shift by elapsed MD years.
+    const birthMoment = new Date(`${birthDate}T${birthTime}:00Z`);
+    const dateStr = transitDate
+      ? new Date(transitDate).toISOString().substring(0, 10)
+      : new Date().toISOString().substring(0, 10);
+    const queryDate = new Date(`${dateStr}T12:00:00Z`);
+
+    const result = computeDashaAtDate(birthMoment, moon.sidereal_abs_pos, queryDate);
+
+    const fmt = p => p && {
+      planet: p.planet,
+      startDate: p.startDate.toISOString(),
+      endDate: p.endDate.toISOString(),
+    };
+
+    res.json({
+      date: dateStr,
+      moonLongitude: moon.sidereal_abs_pos,
+      nakshatra: result.nakshatra,
+      mahadasha: fmt(result.mahadasha),
+      antardasha: fmt(result.antardasha),
+    });
+  } catch (error) {
+    console.error('Dasha endpoint error:', error.message);
+    res.status(500).json({ error: 'Failed to compute dasha. Please try again later.' });
+  }
+});
 
 /**
  * POST /api/events-calendar
