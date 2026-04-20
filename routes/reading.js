@@ -835,8 +835,9 @@ router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEvent
 /**
  * POST /api/dasha
  *
- * Compute the active Vimshottari Mahadasha (MD) and Antardasha (AD) for a
- * given date based on the Moon's sidereal (Lahiri) longitude at birth.
+ * Compute the active Vimshottari Mahadasha (MD), Antardasha (AD) and
+ * Pratyantardasha (PD) for a given date based on the Moon's sidereal (Lahiri)
+ * longitude at birth.
  *
  * Request body:
  * {
@@ -855,7 +856,8 @@ router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEvent
  *   "moonLongitude": 123.456,
  *   "nakshatra": { "index": 9, "name": "Magha", "lord": "Ketu", "pada": 2, "fractionElapsed": 0.37 },
  *   "mahadasha": { "planet": "Venus", "startDate": "...", "endDate": "..." },
- *   "antardasha": { "planet": "Jupiter", "startDate": "...", "endDate": "..." }
+ *   "antardasha": { "planet": "Jupiter", "startDate": "...", "endDate": "..." },
+ *   "pratyantardasha": { "planet": "Saturn", "startDate": "...", "endDate": "..." }
  * }
  */
 router.post('/dasha', async (req, res) => {
@@ -903,6 +905,7 @@ router.post('/dasha', async (req, res) => {
       nakshatra: result.nakshatra,
       mahadasha: fmt(result.mahadasha),
       antardasha: fmt(result.antardasha),
+      pratyantardasha: fmt(result.pratyantardasha),
     });
   } catch (error) {
     console.error('Dasha endpoint error:', error.message);

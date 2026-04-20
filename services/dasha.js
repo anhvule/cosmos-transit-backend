@@ -14,6 +14,8 @@
  *   4. Build the MD sequence from that start date, 9 planets × 120 years total.
  *   5. Within the active MD, build 9 ADs (proportional durations) and pick the
  *      one that contains the query date.
+ *   6. Within the active AD, build 9 Pratyantardashas (PDs) the same way and
+ *      pick the one that contains the query date.
  */
 
 // Vimshottari order and period lengths (total = 120 years).
@@ -102,7 +104,7 @@ function yearsToDays(years) {
  *                             same convention).
  * @param {number} moonSiderealLongitude - Moon's sidereal longitude at birth (degrees).
  * @param {Date} queryDate - Date to evaluate.
- * @returns {{ nakshatra: Object, mahadasha: Object, antardasha: Object }}
+ * @returns {{ nakshatra: Object, mahadasha: Object, antardasha: Object, pratyantardasha: Object }}
  */
 function computeDashaAtDate(birthMoment, moonSiderealLongitude, queryDate) {
   const nak = getNakshatra(moonSiderealLongitude);
@@ -133,18 +135,38 @@ function computeDashaAtDate(birthMoment, moonSiderealLongitude, queryDate) {
   const mdIdx = lordIndex(activeMd.planet);
   let adCursor = new Date(activeMd.startDate);
   let activeAd = null;
+  let activeAdYears = 0;
   for (let i = 0; i < VIMSHOTTARI_SEQUENCE.length; i++) {
     const ad = VIMSHOTTARI_SEQUENCE[(mdIdx + i) % VIMSHOTTARI_SEQUENCE.length];
     const adYears = (activeMd.years * ad.years) / TOTAL_YEARS;
     const end = addDays(adCursor, yearsToDays(adYears));
     if (queryDate >= adCursor && queryDate < end) {
       activeAd = { planet: ad.planet, startDate: new Date(adCursor), endDate: end };
+      activeAdYears = adYears;
       break;
     }
     adCursor = end;
   }
+  if (!activeAd) {
+    return { nakshatra: nak, mahadasha: activeMd, antardasha: null, pratyantardasha: null };
+  }
 
-  return { nakshatra: nak, mahadasha: activeMd, antardasha: activeAd };
+  // Build 9 pratyantardashas within the active AD (each proportional to PD/120 × AD).
+  const adIdx = lordIndex(activeAd.planet);
+  let pdCursor = new Date(activeAd.startDate);
+  let activePd = null;
+  for (let i = 0; i < VIMSHOTTARI_SEQUENCE.length; i++) {
+    const pd = VIMSHOTTARI_SEQUENCE[(adIdx + i) % VIMSHOTTARI_SEQUENCE.length];
+    const pdYears = (activeAdYears * pd.years) / TOTAL_YEARS;
+    const end = addDays(pdCursor, yearsToDays(pdYears));
+    if (queryDate >= pdCursor && queryDate < end) {
+      activePd = { planet: pd.planet, startDate: new Date(pdCursor), endDate: end };
+      break;
+    }
+    pdCursor = end;
+  }
+
+  return { nakshatra: nak, mahadasha: activeMd, antardasha: activeAd, pratyantardasha: activePd };
 }
 
 module.exports = {
