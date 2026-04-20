@@ -873,8 +873,11 @@ router.post('/dasha', async (req, res) => {
       { birthDate, birthTime, latitude, longitude, timezone },
       null,
     );
+    // natalPlanets are already in sidereal (Lahiri) coordinates, so fullDegree
+    // is the sidereal absolute longitude we need for nakshatra lookup.
     const moon = (natalPlanets || []).find(p => p.name === 'Moon');
-    if (!moon || moon.sidereal_abs_pos == null) {
+    const moonLongitude = moon && (moon.sidereal_abs_pos != null ? moon.sidereal_abs_pos : moon.fullDegree);
+    if (moonLongitude == null) {
       return res.status(500).json({ error: 'Could not determine Moon sidereal longitude from natal chart' });
     }
 
@@ -886,7 +889,7 @@ router.post('/dasha', async (req, res) => {
       : new Date().toISOString().substring(0, 10);
     const queryDate = new Date(`${dateStr}T12:00:00Z`);
 
-    const result = computeDashaAtDate(birthMoment, moon.sidereal_abs_pos, queryDate);
+    const result = computeDashaAtDate(birthMoment, moonLongitude, queryDate);
 
     const fmt = p => p && {
       planet: p.planet,
@@ -896,7 +899,7 @@ router.post('/dasha', async (req, res) => {
 
     res.json({
       date: dateStr,
-      moonLongitude: moon.sidereal_abs_pos,
+      moonLongitude,
       nakshatra: result.nakshatra,
       mahadasha: fmt(result.mahadasha),
       antardasha: fmt(result.antardasha),
