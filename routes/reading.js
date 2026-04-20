@@ -133,50 +133,9 @@ router.post('/reading', async (req, res) => {
   }
 });
 
-function makeDebugHandler(interpretationLookup) {
-  return async (req, res) => {
-  try {
-    const { name, birthDate, birthTime, latitude, longitude, transitDate, timezone } = req.body;
-
-    // Validate required fields
-    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
-      return res.status(400).json({
-        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
-      });
-    }
-
-    // Compute yesterday/tomorrow's date. Yesterday is needed for node-aspect
-    // local-minimum detection (their orb windows span weeks, so we only fire
-    // :Exact on the tightest-orb day of the run). Tomorrow is needed to filter
-    // :Exact aspects to the last day of each consecutive orb<cap run.
-    const baseDate = transitDate
-      ? new Date(transitDate)
-      : new Date();
-    const tomorrowDate = new Date(baseDate);
-    tomorrowDate.setDate(tomorrowDate.getDate() + 1);
-    const tomorrowStr = tomorrowDate.toISOString().substring(0, 10);
-    const yesterdayDate = new Date(baseDate);
-    yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-    const yesterdayStr = yesterdayDate.toISOString().substring(0, 10);
-
-    // Kerykeion path: run yesterday + today + tomorrow in parallel so we can
-    // filter :Exact aspects to the last day of each consecutive orb<cap run
-    // (and local-min for nodes); mirrors events-calendar bridge behavior.
-    const [yesterdayResult, todayResult, tomorrowResult] = await Promise.all([
-      astrologyService.getNatalTransitsAndReport(
-        { birthDate, birthTime, latitude, longitude, timezone },
-        yesterdayStr,
-      ),
-      astrologyService.getNatalTransitsAndReport(
-        { birthDate, birthTime, latitude, longitude, timezone },
-        transitDate,
-      ),
-      astrologyService.getNatalTransitsAndReport(
-        { birthDate, birthTime, latitude, longitude, timezone },
-        tomorrowStr,
-      ),
-    ]);
-
+// Filter today's transit events using yesterday/tomorrow context for dedup.
+// Extracted from /debug so it can be reused for week/month aggregation routes.
+function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
     // Slow-planet :Exact needs a tighter 0.6° orb cap because Jupiter/Saturn
     // windows can span 10+ days at 1°. Personal planets use 0.85° so the
     // "last day of the <cap run" lands on the tightest approach day for
@@ -664,32 +623,201 @@ function makeDebugHandler(interpretationLookup) {
       return true;
     });
 
-    // Return formatted response with transit events
-    const today = transitDate
-      ? new Date(transitDate).toISOString().substring(0, 10)
-      : new Date().toISOString().substring(0, 10);
+  return transitEvents;
+}
 
-    res.json({
-      date: today,
-      aspects: transitEvents.map(e => ({
-        impact: e.impact,
-        description: e.description,
-        interpretation: interpretationLookup(e.description),
-      })),
-      rulers: transitEvents.flatMap(e =>
-        (e.rulers || []).map(r => ({
-          description: r.description,
-          interpretation: interpretationLookup(r.description),
+// Fetch kerykeion results for a list of dates (deduplicated, parallel).
+async function fetchResultsForDates(birthParams, dates) {
+  const uniqueDates = Array.from(new Set(dates));
+  const entries = await Promise.all(
+    uniqueDates.map(async d => [d, await astrologyService.getNatalTransitsAndReport(birthParams, d)]),
+  );
+  return new Map(entries);
+}
+
+// Compute next/prev date strings (YYYY-MM-DD).
+function shiftDate(dateStr, deltaDays) {
+  const d = new Date(dateStr);
+  d.setDate(d.getDate() + deltaDays);
+  return d.toISOString().substring(0, 10);
+}
+
+function makeDebugHandler(interpretationLookup) {
+  return async (req, res) => {
+    try {
+      const { name, birthDate, birthTime, latitude, longitude, transitDate, timezone } = req.body;
+
+      if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
+        return res.status(400).json({
+          error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
+        });
+      }
+
+      const baseDateStr = transitDate
+        ? new Date(transitDate).toISOString().substring(0, 10)
+        : new Date().toISOString().substring(0, 10);
+      const yesterdayStr = shiftDate(baseDateStr, -1);
+      const tomorrowStr = shiftDate(baseDateStr, 1);
+
+      const birthParams = { birthDate, birthTime, latitude, longitude, timezone };
+      const results = await fetchResultsForDates(birthParams, [yesterdayStr, baseDateStr, tomorrowStr]);
+
+      const transitEvents = computeFilteredEvents(
+        results.get(yesterdayStr),
+        results.get(baseDateStr),
+        results.get(tomorrowStr),
+      );
+
+      res.json({
+        date: baseDateStr,
+        aspects: transitEvents.map(e => ({
+          impact: e.impact,
+          description: e.description,
+          interpretation: interpretationLookup(e.description),
         })),
-      ),
-    });
+        rulers: transitEvents.flatMap(e =>
+          (e.rulers || []).map(r => ({
+            description: r.description,
+            interpretation: interpretationLookup(r.description),
+          })),
+        ),
+      });
+    } catch (error) {
+      console.error('Reading endpoint error:', error.message);
+      res.status(500).json({
+        error: 'Failed to generate reading. Please try again later.',
+      });
+    }
+  };
+}
 
-  } catch (error) {
-    console.error('Reading endpoint error:', error.message);
-    res.status(500).json({
-      error: 'Failed to generate reading. Please try again later.',
-    });
+// Build per-day filtered events for a list of dates, then aggregate.
+// Returns { days: [{ date, aspects, rulers }], aggregatedAspects, aggregatedRulers }
+async function aggregatePeriod(birthParams, dates, interpretationLookup) {
+  // Fetch all needed dates plus 1-day padding on each end (for yesterday/tomorrow context).
+  const sorted = [...dates].sort();
+  const fetchDates = new Set(sorted);
+  fetchDates.add(shiftDate(sorted[0], -1));
+  fetchDates.add(shiftDate(sorted[sorted.length - 1], 1));
+  for (const d of sorted) {
+    fetchDates.add(shiftDate(d, -1));
+    fetchDates.add(shiftDate(d, 1));
   }
+  const results = await fetchResultsForDates(birthParams, Array.from(fetchDates));
+
+  const days = [];
+  const aspectMap = new Map();   // base description (lowercase) → { description, interpretation, dates: [] }
+  const rulerMap = new Map();
+
+  for (const date of sorted) {
+    const todayResult = results.get(date);
+    const yesterdayResult = results.get(shiftDate(date, -1));
+    const tomorrowResult = results.get(shiftDate(date, 1));
+    const events = computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult);
+
+    const aspects = events.map(e => ({
+      impact: e.impact,
+      description: e.description,
+      interpretation: interpretationLookup(e.description),
+    }));
+    const rulers = events.flatMap(e =>
+      (e.rulers || []).map(r => ({
+        description: r.description,
+        interpretation: interpretationLookup(r.description),
+      })),
+    );
+
+    days.push({ date, aspects, rulers });
+
+    for (const a of aspects) {
+      const key = (a.description || '').toLowerCase();
+      if (!aspectMap.has(key)) {
+        aspectMap.set(key, { description: a.description, interpretation: a.interpretation, impact: a.impact, dates: [] });
+      }
+      aspectMap.get(key).dates.push(date);
+    }
+    for (const r of rulers) {
+      const key = (r.description || '').toLowerCase();
+      if (!rulerMap.has(key)) {
+        rulerMap.set(key, { description: r.description, interpretation: r.interpretation, dates: [] });
+      }
+      rulerMap.get(key).dates.push(date);
+    }
+  }
+
+  return {
+    days,
+    aggregatedAspects: Array.from(aspectMap.values()),
+    aggregatedRulers: Array.from(rulerMap.values()),
+  };
+}
+
+// Build a list of YYYY-MM-DD dates in [startDate, endDate] (inclusive).
+function dateRange(startDate, endDate) {
+  const out = [];
+  let cursor = startDate;
+  while (cursor <= endDate) {
+    out.push(cursor);
+    cursor = shiftDate(cursor, 1);
+  }
+  return out;
+}
+
+function makePeriodHandler(periodKind, interpretationLookup) {
+  return async (req, res) => {
+    try {
+      const { name, birthDate, birthTime, latitude, longitude, timezone, weekStart, month } = req.body;
+
+      if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
+        return res.status(400).json({
+          error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
+        });
+      }
+
+      let dates;
+      let startDate;
+      let endDate;
+      if (periodKind === 'week') {
+        if (!weekStart || !/^\d{4}-\d{2}-\d{2}$/.test(weekStart)) {
+          return res.status(400).json({ error: 'weekStart must be in YYYY-MM-DD format' });
+        }
+        startDate = weekStart;
+        endDate = shiftDate(weekStart, 6);
+        dates = dateRange(startDate, endDate);
+      } else if (periodKind === 'month') {
+        if (!month || !/^\d{4}-\d{2}$/.test(month)) {
+          return res.status(400).json({ error: 'month must be in YYYY-MM format' });
+        }
+        const [y, m] = month.split('-').map(Number);
+        const lastDay = new Date(Date.UTC(y, m, 0)).getUTCDate(); // m is 1-12; Date(y, m, 0) → last day of month m
+        startDate = `${month}-01`;
+        endDate = `${month}-${String(lastDay).padStart(2, '0')}`;
+        dates = dateRange(startDate, endDate);
+      } else {
+        return res.status(500).json({ error: `Unknown periodKind: ${periodKind}` });
+      }
+
+      const birthParams = { birthDate, birthTime, latitude, longitude, timezone };
+      const { days, aggregatedAspects, aggregatedRulers } = await aggregatePeriod(
+        birthParams,
+        dates,
+        interpretationLookup,
+      );
+
+      res.json({
+        period: periodKind,
+        startDate,
+        endDate,
+        days,
+        aggregatedAspects,
+        aggregatedRulers,
+      });
+    } catch (error) {
+      console.error(`Period (${periodKind}) endpoint error:`, error.message);
+      res.status(500).json({
+        error: 'Failed to generate reading. Please try again later.',
+      });
+    }
   };
 }
 
@@ -699,6 +827,9 @@ router.post('/career', makeDebugHandler(getCareerEventInterpretation));
 router.post('/relationship', makeDebugHandler(getRelationshipEventInterpretation));
 router.post('/network', makeDebugHandler(getNetworkEventInterpretation));
 router.post('/engineering', makeDebugHandler(getEngineeringEventInterpretation));
+
+router.post('/investment-weekly', makePeriodHandler('week', getInvestmentEventInterpretation));
+router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEventInterpretation));
 
 /**
  * POST /api/events-calendar
