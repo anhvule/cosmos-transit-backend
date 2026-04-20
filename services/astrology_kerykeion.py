@@ -1034,6 +1034,8 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                  and a['aspect'] == 'quincunx')
              or (a['transitPlanet'] == 'Mars' and a['natalPlanet'] == 'Venus'
                  and a['aspect'] == 'quincunx')
+             or (a['transitPlanet'] == 'Mars' and a['natalPlanet'] == 'Venus'
+                 and a['aspect'] == 'square')
              or (a['transitPlanet'] == 'Mars' and a['natalPlanet'] == 'Mars'
                  and a['aspect'] == 'quincunx')
              or (a['transitPlanet'] == 'Mars' and a['natalPlanet'] == 'Saturn'
@@ -1047,11 +1049,13 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
             threshold=1.85 if (
                 # Mars-Jupiter opposition :Ends at orb ~1.91° (planner1 03-24);
                 # Mars-Venus opposition :Ends at orb ~1.94° (planner4 06-28).
+                # Mars-Venus square :Ends at orb ~1.97° (planner11 03-05).
                 # Yesterdays sit at ~1.13/1.23° respectively, so 1.85° captures
                 # the crossing without firing on the next day (~2.6°).
                 a['transitPlanet'] == 'Mars' and (
                     (a['natalPlanet'] == 'Jupiter' and a['aspect'] == 'opposition')
                     or (a['natalPlanet'] == 'Venus' and a['aspect'] == 'opposition')
+                    or (a['natalPlanet'] == 'Venus' and a['aspect'] == 'square')
                 )
             ) else 2.0 if (
                 a['transitPlanet'] == 'Mars' and (
@@ -1238,7 +1242,11 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
     separating_slow = [
         a for a in active_aspects
         if a['transitPlanet'] in ('Jupiter', 'Saturn')
-        and a['natalPlanet'] in _SLOW_NATAL_TARGETS
+        # Saturn → natal Rahu is whitelisted via _SATURN_NATAL_TARGETS even
+        # though Rahu is not in _SLOW_NATAL_TARGETS (planner11 03-03 :Ends).
+        and (a['natalPlanet'] in _SLOW_NATAL_TARGETS
+             or (a['transitPlanet'] == 'Saturn'
+                 and a['natalPlanet'] in _SATURN_NATAL_TARGETS))
         and (a['transitPlanet'] != 'Saturn' or a['natalPlanet'] in _SATURN_NATAL_TARGETS)
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
         and a['aspect'] in _MAJOR_ASPECTS
@@ -1552,7 +1560,7 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
             # it lands inside that tight window.
             moon_local_min_exact = (
                 transit_name == 'Moon'
-                and orb < 2.5
+                and orb < 3.0
                 and _is_local_min_orb(
                     transit_map, natal_map,
                     {'transitPlanet': 'Moon', 'natalPlanet': 'MC',
@@ -1781,6 +1789,27 @@ def _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
                 'description': (
                     f'{natal_name} ruler of the {ordinal(house_num_val)} House '
                     f'in the {ordinal(natal["house"])} House'
+                ),
+            })
+
+    # 3b. Dispositor — sign lord of the aspected natal planet's sign.
+    # Planner emits one "{lord} in {ordinal(lord_house)} (Dispositor)" line per
+    # aspect story. Always emit when the lord can be located in natal_map
+    # (planner emits even when the lord coincides with the transit or natal
+    # planet — e.g. "Mars in 8th (Dispositor)" for Mars aspecting Venus in
+    # Scorpio, planner11 03-05).
+    natal_sign_lord = natal.get('signLord', '')
+    if natal_sign_lord:
+        lord_natal = natal_map.get(natal_sign_lord)
+        if lord_natal:
+            events.append({
+                'type': 'dispositor',
+                'planet': natal_sign_lord,
+                'house': lord_natal['house'],
+                'forPlanet': natal_name,
+                'description': (
+                    f'{natal_sign_lord} in {ordinal(lord_natal["house"])} '
+                    f'(Dispositor)'
                 ),
             })
 

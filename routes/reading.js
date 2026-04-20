@@ -13,9 +13,11 @@ console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 
 const { generateReading } = require('../services/gemini');
 const db = require('../db/index');
+const investmentDb = require('../db/investment');
 
 // Pre-compile lookup statement for performance
 const lookupEvent = db.prepare('SELECT description FROM events WHERE name = ?');
+const lookupInvestmentEvent = investmentDb.prepare('SELECT description FROM events WHERE name = ?');
 
 /**
  * Strip : Exact / : Starts / : Ends qualifiers from an event description
@@ -31,6 +33,11 @@ function baseEventName(description) {
  */
 function getEventInterpretation(description) {
   const row = lookupEvent.get(baseEventName(description));
+  return row ? row.description : '';
+}
+
+function getInvestmentEventInterpretation(description) {
+  const row = lookupInvestmentEvent.get(baseEventName(description));
   return row ? row.description : '';
 }
 
@@ -98,7 +105,8 @@ router.post('/reading', async (req, res) => {
   }
 });
 
-router.post('/debug', async (req, res) => {
+function makeDebugHandler(interpretationLookup) {
+  return async (req, res) => {
   try {
     const { name, birthDate, birthTime, latitude, longitude, transitDate, timezone } = req.body;
 
@@ -150,7 +158,7 @@ router.post('/debug', async (req, res) => {
       // Moon transits the MC so fast (~13°/day) that the noon-snapshot orb
       // sits 2-6° even when the exact crossing happens during the day.
       // Python emits :Exact on the local-min day; allow it through here.
-      if (e && e.type === 'mc_aspect' && e.transitPlanet === 'Moon') return 2.5;
+      if (e && e.type === 'mc_aspect' && e.transitPlanet === 'Moon') return 3.0;
       // Same reasoning for Moon-ASC: noon snapshot can leave orb at 3°+ when
       // the exact passage crosses during the day (planner10 02-13 at orb 3.23).
       // Python's local-min check restricts this to one day per pass.
@@ -317,11 +325,19 @@ router.post('/debug', async (req, res) => {
       if (e.transitPlanet === 'Mars' && e.natalPlanet === 'Venus' && e.aspect === 'opposition') {
         return 2.0;
       }
+      // Mars-Venus square :Ends lands at orb ~1.97° (planner11 03-05).
+      if (e.transitPlanet === 'Mars' && e.natalPlanet === 'Venus' && e.aspect === 'square') {
+        return 2.0;
+      }
       // Mars-Mars quincunx :Ends lands at orb ~2.28° (planner4 06-21).
       if (e.transitPlanet === 'Mars' && e.natalPlanet === 'Mars' && e.aspect === 'quincunx') {
         return 2.35;
       }
       if (e.transitPlanet === 'Jupiter' && e.natalPlanet === 'Venus' && e.aspect === 'trine') {
+        return 3.05;
+      }
+      // Jupiter-Mars trine :Ends lands at orb ~3.00° (planner11 03-05).
+      if (e.transitPlanet === 'Jupiter' && e.natalPlanet === 'Mars' && e.aspect === 'trine') {
         return 3.05;
       }
       // Saturn-Sun square :Ends lands at orb ~3.03° (planner10 02-04). The
@@ -630,23 +646,27 @@ router.post('/debug', async (req, res) => {
       aspects: transitEvents.map(e => ({
         impact: e.impact,
         description: e.description,
-        interpretation: getEventInterpretation(e.description),
+        interpretation: interpretationLookup(e.description),
       })),
       rulers: transitEvents.flatMap(e =>
         (e.rulers || []).map(r => ({
           description: r.description,
-          interpretation: getEventInterpretation(r.description),
+          interpretation: interpretationLookup(r.description),
         })),
       ),
     });
-    
+
   } catch (error) {
     console.error('Reading endpoint error:', error.message);
     res.status(500).json({
       error: 'Failed to generate reading. Please try again later.',
     });
   }
-});
+  };
+}
+
+router.post('/debug', makeDebugHandler(getEventInterpretation));
+router.post('/investment', makeDebugHandler(getInvestmentEventInterpretation));
 
 /**
  * POST /api/events-calendar
