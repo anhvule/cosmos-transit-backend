@@ -58,37 +58,48 @@ function baseEventName(description) {
 }
 
 /**
+ * Lookup an event by base name, falling back to the alternate "in Nth house"
+ * ⇄ "in the Nth house" phrasing so engine output (which omits "the" for
+ * aspect events) still matches rows seeded with "the".
+ */
+function lookupEventWithFallback(stmt, description) {
+  const base = baseEventName(description);
+  let row = stmt.get(base);
+  if (!row) {
+    const alt = / in the \d+(?:st|nd|rd|th) house/i.test(base)
+      ? base.replace(/ in the (\d+(?:st|nd|rd|th) house)/i, ' in $1')
+      : base.replace(/ in (\d+(?:st|nd|rd|th) house)/i, ' in the $1');
+    if (alt !== base) row = stmt.get(alt);
+  }
+  return row ? row.description : '';
+}
+
+/**
  * Look up the interpretation text for a transit event description.
  * Returns null if no match is found.
  */
 function getEventInterpretation(description) {
-  const row = lookupEvent.get(baseEventName(description));
-  return row ? row.description : '';
+  return lookupEventWithFallback(lookupEvent, description);
 }
 
 function getInvestmentEventInterpretation(description) {
-  const row = lookupInvestmentEvent.get(baseEventName(description));
-  return row ? row.description : '';
+  return lookupEventWithFallback(lookupInvestmentEvent, description);
 }
 
 function getCareerEventInterpretation(description) {
-  const row = lookupCareerEvent.get(baseEventName(description));
-  return row ? row.description : '';
+  return lookupEventWithFallback(lookupCareerEvent, description);
 }
 
 function getRelationshipEventInterpretation(description) {
-  const row = lookupRelationshipEvent.get(baseEventName(description));
-  return row ? row.description : '';
+  return lookupEventWithFallback(lookupRelationshipEvent, description);
 }
 
 function getNetworkEventInterpretation(description) {
-  const row = lookupNetworkEvent.get(baseEventName(description));
-  return row ? row.description : '';
+  return lookupEventWithFallback(lookupNetworkEvent, description);
 }
 
 function getEngineeringEventInterpretation(description) {
-  const row = lookupEngineeringEvent.get(baseEventName(description));
-  return row ? row.description : '';
+  return lookupEventWithFallback(lookupEngineeringEvent, description);
 }
 
 router.post('/reading', async (req, res) => {
