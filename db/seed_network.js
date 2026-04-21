@@ -182,7 +182,7 @@ const events = [
     description: 'You may reconnect with an old friend from the past through a sudden message. Gossip should be strictly avoided, as misunderstandings thrive in the shadows. A telepathic, unspoken support system develops with a spiritual soulmate.',
   },
   {
-    name: 'Ketu aspect Sun in the 9th house: Exact',
+    name: 'Ketu aspect Sun in the 9th house',
     description: 'You may feel a sudden disconnect from your usual social groups or belief systems. Superficial party friends fall away, leaving only those karmically bound to you. Support comes from stepping back from the crowd to find your own truth.',
   },
   {

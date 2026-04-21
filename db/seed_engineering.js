@@ -182,7 +182,7 @@ const events = [
     description: 'Thoughts of former colleagues intuit a sudden LinkedIn message out of the blue. You develop a sixth sense for debugging complex, obfuscated code. Interest in remote roles for foreign companies initiates new plans. It is time to document past failures to process and learn from them.',
   },
   {
-    name: 'Ketu aspect Sun in the 9th house: Exact',
+    name: 'Ketu aspect Sun in the 9th house',
     description: 'The relevance of an older technology you relied on is declining. Old architectural arguments seem to surface for retribution. Problems with compliance or regulatory guidelines can cause conflict. A senior mentor may leave the company. Your technical philosophies are changing rapidly.',
   },
   {

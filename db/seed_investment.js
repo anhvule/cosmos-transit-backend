@@ -182,7 +182,7 @@ const events = [
     description: 'Commerce moves to the house of dissolution. Market data may be confusing, delayed, or manipulated by foreign entities. Avoid day-trading. Use this transit to audit your past trading journals and refine your quantitative edge in isolation.',
   },
   {
-    name: 'Ketu aspect Sun in the 9th house: Exact',
+    name: 'Ketu aspect Sun in the 9th house',
     description: 'A sudden eclipse of luck or institutional support. Government regulations may unexpectedly hit your long-term holdings. This signature demands detachment; take profits on traditional blue-chip stocks and pivot towards decentralized or deeply contrarian assets.',
   },
   {

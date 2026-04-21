@@ -182,7 +182,7 @@ const events = [
     description: 'Strategic planning done best in isolation. Overseas contracts or multinational corporate communications are favored. Keep new business ideas and tech innovations confidential until they are fully developed and protected.',
   },
   {
-    name: 'Ketu aspect Sun in the 9th house: Exact',
+    name: 'Ketu aspect Sun in the 9th house',
     description: 'Deep disillusionment with upper management or the company’s long-term vision. Potential clashes with corporate authorities or legal compliance issues. You may experience a sudden desire to leave a restrictive job to align with your true ethics.',
   },
   {

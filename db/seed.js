@@ -182,7 +182,7 @@ const events = [
     description: 'Thoughts of old friends intuit a sudden call out of the blue. Psychic and mental telepathy is developed with others. Interest in foreign places and cultures may initiate plans for foreign travel. It is time to begin a journal to process and heal a painful past. Understanding, compassion, and forgiveness heal the life.',
   },
   {
-    name: 'Ketu aspect Sun in the 9th house: Exact',
+    name: 'Ketu aspect Sun in the 9th house',
     description: 'The health of the father may be declining. Old issues concerning the father seem to surface for retribution. Problems with the law or authority figures can rise in conflict. An important teacher or spiritual guide may pass away. Your beliefs are changing with the changing direction of your life.',
   },
   {

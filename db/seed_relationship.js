@@ -182,7 +182,7 @@ const events = [
     description: "Communication breaks down as you struggle to articulate complex, subconscious emotions, leading to profound misunderstandings with your partner. You may keep secrets to avoid conflict, but this emotional evasion only deepens feelings of isolation and depression. Intuitive, non-verbal connection and deep psychological reflection are required to maintain intimacy.",
   },
   {
-    name: 'Ketu aspect Sun in the 9th house: Exact',
+    name: 'Ketu aspect Sun in the 9th house',
     description: "A deep sense of spiritual detachment or disillusionment affects your relationship, making you question the core purpose of your partnership. You may feel a karmic urge to walk away from a partner who does not align with your true path, leading to sudden, unexplainable distance. Ego clashes dissolve into apathy, and emotional fulfillment is sought purely within.",
   },
   {
