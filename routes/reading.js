@@ -41,6 +41,8 @@ const relationshipDb = require('../db/relationship');
 const networkDb = require('../db/network');
 const engineeringDb = require('../db/engineering');
 const adviceDb = require('../db/advice');
+const gainDb = require('../db/gain');
+const lossDb = require('../db/loss');
 
 // Pre-compile lookup statement for performance
 const lookupEvent = db.prepare('SELECT description FROM events WHERE name = ?');
@@ -50,6 +52,8 @@ const lookupRelationshipEvent = relationshipDb.prepare('SELECT description FROM 
 const lookupNetworkEvent = networkDb.prepare('SELECT description FROM events WHERE name = ?');
 const lookupEngineeringEvent = engineeringDb.prepare('SELECT description FROM events WHERE name = ?');
 const lookupAdviceEvent = adviceDb.prepare('SELECT description FROM events WHERE name = ?');
+const lookupGainEvent = gainDb.prepare('SELECT description FROM events WHERE name = ?');
+const lookupLossEvent = lossDb.prepare('SELECT description FROM events WHERE name = ?');
 
 /**
  * Strip : Exact / : Starts / : Ends qualifiers from an event description
@@ -106,6 +110,14 @@ function getEngineeringEventInterpretation(description) {
 
 function getAdviceEventInterpretation(description) {
   return lookupEventWithFallback(lookupAdviceEvent, description);
+}
+
+function getGainEventInterpretation(description) {
+  return lookupEventWithFallback(lookupGainEvent, description);
+}
+
+function getLossEventInterpretation(description) {
+  return lookupEventWithFallback(lookupLossEvent, description);
 }
 
 router.post('/reading', async (req, res) => {
@@ -867,6 +879,8 @@ router.post('/relationship', makeDebugHandler(getRelationshipEventInterpretation
 router.post('/network', makeDebugHandler(getNetworkEventInterpretation));
 router.post('/engineering', makeDebugHandler(getEngineeringEventInterpretation));
 router.post('/advice', makeDebugHandler(getAdviceEventInterpretation));
+router.post('/gain', makeDebugHandler(getGainEventInterpretation));
+router.post('/loss', makeDebugHandler(getLossEventInterpretation));
 
 router.post('/investment-weekly', makePeriodHandler('week', getInvestmentEventInterpretation));
 router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEventInterpretation));
