@@ -40,6 +40,7 @@ const careerDb = require('../db/career');
 const relationshipDb = require('../db/relationship');
 const networkDb = require('../db/network');
 const engineeringDb = require('../db/engineering');
+const adviceDb = require('../db/advice');
 
 // Pre-compile lookup statement for performance
 const lookupEvent = db.prepare('SELECT description FROM events WHERE name = ?');
@@ -48,6 +49,7 @@ const lookupCareerEvent = careerDb.prepare('SELECT description FROM events WHERE
 const lookupRelationshipEvent = relationshipDb.prepare('SELECT description FROM events WHERE name = ?');
 const lookupNetworkEvent = networkDb.prepare('SELECT description FROM events WHERE name = ?');
 const lookupEngineeringEvent = engineeringDb.prepare('SELECT description FROM events WHERE name = ?');
+const lookupAdviceEvent = adviceDb.prepare('SELECT description FROM events WHERE name = ?');
 
 /**
  * Strip : Exact / : Starts / : Ends qualifiers from an event description
@@ -100,6 +102,10 @@ function getNetworkEventInterpretation(description) {
 
 function getEngineeringEventInterpretation(description) {
   return lookupEventWithFallback(lookupEngineeringEvent, description);
+}
+
+function getAdviceEventInterpretation(description) {
+  return lookupEventWithFallback(lookupAdviceEvent, description);
 }
 
 router.post('/reading', async (req, res) => {
@@ -860,6 +866,7 @@ router.post('/career', makeDebugHandler(getCareerEventInterpretation));
 router.post('/relationship', makeDebugHandler(getRelationshipEventInterpretation));
 router.post('/network', makeDebugHandler(getNetworkEventInterpretation));
 router.post('/engineering', makeDebugHandler(getEngineeringEventInterpretation));
+router.post('/advice', makeDebugHandler(getAdviceEventInterpretation));
 
 router.post('/investment-weekly', makePeriodHandler('week', getInvestmentEventInterpretation));
 router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEventInterpretation));
