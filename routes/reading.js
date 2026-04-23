@@ -43,6 +43,7 @@ const engineeringDb = require('../db/engineering');
 const adviceDb = require('../db/advice');
 const gainDb = require('../db/gain');
 const lossDb = require('../db/loss');
+const foodDb = require('../db/food');
 
 // Pre-compile lookup statement for performance
 const lookupEvent = db.prepare('SELECT description FROM events WHERE name = ?');
@@ -54,6 +55,7 @@ const lookupEngineeringEvent = engineeringDb.prepare('SELECT description FROM ev
 const lookupAdviceEvent = adviceDb.prepare('SELECT description FROM events WHERE name = ?');
 const lookupGainEvent = gainDb.prepare('SELECT description FROM events WHERE name = ?');
 const lookupLossEvent = lossDb.prepare('SELECT description FROM events WHERE name = ?');
+const lookupFoodEvent = foodDb.prepare('SELECT description FROM events WHERE name = ?');
 
 /**
  * Strip : Exact / : Starts / : Ends qualifiers from an event description
@@ -118,6 +120,10 @@ function getGainEventInterpretation(description) {
 
 function getLossEventInterpretation(description) {
   return lookupEventWithFallback(lookupLossEvent, description);
+}
+
+function getFoodEventInterpretation(description) {
+  return lookupEventWithFallback(lookupFoodEvent, description);
 }
 
 router.post('/reading', async (req, res) => {
@@ -881,6 +887,7 @@ router.post('/engineering', makeDebugHandler(getEngineeringEventInterpretation))
 router.post('/advice', makeDebugHandler(getAdviceEventInterpretation));
 router.post('/gain', makeDebugHandler(getGainEventInterpretation));
 router.post('/loss', makeDebugHandler(getLossEventInterpretation));
+router.post('/food', makeDebugHandler(getFoodEventInterpretation));
 
 router.post('/investment-weekly', makePeriodHandler('week', getInvestmentEventInterpretation));
 router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEventInterpretation));
