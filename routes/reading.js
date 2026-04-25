@@ -13,6 +13,7 @@ console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 
 const { generateReading } = require('../services/gemini');
 const { computeDashaAtDate, getNakshatra } = require('../services/dasha');
+const { calculateEssenceCycle } = require('../services/essence-cycle');
 const dashaDescriptions = require('../db/dasha-descriptions.json');
 
 /**
@@ -891,6 +892,45 @@ router.post('/food', makeDebugHandler(getFoodEventInterpretation));
 
 router.post('/investment-weekly', makePeriodHandler('week', getInvestmentEventInterpretation));
 router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEventInterpretation));
+
+/**
+ * POST /api/essence-cycle
+ *
+ * Compute the 10-year Essence Cycle table — Western (Pythagorean) numerology.
+ * Three transit streams (physical / mental / spiritual) drawn from the first,
+ * middle and last name; combined with the Personal Year for each row.
+ *
+ * Request body:
+ * {
+ *   "full_name":  "John Alan Doe",
+ *   "dob":        "1992-07-16",
+ *   "start_year": 2026
+ * }
+ */
+router.post('/essence-cycle', (req, res) => {
+  try {
+    const { full_name, dob, start_year } = req.body || {};
+
+    if (!full_name || !dob || start_year == null) {
+      return res.status(400).json({
+        error: 'Missing required fields: full_name, dob, start_year',
+      });
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(dob))) {
+      return res.status(400).json({ error: 'dob must be in YYYY-MM-DD format' });
+    }
+    const startYearNum = Number(start_year);
+    if (!Number.isInteger(startYearNum) || startYearNum < 1 || startYearNum > 9999) {
+      return res.status(400).json({ error: 'start_year must be a 4-digit integer' });
+    }
+
+    const result = calculateEssenceCycle({ full_name, dob, start_year: startYearNum });
+    res.json(result);
+  } catch (error) {
+    console.error('essence-cycle endpoint error:', error.message);
+    res.status(500).json({ error: 'Failed to compute essence cycle. Please try again later.' });
+  }
+});
 
 /**
  * POST /api/dasha
