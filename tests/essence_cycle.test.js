@@ -3,9 +3,11 @@ const { calculateEssenceCycle, _internals } =
 
 const { letterTransitAtAge, nameCycleLength } = _internals;
 
-// "Vu Anh Le" / 1992-12-20 / start_year 2026 — canonical reference values
-// confirmed against a published numerology source. The transit letter for
-// age N is the letter that rules during the year the person turns N.
+// "Vu Anh Le" / 1991-12-29 / start_year 2026 — canonical reference values
+// confirmed against a published numerology source. Under the pre-birthday
+// age convention, row.age = year - birthYear - 1, so calendar year 2026
+// corresponds to age 34 (the age held from Jan 1 → Dec 28 2026, before the
+// Dec 29 birthday).
 //
 //   First name "Vu" cycle:  V(4) U(3) V(4) U(3) ...
 //     V rules ages 0-3, 7-10, 14-17, 21-24, 28-31, 35-38, ...
@@ -70,10 +72,10 @@ describe('nameCycleLength', () => {
   });
 });
 
-describe('calculateEssenceCycle — Vu Anh Le 1992-12-20 / start 2026', () => {
+describe('calculateEssenceCycle — Vu Anh Le 1991-12-29 / start 2026', () => {
   const result = calculateEssenceCycle({
     full_name: 'Vu Anh Le',
-    dob: '1992-12-20',
+    dob: '1991-12-29',
     start_year: 2026,
   });
 
@@ -87,7 +89,7 @@ describe('calculateEssenceCycle — Vu Anh Le 1992-12-20 / start 2026', () => {
 
   it('returns the input echo and a 10-year table', () => {
     expect(result.full_name).toBe('Vu Anh Le');
-    expect(result.dob).toBe('1992-12-20');
+    expect(result.dob).toBe('1991-12-29');
     expect(result.start_year).toBe(2026);
     expect(result.essence_table).toHaveLength(10);
   });

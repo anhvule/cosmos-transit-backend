@@ -398,7 +398,12 @@ function calculateEssenceCycle({ full_name, dob, start_year }) {
   const essence_table = [];
   for (let i = 0; i < 10; i++) {
     const year = start_year + i;
-    const age = year - birthYear;
+    // Pre-birthday age convention: a row's `age` is the age the subject is
+    // for the majority of calendar year Y — i.e. before their birthday.
+    // (They turn `age + 1` on their birthday in year Y.) This matches the
+    // standard Western numerology table layout where year Y's essence is
+    // the one ruling Jan 1 → birthday-of-Y.
+    const age = year - birthYear - 1;
 
     const physical = letterTransitAtAge(first, age);
     const mental = letterTransitAtAge(middle, age);
@@ -412,12 +417,13 @@ function calculateEssenceCycle({ full_name, dob, start_year }) {
     const essence_number = age < 1 ? 0 : reduceToSingleOrMaster(sum);
 
     const py = personalYear(dob, year);
-    // Shifted-duality convention (per published numerology references):
+    // Pre-birthday convention:
+    //   * Row's `age` = pre-birthday age (the age held for most of year Y)
     //   * Before birthday in year Y → essence of THIS row (age N)
-    //   * After  birthday in year Y → essence of NEXT row (age N+1)
-    // i.e. the calendar year carries its own row's essence up through the
-    // birthday, and on the birthday it transitions to the next age's
-    // essence (which then carries through the next year's pre-birthday).
+    //   * After  birthday in year Y → essence of NEXT age   (age N+1)
+    // The birthday in year Y is when the subject transitions from age N to
+    // age N+1, and the essence flips with it. The post-birthday essence of
+    // year Y then becomes the pre-birthday (and full row) essence of Y+1.
     const nextEssence = essenceNumberAtAge(first, middle, last, age + 1);
     const dualities = buildDualitiesForYear({
       year,
