@@ -178,6 +178,35 @@ const PERSONAL_YEAR_EXTERNAL_BLURB = {
   33: 'an external year of compassionate teaching and devotional service',
 };
 
+// Lazy-loaded prepared statement against db/duality_events.db so the seed
+// table can override the templated description on a per-(essence,PY) basis.
+// We require lazily to avoid making test fixtures (or other consumers of
+// this module) depend on better-sqlite3 + the seeded DB file existing.
+let _dualityLookupStmt = null;
+function getDualityLookupStmt() {
+  if (_dualityLookupStmt !== null) return _dualityLookupStmt;
+  try {
+    const dualityDb = require('../db/duality');
+    _dualityLookupStmt = dualityDb.prepare(
+      'SELECT duality_explaination FROM dualities WHERE essence_number = ? AND personal_year = ?',
+    );
+  } catch (e) {
+    _dualityLookupStmt = false; // sentinel: lookup unavailable
+  }
+  return _dualityLookupStmt;
+}
+
+function lookupDualityExplaination(essence, py) {
+  const stmt = getDualityLookupStmt();
+  if (!stmt) return null;
+  try {
+    const row = stmt.get(essence, py);
+    return row ? row.duality_explaination : null;
+  } catch (e) {
+    return null;
+  }
+}
+
 /**
  * Reduce a positive integer all the way to a single digit (1–9).
  * Master numbers and karmic debt numbers are NOT preserved here — that is
@@ -219,11 +248,21 @@ function dayBeforeInYear(year, month, day) {
 function buildDuality(period, start_date, end_date, essenceForDuality, py) {
   const pyReduced = reduceToSingleDigit(py);
   const dualityNumber = reduceToSingleDigit(essenceForDuality + pyReduced);
-  const essBlurb = ESSENCE_INTERNAL_BLURB[essenceForDuality] || `essence ${essenceForDuality} energy`;
-  const pyBlurb =
-    PERSONAL_YEAR_EXTERNAL_BLURB[py] ||
-    PERSONAL_YEAR_EXTERNAL_BLURB[pyReduced] ||
-    `an external year of personal-year-${py} themes`;
+
+  // Prefer the seeded DB description; fall back to templated text only when
+  // the lookup is unavailable (no DB file / row missing) so the response
+  // shape stays predictable in test environments.
+  const seeded = lookupDualityExplaination(essenceForDuality, py);
+  let description = seeded;
+  if (!description) {
+    const essBlurb = ESSENCE_INTERNAL_BLURB[essenceForDuality] || `essence ${essenceForDuality} energy`;
+    const pyBlurb =
+      PERSONAL_YEAR_EXTERNAL_BLURB[py] ||
+      PERSONAL_YEAR_EXTERNAL_BLURB[pyReduced] ||
+      `an external year of personal-year-${py} themes`;
+    description = `An internal phase of ${essBlurb} unfolding within ${pyBlurb}. Their overlap is the duality energy of this period — what you cultivate inside meets what life arranges outside.`;
+  }
+
   return {
     period,
     start_date,
@@ -232,7 +271,7 @@ function buildDuality(period, start_date, end_date, essenceForDuality, py) {
     personal_year: py,
     duality_number: dualityNumber,
     keyword: `Inner ${essenceForDuality} / Outer ${py}`,
-    description: `An internal phase of ${essBlurb} unfolding within ${pyBlurb}. Their overlap is the duality energy of this period — what you cultivate inside meets what life arranges outside.`,
+    description,
   };
 }
 
