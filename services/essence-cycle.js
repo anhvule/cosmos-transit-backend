@@ -101,7 +101,14 @@ function nameCycleLength(name) {
 
 /**
  * Given a single name part and an age (>=1), return the letter currently
- * acting as the transit. Letters rule for v years where v is their value.
+ * acting as the transit. Letters rule for v years where v is their value:
+ * the first letter rules ages 0..v-1, the second v..v+v2-1, and so on,
+ * looping back to the first letter once the cycle completes.
+ *
+ * Age 0 itself is treated as the gestation / pre-influence year and
+ * returns null — the cycle math, however, is anchored to age 0 so that
+ * `age` mod `cycle` indexes the correct letter for every age >= 1.
+ *
  * Returns null if name is empty or age < 1.
  */
 function letterTransitAtAge(name, age) {
@@ -111,7 +118,7 @@ function letterTransitAtAge(name, age) {
   const cycle = nameCycleLength(name);
   if (cycle <= 0) return null;
   // Position within the current loop, 0-indexed.
-  let pos = (age - 1) % cycle;
+  let pos = age % cycle;
   for (const c of letters) {
     const v = LETTER_VALUES[c];
     if (pos < v) return c;
