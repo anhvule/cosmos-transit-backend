@@ -77,6 +77,14 @@ describe('calculateEssenceCycle — Vu Anh Le 1992-12-20 / start 2026', () => {
     start_year: 2026,
   });
 
+  function getYear(year) {
+    return result.essence_table.find((r) => r.year === year);
+  }
+
+  function getDuality(year, period) {
+    return getYear(year).dualities.find((d) => d.period === period);
+  }
+
   it('returns the input echo and a 10-year table', () => {
     expect(result.full_name).toBe('Vu Anh Le');
     expect(result.dob).toBe('1992-12-20');
@@ -93,5 +101,40 @@ describe('calculateEssenceCycle — Vu Anh Le 1992-12-20 / start 2026', () => {
         ...row.transits,
       }).toEqual({ age: row.age, ...expected });
     }
+  });
+
+  it('emits the canonical essence numbers for ages 34-36', () => {
+    expect(getYear(2026).essence_number).toBe(5);
+    expect(getYear(2027).essence_number).toBe(8);
+    expect(getYear(2028).essence_number).toBe(8);
+  });
+
+  it('emits the canonical personal years for 2026-2027', () => {
+    expect(getYear(2026).personal_year).toBe(6);
+    expect(getYear(2027).personal_year).toBe(7);
+  });
+
+  // Reference:
+  //   Pre-bday  2026 → essence 5, PY 6
+  //   Post-bday 2026 → essence 8, PY 6
+  //   Pre-bday  2027 → essence 8, PY 7
+  // (Shifted convention: pre-bday year Y carries this row's essence;
+  // post-bday year Y carries next age's essence.)
+  it('produces the shifted dualities for 2026', () => {
+    const before = getDuality(2026, 'before_birthday');
+    const after = getDuality(2026, 'after_birthday');
+    expect(before).toBeDefined();
+    expect(after).toBeDefined();
+    expect(before.essence_number).toBe(5);
+    expect(before.personal_year).toBe(6);
+    expect(after.essence_number).toBe(8);
+    expect(after.personal_year).toBe(6);
+  });
+
+  it('produces the shifted dualities for 2027', () => {
+    const before = getDuality(2027, 'before_birthday');
+    expect(before).toBeDefined();
+    expect(before.essence_number).toBe(8);
+    expect(before.personal_year).toBe(7);
   });
 });

@@ -299,8 +299,15 @@ function essenceNumberAtAge(first, middle, last, age) {
 }
 
 /**
- * Build the 1-or-2 dualities active during `year`, given the post-birthday
- * essence (this row) and the pre-birthday essence (previous age's row).
+ * Build the 1-or-2 dualities active during `year`.
+ *
+ * Caller passes the essence values that apply on each side of the
+ * birthday under the **shifted convention**:
+ *   * `preEssence`  — essence ruling Jan 1 → day before birthday
+ *   * `postEssence` — essence ruling birthday → Dec 31
+ *
+ * If both reduce to the same single digit, a single `full_year` duality
+ * is emitted instead of a before/after pair.
  */
 function buildDualitiesForYear({
   year,
@@ -315,18 +322,10 @@ function buildDualitiesForYear({
   const reducedPost = reduceEssenceForDuality(postEssence);
   const reducedPre = reduceEssenceForDuality(preEssence);
 
-  if (reducedPost === reducedPre) {
-    return [
-      buildDuality(
-        'full_year',
-        `${year}-01-01`,
-        `${year}-12-31`,
-        reducedPost,
-        py,
-      ),
-    ];
-  }
-
+  // Always emit before/after labels (never collapse to full_year), so that
+  // calendar years where pre and post essence happen to coincide still
+  // surface a "before_birthday" and "after_birthday" entry — matching the
+  // canonical numerology reference labelling.
   const birthdayThisYear = `${year}-${pad2(birthMonth)}-${pad2(birthDay)}`;
   const beforeBday = dayBeforeInYear(year, birthMonth, birthDay);
   const dualities = [];
@@ -413,14 +412,20 @@ function calculateEssenceCycle({ full_name, dob, start_year }) {
     const essence_number = age < 1 ? 0 : reduceToSingleOrMaster(sum);
 
     const py = personalYear(dob, year);
-    const preEssence = essenceNumberAtAge(first, middle, last, age - 1);
+    // Shifted-duality convention (per published numerology references):
+    //   * Before birthday in year Y → essence of THIS row (age N)
+    //   * After  birthday in year Y → essence of NEXT row (age N+1)
+    // i.e. the calendar year carries its own row's essence up through the
+    // birthday, and on the birthday it transitions to the next age's
+    // essence (which then carries through the next year's pre-birthday).
+    const nextEssence = essenceNumberAtAge(first, middle, last, age + 1);
     const dualities = buildDualitiesForYear({
       year,
       age,
       birthMonth,
       birthDay,
-      postEssence: essence_number,
-      preEssence,
+      preEssence: essence_number, // pre-birthday = this row's essence
+      postEssence: nextEssence, // post-birthday = next age's essence
       py,
     });
 
