@@ -138,6 +138,176 @@ function personalYear(dob, year) {
   );
 }
 
+// ── Dualities (Essence × Personal Year overlap) ────────────────────────────
+//
+// Personal Year cycles change every Jan 1; Essence cycles change every
+// birthday. Within a single calendar year you therefore have either:
+//   - 1 duality   (essence didn't change across the birthday)
+//   - 2 dualities (essence changed: one before the birthday, one after)
+// Across a 12-month period straddling New Year, the count becomes 2 or 3 —
+// matching the "two or three Dualities" described in standard numerology.
+//
+// For Duality purposes only, Master (11/22/33) and Karmic Debt (13/14/16/19)
+// essence numbers are reduced to their single-digit root — the row's
+// `essence_number` field is preserved as-is.
+
+const ESSENCE_INTERNAL_BLURB = {
+  1: 'self-defined direction and pioneering identity',
+  2: 'cooperation and patient diplomacy',
+  3: 'creative self-expression and radiant joy',
+  4: 'disciplined building and structural mastery',
+  5: 'liberating change and fearless exploration',
+  6: 'compassionate service and devoted nurturing',
+  7: 'introspective wisdom and spiritual inquiry',
+  8: 'empowered authority and material stewardship',
+  9: 'humanitarian release and graceful completion',
+};
+
+const PERSONAL_YEAR_EXTERNAL_BLURB = {
+  1: 'an external year of new beginnings and fresh starts',
+  2: 'an external year of partnership, patience, and slow weaving',
+  3: 'an external year of social expansion and creative visibility',
+  4: 'an external year of hard work, foundation, and steady building',
+  5: 'an external year of change, movement, and unexpected pivots',
+  6: 'an external year of family, home, and shared responsibility',
+  7: 'an external year of reflection, study, and spiritual recalibration',
+  8: 'an external year of power, ambition, and financial milestones',
+  9: 'an external year of completion, release, and life-chapter endings',
+  11: 'an external year of heightened intuition and visionary awakening',
+  22: 'an external year of master-level building and large-scale execution',
+  33: 'an external year of compassionate teaching and devotional service',
+};
+
+/**
+ * Reduce a positive integer all the way to a single digit (1–9).
+ * Master numbers and karmic debt numbers are NOT preserved here — that is
+ * intentional, per the duality convention.
+ */
+function reduceToSingleDigit(n) {
+  if (n <= 0) return 0;
+  while (n > 9) {
+    n = String(n).split('').reduce((s, d) => s + Number(d), 0);
+  }
+  return n;
+}
+
+const KARMIC_DEBT = new Set([13, 14, 16, 19]);
+
+/**
+ * Reduce an essence number for use inside a Duality. Strips master and
+ * karmic-debt qualities — only single digits 0–9 are returned.
+ */
+function reduceEssenceForDuality(n) {
+  if (n === 11 || n === 22 || n === 33) return reduceToSingleDigit(n);
+  if (KARMIC_DEBT.has(n)) return reduceToSingleDigit(n);
+  return reduceToSingleDigit(n);
+}
+
+function pad2(n) { return String(n).padStart(2, '0'); }
+
+/**
+ * Compute the calendar date one day before (year, month, day). Returns null
+ * if the resulting date would fall outside `year` (i.e. birthday is Jan 1).
+ */
+function dayBeforeInYear(year, month, day) {
+  const d = new Date(Date.UTC(year, month - 1, day));
+  d.setUTCDate(d.getUTCDate() - 1);
+  if (d.getUTCFullYear() !== year) return null;
+  return `${d.getUTCFullYear()}-${pad2(d.getUTCMonth() + 1)}-${pad2(d.getUTCDate())}`;
+}
+
+function buildDuality(period, start_date, end_date, essenceForDuality, py) {
+  const pyReduced = reduceToSingleDigit(py);
+  const dualityNumber = reduceToSingleDigit(essenceForDuality + pyReduced);
+  const essBlurb = ESSENCE_INTERNAL_BLURB[essenceForDuality] || `essence ${essenceForDuality} energy`;
+  const pyBlurb =
+    PERSONAL_YEAR_EXTERNAL_BLURB[py] ||
+    PERSONAL_YEAR_EXTERNAL_BLURB[pyReduced] ||
+    `an external year of personal-year-${py} themes`;
+  return {
+    period,
+    start_date,
+    end_date,
+    essence_number: essenceForDuality,
+    personal_year: py,
+    duality_number: dualityNumber,
+    keyword: `Inner ${essenceForDuality} / Outer ${py}`,
+    description: `An internal phase of ${essBlurb} unfolding within ${pyBlurb}. Their overlap is the duality energy of this period — what you cultivate inside meets what life arranges outside.`,
+  };
+}
+
+/**
+ * Compute the essence number that applies between (age) and (age+1) — i.e.
+ * the post-birthday essence at the given age. Returns 0 for age < 1.
+ */
+function essenceNumberAtAge(first, middle, last, age) {
+  if (age < 1) return 0;
+  const physical = letterTransitAtAge(first, age);
+  const mental = letterTransitAtAge(middle, age);
+  const spiritual = letterTransitAtAge(last, age);
+  const sum =
+    (physical ? LETTER_VALUES[physical] : 0) +
+    (mental ? LETTER_VALUES[mental] : 0) +
+    (spiritual ? LETTER_VALUES[spiritual] : 0);
+  return reduceToSingleOrMaster(sum);
+}
+
+/**
+ * Build the 1-or-2 dualities active during `year`, given the post-birthday
+ * essence (this row) and the pre-birthday essence (previous age's row).
+ */
+function buildDualitiesForYear({
+  year,
+  age,
+  birthMonth,
+  birthDay,
+  postEssence,
+  preEssence,
+  py,
+}) {
+  if (age < 1) return []; // pre-influence year — no dualities
+  const reducedPost = reduceEssenceForDuality(postEssence);
+  const reducedPre = reduceEssenceForDuality(preEssence);
+
+  if (reducedPost === reducedPre) {
+    return [
+      buildDuality(
+        'full_year',
+        `${year}-01-01`,
+        `${year}-12-31`,
+        reducedPost,
+        py,
+      ),
+    ];
+  }
+
+  const birthdayThisYear = `${year}-${pad2(birthMonth)}-${pad2(birthDay)}`;
+  const beforeBday = dayBeforeInYear(year, birthMonth, birthDay);
+  const dualities = [];
+  // If birthday is Jan 1, there is no "before_birthday" segment in this year.
+  if (beforeBday) {
+    dualities.push(
+      buildDuality(
+        'before_birthday',
+        `${year}-01-01`,
+        beforeBday,
+        reducedPre,
+        py,
+      ),
+    );
+  }
+  dualities.push(
+    buildDuality(
+      'after_birthday',
+      birthdayThisYear,
+      `${year}-12-31`,
+      reducedPost,
+      py,
+    ),
+  );
+  return dualities;
+}
+
 /**
  * Split a full name into first / middle / last. Multiple middle names are
  * concatenated in order, treated as one continuous middle stream (standard
@@ -176,6 +346,7 @@ function calculateEssenceCycle({ full_name, dob, start_year }) {
     throw new Error('start_year must be a 4-digit integer');
   }
 
+  const [, birthMonth, birthDay] = dob.split('-').map(Number);
   const birthYear = Number(dob.split('-')[0]);
   const { first, middle, last } = splitFullName(full_name);
 
@@ -195,15 +366,28 @@ function calculateEssenceCycle({ full_name, dob, start_year }) {
       (spiritual ? LETTER_VALUES[spiritual] : 0);
     const essence_number = age < 1 ? 0 : reduceToSingleOrMaster(sum);
 
+    const py = personalYear(dob, year);
+    const preEssence = essenceNumberAtAge(first, middle, last, age - 1);
+    const dualities = buildDualitiesForYear({
+      year,
+      age,
+      birthMonth,
+      birthDay,
+      postEssence: essence_number,
+      preEssence,
+      py,
+    });
+
     essence_table.push({
       year,
       age,
       transits: { physical, mental, spiritual },
-      personal_year: personalYear(dob, year),
+      personal_year: py,
       essence_number,
       keyword: ESSENCE_KEYWORDS[essence_number] || '',
       meaning: ESSENCE_MEANINGS[essence_number] || '',
       detailed_meaning: ESSENCE_DETAILED_MEANINGS[essence_number] || '',
+      dualities,
     });
   }
 
@@ -228,9 +412,12 @@ module.exports = {
   _internals: {
     LETTER_VALUES,
     reduceToSingleOrMaster,
+    reduceEssenceForDuality,
     letterTransitAtAge,
     personalYear,
     splitFullName,
     nameCycleLength,
+    essenceNumberAtAge,
+    buildDualitiesForYear,
   },
 };
