@@ -14,6 +14,17 @@
  * Personal Year   = reduce(month) + reduce(day) + reduce(year) → reduce.
  *
  * Master numbers (11 / 22 / 33) are preserved during reduction.
+ *
+ * Each row's `transits` field is a map { physical, mental, spiritual } whose
+ * values are descriptor objects (or null for pre-influence ages):
+ *   {
+ *     letter:           "H",
+ *     value:            8,
+ *     plane:            "Physical" | "Mental" | "Spiritual",
+ *     duration_years:   8,                  // = value
+ *     meaning:          "...",              // from db/transit-meanings.json
+ *     detailed_meaning: "...",
+ *   }
  */
 
 // ── Pythagorean letter values ───────────────────────────────────────────────
@@ -22,6 +33,46 @@ const LETTER_VALUES = {
   J: 1, K: 2, L: 3, M: 4, N: 5, O: 6, P: 7, Q: 8, R: 9,
   S: 1, T: 2, U: 3, V: 4, W: 5, X: 6, Y: 7, Z: 8,
 };
+
+// ── Per-letter transit copy (loaded from db/transit-meanings.json) ──────────
+// Editable JSON map keyed by uppercase letter A–Z. Each entry provides
+// `meaning` (short blurb) and `detailed_meaning` (long-form). The runtime
+// `value`, `plane`, and `duration_years` are layered on at response time.
+let TRANSIT_MEANINGS = null;
+function loadTransitMeanings() {
+  if (TRANSIT_MEANINGS) return TRANSIT_MEANINGS;
+  try {
+    TRANSIT_MEANINGS = require('../db/transit-meanings.json');
+  } catch (e) {
+    TRANSIT_MEANINGS = {};
+  }
+  return TRANSIT_MEANINGS;
+}
+
+const PLANE_LABELS = {
+  physical: 'Physical',
+  mental: 'Mental',
+  spiritual: 'Spiritual',
+};
+
+/**
+ * Build the enriched transit object emitted in each row's `transits` map.
+ * Returns null when the underlying letter is null (pre-influence age, or a
+ * name part that is empty).
+ */
+function buildTransitDescriptor(letter, planeKey) {
+  if (!letter) return null;
+  const value = LETTER_VALUES[letter] || 0;
+  const meanings = loadTransitMeanings()[letter] || {};
+  return {
+    letter,
+    value,
+    plane: PLANE_LABELS[planeKey] || planeKey,
+    duration_years: value,
+    meaning: meanings.meaning || '',
+    detailed_meaning: meanings.detailed_meaning || '',
+  };
+}
 
 // ── Per-essence-number lookup tables ────────────────────────────────────────
 const ESSENCE_KEYWORDS = {
@@ -438,7 +489,11 @@ function calculateEssenceCycle({ full_name, dob, start_year }) {
     essence_table.push({
       year,
       age,
-      transits: { physical, mental, spiritual },
+      transits: {
+        physical: buildTransitDescriptor(physical, 'physical'),
+        mental: buildTransitDescriptor(mental, 'mental'),
+        spiritual: buildTransitDescriptor(spiritual, 'spiritual'),
+      },
       personal_year: py,
       essence_number,
       keyword: ESSENCE_KEYWORDS[essence_number] || '',

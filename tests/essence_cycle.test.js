@@ -98,11 +98,46 @@ describe('calculateEssenceCycle — Vu Anh Le 1991-12-29 / start 2026', () => {
     for (const row of result.essence_table) {
       const expected = VU_ANH_LE_TRANSITS[row.age];
       if (!expected) continue;
-      expect({
-        age: row.age,
-        ...row.transits,
-      }).toEqual({ age: row.age, ...expected });
+      const actual = {
+        physical: row.transits.physical && row.transits.physical.letter,
+        mental: row.transits.mental && row.transits.mental.letter,
+        spiritual: row.transits.spiritual && row.transits.spiritual.letter,
+      };
+      expect({ age: row.age, ...actual }).toEqual({ age: row.age, ...expected });
     }
+  });
+
+  it('enriches each transit with letter, value, plane, and duration_years', () => {
+    const row = getYear(2026);
+    expect(row.transits.physical).toEqual(
+      expect.objectContaining({
+        letter: 'U',
+        value: 3,
+        plane: 'Physical',
+        duration_years: 3,
+      }),
+    );
+    expect(row.transits.mental).toEqual(
+      expect.objectContaining({
+        letter: 'H',
+        value: 8,
+        plane: 'Mental',
+        duration_years: 8,
+      }),
+    );
+    expect(row.transits.spiritual).toEqual(
+      expect.objectContaining({
+        letter: 'L',
+        value: 3,
+        plane: 'Spiritual',
+        duration_years: 3,
+      }),
+    );
+    // `meaning` / `detailed_meaning` are sourced from db/transit-meanings.json;
+    // they may be empty strings until the editor fills them in. Just assert
+    // the keys exist so the response shape is locked.
+    expect(row.transits.physical).toHaveProperty('meaning');
+    expect(row.transits.physical).toHaveProperty('detailed_meaning');
   });
 
   it('emits the canonical essence numbers for ages 34-36', () => {
