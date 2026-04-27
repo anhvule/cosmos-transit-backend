@@ -1,0 +1,91 @@
+{
+  "_about": "Vedic monthly prediction templates keyed by Sun's transit house from natal Moon (Chandra Lagna). Each entry has a 'high'/'low' variant selected by the Sarvashtavarga point band — high (≥30 bindus) softens malefic indications, low (<25) intensifies them; mid (25–29) uses 'neutral'. Jupiter's house from natal Moon supplies a secondary modifier appended when relevant.",
+  "sunFromMoon": {
+    "1": {
+      "theme": "Self / body / vitality",
+      "high": "Sun transits your Moon-sign — your sense of self is highlighted but the favourable Sarvashtavarga support helps you stay centred. You can take on visible roles, lead initiatives, and command respect. Health is generally stable.",
+      "neutral": "Sun transiting your Moon-sign brings the spotlight to you. Manage your energy carefully, take care of your body and avoid confrontations with authority figures. Use this period for self-reflection and reset.",
+      "low": "Sun transits your Moon-sign with weak Sarvashtavarga support. Expect mental restlessness, fatigue, and friction with authority. Avoid risky decisions; conserve energy and rest."
+    },
+    "2": {
+      "theme": "Wealth / family / speech",
+      "high": "Sun in the 2nd from Moon with strong Sarvashtavarga points supports income, family stability and confident communication. A good window to negotiate, present ideas, or finalise financial plans.",
+      "neutral": "Sun in the 2nd from Moon — focus on finances, family obligations and what you say. Some mild tension around money or food is possible; keep speech measured.",
+      "low": "Sun in the 2nd from Moon with weak support flags eye-strain, throat issues and disputes around money or food. Tighten the budget and avoid harsh speech."
+    },
+    "3": {
+      "theme": "Effort / courage / siblings",
+      "high": "Sun in the 3rd from Moon (Upachaya) with strong points is excellent — push initiatives, sign agreements, and take calculated risks. Siblings or peers actively support you.",
+      "neutral": "Sun in the 3rd from Moon favours bold action and short trips. Initiatives launched now grow over time. Possible minor friction with siblings; address it head-on.",
+      "low": "Sun in the 3rd from Moon — courage is tested, energy needs to be channelled. Without Sarvashtavarga support, expect short-trip hassles and disputes with siblings."
+    },
+    "4": {
+      "theme": "Home / mother / vehicles / inner peace",
+      "high": "Sun in the 4th from Moon stresses home and emotional foundations even with strong points. Spend time with family, restore the home base, and avoid stoking old conflicts.",
+      "neutral": "Sun in the 4th from Moon — domestic concerns, mother's health, or property matters demand attention. Inner restlessness is common; ground yourself with routine.",
+      "low": "Sun in the 4th from Moon with weak Sarvashtavarga points warns of conflict at home, troubles for mother or property losses. Keep peace and avoid major real-estate decisions."
+    },
+    "5": {
+      "theme": "Children / creativity / speculation",
+      "high": "Sun in the 5th from Moon with strong points lights up creative pursuits and brings recognition to your work. Children prosper; speculative gains possible (with prudence).",
+      "neutral": "Sun in the 5th from Moon highlights children, creative output and speculative ventures. Stay measured — the Sun here can also drive arrogance.",
+      "low": "Sun in the 5th from Moon — concerns regarding children or creative blocks. Avoid speculation; use the time to learn rather than gamble."
+    },
+    "6": {
+      "theme": "Work / debts / health",
+      "high": "Sun in the 6th from Moon (Upachaya) with strong points is a power period for defeating opponents, clearing debts and excelling at work. Push hard at competitive tasks.",
+      "neutral": "Sun in the 6th from Moon favours work output and conflict resolution. Watch your diet to prevent stomach issues; clear pending obligations.",
+      "low": "Sun in the 6th from Moon with low Sarvashtavarga support points to overwork, digestive trouble or workplace politics. Pace yourself and avoid lending money."
+    },
+    "7": {
+      "theme": "Partners / spouse / public",
+      "high": "Sun in the 7th from Moon — even a strong Sarvashtavarga reading does not fully soften this transit. Expect a busy public period; be diplomatic with partners and clients.",
+      "neutral": "Sun in the 7th from Moon stresses partnerships. Avoid major contracts or confrontations with spouse/business partners; the energy is ego-charged.",
+      "low": "Sun in the 7th from Moon with weak support warns of separation, partnership disputes, and travel exhaustion. Postpone weddings, partnerships and signings if possible."
+    },
+    "8": {
+      "theme": "Transformation / hidden setbacks",
+      "high": "Sun in the 8th from Moon — even with strong Sarvashtavarga points, this is a low-key, internal period. Avoid risky exposure, undertake research and rest.",
+      "neutral": "Sun in the 8th from Moon brings hidden obstacles and a dip in vitality. Avoid surgery, lawsuits and high-stakes decisions; protect health and finances.",
+      "low": "Sun in the 8th from Moon with weak support is one of the most challenging transits — expect health setbacks, sudden expenses, and ego wounds. Be conservative."
+    },
+    "9": {
+      "theme": "Fortune / father / dharma / travel",
+      "high": "Sun in the 9th from Moon with strong points blesses you with luck, paternal support and meaningful travel. Pilgrimages, higher studies and ethical decisions thrive.",
+      "neutral": "Sun in the 9th from Moon favours long-distance travel, learning and connection with mentors. Father may need attention; honour elders.",
+      "low": "Sun in the 9th from Moon with weak Sarvashtavarga support flags travel obstacles and friction with father/teacher figures. Keep ethics tight; avoid shortcuts."
+    },
+    "10": {
+      "theme": "Career / status / public role",
+      "high": "Sun in the 10th from Moon with strong Sarvashtavarga support is a peak career window. Expect promotions, recognition, and successful negotiations with authorities.",
+      "neutral": "Sun in the 10th from Moon energises career and public standing. Aim high but stay humble — visibility brings scrutiny too.",
+      "low": "Sun in the 10th from Moon with weak support warns of conflicts with bosses and reputation risks. Deliver consistently rather than seeking limelight."
+    },
+    "11": {
+      "theme": "Gains / network / fulfilment",
+      "high": "Sun in the 11th from Moon with strong points brings income, fulfilled goals and influential contacts. Excellent for networking and asking for raises.",
+      "neutral": "Sun in the 11th from Moon supports gains and networking. Existing initiatives ripen; seek mentors and benefactors.",
+      "low": "Sun in the 11th from Moon — even a malefic-friendly house cannot fully overcome weak Sarvashtavarga support. Manage expectations on income; don't overcommit."
+    },
+    "12": {
+      "theme": "Loss / expenses / retreat",
+      "high": "Sun in the 12th from Moon — the Sarvashtavarga cushion helps, but the period still tilts toward retreat, foreign matters and spiritual practice rather than visible action.",
+      "neutral": "Sun in the 12th from Moon brings expenses, sleep disturbances and a need for solitude. Use the time for inner work and to wind down current cycles.",
+      "low": "Sun in the 12th from Moon with weak Sarvashtavarga support warns of losses, isolation and foot/eye troubles. Pull back, cut expenses, and rest."
+    }
+  },
+  "jupiterFromMoonModifier": {
+    "1": "Jupiter on your Moon-sign brings expansion of self and inner growth, but can also bring weight gain or complacency.",
+    "2": "Jupiter in the 2nd from Moon supports family wealth and refined speech; mind overconsumption.",
+    "3": "Jupiter in the 3rd from Moon (a difficult position for Jupiter) can shrink courage and overload you with small responsibilities.",
+    "4": "Jupiter in the 4th from Moon adds mental ease, vehicle/property gains and supportive home conditions.",
+    "5": "Jupiter in the 5th from Moon is excellent — children, creativity, and intelligent decisions all benefit.",
+    "6": "Jupiter in the 6th from Moon (a difficult position) signals workplace strain and potential debt issues despite hard work.",
+    "7": "Jupiter in the 7th from Moon supports partnerships, marriage, and harmonious negotiations.",
+    "8": "Jupiter in the 8th from Moon highlights legacy, inheritance and hidden research — slow but profound shifts.",
+    "9": "Jupiter in the 9th from Moon is highly auspicious — luck, dharma, mentors and travel all flow.",
+    "10": "Jupiter in the 10th from Moon (a difficult position) can dilute professional focus; deliver results without overpromising.",
+    "11": "Jupiter in the 11th from Moon brings significant gains and powerful network growth.",
+    "12": "Jupiter in the 12th from Moon supports spiritual progress and foreign opportunities, but watch for unnecessary expenses."
+  }
+}

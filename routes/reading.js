@@ -14,6 +14,8 @@ console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 const { generateReading } = require('../services/gemini');
 const { computeDashaAtDate, getNakshatra } = require('../services/dasha');
 const { calculateEssenceCycle } = require('../services/essence-cycle');
+const { getYearlySummary } = require('../services/varshaphal');
+const { getMonthlyPrediction } = require('../services/monthly-prediction');
 const dashaDescriptions = require('../db/dasha-descriptions.json');
 
 /**
@@ -1190,6 +1192,94 @@ router.post('/investment-gain-days', async (req, res) => {
   } catch (error) {
     console.error('investment-gain-days error:', error.message);
     res.status(500).json({ error: 'Failed to compute investment gain days. Please try again later.' });
+  }
+});
+
+/**
+ * POST /api/yearly-summary
+ *
+ * Tajika annual horoscope (Varshaphal) — returns the "Combined effect of
+ * factors analysed" table from the Yearly.docx reference report:
+ *   1. Muntha
+ *   2. Muntha Lord
+ *   3. Varsheshwara (Lord of the Year)
+ *   4. Birth Lagna position in the annual chart
+ *   5. Planets in Houses (overall)
+ * plus the underlying annual chart, Muntha placement, and Sarvashtavarga
+ * point totals for each sidereal sign.
+ *
+ * Request body:
+ * {
+ *   "name":      "Alice",
+ *   "birthDate": "1991-12-29",
+ *   "birthTime": "13:30",
+ *   "latitude":  10.7755,
+ *   "longitude": 106.7021,
+ *   "timezone":  "Asia/Ho_Chi_Minh",   // optional
+ *   "year":      2024                  // year of Varshapravesh
+ * }
+ */
+router.post('/yearly-summary', async (req, res) => {
+  try {
+    const { name, birthDate, birthTime, latitude, longitude, timezone, year } = req.body;
+
+    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
+      return res.status(400).json({
+        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
+      });
+    }
+    const yr = Number(year);
+    if (!Number.isInteger(yr) || yr < 1900 || yr > 2200) {
+      return res.status(400).json({ error: 'year must be a 4-digit integer between 1900 and 2200' });
+    }
+
+    const summary = await getYearlySummary(
+      { birthDate, birthTime, latitude, longitude, timezone },
+      yr,
+    );
+    res.json(summary);
+  } catch (error) {
+    console.error('yearly-summary error:', error.message);
+    res.status(500).json({ error: 'Failed to compute yearly summary. Please try again later.' });
+  }
+});
+
+/**
+ * POST /api/monthly-prediction
+ *
+ * Sun-transit + Sarvashtavarga monthly predictions for a Tajika year (12-13
+ * periods, one per Sun sidereal-sign ingress). Each period reports:
+ *   - fromDate / toDate  (Sun ingress range)
+ *   - sunSign / sunSignVedic, sunHouseFromMoon
+ *   - sarvashtavargaPoints (bindu count for the sign Sun transits)
+ *   - jupiterSign / jupiterSignVedic, jupiterHouseFromMoon
+ *   - prediction (text composed from Sun-house-from-Moon × Sarvashtavarga band
+ *                 with a Jupiter-house-from-Moon modifier)
+ *
+ * Request body: same as /api/yearly-summary.
+ */
+router.post('/monthly-prediction', async (req, res) => {
+  try {
+    const { name, birthDate, birthTime, latitude, longitude, timezone, year } = req.body;
+
+    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
+      return res.status(400).json({
+        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
+      });
+    }
+    const yr = Number(year);
+    if (!Number.isInteger(yr) || yr < 1900 || yr > 2200) {
+      return res.status(400).json({ error: 'year must be a 4-digit integer between 1900 and 2200' });
+    }
+
+    const result = await getMonthlyPrediction(
+      { birthDate, birthTime, latitude, longitude, timezone },
+      yr,
+    );
+    res.json(result);
+  } catch (error) {
+    console.error('monthly-prediction error:', error.message);
+    res.status(500).json({ error: 'Failed to compute monthly prediction. Please try again later.' });
   }
 });
 
