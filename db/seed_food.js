@@ -573,6 +573,346 @@ const events = [
     name: 'Venus Transits the 10th House',
     description: 'Fresh business ventures require elegant, aesthetically pleasing business lunches. High-quality sushi, vibrant, colorful salads, and beautifully designed, artistic meals will promote your positive perspective and honor the women driving force in your creative workplace.',
   },
+  {
+    name: 'Jupiter Aspecting Midheaven (MC) : Ends',
+    description: 'As this expansive career influence fades, taper off heavy, rich celebratory meals. Return to optimizing your daily fuel with complex carbohydrates like sweet potatoes to maintain stamina for your daily walks.',
+  },
+  {
+    name: 'Jupiter aspect Jupiter in 5th house : Exact',
+    description: 'The peak of this prosperous transit demands naturally sweet, sattvic foods. Incorporate pure ghee, dates, and rich pumpkin dishes to nourish your creative and spiritual pursuits without causing sluggishness.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Ends',
+    description: 'As the metabolic fire cools, transition away from heavy proteins. Opt for lighter, turmeric-spiced mung dal to gently detoxify the liver and maintain balanced energy for your daily activities.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Exact',
+    description: 'Your physical vitality is at its zenith. Consume robust, protein-dense meals like grilled chicken or chickpeas seasoned with ginger to perfectly optimize your energy for intense badminton sessions.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Starts',
+    description: 'Begin introducing blood-building, energetic foods. Spiced lentils and warming curries will stoke your digestive fire and prepare your body for a highly active phase.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Ends',
+    description: 'As emotional sensitivity in the gut subsides, you can slowly reintroduce more complex meals. Continue to favor mild, expansive foods like roasted squash to maintain balance.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Exact',
+    description: 'Your stomach is highly receptive but sensitive. A warm, soothing bowl of spiced oatmeal or a traditional kitchari provides the necessary, easily digestible fuel without slowing down your active routine.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Starts',
+    description: 'Anticipate incoming digestive sensitivity by preparing calming, sattvic meals. Begin incorporating more warm almond milk and fennel tea to soothe the gut lining.',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Ends',
+    description: 'The craving for intense sweets and luxurious dining is passing. Gently return to a cleaner diet by substituting heavy desserts with fresh berries and dark chocolate.',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Starts',
+    description: 'A powerful desire for rich, sensual foods is emerging. Indulge intelligently by stocking up on high-quality figs, raw honey, and healthy fats before the cravings peak.',
+  },
+  {
+    name: 'Ketu aspect Mars in 8th house : Exact',
+    description: 'Subconscious heat requires intensely cooling and purifying foods. Fresh cilantro, aloe vera juice, and cucumber salads are vital to soothe internal inflammation and support psychological release.',
+  },
+  {
+    name: 'Ketu aspect Sun in 9th house : Exact',
+    description: 'Your vital energy pulls inward toward spiritual matters. Honor this by eating a very simple, ascetic diet of plain rice and steamed zucchini to align with your deepest tarot and astrological reflections.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Ends',
+    description: 'As professional pressures ease, you no longer need such dense, aggressive fuel. Shift from heavy proteins to lighter, alkaline greens to cool the digestive tract and relax the mind.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Exact',
+    description: 'Heightened ambition requires high-performance fuel. Clean proteins and iron-rich greens give you the decisive energy needed, Jack, to optimize your architectural workflows and leadership tasks.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Starts',
+    description: 'Prepare for a surge in career demands by increasing your intake of sustained energy sources. Lean meats and complex carbohydrates like brown rice will build the necessary stamina.',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Exact',
+    description: 'Your competitive drive is absolute. Fuel your most intense badminton matches with high-protein, blood-building foods like red lentils spiced with black pepper.',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Starts',
+    description: 'Your internal fire is building rapidly. Start integrating heating, energetic foods like garlic and cayenne into your meals to match your rising physical ambition.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Ends',
+    description: 'Mental friction is cooling down. Replace the heavily alkaline diet with balanced, grounding foods like roasted root vegetables to restore your nervous system.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Exact',
+    description: 'Intense mental analysis creates high stomach acidity. Stick to cooling vegetables like celery and steamed green beans to keep your gut calm while you decode complex technical systems.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Starts',
+    description: 'Anticipate mental stress by cutting out coffee and highly spiced foods early. Begin relying on herbal teas and light, crisp greens to maintain a clear, unagitated mind.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Ends',
+    description: 'The fiery, acidic environment in your gut is settling. Gradually reintroduce normal spices, but continue to favor cooling coconut water after your walks to work.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Exact',
+    description: 'Emotional stress creates severe heat in the stomach. You must eat highly cooling foods like aloe vera juice, fresh cilantro, and sweet fruits to extinguish this Pitta imbalance.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Starts',
+    description: 'Begin protecting your stomach lining from impending stress. Incorporate more cooling dairy or coconut milk and completely avoid hot peppers and excess salt.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Ends',
+    description: 'The chaotic, impulsive cravings are fading. Ground your system by returning to structured, whole-food meals and entirely abandoning any fast food habits picked up recently.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Exact',
+    description: 'Erratic energy makes you vulnerable to toxic junk food binges. You must enforce strict discipline, packing structured, high-protein snacks to avoid artificial foods while on the go.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Starts',
+    description: 'A wave of unpredictable cravings is approaching. Preempt this by meal-prepping clean, deeply grounding earthy foods to anchor your system before the Vata energy spikes.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Ends',
+    description: 'The intense, acidic frustration at work is passing. Transition from a strict alkaline diet back to warm, moderately spiced stews to gently rebuild your digestive fire.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Exact',
+    description: 'Deep professional friction demands an actively cooling, alkaline diet. Consuming cucumbers and mild green vegetables will extinguish the internal fire and prevent stress-induced inflammation.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Starts',
+    description: 'Prepare for bureaucratic delays by simplifying your diet. Begin removing acidic triggers like alcohol and red meat to keep your physical vessel calm under incoming pressure.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Ends',
+    description: 'The intense, fiery energy is dissipating. Move away from heavily spiced foods and return to lighter, sattvic meals to maintain a balanced, peaceful vibration.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Exact',
+    description: 'Your adventurous spirit needs heating, energetic foods. Meals heavily spiced with ginger and high-quality proteins will perfectly optimize your energy for spontaneous exploration.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Starts',
+    description: 'Begin fueling your rising vitality with warming spices. Introduce more black pepper and garlic to stoke the digestive fire for the active days ahead.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Ends',
+    description: 'The aggressive, impulsive appetite for sweets is waning. Gently detoxify the liver with bitter greens and return to a moderate, balanced diet.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Exact',
+    description: 'High energy and sensuality demand robust, stimulating foods. Lean proteins spiced with cardamom and dark, iron-rich greens will fuel your charisma without causing sluggishness.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Starts',
+    description: 'A craving for intense, sweet-and-spicy flavors is brewing. Satisfy this emerging desire with controlled portions of chili-infused dark chocolate to prevent later bingeing.',
+  },
+  {
+    name: 'Mercury Aspecting Ascendant (ASC) : Exact',
+    description: 'Mental energy is high but scattered. Jack, fuel your brain with omega-3 rich walnuts and flaxseeds, and sip green tea to maintain steady focus during your frontend development tasks.',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Exact',
+    description: 'Your brain is absorbing immense information. Complex carbohydrates like brown rice and sweet potatoes will provide a steady stream of glucose to support your creative programming.',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Starts',
+    description: 'Start optimizing your diet for heavy mental lifting. Introduce more brain-boosting healthy fats and slow-burning oats to prepare for deep learning phases.',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Ends',
+    description: 'The scattered, ungrounded energy is lifting. You can move away from heavy root vegetables and reintroduce lighter, crisp foods like apples and raw carrots.',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Starts',
+    description: 'Anticipate miscommunications and hectic schedules by grounding your diet immediately. Begin relying on warm oat bowls and thick stews to anchor your nervous system.',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Exact',
+    description: 'Your mind and gut are deeply linked today. Focus entirely on gut-friendly, communicative foods like kefir and light broths to soothe your highly sensitive enteric nervous system.',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Starts',
+    description: 'Begin prepping light, easily digestible meals. Transitioning to simple rice and steamed vegetables now will protect your stomach from incoming mental stress.',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Ends',
+    description: 'The temptation of bizarre dietary fads is passing. Return firmly to traditional, earth-grown whole foods to re-stabilize your physical and mental energy.',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Starts',
+    description: 'You may soon be drawn to extreme nutritional trends. Anchor your diet in simple, whole grains now to prevent chaotic Vata energy from disrupting your digestion.',
+  },
+  {
+    name: 'Mercury aspect Saturn in 10th house : Starts',
+    description: 'Prepare for business standstills by simplifying your intake. Begin eating grounding, slow-to-digest complex carbohydrates like warm oatmeal to lubricate the digestive tract.',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Ends',
+    description: 'As the intense focus on health philosophies fades, you can relax rigid dietary rules. Maintain the core benefits by continuing to enjoy sun-dried fruits and golden grains.',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Starts',
+    description: 'Start aligning your diet with positive, sun-cooked foods. Introducing dried apricots and walnuts now will physically support the inspiring ideas coming your way.',
+  },
+  {
+    name: 'Moon Aspecting Ascendant (ASC) : Exact',
+    description: 'Emotional sensitivity makes you prone to water retention. Focus entirely on hydrating, diuretic foods like cucumber water and fresh melons to flush out toxins after a long walk.',
+  },
+  {
+    name: 'Moon Aspecting Midheaven (MC) : Exact',
+    description: 'Career stress triggers emotional eating. Keep only structured, warm grain bowls with roasted vegetables on hand to provide emotional soothing without compromising your professional energy.',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Ends',
+    description: 'The period of absolute dietary restriction is concluding. Slowly reintroduce more varied, complex foods, but maintain the clean, structured foundation you have built.',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Starts',
+    description: 'An extreme transit begins, demanding absolute dietary control. Immediately eliminate processed foods and embrace a highly structured diet of steamed greens and pure water.',
+  },
+  {
+    name: 'Rahu aspect Moon in 6th house : Exact',
+    description: 'Your digestion is severely compromised by toxic cravings. You must eat strictly organic, natural foods—completely avoiding artificial ingredients to heal the gut flora.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Ends',
+    description: 'The need for incredibly strict karmic dietary laws is lifting. You can cautiously expand your palate, but continue to avoid highly processed or unnatural foods.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Exact',
+    description: 'Karmic healing requires absolute discipline. Abide by restrictive, clean dietary rules, relying entirely on simple whole grains and steamed vegetables to restore metabolic balance.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Starts',
+    description: 'Begin enforcing non-negotiable rules around your diet. Cut out artificial additives immediately to prepare your body for a period of necessary physical healing.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Ends',
+    description: 'The cold, restrictive energy dampening your vitality is fading. Slowly reintroduce lighter, more vibrant foods, though keep meals warm to fully reignite the digestive fire.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Exact',
+    description: 'Vitality is suppressed, requiring slow, sustained nourishment. Thick, slow-cooked root vegetable stews and warm grains are necessary to combat the cold, restrictive energy.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Starts',
+    description: 'Anticipate a drop in digestive fire by shifting to warmer, heavier meals. Begin incorporating slow-cooked black beans and stews to build endurance.',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Ends',
+    description: 'The phase of massive appetite and celebration is over. Consciously rein in portion sizes and return to a moderate, balanced daily intake to prevent residual weight gain.',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Starts',
+    description: 'Your vitality is expanding. Begin preparing for an increased appetite by stocking up on high-quality, rich foods like sweet potatoes and pure ghee, practicing portion control early.',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Ends',
+    description: 'The sudden drop in physical confidence is resolving. Gently transition from light broths back to solid, easily digestible meals like rice and steamed vegetables.',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Starts',
+    description: 'Prepare for a drop in digestive fire. Switch to a very light, fasting-mimicking diet of simple clear broths to allow your body to process incoming spiritual shifts.',
+  },
+  {
+    name: 'Sun aspect Mars in 8th house : Starts',
+    description: 'Internal heat and subtle anger are rising. Preemptively cool your system by introducing fresh coconut water and cucumber salads to calm the upcoming inflammatory response.',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Ends',
+    description: 'The deep psychological investigation into your habits is complete. Solidify your new, clean eating patterns by consistently choosing omega-rich foods and fresh berries.',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Starts',
+    description: 'Begin fueling your mind for deep introspection. Introduce clear, antioxidant-rich foods like blueberries and rosemary to sharpen your psychic and mental clarity.',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Ends',
+    description: 'The profound cleansing phase is concluding. Maintain the benefits by continuing to incorporate fresh ginger and vibrant salads into your daily routine.',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Starts',
+    description: 'Start an immune-boosting regimen immediately. Introduce abundant citrus fruits, garlic, and turmeric to prepare your body for a deep cellular cleanse.',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Ends',
+    description: 'The chaotic, disillusioning energy is passing. You can gently diversify your diet again, remaining anchored in the earth-grown foods that stabilized you.',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Starts',
+    description: 'Anticipate erratic eating urges by firmly grounding your diet now. Stock up on deeply rooted vegetables like potatoes and turnips to stabilize your mind.',
+  },
+  {
+    name: 'Sun aspect Saturn in 10th house : Starts',
+    description: 'Career pressure is about to slow your metabolism. Transition immediately to slow-cooked, easily digestible bone broths and soft grains to conserve your vital energy.',
+  },
+  {
+    name: 'Sun aspect Sun in 9th house : Exact',
+    description: 'Your vitality demands highly sattvic, life-affirming foods. Organic fruits and pure grains will provide the high-vibration energy needed to align with your astrological studies.',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Ends',
+    description: 'The compulsive emotional cravings are subsiding. Taper off the rich comfort foods and return to a clean, balanced diet of whole vegetables and lean proteins.',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Starts',
+    description: 'Prepare for intense emotional triggers by having healthy comfort foods ready. Baked apples with cinnamon will soothe old memories without resorting to processed sugars.',
+  },
+  {
+    name: 'Uranus aspect Saturn in 10th house : Exact',
+    description: 'Erratic professional changes clash with your need for structure. Maintain your physical baseline by strictly meal-prepping reliable, dense proteins and complex carbs, refusing to skip meals.',
+  },
+  {
+    name: 'Venus Aspecting Ascendant (ASC) : Exact',
+    description: 'Your glowing appearance craves foods rich in vitamin E. Avocados, olive oil, and fresh berries will enhance your natural charm while keeping your energy light and social.',
+  },
+  {
+    name: 'Venus aspect Ketu in 3rd house : Starts',
+    description: 'A spiritual detachment from rich foods is beginning. Start simplifying your meals, moving towards plain white rice and mild broths to support this subtle detoxification.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Ends',
+    description: 'The acute need for beautifying foods is passing. Continue to enjoy antioxidants, but you can safely expand your diet to include heartier, grounding meals.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Exact',
+    description: 'Beautifying foods are your best medicine today. Incorporate fresh berries, rose water, and raw almonds to give your skin a vibrant glow and soothe emotional sensitivities.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Starts',
+    description: 'Begin adjusting your diet for aesthetic and emotional nourishment. Stock up on avocados and colorful, antioxidant-rich fruits to preemptively protect your skin and gut.',
+  },
+  {
+    name: 'Venus aspect Rahu in 9th house : Starts',
+    description: 'A dangerous craving for artificial luxury foods is approaching. Anchor yourself now with genuinely rich, natural foods like pure coconuts and high-quality olive oil.',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Ends',
+    description: 'The austere discipline required for your career is softening. You can slightly increase your intake of luxurious, high-quality fats without compromising your goals.',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Starts',
+    description: 'Increased responsibility demands austere nourishment. Start incorporating small amounts of high-quality dark chocolate or black sesame to provide luxury while maintaining strict discipline.',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Ends',
+    description: 'The desire for exotic, imported foods is winding down. Transition back to local, simple ingredients to rest your palate and digestion.',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Starts',
+    description: 'Prepare for an expanding palate. Begin integrating fine olive oils and Mediterranean flavors to satisfy the upcoming urge for luxurious, culturally rich foods.',
+  },
+  {
+    name: 'Venus ruler of the 7th House in the 8th House',
+    description: 'Jack, relational dynamics deeply impact your digestion. Share warm, easily digestible, and purifying meals like traditional kitchari to soothe the tract and calm interpersonal tensions.',
+  }
 ];
 
 const insert = db.prepare('INSERT OR IGNORE INTO events (name, description) VALUES (?, ?)');

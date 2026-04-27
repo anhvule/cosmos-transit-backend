@@ -573,9 +573,349 @@ const events = [
     name: 'Venus Transits the 10th House',
     description: "Inject creativity and superior design into your professional outputs. Utilize eye-catching aesthetics to promote your projects. Actively support and respect the women in your workplace, as they are key to your current success.",
   },
+  {
+    name: 'Jupiter Aspecting Midheaven (MC) : Ends',
+    description: 'The period of rapid career expansion is cooling down. Take today to solidify your recent web architecture decisions. Review your resource optimization strategies and document your progress before moving to the next sprint.',
+  },
+  {
+    name: 'Jupiter aspect Jupiter in 5th house : Exact',
+    description: 'This is a peak intuitive day for financial analysis. Your technical reads on crypto or momentum stocks are highly favored right now. Take a moment to mentor a junior engineer, as your wisdom flows effortlessly today.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Ends',
+    description: 'The intense drive for deep, investigative research is winding down. Wrap up your complex technical debugging. Enjoy a warm, comforting broth tonight to ground yourself after days of intense mental focus.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Exact',
+    description: 'This is a powerful day for uncovering hidden volatility holes in your trading charts or solving deep backend architecture flaws. Burn off any excess, frustrated energy with a highly competitive game of badminton.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Starts',
+    description: 'You will begin to feel a surge of energy directed toward uncovering hidden truths. Start deep-diving into those complex Python or Swift issues you have been putting off. Trust your investigative instincts.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Ends',
+    description: 'As this expansive emotional phase wanes, focus on simple, grounding tasks like refactoring older React components or organizing your workspace. Keep your diet light and easy to digest today.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Exact',
+    description: 'Your emotional well-being is deeply tied to your daily routines today. It is an excellent evening to support your partner after a demanding nursing shift by preparing a comforting, home-cooked meal.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Starts',
+    description: 'A growing desire to improve your daily habits is emerging. Begin incorporating more mindful, brisk walks on your commute to work to align your physical health with your mental clarity.',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Ends',
+    description: 'Discussions regarding shared resources and investments are coming to a close. Shift your focus away from financial planning and enjoy a quiet, private evening at home to recharge.',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Starts',
+    description: 'Favorable energy is building for reviewing joint financial planning. It is a good time to calmly map out single-income household budgets or review your long-term wealth preservation strategies together.',
+  },
+  {
+    name: 'Ketu aspect Mars in 8th house : Exact',
+    description: 'You may experience a sudden urge to detach from intense, ongoing projects. Take a strict break from active trading today. Step entirely away from complex Micro Frontend puzzles if you feel your frustration rising.',
+  },
+  {
+    name: 'Ketu aspect Sun in 9th house : Exact',
+    description: 'You are highly likely to question your overarching beliefs today. It is an excellent time to rethink your software architecture philosophies or explore alternative spiritual concepts outside your usual Vedic studies.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Ends',
+    description: 'Cool down your professional intensity. The heavy lifting of your recent career push is over. Walk home a different route today to actively decompress and leave work matters at the office.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Exact',
+    description: 'Push forward aggressively on your web engineering milestones. Your leadership and technical authority are highly visible today. Tackle the most difficult tasks on your roster with absolute confidence.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Starts',
+    description: 'Ambition is steadily building. Start organizing your strategy to tackle major replatforming projects. Channel this rising energy into drafting actionable, step-by-step technical plans.',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Exact',
+    description: 'Highly intense, relentless energy dominates today. Burn off excess mental friction on the badminton court. Do not force trades in unpredictable markets, as impulsive actions will backfire.',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Starts',
+    description: 'You will feel a sudden, sharp surge of energy to investigate stubborn bugs or uncover hidden data. Direct this laser focus purely into your work, avoiding unnecessary conflicts with peers.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Ends',
+    description: 'Your mental engine needs a rest. Step away from the screens, close the trading charts, and rest your eyes. Prioritize silence and avoid overstimulating media this evening.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Exact',
+    description: 'Your intellect is razor-sharp right now. It is a perfect transit for writing complex algorithms or deeply analyzing South Indian style charts. Watch your tone, as your words can be unintentionally cutting today.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Starts',
+    description: 'Your mind is gearing up for serious technical analysis. Start gathering the data you need for your upcoming momentum trading reviews or complex coding sprints.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Ends',
+    description: 'The emotional heat and workplace irritations of the past few days are dissipating. Focus on resting and resetting your nervous system. Drink plenty of water and get to bed early.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Exact',
+    description: 'Workplace irritations may hit a peak today. Channel this frustrated energy directly into an aggressive workout or a fast-paced sport. Keep your diet very light to prevent stress-induced indigestion.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Starts',
+    description: 'Notice early signs of burnout or agitation with your daily routine. Drink soothing teas and take frequent, short breaks from your desk to maintain your emotional equilibrium.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Ends',
+    description: 'The explosive urge to rebel against traditional knowledge or travel spontaneously is fading. Ground yourself back into your familiar daily routines and structured learning paths.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Exact',
+    description: 'Avoid getting dragged into heated arguments over philosophical, technical, or astrological dogma. Channel this restless, boundary-pushing energy into a demanding solo physical activity.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Starts',
+    description: 'A sudden urge to break out of your routine and explore foreign concepts is rising. Begin planning a future trip or exploring a completely new programming language to satisfy this itch.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Ends',
+    description: 'The heavy feeling of restriction and management pushback is lifting. You can slowly begin to implement the technical changes you have been holding back on.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Exact',
+    description: 'Patience is mandatory today. Bureaucracy may slow your projects down to a halt. Focus purely on resolving technical debt and code optimization rather than fighting to launch new features.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Starts',
+    description: 'You may begin to feel a frustrating tension between your desire to move fast and the structural limitations of your workplace. Prepare to pace yourself and pick your battles wisely.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Ends',
+    description: 'Wind down your intense study sessions. Let the new astrological or technical frameworks you have been exploring integrate quietly into your mind without forcing further analysis.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Exact',
+    description: 'Your vitality and confidence are exceptionally high. It is an ideal day to boldly pitch your architectural designs to the new team or take decisive action on your long-term goals.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Starts',
+    description: 'Motivation to expand your higher knowledge is building. Start a new, challenging technical course or begin deeply analyzing upcoming planetary transits for the quarter.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Ends',
+    description: 'The emotional and passionate intensity of the last few days is cooling down. Return to a steady, calm baseline and focus on practical, routine tasks.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Exact',
+    description: 'Passion runs very high today. Plan a quiet but intensely connected evening with your partner. Forcefully resist any urge to make impulsive, high-risk stock buys under this energy.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Starts',
+    description: 'A drive to deepen intimacy or secretly research hidden financial assets is beginning. Keep your findings private for now and focus on nurturing trust in your closest relationships.',
+  },
+  {
+    name: 'Mercury Aspecting Ascendant (ASC) : Exact',
+    description: 'Your communication skills are unmatched today. It is a highly productive time to write thorough technical documentation, present your web app designs, or send out crucial emails.',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Exact',
+    description: 'Your logic and intuition are perfectly synchronized. This is the optimal timing to pull tarot spreads for strategic decision-making or to execute trades based on your momentum analysis.',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Starts',
+    description: 'Your mind is opening up to broader, more optimistic possibilities. Begin drafting plans that require a blend of creative vision and strict technical execution.',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Ends',
+    description: 'The mental fog and frustrating miscommunications of the past few days are finally clearing. You can safely resume important negotiations and sign off on technical specs.',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Starts',
+    description: 'Miscommunications and technical glitches are highly likely to arise. Double-check all code commits and read emails twice before hitting send. Practice active, patient listening.',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Exact',
+    description: 'You possess great emotional clarity regarding your work today. It is an excellent time to optimize your daily routine. Eat a comforting, warm broth tonight to soothe your active nervous system.',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Starts',
+    description: 'A desire to organize your daily life and improve your health routines is emerging. Start planning out your week meticulously to alleviate any background anxiety.',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Ends',
+    description: 'Your mind is returning to standard, practical protocols. Implement the out-of-the-box ideas you recently generated into stable, workable solutions.',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Starts',
+    description: 'Embrace highly unconventional, out-of-the-box thinking. Explore new frameworks, bleeding-edge tech, or alternative philosophical views that challenge your current paradigms.',
+  },
+  {
+    name: 'Mercury aspect Saturn in 10th house : Starts',
+    description: 'Your communication style is becoming more serious and structured. Use this sobering energy to sit down and draft realistic, long-term career transition plans.',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Ends',
+    description: 'The period of gathering high-level advice is closing. Take the wisdom you received from mentors and begin actively implementing it into your own life.',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Starts',
+    description: 'Your mind is seeking profound wisdom. Reach out to established mentors, father figures, or senior engineers to gain perspective on a complex problem you are facing.',
+  },
+  {
+    name: 'Moon Aspecting Ascendant (ASC) : Exact',
+    description: 'You are highly sensitive to your environment today. Prioritize gentle self-care, walk to work to clear your head, and wear comfortable clothing. Avoid harsh lighting and loud crowds.',
+  },
+  {
+    name: 'Moon Aspecting Midheaven (MC) : Exact',
+    description: 'Your professional intuition is heightened, but so is your sensitivity to feedback. Trust your gut on new project dynamics, but keep your outward reactions strictly neutral and professional.',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Ends',
+    description: 'A major cycle of heavy discipline and restriction is concluding. Take time to reflect on the immense structural resilience and technical mastery you have built over this period.',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Starts',
+    description: 'A period of deep, slow transformation in your professional responsibilities is beginning. Focus on absolute resource efficiency and building systems that can withstand extreme pressure.',
+  },
+  {
+    name: 'Rahu aspect Moon in 6th house : Exact',
+    description: 'High mental anxiety regarding your health or daily workload may surface. Stick to familiar, easily digestible foods today. Completely ignore office gossip to protect your peace of mind.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Ends',
+    description: 'The inner conflict between traditional rules and your desire for freedom is settling. A new, highly pragmatic worldview is taking root. Move forward with this stabilized perspective.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Exact',
+    description: 'It is time to permanently discard outdated philosophies. Find a practical, grounded approach to your astrological studies and software architecture rather than chasing illusions.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Starts',
+    description: 'You will begin to feel tension between tradition and rebellion in your core beliefs. Prepare to rigorously question the rules you have been blindly following up to this point.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Ends',
+    description: 'The oppressive feeling of being restricted by authority figures or rigid rules is lifting. You can step back into your natural confidence and optimism today.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Exact',
+    description: 'Focus entirely on building self-reliance. Rely on your own hard work and discipline rather than luck. Prioritize long-term wealth preservation and system stability over quick trades or hacks.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Starts',
+    description: 'Authority figures or management may begin to feel overly restrictive. Keep your head down, follow protocol carefully, and avoid openly challenging those in charge right now.',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Ends',
+    description: 'The wave of high optimism and speculative luck is receding. Lock in your recent gains, document your successful ideas, and return to a steady, baseline routine.',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Starts',
+    description: 'Optimism and creative energy are steadily building. This is an excellent time to begin speculative financial analysis or brainstorm innovative solutions for your side projects.',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Ends',
+    description: 'Any brief dips in your confidence or communication blockages are clearing up. Your natural self-assurance and clarity of thought are returning in full force.',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Starts',
+    description: 'Your confidence might take a brief, unexpected hit today. Keep your head down, avoid pitching new ideas to the team, and focus on quietly completing routine tasks.',
+  },
+  {
+    name: 'Sun aspect Mars in 8th house : Starts',
+    description: 'Aggressive, focused research energy is building. Channel this rising intensity directly into your most difficult web engineering tasks or deep market analysis before it turns into frustration.',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Ends',
+    description: 'Wrap up your deep investigations and technical audits. The phase of intense psychological and analytical curiosity is closing; organize your findings and rest your mind.',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Starts',
+    description: 'A profound psychological or technical curiosity is awakening. Start gathering data and asking the hard questions required to get to the root of complex, hidden issues.',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Ends',
+    description: 'Your new daily routines and health habits have been successfully established. Maintain the momentum of your morning walks and clean eating as this transit fades.',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Starts',
+    description: 'Focus your vital energy on improving your daily health routines. Commit to walking to work or preparing your own meals to build physical resilience for the week ahead.',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Ends',
+    description: 'The intense urge to travel or radically change your life path is subsiding. Ground yourself back in daily reality and apply what you learned to your current situation.',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Starts',
+    description: 'You will feel a strong pull to break away from traditional learning and explore exotic or taboo subjects. Let your mind wander into these unconventional territories today.',
+  },
+  {
+    name: 'Sun aspect Saturn in 10th house : Starts',
+    description: 'Prepare yourself for a heavy, demanding workload. Pace your energy, focus strictly on scalable, long-term solutions, and maintain a highly professional demeanor with management.',
+  },
+  {
+    name: 'Sun aspect Sun in 9th house : Exact',
+    description: 'Your vitality, identity, and life purpose are perfectly aligned today. It is an excellent day for pursuing higher learning, exploring deep tarot spreads, or acting as a mentor to others.',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Ends',
+    description: 'Discussions around shared finances and deep emotional bonding are concluding. Move forward with the mutual decisions you have made and enjoy the renewed sense of trust.',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Starts',
+    description: 'It is time to shine a light on shared resources and hidden values. Begin reviewing financial plans and single-income strategies with your partner in a spirit of total transparency.',
+  },
+  {
+    name: 'Uranus aspect Saturn in 10th house : Exact',
+    description: 'Expect sudden, unexpected changes in your career structure or management hierarchy. Stay entirely adaptable in your software architecture approach to accommodate these rapid shifts.',
+  },
+  {
+    name: 'Venus Aspecting Ascendant (ASC) : Exact',
+    description: 'Your personal charm and magnetism are at their peak today. It is a fantastic day to lead team meetings, network, or enjoy a beautifully prepared dinner with your partner.',
+  },
+  {
+    name: 'Venus aspect Ketu in 3rd house : Starts',
+    description: 'Past hobbies or old acquaintances might suddenly resurface in your daily life. Keep these interactions pleasant but light, and avoid getting pulled back into old, draining habits.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Ends',
+    description: 'The strong desire to beautify your workspace and harmonize your daily routines is passing. Return to a focus on pure practicality and efficient execution of your tasks.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Exact',
+    description: 'Take time to beautify your immediate environment today. Treat yourself and your partner to a high-quality, comforting meal after a long day to soothe your emotional bodies.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Starts',
+    description: 'A deep desire for peace and harmony in your daily work environment is beginning to grow. Start clearing physical clutter from your desk to invite in better energetic flow.',
+  },
+  {
+    name: 'Venus aspect Rahu in 9th house : Starts',
+    description: 'You will begin to feel a strong urge for luxurious travel or diving into exotic, foreign studies. Allow yourself to dream big and look into planning an unconventional getaway.',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Ends',
+    description: 'The strict boundaries and cool dynamics in your professional relationships are easing up. You can expect warmer, more collaborative interactions with management moving forward.',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Starts',
+    description: 'Your professional relationships will require strict discipline and firm boundaries. Keep all workplace interactions formal, polite, and focused entirely on the tasks at hand.',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Ends',
+    description: 'The phase of joyful vacation planning and expansive philosophical discussions is closing. Take the inspiration you gathered and apply it to your everyday reality.',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Starts',
+    description: 'Enjoy a lighter, more expansive mood. It is a great time to engage in deep philosophical discussions or start browsing destinations for a future, culturally enriching trip.',
+  },
+  {
+    name: 'Venus ruler of the 7th House in the 8th House',
+    description: 'This is a critical period for re-evaluating trust and shared assets. Focus on highly transparent financial planning, especially when discussing adjustments for potential single-income transitions. Radical honesty will strengthen the bond.',
+  }
 ];
 
-const insert = db.prepare('INSERT OR IGNORE INTO events (name, description) VALUES (?, ?)');
+const insert = db.prepare('INSERT INTO events (name, description) VALUES (?, ?) ON CONFLICT(name) DO UPDATE SET description = excluded.description');
 
 const seedAll = db.transaction(() => {
   let inserted = 0;

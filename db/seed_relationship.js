@@ -573,9 +573,349 @@ const events = [
     name: 'Venus Transits the 10th House',
     description: "You are attracted to power, success, and maturity, seeking a partner who offers both emotional and public stability. Love is expressed practically, but an over-concern with reputation can cause you to suppress genuine emotions to maintain appearances. Ensure that your relationship is a source of profound private comfort, not just a successful public merger.",
   },
+  {
+    name: 'Jupiter Aspecting Midheaven (MC) : Ends',
+    description: 'The expansive optimism regarding career and relationship alignment begins to settle. The public display of affection or shared success transitions into a more private reality, requiring you to find joy without external validation.',
+  },
+  {
+    name: 'Jupiter aspect Jupiter in 5th house : Exact',
+    description: 'A peak moment of joyous emotional expansion and romantic luck. Sexual intimacy is intensely spiritually fulfilling, completely banishing feelings of depression and allowing for profound mutual forgiveness of past conflicts.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Ends',
+    description: 'The period of intense, courageous psychological healing in sexual matters concludes. You and your partner must now maintain the newly established boundaries and trust without the expansive, protective push of Jupiter.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Exact',
+    description: 'Peak psychological courage allows for breathtakingly honest conversations about sex, trauma, and shared fears. A profound sexual healing occurs, clearing away deep-seated resentment and explosive anger to forge an unbreakable bond.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Starts',
+    description: 'A wave of optimistic energy begins to interact with deep, aggressive emotional wounds. You start to find the courage to confront sexual hangups and past relationship traumas together, initiating a powerful healing cycle.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Ends',
+    description: 'The optimistic buffer against daily emotional anxieties fades. You must rely on established routines and conscious patience to prevent petty arguments and hypochondria from creeping back into the relationship dynamic.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Exact',
+    description: 'A beautiful peak of emotional harmony within the daily grind. Acts of service become profound expressions of love, completely dissolving nagging anxieties and preventing petty arguments from taking root in your shared life.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Starts',
+    description: 'You begin to feel a soothing, expansive energy calming your daily anxieties. A desire to nurture your partner grows, easing chronic tension, minor hypochondria, and the urge to bicker over small misunderstandings.',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Ends',
+    description: 'The profound wave of sexual healing and emotional forgiveness begins to subside. The deep, transformative bond formed must now be sustained through conscious effort without Jupiter\'s exaggerated expansive grace.',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Starts',
+    description: 'A period of intense emotional generosity and deep sexual healing begins. You start to release toxic jealousies and fears of betrayal, opening the door for a profoundly transformative and deeply trusting intimacy.',
+  },
+  {
+    name: 'Ketu aspect Mars in 8th house : Exact',
+    description: 'A highly volatile peak of karmic sexual suppression. Deep, unexplainable anger or a sudden, paralyzing loss of libido can create severe misunderstandings with your partner, requiring immense spiritual surrender to avoid a toxic rupture.',
+  },
+  {
+    name: 'Ketu aspect Sun in 9th house : Exact',
+    description: 'The ego experiences a profound, karmic detachment from shared beliefs. You may feel a sudden, total apathy towards arguing, preferring spiritual isolation and silence over defending your relationship\'s philosophical foundation.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Ends',
+    description: 'The intense, aggressive drive for public control in the relationship subsides. Power struggles over career and status begin to relax, allowing for more private emotional vulnerability and a softening of domestic tension.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Exact',
+    description: 'A critical peak of ambition and ego where you may ruthlessly enforce your will on the relationship\'s public direction. Fierce arguments over dominance and career support can severely threaten genuine, private intimacy.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Starts',
+    description: 'Aggressive, ambitious energy begins to color your partnership. You may start projecting your career frustrations onto your partner, sparking early power struggles and a tense, competitive emotional atmosphere.',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Exact',
+    description: 'An explosive powder keg of primal aggression and deep psychological vulnerability. Sexual tension is at its absolute peak, capable of leading to transformative, raw intimacy or dangerously destructive arguments fueled by paranoia.',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Starts',
+    description: 'Deep, dormant anger and intense sexual desires begin to stir. You may feel a growing, almost primal urge to dominate or test your partner\'s emotional limits, setting the stage for intense power struggles.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Ends',
+    description: 'The period of cutting, paranoid communication subsides. You can begin to gently rebuild trust and emotional safety after a grueling phase of intense psychological interrogations and verbal warfare.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Exact',
+    description: 'A dangerous peak of intellectual cruelty where words are used as precise weapons. Obsessive paranoia and psychological probing cause deep wounds and severe misunderstandings, requiring strict mental discipline to avoid destroying trust.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Starts',
+    description: 'Your mind begins to sharpen into a weapon, seeking out your partner\'s hidden flaws. The urge to initiate aggressive, probing arguments over secrets starts to rise, threatening to disrupt emotional peace.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Ends',
+    description: 'The cycle of irritable, nagging arguments over daily chores fades. Emotional exhaustion lifts, allowing for a more peaceful co-existence and a return of gentle affection in your shared routine.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Exact',
+    description: 'A sharp peak of emotional irritability where minor daily flaws trigger explosive arguments. Digestion and health may suffer from the severe stress of chronic domestic bickering and a severe lack of emotional patience.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Starts',
+    description: 'Impatience with your partner\'s daily habits begins to build. You feel a growing emotional irritation that threatens to disrupt the peace of your shared routine and trigger petty, vindictive conflicts.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Ends',
+    description: 'The chaotic, fanatical clashes over beliefs and morals start to dissipate. The relationship begins to ground itself and stabilize after a terrifying period of intense, obsessive, and irrational arguments.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Exact',
+    description: 'A terrifying peak of ideological warfare and impulsive aggression. Explosive, unyielding arguments over beliefs can cause severe, sudden severances in the relationship if ego and obsession are not immediately checked.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Starts',
+    description: 'A chaotic, obsessive energy begins to fuel your passions. You start to feel fiercely defensive of your beliefs, setting the stage for irrational conflicts and profound misunderstandings with your partner.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Ends',
+    description: 'The suffocating pressure between aggressive desire and rigid restriction begins to ease. You can start to unthaw the cold, bitter resentment that has blocked intimacy and caused severe emotional depression.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Exact',
+    description: 'A breaking point of immense frustration where furious anger hits an immovable wall of restriction. Profound emotional blockages and cold, bitter arguments completely freeze sexual intimacy, leading to deep despair.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Starts',
+    description: 'You begin to feel your passions being heavily restricted by duty or your partner\'s perceived coldness. A slow-burning resentment starts to build, threatening to shut down open communication and sexual desire.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Ends',
+    description: 'The fiery, ego-driven clashes over beliefs begin to cool down. You and your partner can start to find compromise and mutual respect after a period of intense, exhausting ideological battles.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Exact',
+    description: 'A fierce climax of ego and aggression where neither partner will yield their moral high ground. Sexual energy is intensely competitive, risking severe emotional damage if the bedroom becomes an extension of the battlefield.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Starts',
+    description: 'A competitive, self-righteous energy begins to emerge. You start to feel the urge to forcefully defend your worldview against your partner, sparking the early stages of fierce, ego-driven arguments.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Ends',
+    description: 'The intense, volatile period of jealousy, lust, and possessiveness begins to settle into a more stable, albeit permanently transformed, intimacy. The danger of destructive obsession passes.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Exact',
+    description: 'A volatile peak of extreme sexual magnetism intertwined with dark possessiveness. Arguments are intentionally provoked to fuel the explosive, passionate intensity of making up, walking a dangerous line between love and toxic obsession.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Starts',
+    description: 'Deep, aggressive sexual desires and feelings of jealousy begin to surface. You feel a growing, consuming need to emotionally and physically possess your partner, setting the stage for intense power dynamics.',
+  },
+  {
+    name: 'Mercury Aspecting Ascendant (ASC) : Exact',
+    description: 'Your need to verbally connect peaks, making you highly communicative but potentially detached. Rationalizing deep emotions can lead to severe misunderstandings if your partner requires silent, feeling-based empathy rather than a logical debate.',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Exact',
+    description: 'A beautiful peak of optimistic, joyful communication. You effortlessly talk through past traumas, using humor, intellectual synergy, and expansive forgiveness to dramatically deepen romantic and sexual attraction.',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Starts',
+    description: 'Communication begins to flow with a new sense of hope and expansiveness. You start to find the precise words to heal old relationship wounds and invite playful flirtation back into the dynamic.',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Ends',
+    description: 'The painful period of communication breakdown, misunderstandings, and emotional apathy lifts. You can slowly begin to articulate your feelings and rebuild the verbal bridge to your partner.',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Starts',
+    description: 'Words begin to fail you, and a sense of detached karmic apathy creeps into your communication. You start to feel profoundly misunderstood, withdrawing into silence rather than fighting for connection.',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Exact',
+    description: 'A peak of neurotic hyper-analysis where you dissect your partner\'s every mood. Chronic anxiety over minor relationship flaws leads to exhausting, petty arguments, digestive issues, and severe emotional burnout.',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Starts',
+    description: 'Your mind becomes hyper-focused on the daily emotional mechanics of the relationship. A tendency to nag or overly criticize begins to emerge, fueled by underlying anxieties rather than genuine malice.',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Ends',
+    description: 'The obsessive, chaotic mental loops regarding relationship philosophies and grand future plans calm down. You return to a more grounded, realistic, and honest way of communicating with your partner.',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Starts',
+    description: 'Your mind begins to race with fanatical or highly unconventional ideas about love. You start projecting intellectual illusions onto your partner, risking severe miscommunication and broken promises.',
+  },
+  {
+    name: 'Mercury aspect Saturn in 10th house : Starts',
+    description: 'Communication starts to feel heavy, restricted, and overly formal. A deep fear of rejection or failure begins to stifle your ability to express vulnerability, leading to emotional coldness and depressive silences.',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Ends',
+    description: 'The period of elevated, philosophical dialogue concludes. The relationship shifts from grand, unifying visions back to the necessary, everyday communication required to maintain the partnership.',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Starts',
+    description: 'You begin to desire deep, intellectual alignment with your partner. Conversations start focusing heavily on shared truths, morals, and future visions, laying the groundwork for profound mutual respect.',
+  },
+  {
+    name: 'Moon Aspecting Ascendant (ASC) : Exact',
+    description: 'Your emotional boundaries are completely permeable, directly absorbing your partner\'s exact state of mind. This brings profound, psychic empathy but risks intense, reactive arguments and deep depression if their mood is toxic.',
+  },
+  {
+    name: 'Moon Aspecting Midheaven (MC) : Exact',
+    description: 'Your private emotional life and inner insecurities are acutely visible to the public. You lean heavily on your partner for career support, feeling deep depression and initiating conflict if they fail to validate your public persona.',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Ends',
+    description: 'The grueling, karmic structural transformation of the relationship completes. You emerge from deep emotional depression with a brutally honest, entirely rebuilt foundation, free of illusions and false dependencies.',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Starts',
+    description: 'An incredibly heavy, karmic pressure begins to bear down on the relationship. Deep, primal fears of control, abandonment, and structural collapse start to surface, initiating a period of intense psychological survival.',
+  },
+  {
+    name: 'Rahu aspect Moon in 6th house : Exact',
+    description: 'A terrifying peak of emotional illusion and health anxiety. You project chaotic, paranoid fears onto your partner, creating a deeply toxic, stressful atmosphere of conflict fueled entirely by ungrounded mental obsessions.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Ends',
+    description: 'The severe karmic crisis of faith and bitter mutual blame begins to lift. You can start rebuilding trust and ideological harmony after a period of terrifying emotional instability and deep depression.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Exact',
+    description: 'A catastrophic peak of internal conflict where karmic fear violently meets chaotic obsession. Bitter, irreconcilable arguments erupt as you project your own deep spiritual and moral failures entirely onto your partner.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Starts',
+    description: 'A heavy, terrifying clash of fear and chaotic desire begins to destabilize your core beliefs. You start to feel a deep, depressive paranoia about the relationship\'s future, leading to toxic, accusatory communication.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Ends',
+    description: 'The heavy, oppressive cloud of judgment and ideological restriction lifts. You slowly begin to rediscover warmth, mutual respect, and emotional freedom in your shared beliefs and long-term vision.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Exact',
+    description: 'A crushing peak of pessimistic energy where you feel fundamentally judged or spiritually restricted by your partner. Deep depression sets in as the relationship feels entirely like a rigid, loveless duty devoid of light.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Starts',
+    description: 'A cold, restrictive energy begins to cast a shadow over your shared philosophies. You start to feel heavily burdened by the moral expectations of the partnership, leading to feelings of inadequacy and isolation.',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Ends',
+    description: 'The magnificent era of joyous, expansive romance begins to fade into a more normal, sustainable routine. The profound emotional healing remains, but the exuberant, dramatic highs naturally settle.',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Starts',
+    description: 'A bright, deeply healing energy begins to illuminate your romantic life. You start to feel a surge of optimism, generosity, and playful sexual attraction that rapidly chases away any lingering relationship depression.',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Ends',
+    description: 'The period of karmic ego dissolution and communication apathy ends. You slowly regain the willpower to express yourself, ending the silent depression and fighting to reconnect with your partner.',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Starts',
+    description: 'Your ego begins to detach entirely from verbal communication. A quiet depression and a profound sense of being utterly unheard starts to isolate you, leading you to withdraw rather than argue.',
+  },
+  {
+    name: 'Sun aspect Mars in 8th house : Starts',
+    description: 'Ego and raw aggression begin to descend into the relationship\'s most vulnerable, secretive depths. You start feeling an intense, competitive urge to control shared resources and sexual intimacy, sparking power struggles.',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Ends',
+    description: 'The intense, almost paranoid analytical focus on relationship secrets and psychological motives begins to relax. The obsessive need to intellectually dissect every intimate moment and hidden fear fades.',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Starts',
+    description: 'Your conscious mind starts forcefully probing the psychological depths of the partnership. You begin demanding logical, absolute explanations for complex, hidden emotional dynamics, risking severe misunderstandings.',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Ends',
+    description: 'The exhausting ego clashes over daily chores and unequal emotional labor begin to resolve. The critical, nitpicking atmosphere lifts, allowing for a return of appreciation and gentle domestic harmony.',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Starts',
+    description: 'Your ego begins to aggressively clash with the daily emotional needs and routines of the relationship. A tendency to feel deeply unappreciated for acts of service starts causing emotional withdrawal and petty conflict.',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Ends',
+    description: 'The chaotic, fanatical drive for ideological dominance burns out. You can start to repair the severe misunderstandings and emotional damage caused by your period of dogmatic, inflexible behavior.',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Starts',
+    description: 'A relentless, obsessive urge to impose your beliefs onto your partner begins. You start losing touch with emotional empathy in favor of a fanatical, self-righteous truth, setting the stage for explosive conflict.',
+  },
+  {
+    name: 'Sun aspect Saturn in 10th house : Starts',
+    description: 'The heavy burden of public reputation and career ambition begins to crush the relationship\'s vitality. You start projecting cold authority or feeling intensely restricted by your partner, initiating a cycle of depression.',
+  },
+  {
+    name: 'Sun aspect Sun in 9th house : Exact',
+    description: 'A brilliant climax of mutual respect and shared higher purpose. The relationship burns away petty insecurities and past conflicts, operating on a unified, enlightened, and profoundly deeply connected frequency.',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Ends',
+    description: 'The intense, possessive need for transformative love and constant loyalty testing subsides. The relationship settles into a deeper, less volatile emotional truth where trust replaces paranoia and jealousy.',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Starts',
+    description: 'Your ego begins to demand profound, almost dangerous levels of soul-merging intimacy. You start subconsciously testing your partner\'s loyalty, breeding intense jealousy and the potential for devastating power struggles.',
+  },
+  {
+    name: 'Uranus aspect Saturn in 10th house : Exact',
+    description: 'A shocking, highly disruptive energy violently shatters rigid relationship structures and public expectations. Sudden, unexpected conflicts force a radical, highly uncomfortable renegotiation of your long-term commitments and emotional duties.',
+  },
+  {
+    name: 'Venus Aspecting Ascendant (ASC) : Exact',
+    description: 'A peak of romantic magnetism and sensual grace. You effortlessly attract your partner and resolve conflicts through pure, physical affection, though you risk burying deep emotional resentments merely to maintain this perfect outward harmony.',
+  },
+  {
+    name: 'Venus aspect Ketu in 3rd house : Starts',
+    description: 'A profound, karmically unexplainable emotional detachment begins to seep into your daily interactions. You start feeling a strange, hollow loss of desire, leading to silent mutual confusion and a sense of romantic isolation.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Ends',
+    description: 'The tendency to express love through anxious, overbearing service and nagging criticism fades. You return to a more balanced, emotionally generous, and less perfection-focused state of intimacy.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Exact',
+    description: 'A peak of conflicted nurturing where deep love is bizarrely expressed as hyper-critical perfectionism. Resentment boils over into sharp, passive-aggressive arguments if your exhausting acts of service go unappreciated.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Starts',
+    description: 'You begin to express affection through detailed acts of service, but simultaneously start hyper-focusing on your partner\'s flaws. An anxious, critical undertone enters the romance, threatening emotional peace.',
+  },
+  {
+    name: 'Venus aspect Rahu in 9th house : Starts',
+    description: 'An intoxicating, highly illusionary desire for an idealized or exotic romance begins to take hold. You start projecting unrealistic, fanatical expectations onto your partner that will inevitably lead to profound misunderstanding and heartbreak.',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Ends',
+    description: 'The cold, restrictive period of viewing love solely as a burdensome public duty ends. You slowly begin to thaw the heavy emotional walls and invite warmth, spontaneity, and sexual desire back into the romance.',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Starts',
+    description: 'Love starts to feel heavily restricted by public expectation, career stress, and duty. A deep fear of rejection begins to build thick, depressive walls around your physical intimacy, making you feel entirely unloved.',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Ends',
+    description: 'The expansive, highly idealized period of love based heavily on shared beliefs begins to ground itself in daily reality. The relationship gently shifts back from grand visions to the work of everyday affection.',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Starts',
+    description: 'You begin to view your partner with immense admiration and a renewed sense of shared higher purpose. A generous, expansive love starts to form, acting as a powerful shield against petty conflicts and depression.',
+  },
+  {
+    name: 'Venus ruler of the 7th House in the 8th House',
+    description: 'This is a highly transformative but fundamentally challenging karmic placement for partnerships. It heavily predisposes the relationship to secretive behavior, overwhelming sexual intensity, and the constant threat of sudden upheaval. Trust is intensely and repeatedly tested; deep-seated fears of abandonment or betrayal can quickly lead to profound emotional crises, explosive arguments, or divorce. True intimacy here is a battlefield where profound psychological wounds must be directly confronted and resolved to achieve lasting peace.',
+  }
 ];
 
-const insert = db.prepare('INSERT OR IGNORE INTO events (name, description) VALUES (?, ?)');
+const insert = db.prepare('INSERT INTO events (name, description) VALUES (?, ?) ON CONFLICT(name) DO UPDATE SET description = excluded.description');
 
 const seedAll = db.transaction(() => {
   let inserted = 0;

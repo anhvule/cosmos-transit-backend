@@ -573,6 +573,346 @@ const events = [
     name: 'Venus Transits the 10th House',
     description: 'You charm your way to the top of your social hierarchy. Professional gatherings and high-status parties are where you shine. You attract a successful, supportive soulmate. While your popularity peaks, graciously ignore any jealousy from those who envy your effortless rise.',
   },
+  {
+    name: 'Jupiter Aspecting Midheaven (MC) : Ends',
+    description: '',
+  },
+  {
+    name: 'Jupiter aspect Jupiter in 5th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Ketu aspect Mars in 8th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Ketu aspect Sun in 9th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Ends',
+    description: '',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Exact',
+    description: '',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Starts',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mercury Aspecting Ascendant (ASC) : Exact',
+    description: '',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Ends',
+    description: '',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mercury aspect Saturn in 10th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Moon Aspecting Ascendant (ASC) : Exact',
+    description: '',
+  },
+  {
+    name: 'Moon Aspecting Midheaven (MC) : Exact',
+    description: '',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Ends',
+    description: '',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Starts',
+    description: '',
+  },
+  {
+    name: 'Rahu aspect Moon in 6th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Ends',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Starts',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Mars in 8th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Saturn in 10th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Sun in 9th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Uranus aspect Saturn in 10th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Venus Aspecting Ascendant (ASC) : Exact',
+    description: '',
+  },
+  {
+    name: 'Venus aspect Ketu in 3rd house : Starts',
+    description: '',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Exact',
+    description: '',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Venus aspect Rahu in 9th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Ends',
+    description: '',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Starts',
+    description: '',
+  },
+  {
+    name: 'Venus ruler of the 7th House in the 8th House',
+    description: '',
+  },
 ];
 
 const insert = db.prepare('INSERT OR IGNORE INTO events (name, description) VALUES (?, ?)');

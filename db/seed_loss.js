@@ -571,11 +571,351 @@ const events = [
   },
   {
     name: 'Venus Transits the 10th House',
-    description: "Corporate greed masks deep institutional decay. High-profile companies appear prosperous but are heavily over-leveraged. A sudden, massive correction destroys these bloated valuations, resulting in sudden, severe wealth erosion for all shareholders."
+    description: "Corporate greed masks deep institutional decay. High-profile companies appear prosperous but are heavily over-leveraged. A sudden, massive correction destroys these bloated valuations, resulting in sudden, severe wealth erosion for all shareholders.",
+  },
+  {
+    name: 'Jupiter Aspecting Midheaven (MC) : Ends',
+    description: "The sudden collapse of extreme, unwarranted optimism. The 'bubble' pops as institutional support completely vanishes, ending the false rally and permanently crashing the major indices, leaving retail portfolios completely drained.",
+  },
+  {
+    name: 'Jupiter aspect Jupiter in 5th house : Exact',
+    description: "Peak of the speculative bubble. Extreme overvaluation hits its absolute mathematical limit. Retail investors are lured into maximum leverage through overwhelming false optimism right before a monumental, historic market crash is orchestrated.",
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Ends',
+    description: "The brutal aftermath of a massive wealth transfer. The sharp, negative market reversals conclude, leaving retail portfolios completely decimated by the coordinated, violent explosion of hidden institutional debt and forced liquidations.",
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Exact',
+    description: "Violent explosion of hidden debt. The 8th house triggers sharp, negative reversals. Over-leveraged institutional funds collapse suddenly, triggering a massive chain reaction of margin calls that ruthlessly wipes out the broader financial market.",
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Starts',
+    description: "The initial trigger of hidden debt exploding. Over-leveraged institutions begin secret, aggressive liquidations, setting the stage for a violent market chain reaction that will abruptly destroy speculative wealth.",
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Ends',
+    description: "The catastrophic debt trap snaps shut completely. Over-leveraged retail investors are forcibly liquidated, and the extreme psychological panic subsides into a harsh reality of total, unrecoverable financial ruin.",
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Exact',
+    description: "Margin calls violently sweep the market. The emotional panic of the fickle mind (Moon) is amplified by massive financial over-exposure (Jupiter in 6th), resulting in catastrophic, realized losses during a sudden liquidity crunch.",
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Starts',
+    description: "False optimism leads investors to confidently take on immense debt or toxic margin. A highly dangerous setup where greed blinds traders to impending liquidity crises and massive sudden drops.",
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Ends',
+    description: "Absolute eradication of institutional wealth and speculative bubbles. Large-scale corporate payouts turn to dust, and the market violently realizes the total extent of the hidden financial rot, finalizing the crash.",
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Starts',
+    description: "The beginning of a massive wealth destruction cycle. Hidden financial scandals or underlying corporate bankruptcies begin to secretly surface, threatening supposedly 'safe', heavily capitalized investments.",
+  },
+  {
+    name: 'Ketu aspect Mars in 8th house : Exact',
+    description: "The ultimate astrological signature of sudden, violent market destruction. Sharp, negative reversals combine with unexpected 8th house ruin. Panic selling, flash crashes, and brutal short-squeezes totally annihilate trading accounts without any warning.",
+  },
+  {
+    name: 'Ketu aspect Sun in 9th house : Exact',
+    description: "A sudden, unexplainable collapse of long-term investments. Ketu brings sharp, negative reversals. Government bonds, international holdings, and trusted macro-assets mysteriously plummet as systemic institutional support vanishes without a trace.",
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Ends',
+    description: "The violent market suppression completes its cycle. Retail investors are left holding worthless assets following the targeted, aggressive annihilation of the sector by predatory institutional shorts.",
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Exact',
+    description: "Hostile corporate takeovers and aggressive short-selling campaigns destroy company valuations. Driven by sheer market violence, institutional players deliberately crash sectors, resulting in massive wealth transfer and sudden ruin for retail traders.",
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Starts',
+    description: "Hostile market forces begin accumulating massive short positions. Aggressive, hidden campaigns are secretly launched to actively destroy specific sector valuations and trigger widespread panic.",
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Exact',
+    description: "The absolute pinnacle of market violence. Brutal flash crashes, aggressive margin calls, and predatory short-selling completely dominate. The 8th house brings unexpected ruin, annihilating portfolios in a matter of seconds through sheer market manipulation.",
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Starts',
+    description: "The initiation of brutal market violence. Predatory algorithms and whales begin aggressively hunting stop-losses to trigger a cascading, unstoppable flash crash.",
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Ends',
+    description: "The algorithmic dump concludes. Retail liquidity is completely drained as rumor-driven panic and vicious high-frequency trading formally bankrupt over-leveraged day traders.",
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Exact',
+    description: "Vicious algorithmic warfare. High-frequency trading bots execute predatory strategies triggered by false data. Poor chart reading guarantees retail traders are immediately crushed by these sudden, violent market manipulations.",
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Starts',
+    description: "Rumors and targeted disinformation campaigns are launched by aggressive short-sellers. The technical groundwork for an algorithmic flash crash is actively laid in the dark pools.",
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Ends',
+    description: "The devastating wave of forced liquidations ends, leaving completely wiped-out accounts. The aggressive extraction of retail wealth through weaponized debt mechanisms is finalized.",
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Exact',
+    description: "Violent destruction of capital through forced margin calls. Sharp, negative reversals in the market force aggressive liquidations. The fickle mind of the investor is completely overwhelmed by sheer panic as portfolios are wiped out.",
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Starts',
+    description: "Margin pressures begin to mount aggressively. The very first waves of panic selling hit the tape as short-sellers apply maximum pressure on heavily indebted retail positions.",
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Ends',
+    description: "The sudden collapse of the global market illusion is complete. Investors realize their international holdings have been entirely eradicated by predatory foreign entities and massive algorithmic scams.",
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Exact',
+    description: "A highly explosive and destructive combination. Immense fluctuation in wealth is driven by aggressive market manipulation and foreign economic warfare. Sudden, unpredictable crashes wipe out long-term speculative portfolios entirely.",
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Starts',
+    description: "Aggressive foreign economic warfare or massive offshore algorithmic manipulation begins to deeply destabilize long-term investments, setting the trap for a catastrophic drop.",
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Ends',
+    description: "The agonizing market gridlock breaks downwards. The combination of structural institutional suppression and aggressive dumping finalizes the devastating bear market phase.",
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Exact',
+    description: "A highly destructive clash between aggressive market forces and massive institutional suppression. Sharp, negative reversals are met with severe liquidity freezes. The market crashes violently, and trading halts prevent any chance of escape.",
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Starts',
+    description: "Aggressive market forces collide with severe institutional blockades. A violent struggle for liquidity begins, threatening massive market halts and sudden, sharp devaluations.",
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Ends',
+    description: "The terrifying fallout of a sudden geopolitical market crash. Long-term portfolios are left entirely devastated by the aggressive, sweeping macro-economic destruction.",
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Exact',
+    description: "Violent geopolitical shifts or sudden regulatory actions completely crash the markets. Ego-driven decisions combined with aggressive market volatility lead to the immediate destruction of long-term investments and international holdings.",
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Starts',
+    description: "Rising geopolitical tensions or sudden regulatory threats begin to aggressively threaten long-term global market stability, initiating violent underlying volatility.",
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Ends',
+    description: "The sudden extraction of speculative wealth finishes. Heavily leveraged portfolios in luxury or crypto sectors are completely liquidated, abandoned by market makers, and left at zero.",
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Exact',
+    description: "A brutal transfer of wealth from retail directly to whales. Sudden changes obliterate speculative investments. Aggressive dumping of assets causes extreme volatility, wiping out those who bought into the false safety of the market peak.",
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Starts',
+    description: "Whales begin aggressively targeting speculative and luxury assets. The dark pool setup for a brutal and sudden extraction of retail wealth rapidly commences.",
+  },
+  {
+    name: 'Mercury Aspecting Ascendant (ASC) : Exact',
+    description: "Information overload leads to fatal trading errors. Poor chart reading and terrible timing cause investors to buy at the absolute peak. Algorithms heavily manipulate the tape, trapping the investor in a cycle of rapid, sudden losses.",
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Exact',
+    description: "Over-confidence in technical analysis leads to complete disaster. Algorithms and 'foolproof' systems miscalculate market sentiment, driving massive capital into speculative traps. The subsequent bubble burst results in profound financial ruin.",
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Starts',
+    description: "Flawed algorithms and over-confident technical models begin aggressively miscalculating market sentiment, blindly feeding massive capital directly into a disguised speculative trap.",
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Ends',
+    description: "The total blackout of reliable data resolves, only to reveal total portfolio destruction. Weak calculation and platform freezes guaranteed massive, unpreventable losses.",
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Starts',
+    description: "Trading platforms begin to experience erratic failures and data feeds actively glitch, deliberately masking the sharp, negative reversals orchestrating the impending crash.",
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Exact',
+    description: "A highly dangerous combination of a fickle mind and poor calculation. Over-analyzing chaotic market data leads to severe panic selling at the exact wrong moment. Debt and margin pressures force the realization of massive, portfolio-ending losses.",
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Starts',
+    description: "Over-analyzing chaotic data triggers the initial waves of deep financial anxiety and poor timing, right as margin debt reaches critical, unsustainable levels.",
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Ends',
+    description: "The catastrophic collapse of the fabricated international market is finalized. Extreme speculation in unregulated global markets yields permanent, unexpected losses.",
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Starts',
+    description: "Algorithmic illusions and complex foreign scams begin to heavily distort international market data, luring immense retail capital into a massive, unregulated trap.",
+  },
+  {
+    name: 'Mercury aspect Saturn in 10th house : Starts',
+    description: "Institutional algorithms begin actively pinning prices down. Technical analysis starts to completely fail as market makers systematically choke off all upward liquidity.",
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Ends',
+    description: "The devastating fallout of manipulated macro-data. Investors realize their ego-driven long-term allocations were based on entirely fraudulent economic projections.",
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Starts',
+    description: "Manipulated economic data and government reports begin circulating, feeding highly toxic false optimism and poor timing for fundamentally exposed long-term investors.",
+  },
+  {
+    name: 'Moon Aspecting Ascendant (ASC) : Exact',
+    description: "The investor is entirely consumed by a fickle mind and overwhelming panic. Emotional, erratic trading leads to selling the absolute bottom during a manipulated market dip, cementing sudden, severe, and irreversible portfolio destruction.",
+  },
+  {
+    name: 'Moon Aspecting Midheaven (MC) : Exact',
+    description: "Public perception of the market plummets due to extreme emotional panic. A fickle, fearful mindset drives massive retail sell-offs, which institutional manipulators use to completely drain liquidity and crash the major indices.",
+  },
+  {
+    name: 'Pluto conjunct Saturn : Ends',
+    description: "The systemic market collapse forcefully concludes. The total restructuring of financial markets leaves a barren landscape of destroyed over-leveraged portfolios and historic wealth annihilation.",
+  },
+  {
+    name: 'Pluto conjunct Saturn : Starts',
+    description: "The deep, structural decay of the financial system begins to violently fracture. Institutional manipulation sets the groundwork for a catastrophic, generation-defining market restructuring.",
+  },
+  {
+    name: 'Rahu aspect Moon in 6th house : Exact',
+    description: "Extreme psychological panic driven by massive, inescapable debt. Rahu causes immense illusion, and an afflicted Moon causes volatile emotional trading. Margin calls trigger erratic, desperate sell-offs, resulting in devastating, unrecoverable financial wipeouts.",
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Ends',
+    description: "The agonizing exposure of the massive global financial scam concludes. Investors are left with nothing as institutional giants finalize the total, brutal suppression of the fabricated market.",
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Exact',
+    description: "Karmic destruction of wealth through systemic market failure. Unpredictable, severe financial setbacks collide with extreme market illusions. Massive international fraud is suddenly exposed, resulting in the total collapse of global market sectors.",
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Starts',
+    description: "Massive international fraud and systemic market illusions begin to violently crack under the crushing weight of inevitable, severe institutional blockades.",
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Ends',
+    description: "The brutal bear market suppression of global assets completes. Institutional gridlock has successfully suffocated all macro-economic growth, finalizing massive capital decay.",
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Exact',
+    description: "A grim period of severe wealth destruction caused by heavy regulatory crackdowns or geopolitical stagnation. Unpredictable financial setbacks crush long-term investments as institutional giants actively suppress market growth, enforcing a brutal bear market.",
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Starts',
+    description: "Governing bodies secretly begin signaling heavy regulatory crackdowns, initiating a slow, agonizing bleed in formerly secure long-term international investments.",
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Ends',
+    description: "The historic speculative crash bottoms out. The catastrophic wealth wipeout is complete, completely humbling ego-driven investors who bet heavily on engineered false optimism.",
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Starts',
+    description: "Extreme arrogance begins to heavily inflate a speculative bubble. Investors blindly follow ego-driven narratives directly into a fatally flawed, over-leveraged market setup.",
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Ends',
+    description: "The period of trading paralysis ends with total ruin. Caught in rapidly depreciating assets, the investor's ego-driven inability to execute an exit trade leads to complete capital destruction.",
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Starts',
+    description: "Sudden, sharp negative reversals begin to aggressively hit short-term trades, while the ego stubbornly refuses to cut losses early, setting up fatal trading paralysis.",
+  },
+  {
+    name: 'Sun aspect Mars in 8th house : Starts',
+    description: "Governing entities and massive institutions initiate sudden, aggressive regulatory bans or forced liquidations, sparking the very beginning of violent market destruction.",
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Ends',
+    description: "The market fully absorbs the devastating regulatory shock. Poor calculation combined with extreme systemic manipulation leaves retail investors permanently stripped of their capital.",
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Starts',
+    description: "Central banks or regulators prepare sudden, heavily manipulated data releases designed to shatter market confidence and trigger a massive, systemic liquidity contraction.",
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Ends',
+    description: "The devastating margin liquidation cycle permanently concludes. Ego-driven decisions and panic selling have completely finalized the total destruction of the debt-laden portfolio.",
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Starts',
+    description: "Government economic reports trigger initial, sharp market sell-offs, colliding dangerously with rising debt levels and sparking the beginnings of extreme emotional panic.",
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Ends',
+    description: "The massive market illusion completely dissipates. Unrecoverable wealth destruction is cemented as the foreign Ponzi scheme fully collapses under aggressive regulatory scrutiny.",
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Starts',
+    description: "Ego-driven investors begin funneling massive capital directly into high-level institutional scams or foreign Ponzi schemes, entirely blinded by the ultimate financial illusion.",
+  },
+  {
+    name: 'Sun aspect Saturn in 10th house : Starts',
+    description: "Governing bodies and institutional giants initiate a brutal, coordinated suppression of the market, draining vital liquidity to violently force a suffocating bear phase.",
+  },
+  {
+    name: 'Sun aspect Sun in 9th house : Exact',
+    description: "Macro-economic arrogance leads to absolute systemic market failure. Blind faith in failing national policies causes devastating losses. Ego-driven wrong decisions cause investors to hold bags in collapsing international markets until total bankruptcy.",
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Ends',
+    description: "The instantaneous destruction of wealth is finalized. The delisting or bankruptcy of major corrupt assets is complete, leaving over-confident retail investors with absolutely zero value.",
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Starts',
+    description: "Ego-driven decisions blind investors as government regulators suddenly begin to secretly freeze assets or prepare to delist massively corrupt, highly valued companies.",
+  },
+  {
+    name: 'Uranus aspect Saturn in 10th house : Exact',
+    description: "A sudden, violent fracture in established institutional markets. Unprecedented tech or infrastructure crashes collide with massive regulatory blockades, trapping liquidity and instantly destroying heavily leveraged positions.",
+  },
+  {
+    name: 'Venus Aspecting Ascendant (ASC) : Exact',
+    description: "Greed and the desire for luxury completely blind the investor to impending danger. An inflated sense of market safety leads to extreme over-exposure. When the sudden reversal hits, the heavily leveraged portfolio is decimated instantly.",
+  },
+  {
+    name: 'Venus aspect Ketu in 3rd house : Starts',
+    description: "Short-term trades begin to rapidly decay in value. Ketu introduces sudden emotional detachment, paralyzing the investor and preventing an exit as the liquidity trap is slowly sprung.",
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Ends',
+    description: "The massive financial distress concludes with total bankruptcy. The underlying toxic debt has fully imploded, permanently wiping out all capital lured by the initial market deception.",
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Exact',
+    description: "Deceptive market conditions shatter. Panic sets in as toxic loans and high-yield traps rapidly devalue. A fickle mind triggers massive financial distress as margin calls force catastrophic, unexpected liquidations.",
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Starts',
+    description: "Investors are aggressively lured into toxic loans or high-yield debt traps dangerously masked as safe opportunities. The grand illusion of safety sets the stage for a catastrophic liquidity crisis.",
+  },
+  {
+    name: 'Venus aspect Rahu in 9th house : Starts',
+    description: "Immense fluctuation in wealth begins as the ultimate financial illusion takes hold. Massive retail capital is blindly poured into highly orchestrated, entirely fraudulent offshore bubbles.",
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Ends',
+    description: "The agonizing destruction of accumulated investor wealth concludes. Expected mergers, payouts, or dividends are permanently canceled, leaving capital hopelessly trapped in dead assets.",
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Starts',
+    description: "Severe financial blockades begin to sharply materialize. Saturn creates sudden obstacles, delaying expected corporate payouts and actively freezing broader market liquidity.",
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Ends',
+    description: "The catastrophic international market crash is complete. Arrogant, heavy allocations into foreign luxury or global assets are permanently wiped out by sudden, unpreventable geopolitical events.",
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Starts',
+    description: "Over-confidence in global economic stability dangerously masks the hidden beginning of a sudden, brutal collapse in foreign markets or heavily inflated international luxury sectors.",
+  },
+  {
+    name: 'Venus ruler of the 7th House in the 8th House',
+    description: "Public markets and trading partnerships (7th house) become highly deceptive. Indicates severe market manipulation where hidden entities orchestrate sudden sell-offs. Investors face catastrophic losses due to breached contracts, delisting, or systemic betrayal.",
   }
 ];
 
-const insert = db.prepare('INSERT OR IGNORE INTO events (name, description) VALUES (?, ?)');
+const insert = db.prepare('INSERT INTO events (name, description) VALUES (?, ?) ON CONFLICT(name) DO UPDATE SET description = excluded.description');
 
 const seedAll = db.transaction(() => {
   let inserted = 0;

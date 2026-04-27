@@ -573,9 +573,349 @@ const events = [
     name: 'Venus Transits the 10th House',
     description: 'Enhancing your professional public image and corporate brand. Tremendous success in PR, design, marketing, or diplomacy-related fields. A harmonious, highly lucrative period for expanding your career footprint.',
   },
+    {
+      name: 'Jupiter Aspecting Midheaven (MC) : Ends',
+      description: 'The window of peak public recognition and expansive career growth is closing. Finalize any major architectural pitches or executive promotion requests now, as the momentum shifts towards maintaining the systems you have built rather than launching new ones.',
+    },
+    {
+      name: 'Jupiter aspect Jupiter in 5th house : Exact',
+      description: 'Peak intellectual luck and creative expansion. An incredibly auspicious moment for solving complex logic puzzles, finalizing high-level system architecture, or making successful speculative trades. Your resource optimization strategies yield massive returns today.',
+    },
+    {
+      name: 'Jupiter aspect Mars in 8th house : Ends',
+      description: 'The period of aggressive, expansive pushes for corporate funding or deep crisis management is concluding. The pressure of navigating hidden workplace politics or tackling deep-seated legacy issues subsides, leaving a more stabilized environment.',
+    },
+    {
+      name: 'Jupiter aspect Mars in 8th house : Exact',
+      description: 'Explosive energy for uncovering hidden corporate resources or aggressively executing a complex technical turnaround. You possess the strategic optimism to conquer deep structural debts and secure vital funding for stalled team initiatives.',
+    },
+    {
+      name: 'Jupiter aspect Mars in 8th house : Starts',
+      description: 'Entering a phase of heightened, strategic action regarding shared corporate resources, venture capital, or deeply hidden project flaws. You will feel an expansive drive to eliminate inefficiencies and overhaul failing systems.',
+    },
+    {
+      name: 'Jupiter aspect Moon in 6th house : Ends',
+      description: 'The period of enhanced emotional support and buoyant morale within your daily operational routines fades. You must now rely on established discipline rather than enthusiasm to manage your daily tasks and subordinate relationships.',
+    },
+    {
+      name: 'Jupiter aspect Moon in 6th house : Exact',
+      description: 'Tremendous harmony and optimism in your daily workflow. An excellent day for mentoring junior team members, resolving HR disputes, and naturally improving team morale. Your intuitive approach to resource allocation feels effortless and highly supported.',
+    },
+    {
+      name: 'Jupiter aspect Moon in 6th house : Starts',
+      description: 'A wave of positive, nurturing energy enters your daily work life. You begin to find greater meaning in your daily routines, and relationships with coworkers or reports naturally improve through your empathetic guidance.',
+    },
+    {
+      name: 'Jupiter aspect Venus in 8th house : Ends',
+      description: 'The phase of easy access to hidden corporate funding, sudden bonuses, or lucrative severance negotiations wraps up. Secure any pending financial partnerships or equity discussions immediately.',
+    },
+    {
+      name: 'Jupiter aspect Venus in 8th house : Starts',
+      description: 'A highly lucrative period begins, favoring deep-level financial negotiations, corporate mergers, or sudden influxes of venture capital. Your diplomatic approach to navigating hidden office politics will yield significant financial windfalls.',
+    },
+    {
+      name: 'Ketu aspect Mars in 8th house : Exact',
+      description: 'A surgical severance of toxic workplace elements or dead-end projects. You possess the detached precision to ruthlessly cut out operational bloat, terminate failing contracts, or aggressively refactor deeply flawed legacy structures without emotional hesitation.',
+    },
+    {
+      name: 'Ketu aspect Sun in 9th house : Exact',
+      description: 'A profound sense of disillusionment with upper management or the company’s grand vision. You may feel an overwhelming urge to step away from the traditional corporate ladder or an outdated mentorship to pursue a more authentic, independent professional path.',
+    },
+    {
+      name: 'Mars Aspecting Midheaven (MC) : Ends',
+      description: 'The aggressive drive and high-pressure push for executive dominance or career advancement cool down. The fierce competition for leadership roles subsides, allowing you to settle into your current level of authority.',
+    },
+    {
+      name: 'Mars Aspecting Midheaven (MC) : Exact',
+      description: 'Peak professional ambition and competitive drive. You are forcefully commanding authority and pushing major initiatives across the finish line. Beware of appearing too ruthless or combative with senior management as you assert your career goals.',
+    },
+    {
+      name: 'Mars Aspecting Midheaven (MC) : Starts',
+      description: 'A surge of intense ambition and drive for public career recognition begins. You will feel compelled to take decisive action, pursue promotions aggressively, and eliminate any obstacles blocking your path to the top.',
+    },
+    {
+      name: 'Mars aspect Mars in 8th house : Exact',
+      description: 'Intense, relentless focus on crisis management and resolving deep systemic failures. You are operating like a surgeon in a corporate emergency, fiercely dedicated to extracting the root cause of hidden project flaws or financial hemorrhaging.',
+    },
+    {
+      name: 'Mars aspect Mars in 8th house : Starts',
+      description: 'The onset of a highly pressurized period requiring extreme focus on obscured, complex problems. You will need to muster significant competitive energy to navigate impending corporate restructurings, audits, or deep technical debugging.',
+    },
+    {
+      name: 'Mars aspect Mercury in 8th house : Ends',
+      description: 'The period of fast-paced, highly critical communication regarding corporate crises or deep structural analytics concludes. The need for aggressive forensic accounting or intense debugging of complex logic issues finally eases.',
+    },
+    {
+      name: 'Mars aspect Mercury in 8th house : Exact',
+      description: 'Razor-sharp, aggressive communication and rapid problem-solving are highlighted. You possess a piercing intellect right now, perfect for cutting through corporate bureaucracy, arguing a critical technical pivot, or identifying fatal flaws in a contract.',
+    },
+    {
+      name: 'Mars aspect Mercury in 8th house : Starts',
+      description: 'Entering a phase of intense, rapid-fire mental activity focused on hidden data or crisis management. Expect heated debates over technical strategies, financial audits, or the restructuring of core operational logic.',
+    },
+    {
+      name: 'Mars aspect Moon in 6th house : Ends',
+      description: 'The acute emotional friction, coworker disputes, and daily operational burnout begin to dissipate. The workplace environment becomes less combative, allowing for physical and emotional recovery.',
+    },
+    {
+      name: 'Mars aspect Moon in 6th house : Exact',
+      description: 'High emotional volatility in the workplace. Agitation over inefficient workflows or incompetent colleagues may trigger aggressive responses. Channel this intense frustration into vigorously clearing administrative debt rather than clashing with coworkers.',
+    },
+    {
+      name: 'Mars aspect Moon in 6th house : Starts',
+      description: 'A period of heightened workplace tension and operational stress begins. Be prepared to actively manage your frustration with daily routines and avoid letting minor logistical hiccups escalate into major interpersonal conflicts.',
+    },
+    {
+      name: 'Mars aspect Rahu in 9th house : Ends',
+      description: 'The explosive urge to rebel against corporate authority, foreign management, or traditional industry standards subsides. The chaotic push for unorthodox, disruptive career paths begins to stabilize.',
+    },
+    {
+      name: 'Mars aspect Rahu in 9th house : Exact',
+      description: 'A highly disruptive and potentially explosive clash with senior management or corporate ideology. You are fiercely driven to break rules, disrupt traditional workflows, and force an unorthodox, high-risk strategy into play.',
+    },
+    {
+      name: 'Mars aspect Rahu in 9th house : Starts',
+      description: 'The beginning of an intense desire to challenge the status quo. You will feel a growing, aggressive impatience with conventional corporate wisdom and may start pushing for radical, unproven international or educational initiatives.',
+    },
+    {
+      name: 'Mars aspect Saturn in 10th house : Ends',
+      description: 'The immense frustration of applying maximum effort against rigid corporate bureaucracy finally lifts. The feeling of being professionally blocked or restricted by older management begins to clear.',
+    },
+    {
+      name: 'Mars aspect Saturn in 10th house : Exact',
+      description: 'Severe friction between your ambitious drive and rigid corporate structures. It feels like driving with the parking brake on. Avoid insubordination; this is a brutal test of endurance, requiring you to methodically dismantle bureaucratic roadblocks without losing your temper.',
+    },
+    {
+      name: 'Mars aspect Saturn in 10th house : Starts',
+      description: 'Entering a highly restrictive professional period where your aggressive initiatives will meet solid walls of corporate red tape, compliance issues, or resistant leadership. Prepare for a prolonged exercise in strategic patience.',
+    },
+    {
+      name: 'Mars aspect Sun in 9th house : Ends',
+      description: 'The fierce drive to assert your personal vision over the company’s direction cools down. Conflicts with mentors, senior executives, or stakeholders regarding the broader strategy begin to resolve.',
+    },
+    {
+      name: 'Mars aspect Sun in 9th house : Exact',
+      description: 'Boldly and aggressively pitching your grand vision to higher-ups. You are fearlessly defending your architectural plans or international strategies, but must be careful not to alienate the very leaders whose support you need.',
+    },
+    {
+      name: 'Mars aspect Sun in 9th house : Starts',
+      description: 'A surge of confidence and combativeness regarding your core professional beliefs begins. You will feel a strong urge to challenge the company’s long-term roadmap and aggressively advocate for your own expansive ideas.',
+    },
+    {
+      name: 'Mars aspect Venus in 8th house : Ends',
+      description: 'The volatile, highly competitive push for financial dominance, equity, or venture funding winds down. Passionate but exhausting workplace negotiations give way to finalized agreements.',
+    },
+    {
+      name: 'Mars aspect Venus in 8th house : Exact',
+      description: 'Intense, magnetic, and ruthless negotiations for corporate resources. You are fiercely competitive in securing funding, closing major B2B contracts, or maneuvering through complex financial restructurings. A high-stakes corporate power play.',
+    },
+    {
+      name: 'Mars aspect Venus in 8th house : Starts',
+      description: 'Beginning a phase of aggressive pursuit of hidden financial assets or lucrative partnerships. Expect a period of intense, emotionally charged negotiations regarding salaries, bonuses, or shared company resources.',
+    },
+    {
+      name: 'Mercury Aspecting Ascendant (ASC) : Exact',
+      description: 'Peak mental agility and articulate communication. An exceptional day to present a complex architectural design, ace a technical interview, or perfectly communicate your personal brand to leadership. Your logical clarity is highly persuasive.',
+    },
+    {
+      name: 'Mercury aspect Jupiter in 5th house : Exact',
+      description: 'Brilliant strategic forecasting and intellectual expansion. Your ability to optimize resources and solve complex algorithmic or business logic problems is unmatched today. Ideal for launching innovative projects or conducting high-level technical training.',
+    },
+    {
+      name: 'Mercury aspect Jupiter in 5th house : Starts',
+      description: 'Entering a phase of highly optimistic, expansive thinking. Your mind begins to synthesize complex, disparate pieces of information, making this an excellent time to start brainstorming large-scale technical or creative solutions.',
+    },
+    {
+      name: 'Mercury aspect Ketu in 3rd house : Ends',
+      description: 'The period of frustrating miscommunications, lost data, and technical glitches in your daily workflow concludes. Team communications and short-term logistics finally return to a state of clarity and reliability.',
+    },
+    {
+      name: 'Mercury aspect Ketu in 3rd house : Starts',
+      description: 'Prepare for bizarre miscommunications, out-of-sync team dynamics, and potential technical failures in your daily messaging. Standard logical approaches to communication will fail; you must rely on intuition and highly detached, precise language.',
+    },
+    {
+      name: 'Mercury aspect Moon in 6th house : Exact',
+      description: 'Perfect alignment between your logical mind and your daily operational routines. You can effortlessly communicate complex instructions to your team, resolve administrative debt, and streamline inefficient workflows with emotional intelligence.',
+    },
+    {
+      name: 'Mercury aspect Moon in 6th house : Starts',
+      description: 'A period begins where you feel highly compelled to organize, document, and analyze your daily work habits. You will start implementing new systems to improve team communication and operational efficiency.',
+    },
+    {
+      name: 'Mercury aspect Rahu in 9th house : Ends',
+      description: 'The obsessive mental focus on radical, futuristic industry trends, disruptive technologies, or unorthodox international strategies begins to fade, returning your focus to more grounded professional realities.',
+    },
+    {
+      name: 'Mercury aspect Rahu in 9th house : Starts',
+      description: 'Entering a phase of highly unconventional, borderline obsessive intellectual exploration. You will be drawn to cutting-edge, disruptive ideas, foreign markets, or entirely new programming paradigms that challenge industry norms.',
+    },
+    {
+      name: 'Mercury aspect Saturn in 10th house : Starts',
+      description: 'The onset of a serious, methodical period of corporate communication. You will need to focus heavily on compliance, drafting formal contracts, updating legacy documentation, and engaging in highly structured, conservative dialogues with management.',
+    },
+    {
+      name: 'Mercury aspect Sun in 9th house : Ends',
+      description: 'The window for highly visible, expansive communications with senior leadership or international clients closes. The period of successfully publishing thought leadership or presenting major strategic roadmaps concludes.',
+    },
+    {
+      name: 'Mercury aspect Sun in 9th house : Starts',
+      description: 'Beginning a highly favorable period for engaging with mentors, drafting expansive corporate strategies, and aligning your communications with the company’s highest ethical and long-term goals.',
+    },
+    {
+      name: 'Moon Aspecting Ascendant (ASC) : Exact',
+      description: 'Heightened professional intuition and adaptability. You are acutely aware of the emotional undercurrents in the office today. Use this empathy to navigate complex team dynamics and project an image of a highly attuned, emotionally intelligent leader.',
+    },
+    {
+      name: 'Moon Aspecting Midheaven (MC) : Exact',
+      description: 'Your public career reputation is heavily influenced by your emotional intelligence today. You are viewed as a nurturing, protective force for your team. Ensure your public decisions reflect empathy without compromising structural integrity.',
+    },
+    {
+      name: 'Pluto conjunct Saturn : Ends',
+      description: 'The grueling, transformative era of massive corporate restructuring, industry-wide purges, or the complete teardown of legacy systems finally concludes. You emerge from this intense crucible with immense resilience and a solidified professional foundation.',
+    },
+    {
+      name: 'Pluto conjunct Saturn : Starts',
+      description: 'The beginning of an epochal shift in your career or industry. You will face intense pressure as outdated corporate structures, old management regimes, or obsolete technological frameworks are ruthlessly dismantled to make way for a new order.',
+    },
+    {
+      name: 'Rahu aspect Moon in 6th house : Exact',
+      description: 'An obsessive, unorthodox approach to your daily workflow and team management. You may experience bizarre team dynamics or an intense paranoia regarding office politics. Avoid burning out your team with unrealistic, erratic operational demands.',
+    },
+    {
+      name: 'Saturn aspect Rahu in 9th house : Ends',
+      description: 'The heavy karmic testing of your professional ethics, legal compliance, and international dealings concludes. The intense pressure to reconcile traditional corporate rules with radical new visions finally lifts.',
+    },
+    {
+      name: 'Saturn aspect Rahu in 9th house : Exact',
+      description: 'A severe structural check on reckless expansion. Rigid corporate compliance, legal restrictions, or karmic debts halt your unorthodox, disruptive strategies. You must systematically dismantle illusions in your long-term roadmap and adhere strictly to ethical protocols.',
+    },
+    {
+      name: 'Saturn aspect Rahu in 9th house : Starts',
+      description: 'Entering a challenging period where your desire to disrupt the industry or pursue unconventional visions will clash directly with strict legal, ethical, or corporate boundaries. Expect a rigorous audit of your long-term strategies.',
+    },
+    {
+      name: 'Saturn aspect Sun in 9th house : Ends',
+      description: 'The frustrating delays in international projects, publishing, or higher-level promotions finally resolve. The restrictive, conservative grip of older management or mentors begins to loosen.',
+    },
+    {
+      name: 'Saturn aspect Sun in 9th house : Exact',
+      description: 'A profound test of your professional discipline and faith. Your expansive vision is being blocked by bureaucratic red tape, delayed funding, or conservative leadership. Success requires absolute patience, structural compliance, and an unwavering commitment to your long-term goals.',
+    },
+    {
+      name: 'Saturn aspect Sun in 9th house : Starts',
+      description: 'The beginning of a sobering period where your grand professional ideas and leadership ambitions will face harsh reality checks. Prepare for slow progress, structural delays, and the need to meticulously prove the viability of your corporate vision.',
+    },
+    {
+      name: 'Sun aspect Jupiter in 5th house : Ends',
+      description: 'The phase of immense optimism, easy success in speculative ventures, and highly recognized creative leadership winds down. Lock in your gains and transition from visionary pitching to operational execution.',
+    },
+    {
+      name: 'Sun aspect Jupiter in 5th house : Starts',
+      description: 'Entering a highly expansive, fortunate period for your career. You will feel a surge of confidence to step into advisory roles, launch major innovative projects, or execute highly successful, calculated risks in your professional domain.',
+    },
+    {
+      name: 'Sun aspect Ketu in 3rd house : Ends',
+      description: 'The period of feeling unheard, misunderstood, or professionally isolated in your team communications concludes. Your confidence in presenting short-term logistics and team strategy returns.',
+    },
+    {
+      name: 'Sun aspect Ketu in 3rd house : Starts',
+      description: 'A frustrating phase begins where your authoritative communication seems to fall on deaf ears. You may feel a dissolution of your ego in team meetings or experience strange technical failures that undermine your project proposals.',
+    },
+    {
+      name: 'Sun aspect Mars in 8th house : Starts',
+      description: 'Beginning a highly intense period of uncovering hidden corporate conflicts or tackling massive crisis management. Your ego and leadership will become deeply tied to how aggressively you can solve obscure, deeply buried systemic issues.',
+    },
+    {
+      name: 'Sun aspect Mercury in 8th house : Ends',
+      description: 'The deep dive into auditing, forensic accounting, or the meticulous uncovering of hidden corporate data concludes. The spotlight moves away from crisis analysis and back to standard operations.',
+    },
+    {
+      name: 'Sun aspect Mercury in 8th house : Starts',
+      description: 'Entering a phase where your intellect and leadership are focused entirely on deep, investigative tasks. You will be called upon to shine a light on hidden flaws in contracts, codebases, or financial strategies.',
+    },
+    {
+      name: 'Sun aspect Moon in 6th house : Ends',
+      description: 'The intense focus on improving daily health routines, streamlining operational debt, and managing team morale subsidies. The spotlight shifts away from the daily grind.',
+    },
+    {
+      name: 'Sun aspect Moon in 6th house : Starts',
+      description: 'A period begins where your leadership identity becomes deeply intertwined with daily operational efficiency. You will feel a strong drive to illuminate inefficiencies, improve team wellness, and tackle accumulating administrative or technical debt.',
+    },
+    {
+      name: 'Sun aspect Rahu in 9th house : Ends',
+      description: 'The chaotic, ego-driven pursuit of unorthodox international visions or rebellious corporate strategies concludes. You return to a more grounded, realistic assessment of your long-term career path.',
+    },
+    {
+      name: 'Sun aspect Rahu in 9th house : Starts',
+      description: 'Entering a phase of intense, rebellious ambition. You may feel a strong ego attachment to disruptive, highly unconventional industry visions, potentially leading to clashes with traditional mentors or corporate leadership.',
+    },
+    {
+      name: 'Sun aspect Saturn in 10th house : Starts',
+      description: 'The onset of a heavy, demanding professional period. You will step into the spotlight of major executive responsibilities, facing intense scrutiny, rigid structures, and the need for absolute, unwavering discipline in your career.',
+    },
+    {
+      name: 'Sun aspect Sun in 9th house : Exact',
+      description: 'A powerful alignment with your company’s highest vision and your own core ethics. Exceptional visibility with international clients, publishing, or senior mentors. Your leadership presence is radiant, authentic, and expansive.',
+    },
+    {
+      name: 'Sun aspect Venus in 8th house : Ends',
+      description: 'The spotlight fades from hidden financial negotiations, equity deals, or the resolution of deep-seated workplace betrayals. The window for securing lucrative severance or restructuring bonuses closes.',
+    },
+    {
+      name: 'Sun aspect Venus in 8th house : Starts',
+      description: 'Beginning a period where your leadership and reputation are tied to navigating complex corporate finances, mergers, or hidden partnerships. You will have the opportunity to illuminate and secure highly lucrative, obscure resources.',
+    },
+    {
+      name: 'Uranus aspect Saturn in 10th house : Exact',
+      description: 'A sudden, electrifying clash between radical innovation and rigid corporate structures. You may experience an abrupt change in management, a sudden release from a restrictive job, or the chaotic but necessary dismantling of obsolete legacy systems in your workplace.',
+    },
+    {
+      name: 'Venus Aspecting Ascendant (ASC) : Exact',
+      description: 'Peak professional charisma and magnetism. An incredibly auspicious day for personal branding, nailing a high-stakes interview, or effortlessly winning over difficult clients. Your diplomatic charm masks a highly effective strategic mind.',
+    },
+    {
+      name: 'Venus aspect Ketu in 3rd house : Starts',
+      description: 'Entering a phase of detachment from superficial networking and standard corporate communications. You will find more financial or aesthetic value in isolated, highly specialized work, or through sudden, brief, and unusual professional encounters.',
+    },
+    {
+      name: 'Venus aspect Moon in 6th house : Ends',
+      description: 'The period of enhanced harmony, aesthetic improvements to the workspace, and smooth emotional relations with subordinates concludes. Daily operations return to a more standard, less emotionally buffered state.',
+    },
+    {
+      name: 'Venus aspect Moon in 6th house : Exact',
+      description: 'A beautifully harmonious day for team dynamics and daily routines. Excellent for HR professionals, organizing team-building events, or simply enjoying a frictionless, highly collaborative day of operational execution.',
+    },
+    {
+      name: 'Venus aspect Moon in 6th house : Starts',
+      description: 'A phase of pleasant daily workflows begins. You will find yourself intuitively smoothing over office conflicts, improving the physical workspace (even a home office setup), and fostering a deeply supportive environment for your reports.',
+    },
+    {
+      name: 'Venus aspect Rahu in 9th house : Starts',
+      description: 'Beginning a period of intense, almost obsessive desire for international expansion, unorthodox financial investments, or breaking the rules in your corporate branding. Be wary of falling for "get-rich-quick" illusions on a global scale.',
+    },
+    {
+      name: 'Venus aspect Saturn in 10th house : Ends',
+      description: 'The slow, methodical building of your professional reputation and the delayed financial rewards from long-term corporate loyalty reach a culmination point. The restrictive feeling regarding your earning potential begins to lift.',
+    },
+    {
+      name: 'Venus aspect Saturn in 10th house : Starts',
+      description: 'Entering a phase where financial gains and professional reputation will only come through extreme patience, loyalty, and strict adherence to corporate hierarchy. Charm must be backed by undeniable, structural hard work.',
+    },
+    {
+      name: 'Venus aspect Sun in 9th house : Ends',
+      description: 'The favorable window for securing international contracts, publishing deals, or gaining financial favor from visionary executive mentors closes. Wrap up high-level ethical or legal negotiations.',
+    },
+    {
+      name: 'Venus aspect Sun in 9th house : Starts',
+      description: 'Beginning a highly auspicious period for expanding your professional network globally. You will find favor with senior leadership, experience smooth legal negotiations, and align your financial goals with your highest ethical ideals.',
+    },
+    {
+      name: 'Venus ruler of the 7th House in the 8th House',
+      description: 'B2B partnerships, client contracts, and professional alliances undergo intense transformation. You may face sudden contract terminations or discover hidden clauses. Navigate this period with extreme caution, as significant financial lessons regarding trust and corporate betrayal are at play.',
+    }
 ];
 
-const insert = db.prepare('INSERT OR IGNORE INTO events (name, description) VALUES (?, ?)');
+const insert = db.prepare('INSERT INTO events (name, description) VALUES (?, ?) ON CONFLICT(name) DO UPDATE SET description = excluded.description');
 
 const seedAll = db.transaction(() => {
   let inserted = 0;

@@ -311,11 +311,359 @@ const events = [
   },
   {
     name: 'Mercury aspect Sun in 9th house',
-    description: 'Reading or listening to the macro-economic data opens your mind to global market shifts. You understand the profound technical trends that govern the long-term charts. This knowledge grants you the insight needed to position your speculative bets perfectly ahead of the crowd.'
+    description: 'Reading or listening to the macro-economic data opens your mind to global market shifts. You understand the profound technical trends that govern the long-term charts. This knowledge grants you the insight needed to position your speculative bets perfectly ahead of the crowd.',
+  },
+  {
+    name: 'Jupiter Aspecting Midheaven (MC) : Ends',
+    description: 'The period of massive institutional expansion and extraordinary luck elevating your status as a trader is fading. It is time to secure your profits as the broader market euphoria and easy macro conditions begin to calm down.',
+  },
+  {
+    name: 'Jupiter aspect Jupiter in 5th house : Exact',
+    description: 'Peak divine luck in speculation! This is the ultimate jackpot transit. Your intuition for massive 100x gem plays and high-leverage trades is immensely blessed today. Expect unprecedented expansion and undeniable fortune in your speculative portfolio.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Ends',
+    description: 'The reckless courage to over-leverage and gamble on sudden volatility dissipates. It is time to deleverage rapidly and lock in those massive windfall profits before the market sharply corrects.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Exact',
+    description: 'Extreme, massive leveraged gains are possible now. A daring, highly aggressive gamble in the most volatile crypto markets pays off exponentially. You possess the ultimate courage to ride the whale manipulation for sudden, life-changing wealth.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Starts',
+    description: 'The urge to aggressively leverage up and take huge risks begins to build. You can sense a massive sudden wealth opportunity forming in highly volatile, speculative altcoins.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Ends',
+    description: 'The protective optimism that shielded you from market FUD wanes. Ensure you aren\'t holding toxic, underwater bags out of sheer hope; it is time to rely strictly on tight risk management again.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Exact',
+    description: 'Supreme emotional protection against market panic. Your positive psychology and immense luck allow you to buy the dip perfectly while amateur retail traders capitulate. You find massive wealth where others find debt.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Starts',
+    description: 'A wave of optimism starts to counter the retail panic in your mind. You begin seeing immense value and buying opportunities where the masses only see liquidations and fear.',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Ends',
+    description: 'The golden window for effortless jackpot accumulation and sudden financial windfalls closes. Take your profits to buy tangible luxury items and enjoy the sudden wealth you just secured.',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Starts',
+    description: 'Whispers of massive luxury and sudden wealth begin to manifest. You start accumulating highly volatile assets, anticipating a massive, lucrative pump fueled by hidden money.',
+  },
+  {
+    name: 'Ketu aspect Mars in 8th house : Exact',
+    description: 'An incredible, almost psychic intuition for spotting exact market tops and bottoms. You can aggressively cut bad leveraged trades with zero emotion. Highly contrarian, isolated trades in obscure micro-caps hit hard and fast.',
+  },
+  {
+    name: 'Ketu aspect Sun in 9th house : Exact',
+    description: 'Institutional narratives and macro trends feel completely disconnected from reality. You brilliantly fade the "expert" consensus, securing hidden fortunes by betting against the traditional banking and market-maker structures.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Ends',
+    description: 'The ruthless, aggressive drive to dominate the trading leaderboards tapers off. Avoid forcing leveraged setups when the momentum and volume clearly begin to slow down.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Exact',
+    description: 'Peak execution! You aggressively attack the markets, dominating the order books. This energy is absolutely perfect for forceful, high-frequency scalping and capitalizing on massive momentum shifts.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Starts',
+    description: 'An aggressive ambition kicks in to dominate the market. You want to execute forceful trades and elevate your status as a fearless, high-stakes speculator.',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Exact',
+    description: 'Peak volatility! Intense, aggressive market moves govern the day. This is high-stakes gambling at its finest; you either hit a massive liquidation or a monumental, sudden windfall. Manage your margin closely!',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Starts',
+    description: 'Deep, aggressive energy stirs in the realm of hidden wealth. You are gearing up for a high-risk, do-or-die leveraged play in the darkest corners of the crypto market.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Ends',
+    description: 'The mental overdrive of analyzing hidden on-chain data slows down. Stop obsessive chart-watching to prevent severe psychological burnout and destructive overtrading.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Exact',
+    description: 'Razor-sharp, aggressive execution based on hidden data. You front-run the market using advanced technical analysis and deep on-chain sleuthing to secure sudden, explosive profits.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Starts',
+    description: 'Your analytical mind begins rapidly investigating hidden on-chain data and whale wallets, desperate to find a competitive, aggressive edge in the order books.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Ends',
+    description: 'The emotional storm of the market passes. You can finally review your portfolio with a cool head and repair any careless, impulsive trades made during the panic.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Exact',
+    description: 'Extreme emotional volatility! Do not trade on anger or frustration today. There is a very high risk of blowing up your account due to poor emotional regulation, revenge trading, and buying into market FUD.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Starts',
+    description: 'Deep irritation with market conditions builds. Watch out for the urge to revenge trade as the panic and noise of retail investors deeply annoys your trading psychology.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Ends',
+    description: 'The explosive, fanatical energy of the crypto casino cools. Take profits immediately from those wild narrative plays before gravity sets in and the illusion completely shatters.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Exact',
+    description: 'Explosive, unbridled speculation! You aggressively chase massive "moonshot" narratives with immense greed. Colossal fortunes can be made or lost in an instant through sheer reckless ambition and extreme leverage.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Starts',
+    description: 'A fanatic desire for explosive, global gains begins to take root. You are magnetically drawn to massive, highly risky crypto narratives and leveraged long positions.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Ends',
+    description: 'The agonizing wait is over. The intense pressure testing your diamond hands lifts, allowing your deeply accumulated, long-term plays to finally break out and breathe.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Exact',
+    description: 'Intense friction between your aggressive scalping desires and the slow, deliberate pace of the market makers. Frustrating delays; stick to disciplined, long-term accumulation instead of forcing leverage on choppy charts.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Starts',
+    description: 'The urge to aggressively force a long-term trade builds, but faces immediate institutional resistance. You must prepare for a grueling test of your patience.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Ends',
+    description: 'The powerful, conviction-driven macro trades conclude. Step back, deleverage, and secure the massive gains from your bold bets against the traditional market structures.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Exact',
+    description: 'A fearless, aggressive gamble on macro trends! You trade with immense, unshakeable confidence, forcefully aligning your capital with major institutional money flows for massive wins.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Starts',
+    description: 'You feel a deep, aggressive drive to challenge institutional money or bet big on upcoming macro-economic shifts and global financial policies.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Ends',
+    description: 'The intoxicating rush of extreme risk fades. It is critical to cash out now and protect your capital from your own insatiable greed and the impending market dump.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Exact',
+    description: 'Extreme passion for high-risk trading! You aggressively pursue massive, sudden wealth, completely intoxicated by the thrill of the crypto casino. High chance of a phenomenal windfall if your risk is expertly managed.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Starts',
+    description: 'The pure thrill of the gamble awakens. You begin passionately eyeing highly volatile assets with intense desire, ready to inject massive leverage into the market.',
+  },
+  {
+    name: 'Mercury Aspecting Ascendant (ASC) : Exact',
+    description: 'Perfect clarity and hyper-fast execution. Your highly tuned technical analysis is flawlessly aligned with your trading psychology today, making you a lethal, highly profitable day trader.',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Exact',
+    description: 'Genius-level speculation! Your algorithms, trading bots, or technical analysis align perfectly with profound divine luck. Massive profits flow effortlessly from highly intelligent, well-planned gambles.',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Starts',
+    description: 'You start forming a brilliant, expansive trading thesis. Ideas for automated bots, clever algorithms, and highly speculative technical setups begin to flow into your mind.',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Ends',
+    description: 'The period of brilliant, isolated contrarian research ends. Reintegrate your highly unique, obscure findings back into your standard, daily market strategies.',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Starts',
+    description: 'You begin aggressively disconnecting from mainstream crypto Twitter and \"expert\" noise, relying instead on obscure, highly contrarian data to form your edge.',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Exact',
+    description: 'You clinically and coldly profit off retail panic. Your mind is hyper-focused on exploiting the emotional weaknesses of the market, allowing you to perfectly time the exact bottom of a bloody crash.',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Starts',
+    description: 'You begin actively analyzing the sheer fear and panic of retail investors, looking for the data-driven pivot points where their capitulation becomes your massive gain.',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Ends',
+    description: 'The window for exploiting massive, illusory market narratives through technical means closes. Secure your profits immediately before the algorithm shifts and the hype dies completely.',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Starts',
+    description: 'You start developing highly complex, almost deceptive algorithms and trading setups to front-run massive, extremely volatile global narratives.',
+  },
+  {
+    name: 'Mercury aspect Saturn in 10th house : Starts',
+    description: 'You begin meticulously planning long-term structural trades. The focus sharply shifts from degenerate gambling to strict, disciplined portfolio management and risk mitigation.',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Ends',
+    description: 'The profound edge gained from front-running institutional news and macro-economic data fades. Return to standard technical setups and chart reading.',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Starts',
+    description: 'You start brilliantly aligning your technical analysis directly with macro-economic data and impending institutional announcements to capture massive swings.',
+  },
+  {
+    name: 'Moon Aspecting Ascendant (ASC) : Exact',
+    description: 'Your intuition is deeply intertwined with market sentiment. You literally feel the chart\'s next move instinctively in your gut. Trust your deep intuition over technicals for short-term entries today.',
+  },
+  {
+    name: 'Moon Aspecting Midheaven (MC) : Exact',
+    description: 'Public perception of your trading success peaks. Your emotional connection to the broader market trends is perfectly synchronized, allowing you to ride the massive wave effortlessly and publicly.',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Ends',
+    description: 'The grueling, destructive transformation of the market structure finishes. The new financial world order is set; if your long-term speculative bags survived the purge, you are positioned for generational wealth.',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Starts',
+    description: 'A massive, generational shift in market structure begins. Centralized financial systems start to violently crack, paving the way for deep, decentralized power accumulation and terrifying volatility.',
+  },
+  {
+    name: 'Rahu aspect Moon in 6th house : Exact',
+    description: 'Extreme, chaotic emotional swings fueled by market illusions! You are highly susceptible to buying into massive FUD or selling the absolute bottom due to sheer panic. Step away from the charts; the market makers are actively trying to deceive you.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Ends',
+    description: 'The brutal regulatory storm passes. The surviving speculative assets are now heavily battle-tested and primed for the next massive parabolic cycle. Your diamond hands are rewarded.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Exact',
+    description: 'A brutal clash between institutional regulation (Saturn) and degenerate speculation (Rahu). Expect massive shakeouts in highly leveraged, fanatical tokens. Only the fundamentally strong assets survive this brutal test of reality.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Starts',
+    description: 'Harsh regulatory reality begins to clash with wild crypto speculation. A brutal reality check is coming for \"moon boy\" narratives and over-leveraged degenerate plays.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Ends',
+    description: 'The oppressive macro-economic pressure finally lifts. Your immense patience and strict capital preservation during the brutal bear market are about to be rewarded with massive, structural gains.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Exact',
+    description: 'Strict discipline is required as macro-economic forces heavily suppress the markets. This is absolutely not a time for wild gambling; preserve your capital and slowly accumulate blue-chips during this oppressive, restrictive phase.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Starts',
+    description: 'A chilling cooling-off period begins for major institutional money. You can sense a severe tightening of global liquidity that will crush over-leveraged retail traders.',
+  },
+  {
+    name: 'Saturn in 10th (Dispositor)',
+    description: 'You are the absolute master of your own trading destiny. Unshakeable discipline, long-term vision, and strict risk management make you a whale in the making. Wealth is built steadily, cementing your legendary status in the financial world.',
+  },
+  {
+    name: 'Sun Transits the 5th House',
+    description: 'The spotlight is firmly on your speculative genius! Immense divine luck illuminates your gamble. High-risk investments, IDOs, and massive lottery plays are heavily favored by the universe right now. Take the shot.',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Ends',
+    description: 'The golden window of boundless luck and immense institutional support for your speculative plays closes. Lock in those massive, life-changing gains immediately.',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Starts',
+    description: 'A period of massive, incredibly confident expansion in your high-risk portfolio begins to unfold. The whales are heavily backing your thesis.',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Ends',
+    description: 'Your quiet, contrarian bets against the herd have perfectly played out. It is time to step out of the shadows, take your massive profits, and let the latecomers hold the bags.',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Starts',
+    description: 'You begin to quietly fade the loud, mainstream narratives pushed by big crypto influencers. You seek hidden alpha in the darkest, most obscure corners of the market.',
+  },
+  {
+    name: 'Sun aspect Mars in 8th house : Starts',
+    description: 'You are gearing up for a highly aggressive, deeply hidden leveraged play. You feel a massive surge of power to take on extreme volatility and crush the order books.',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Ends',
+    description: 'The deep, investigative mental focus on hidden market structures and whale wallets concludes. Step back from the complex data before analysis paralysis sets in.',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Starts',
+    description: 'Your mind intensely illuminates the hidden tokenomics and deep order books. You are relentlessly searching for the hidden alpha that precedes a sudden, massive pump.',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Ends',
+    description: 'You have successfully restructured your trading psychology, purging fear, panic, and retail-minded weakness from your system. You are now cold, calculated, and ready.',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Starts',
+    description: 'You start bringing vital, harsh awareness to your poor risk management habits and retail-like panic tendencies. It is time to mature as a trader.',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Ends',
+    description: 'The blinding light of extreme, greedy speculation fades. Time to wake up from the illusion and secure actual, realized profits before the massive dump occurs.',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Starts',
+    description: 'A powerful, almost blinding urge to gamble on massive global illusions and crypto super-cycles takes hold. You want the absolute maximum leverage possible.',
+  },
+  {
+    name: 'Sun aspect Saturn in 10th house : Starts',
+    description: 'You begin to strictly align your trading strategy with the heavy, restrictive movements of global market makers. Extreme patience is now required to survive.',
+  },
+  {
+    name: 'Sun aspect Sun in 9th house : Exact',
+    description: 'Ultimate clarity on the macro-economic cycle! You understand exactly where the massive institutional money is flowing. A perfect day to confidently place long-term, life-changing bets.',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Ends',
+    description: 'The rare opportunity for rapid, unexpected accumulation fades. Take your massive profits immediately and buy something wildly luxurious to celebrate your win.',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Starts',
+    description: 'A bright spotlight shines on sudden, hidden wealth opportunities. You start positioning your portfolio for a massive, unearned windfall from volatile markets.',
+  },
+  {
+    name: 'Uranus aspect Saturn in 10th house : Exact',
+    description: 'Shocking, black-swan events completely disrupt traditional market structures! Massive liquidations destroy institutions, but present unbelievable, generational opportunities for agile, contrarian crypto traders. The old system breaks.',
+  },
+  {
+    name: 'Venus Aspecting Ascendant (ASC) : Exact',
+    description: 'You radiate the powerful aura of a highly successful, wealthy trader today. Your portfolio looks incredibly attractive, and you are naturally drawn to highly profitable, luxurious setups.',
+  },
+  {
+    name: 'Venus aspect Ketu in 3rd house : Starts',
+    description: 'You start losing all interest in mainstream, flashy tokens and begin finding intense beauty and massive profit in dead, forgotten, or completely obscure micro-caps.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Ends',
+    description: 'The highly profitable phase of comfortably buying the dip concludes as the market begins to normalize and the extreme fear subsides.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Exact',
+    description: 'You master the highly lucrative art of profitable risk-off behavior. You calmly and happily buy the blood in the streets while retail panics, securing deep value assets for absolute pennies.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Starts',
+    description: 'You begin finding deep comfort and financial safety in taking profits and significantly reducing your exposure to chaotic, bleeding markets.',
+  },
+  {
+    name: 'Venus aspect Rahu in 9th house : Starts',
+    description: 'An insatiable, glamorous greed begins to completely take over. You are wildly attracted to the most volatile, hyped-up crypto narratives promising immediate, astronomical riches.',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Ends',
+    description: 'The strict, highly disciplined approach to wealth accumulation relaxes. You can start allocating capital back to riskier, more degenerate plays now that your base is secure.',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Starts',
+    description: 'You begin to highly value slow, methodical compounding and stable, dividend-yielding assets over the extreme stress of degenerate gambling. Wealth preservation is key.',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Ends',
+    description: 'The extremely lucky phase of effortless macro gains draws to a close. Do not expect institutional money to effortlessly pump your bags anymore; secure profits now.',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Starts',
+    description: 'You start brilliantly aligning your investments with highly lucrative institutional trends and macro fortune. You are riding the coattails of the financial elite.',
+  },
+  {
+    name: 'Venus ruler of the 7th House in the 8th House',
+    description: 'Collaborative trading or exclusive signal groups lead to sudden, extreme financial events. There is a very high risk of betrayal, massive hacks, or rug pulls by so-called partners. Keep your alpha completely secret; trust absolutely no one with your private keys or strategies.',
   }
 ];
 
-const insert = db.prepare('INSERT OR IGNORE INTO events (name, description) VALUES (?, ?)');
+const insert = db.prepare('INSERT INTO events (name, description) VALUES (?, ?) ON CONFLICT(name) DO UPDATE SET description = excluded.description');
 
 const seedAll = db.transaction(() => {
   let inserted = 0;
