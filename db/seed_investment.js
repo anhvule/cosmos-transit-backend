@@ -575,344 +575,344 @@ const events = [
   },
   {
     name: 'Jupiter Aspecting Midheaven (MC) : Ends',
-    description: '',
+    description: 'The expansive momentum driving your professional portfolio begins to stabilize. Institutional inflows that pushed macro assets higher are plateauing. Secure your gains and optimize your risk-adjusted returns as this growth cycle officially closes.',
   },
   {
     name: 'Jupiter aspect Jupiter in 5th house : Exact',
-    description: '',
+    description: 'A peak Dhana Yoga alignment. The exact aspect of Jupiter upon its own position in the house of speculation creates exceptional algorithmic efficiency in the markets. This is the ultimate window to execute high-conviction momentum trades, scale into winners, and capitalize on compounding wealth.',
   },
   {
     name: 'Jupiter aspect Mars in 8th house : Ends',
-    description: '',
+    description: 'The aggressive, high-leverage energy in hidden market sectors dissipates. The sudden volatility holes that provided quick, highly speculative entries are closing. Transition your strategy back to capital preservation and scale out of high-risk derivatives.',
   },
   {
     name: 'Jupiter aspect Mars in 8th house : Exact',
-    description: '',
+    description: 'Peak speculative intensity. Jupiter forcefully expands Mars\'s aggressive energy in the 8th house of hidden liquidity. Explosive upside is possible in highly volatile assets like crypto. Execute trades with sharp precision to exploit sudden volatility holes, but maintain rigid stop-losses to survive the chop.',
   },
   {
     name: 'Jupiter aspect Mars in 8th house : Starts',
-    description: '',
+    description: 'Initial signs of deep-market volatility emerge. Institutional capital begins rotating into high-risk, high-reward sectors. Begin scanning chart patterns for hidden accumulation phases and prepare your systems for sudden, aggressive price action.',
   },
   {
     name: 'Jupiter aspect Moon in 6th house : Ends',
-    description: '',
+    description: 'The grace period protecting your portfolio from bad debts and market obstacles concludes. Any temporary market relief rallies in struggling sectors will fade. Finalize your portfolio pruning and ensure your downside risk is fully capped.',
   },
   {
     name: 'Jupiter aspect Moon in 6th house : Exact',
-    description: '',
+    description: 'Optimism floods the house of debt and obstacles. You have perfect emotional clarity to objectively evaluate losing positions. A highly auspicious moment for resource optimization—cut dead weight from the portfolio and reallocate capital to maximize algorithmic efficiency.',
   },
   {
     name: 'Jupiter aspect Moon in 6th house : Starts',
-    description: '',
+    description: 'A subtle shift in market psychology begins to ease bearish pressure. You will feel an intuitive push to restructure your risk management protocols. Begin analyzing your trading journals to find inefficiencies in your recent market execution.',
   },
   {
     name: 'Jupiter aspect Venus in 8th house : Ends',
-    description: '',
+    description: 'The influx of hidden wealth and institutional dark-pool money slows down. Undervalued assets that experienced sudden revaluations will now enter a consolidation phase. Lock in profits from recent speculative breakouts.',
   },
   {
     name: 'Jupiter aspect Venus in 8th house : Starts',
-    description: '',
+    description: 'Early indicators of a hidden Dhana Yoga. Smart money begins quietly accumulating undervalued assets. Use deep technical analysis to spot divergences and prepare to position yourself in assets before the retail crowd catches the momentum.',
   },
   {
     name: 'Ketu aspect Mars in 8th house : Exact',
-    description: '',
+    description: 'A sudden, unpredictable severing of market momentum. Ketu eclipses Mars\'s drive in the house of crisis, triggering sudden liquidity vacuums and algorithmic stop-hunts. Do not force trades today; step away from the charts to avoid getting caught in irrational, mechanical liquidations.',
   },
   {
     name: 'Ketu aspect Sun in 9th house : Exact',
-    description: '',
+    description: 'A sudden eclipse of institutional fortune. Regulatory FUD (Fear, Uncertainty, Doubt) or macroeconomic shocks may disrupt long-term holdings. Traditional chart patterns may fail entirely today. Rely on extreme contrarian strategies or simply hold cash.',
   },
   {
     name: 'Mars Aspecting Midheaven (MC) : Ends',
-    description: '',
+    description: 'The aggressive push to break through heavy macroeconomic resistance levels loses steam. The market transitions from an impulsive breakout phase into a distribution phase. Protect the profits generated during the recent momentum spike.',
   },
   {
     name: 'Mars Aspecting Midheaven (MC) : Exact',
-    description: '',
+    description: 'Maximum bullish aggression. The market attacks overhead resistance with massive volume. An ideal alignment for momentum trading, buying aggressive breakouts, and riding the coat-tails of institutional buyers forcing short squeezes.',
   },
   {
     name: 'Mars Aspecting Midheaven (MC) : Starts',
-    description: '',
+    description: 'Bullish volume begins to build on the macro charts. You will feel a renewed drive to take on calculated risks. Start identifying key resistance levels that are likely to be tested and prepare your breakout trading setups.',
   },
   {
     name: 'Mars aspect Mars in 8th house : Exact',
-    description: '',
+    description: 'Extreme, double-amplified volatility in the 8th house. The market is a minefield of short-squeezes and long-liquidations. While massive percentage gains are possible for the hyper-vigilant trader, the risk of total capital destruction is at its absolute peak. Trade with minimal size.',
   },
   {
     name: 'Mars aspect Mars in 8th house : Starts',
-    description: '',
+    description: 'Tension builds in the derivatives and high-risk markets. Implied volatility begins to spike. Tighten all stop-losses and prepare for erratic, unpredictable swings as aggressive market participants prepare for battle.',
   },
   {
     name: 'Mars aspect Mercury in 8th house : Ends',
-    description: '',
+    description: 'The period of hyper-fast execution and intense quantitative analysis cools down. The data flow normalizes, and market inefficiencies disappear. Transition from high-frequency scalping back to broader swing trading.',
   },
   {
     name: 'Mars aspect Mercury in 8th house : Exact',
-    description: '',
+    description: 'Peak mental sharpness meets aggressive execution. Your ability to read complex chart patterns, order flow, and Level 2 data is flawless. Exploit algorithmic efficiency by executing lightning-fast trades during sudden market dislocations.',
   },
   {
     name: 'Mars aspect Mercury in 8th house : Starts',
-    description: '',
+    description: 'Your analytical mind shifts into overdrive. You will start spotting micro-inefficiencies and rapid data shifts in the market. Begin configuring your trading bots and alert systems for fast-approaching volatility.',
   },
   {
     name: 'Mars aspect Moon in 6th house : Ends',
-    description: '',
+    description: 'The emotional turbulence and urge to "revenge trade" your way out of recent drawdowns finally subsides. Clearer, more objective market psychology returns. Review the damage objectively and rebuild.',
   },
   {
     name: 'Mars aspect Moon in 6th house : Exact',
-    description: '',
+    description: 'A dangerous Chandra-Mangala alignment in the house of debt. Emotional trading triggers are hyper-sensitive today. A single red candle can provoke impulsive, over-leveraged revenge trading. Walk away from the screens if your risk-adjusted returns start bleeding.',
   },
   {
     name: 'Mars aspect Moon in 6th house : Starts',
-    description: '',
+    description: 'Frustration begins to build over slow-moving or underperforming assets. Guard your trading psychology carefully. Do not let impatience force you into executing trades outside of your proven systemic parameters.',
   },
   {
     name: 'Mars aspect Rahu in 9th house : Ends',
-    description: '',
+    description: 'The euphoric blow-off top completes its cycle. The illusion of infinite growth shatters as momentum violently reverses. If you traded the parabolic bubble, this is the final warning to secure your exit liquidity before the crash.',
   },
   {
     name: 'Mars aspect Rahu in 9th house : Exact',
-    description: '',
+    description: 'Maximum market euphoria and FOMO. An explosive, irrational parabolic run in highly speculative assets (like altcoins or meme tech). You can make fortunes riding this wave of pure greed, but you must recognize it is a mirage. Do not hold long-term.',
   },
   {
     name: 'Mars aspect Rahu in 9th house : Starts',
-    description: '',
+    description: 'Speculative whispers and hype begin to distort market reality. Volume starts pouring into unproven, high-risk assets. Prepare to ride the momentum trading wave, but establish strict trailing stops immediately.',
   },
   {
     name: 'Mars aspect Saturn in 10th house : Ends',
-    description: '',
+    description: 'The grueling battle between aggressive buyers and heavy institutional sellers concludes. The market structure stabilizes. You can now reliably analyze the charts without the constant threat of algorithmic suppression.',
   },
   {
     name: 'Mars aspect Saturn in 10th house : Exact',
-    description: '',
+    description: 'A violent clash of planetary energies. Aggressive market action hits an impenetrable wall of macro-economic resistance. Expect brutal, grinding price action, false breakouts, and heavy distribution. Capital preservation is your only goal today.',
   },
   {
     name: 'Mars aspect Saturn in 10th house : Starts',
-    description: '',
+    description: 'Momentum begins to face friction. You will notice breakout trades failing and order flow becoming sluggish. Switch from offensive growth strategies to defensive resource optimization as resistance builds.',
   },
   {
     name: 'Mars aspect Sun in 9th house : Ends',
-    description: '',
+    description: 'The institutional push that drove recent macro trends begins to taper off. Momentum algorithms will start taking profits. Follow the smart money and begin scaling out of your long positions.',
   },
   {
     name: 'Mars aspect Sun in 9th house : Exact',
-    description: '',
+    description: 'Perfect alignment for aggressive, macro-level momentum trading. Institutional whales and favorable governmental data provide massive tailwinds for your trades. Buy breakouts with confidence, as the broader trend heavily supports your entries.',
   },
   {
     name: 'Mars aspect Sun in 9th house : Starts',
-    description: '',
+    description: 'Early signs of strong institutional buying. Watch for volume spikes on daily charts indicating that large funds are accumulating. Align your portfolio directionally with the incoming macro momentum.',
   },
   {
     name: 'Mars aspect Venus in 8th house : Ends',
-    description: '',
+    description: 'The intense, high-risk allure of volatile assets fades. The market returns to rational pricing models. Close out any outstanding high-leverage speculative bets and return to standard risk-management protocols.',
   },
   {
     name: 'Mars aspect Venus in 8th house : Exact',
-    description: '',
+    description: 'Extreme speculative desire. The urge to go "all-in" on hidden, high-reward assets is overpowering. While fortunes can be made buying the absolute bottom of panic-selling events, the line between calculated risk and outright gambling is dangerously thin today.',
   },
   {
     name: 'Mars aspect Venus in 8th house : Starts',
-    description: '',
+    description: 'You are drawn toward non-traditional, highly volatile financial instruments. Watch for sudden drops in asset prices that create lucrative, short-term accumulation zones. Prepare liquidity for opportunistic buying.',
   },
   {
     name: 'Mercury Aspecting Ascendant (ASC) : Exact',
-    description: '',
+    description: 'Your technical analysis is razor-sharp. You can process complex chart patterns and order book data with supreme algorithmic efficiency. An excellent day for executing precise, logical scalps and avoiding emotional bias entirely.',
   },
   {
     name: 'Mercury aspect Jupiter in 5th house : Exact',
-    description: '',
+    description: 'The absolute pinnacle of quantitative speculation. Data (Mercury) and wealth expansion (Jupiter) perfectly merge. This is the optimal time to backtest new trading algorithms, analyze risk-adjusted returns, and execute highly sophisticated, data-driven trades for maximum profit.',
   },
   {
     name: 'Mercury aspect Jupiter in 5th house : Starts',
-    description: '',
+    description: 'Your mind begins expanding with new quantitative strategies. You will start seeing the broader interconnectedness of different asset classes. Begin researching new sectors for upcoming momentum plays.',
   },
   {
     name: 'Mercury aspect Ketu in 3rd house : Ends',
-    description: '',
+    description: 'The fog lifts from the market data. Chart patterns and traditional indicators resume their normal functionality. You can safely restart automated trading systems and rely on technical analysis once again.',
   },
   {
     name: 'Mercury aspect Ketu in 3rd house : Starts',
-    description: '',
+    description: 'Technical indicators begin to break down. You will notice RSI, MACD, and volume profiles giving conflicting signals. Step back from the trading desk as algorithmic noise starts to create unpredictable market chop.',
   },
   {
     name: 'Mercury aspect Moon in 6th house : Exact',
-    description: '',
+    description: 'Perfect emotional detachment from your losses. You can objectively review your trading history, identify systemic flaws, and calculate exactly how to optimize your portfolio\'s resources to recover drawdowns efficiently.',
   },
   {
     name: 'Mercury aspect Moon in 6th house : Starts',
-    description: '',
+    description: 'Your focus shifts toward portfolio defense and damage control. You will feel the need to audit your risk management spreadsheets. Begin cutting underperforming assets logically before they bleed further.',
   },
   {
     name: 'Mercury aspect Rahu in 9th house : Ends',
-    description: '',
+    description: 'The narrative-driven market hype collapses. Assets that pumped purely on social media news or manipulated data will crash back to fair value. Ensure you have fully exited these speculative bubbles.',
   },
   {
     name: 'Mercury aspect Rahu in 9th house : Starts',
-    description: '',
+    description: 'Market data becomes heavily manipulated by speculative narratives and FOMO. You will see massive volume spikes driven by rumors rather than fundamentals. Prepare to trade the volatility, but do not trust the underlying news.',
   },
   {
     name: 'Mercury aspect Saturn in 10th house : Starts',
-    description: '',
+    description: 'Market data flow begins to slow. Expect delayed reactions to news events and heavy resistance at moving averages. Algorithmic trading strategies will face high friction and slippage as the market grinds to a halt.',
   },
   {
     name: 'Mercury aspect Sun in 9th house : Ends',
-    description: '',
+    description: 'The window of crystal-clear macroeconomic data closes. The market has fully priced in recent institutional news. Momentum strategies based on fundamental data releases will now yield diminishing returns.',
   },
   {
     name: 'Mercury aspect Sun in 9th house : Starts',
-    description: '',
+    description: 'Macro-economic reports and institutional data begin to align with your trading thesis. Watch for key fundamental news releases to provide the catalyst for your next major momentum trade.',
   },
   {
     name: 'Moon Aspecting Ascendant (ASC) : Exact',
-    description: '',
+    description: 'Your intuition regarding retail market psychology is peaking. You can feel the exact moments of peak fear and peak greed in the charts. Use this sensitivity to fade the public—buy the capitulation wicks and sell the euphoric blow-offs.',
   },
   {
     name: 'Moon Aspecting Midheaven (MC) : Exact',
-    description: '',
+    description: 'Retail sentiment is battling institutional resistance on the macro charts. Expect choppy, volatile intraday action. Trust your gut for short-term swing trades, but do not let intraday noise alter your long-term thesis.',
   },
   {
     name: 'Pluto conjunct Saturn : Ends',
-    description: '',
+    description: 'The brutal macro-economic regime change completes its cycle. The weakest market participants have been completely liquidated. The surviving foundation is rock solid. Begin aggressive, long-term accumulation of generationally undervalued assets.',
   },
   {
     name: 'Pluto conjunct Saturn : Starts',
-    description: '',
+    description: 'A terrifying shift in macro market structure begins. Whales and institutional monopolies force strict austerity, triggering massive deleveraging and systemic crashes. Cash is king. Capital preservation is the only metric of success as the market resets.',
   },
   {
     name: 'Rahu aspect Moon in 6th house : Exact',
-    description: '',
+    description: 'Maximum market illusion. The charts will present a "dead cat bounce" or false recovery that looks incredibly tempting. Fear and greed are heavily distorted. Stick strictly to your algorithmic parameters and completely ignore the retail FOMO narrative.',
   },
   {
     name: 'Saturn aspect Rahu in 9th house : Ends',
-    description: '',
+    description: 'The regulatory crackdown or market reality check concludes. The speculative assets that survived this purge will now establish true support levels. You can safely begin analyzing these charts for legitimate accumulation zones.',
   },
   {
     name: 'Saturn aspect Rahu in 9th house : Exact',
-    description: '',
+    description: 'A harsh, brutal reality check for speculative bubbles. Macroeconomic tightening or sudden regulatory enforcement pops the euphoric balloons in tech and crypto. Short the hype aggressively, hold cash, and do not try to catch the falling knives of shattered illusions.',
   },
   {
     name: 'Saturn aspect Rahu in 9th house : Starts',
-    description: '',
+    description: 'The foundation of the current market hype begins to show structural cracks. You will notice volume drying up on parabolic advances. Prepare to transition from long momentum trades to defensive short positioning.',
   },
   {
     name: 'Saturn aspect Sun in 9th house : Ends',
-    description: '',
+    description: 'The heavy institutional suppression lifts from the broader market. Macro trends will begin to breathe and expand naturally again. You can transition from strict value investing back into growth and momentum strategies.',
   },
   {
     name: 'Saturn aspect Sun in 9th house : Exact',
-    description: '',
+    description: 'Institutional heavyweights cap market growth. A massive, impenetrable resistance level is hit in the broader market indices. Expect severe bearish pressure. Wealth accumulation today requires supreme patience, dollar-cost averaging, and ignoring the lack of short-term dopamine hits.',
   },
   {
     name: 'Saturn aspect Sun in 9th house : Starts',
-    description: '',
+    description: 'Macro momentum begins to face severe headwinds. Institutional sellers are setting up massive sell walls. Begin tightening your stops on long-term holdings and avoid initiating new long positions at these heights.',
   },
   {
     name: 'Sun aspect Jupiter in 5th house : Ends',
-    description: '',
+    description: 'The massive influx of institutional liquidity into the speculative markets tapers off. The explosive parabolic growth phase is over. Secure your wealth by rotating profits out of risk-on assets and into stable, foundational holdings.',
   },
   {
     name: 'Sun aspect Jupiter in 5th house : Starts',
-    description: '',
+    description: 'Early signals of a massive liquidity injection by institutional whales. Begin positioning your portfolio in high-growth, high-beta assets. The market is preparing for a period of incredibly lucrative, unimpeded expansion.',
   },
   {
     name: 'Sun aspect Ketu in 3rd house : Ends',
-    description: '',
+    description: 'The sudden, mysterious loss of market momentum resolves. Chart patterns begin to respect traditional technical analysis again. You can safely redeploy capital into short-term swing trades and momentum setups.',
   },
   {
     name: 'Sun aspect Ketu in 3rd house : Starts',
-    description: '',
+    description: 'A sudden, inexplicable drop in market volume and momentum. Institutional buyers vanish from the order books. Do not force breakouts here; they are likely fake-outs designed to trap retail traders. Switch to a highly defensive posture.',
   },
   {
     name: 'Sun aspect Mars in 8th house : Starts',
-    description: '',
+    description: 'Whales begin aggressively maneuvering in the dark pools. You will see sudden, unexplained wicks on the charts designed to test liquidity. Prepare your systems for extreme, predatory volatility and widen your stop-losses to avoid algorithmic hunting.',
   },
   {
     name: 'Sun aspect Mercury in 8th house : Ends',
-    description: '',
+    description: 'The window of clear insight into hidden institutional data closes. The market returns to its standard state of retail ambiguity. Rely on your established algorithmic systems rather than seeking new fundamental catalysts.',
   },
   {
     name: 'Sun aspect Mercury in 8th house : Starts',
-    description: '',
+    description: 'Hidden market data begins to illuminate. You will start noticing clear footprints of institutional accumulation in the volume profiles. Excellent timing to begin quantitative backtesting on deeply undervalued assets.',
   },
   {
     name: 'Sun aspect Moon in 6th house : Ends',
-    description: '',
+    description: 'The period of severe market stress and highlighted weaknesses comes to a close. Distressed assets will begin to stabilize. You can stop aggressive shorting and begin looking for bottom-reversal patterns.',
   },
   {
     name: 'Sun aspect Moon in 6th house : Starts',
-    description: '',
+    description: 'The market\'s underlying rot is illuminated. Institutional sellers begin targeting overvalued, debt-heavy companies. Prepare your portfolio for a defensive shift and look for highly asymmetric short opportunities in weak sectors.',
   },
   {
     name: 'Sun aspect Rahu in 9th house : Ends',
-    description: '',
+    description: 'The institutional manipulation driving the euphoric bubble ceases. The market will now violently correct to fair value. If you rode the wave, take your final profits immediately before the liquidity completely vanishes.',
   },
   {
     name: 'Sun aspect Rahu in 9th house : Starts',
-    description: '',
+    description: 'Whales begin actively fueling a speculative bubble. You will see massive, coordinated volume spikes in narrative-driven assets. This is the start of a highly profitable, yet entirely illusory, parabolic run. Ride the trend, but plan your exit.',
   },
   {
     name: 'Sun aspect Saturn in 10th house : Starts',
-    description: '',
+    description: 'Macro-economic regulations or institutional profit-taking begins to weigh heavily on the market. The broader indices will struggle to maintain altitude. Begin scaling out of high-beta growth stocks and rotate into defensive dividend-yielders.',
   },
   {
     name: 'Sun aspect Sun in 9th house : Exact',
-    description: '',
+    description: 'Maximum illumination of long-term fortune. A phenomenal transit for realizing the success of your long-term investment thesis. Institutional backing is rock solid. Let your winners run and do not overthink the bullish macro trend.',
   },
   {
     name: 'Sun aspect Venus in 8th house : Ends',
-    description: '',
+    description: 'The silent phase of institutional accumulation finishes. The hidden wealth is now priced into the market, and the retail crowd is catching on. Transition from accumulating to holding, and prepare to sell into the upcoming retail strength.',
   },
   {
     name: 'Sun aspect Venus in 8th house : Starts',
-    description: '',
+    description: 'Smart money begins quietly accumulating undervalued, hidden assets. Look for bullish divergences on the higher timeframes in sectors that the public has abandoned. A highly lucrative time to build early positions in future market leaders.',
   },
   {
     name: 'Uranus aspect Saturn in 10th house : Exact',
-    description: '',
+    description: 'A violent collision between disruptive innovation (Uranus) and legacy infrastructure (Saturn). Expect massive volatility in the tech and finance sectors. Legacy assets may crash while new algorithmic or decentralized technologies experience explosive, paradigm-shifting breakouts.',
   },
   {
     name: 'Venus Aspecting Ascendant (ASC) : Exact',
-    description: '',
+    description: 'Favorable market conditions naturally gravitate toward you. Your trading psychology is calm, balanced, and perfectly optimized. An excellent day to lock in profits, upgrade your trading hardware, and enjoy the material rewards of your risk management.',
   },
   {
     name: 'Venus aspect Ketu in 3rd house : Starts',
-    description: '',
+    description: 'A profound disinterest in the daily trading grind sets in. You will feel compelled to step away from the 1-minute charts and stop-hunting noise. Trust this contrarian instinct; luck is currently found in stepping back and preserving capital, not in over-trading.',
   },
   {
     name: 'Venus aspect Moon in 6th house : Ends',
-    description: '',
+    description: 'The brief window of relief rallies in struggling market sectors closes. If you successfully scalped the bounces in distressed assets, secure your profits now before the overarching downtrend resumes.',
   },
   {
     name: 'Venus aspect Moon in 6th house : Exact',
-    description: '',
+    description: 'Venus softens the blow of market corrections. You can find highly lucrative "diamonds in the rough" among distressed assets or capitulated altcoins. Excellent for securing minor, highly optimized gains by catching falling knives at precise Fibonacci support levels.',
   },
   {
     name: 'Venus aspect Moon in 6th house : Starts',
-    description: '',
+    description: 'The market\'s bleeding begins to slow as value investors step in. You will start seeing oversold conditions triggering minor relief rallies. Prepare to deploy capital into deeply discounted assets for short-term swing trades.',
   },
   {
     name: 'Venus aspect Rahu in 9th house : Starts',
-    description: '',
+    description: 'The beginning of a massive, sudden expansion in wealth through highly speculative, narrative-driven investments. FOMO is building rapidly. Position yourself early in disruptive tech or crypto to ride the upcoming parabolic wave.',
   },
   {
     name: 'Venus aspect Saturn in 10th house : Ends',
-    description: '',
+    description: 'The grueling period of slow, grinding wealth accumulation comes to an end. The market structure will soon loosen, allowing for more dynamic, momentum-based trading strategies to resume profitability.',
   },
   {
     name: 'Venus aspect Saturn in 10th house : Starts',
-    description: '',
+    description: 'Wealth accumulation slows to a steady, secure grind. The market respects hard support and resistance levels perfectly. Shift your focus to compounding interest, collecting yields, and optimizing the risk-adjusted returns of your legacy portfolio.',
   },
   {
     name: 'Venus aspect Sun in 9th house : Ends',
-    description: '',
+    description: 'The period of extreme macro luck and institutional support tapers off. The massive gains realized in your blue-chip and sovereign holdings should be secured. Transition back to active portfolio management.',
   },
   {
     name: 'Venus aspect Sun in 9th house : Starts',
-    description: '',
+    description: 'Early alignment of wealth and macro fortune. Institutional funding begins to heavily favor your chosen market sectors. Sit back and allow the "Midas touch" to effortlessly elevate the valuation of your long-term, high-conviction holds.',
   },
   {
     name: 'Venus ruler of the 7th House in the 8th House',
-    description: '',
-  },
+    description: 'Counterparty risks are exceptionally high. Avoid entering new joint ventures, using high leverage, or relying on centralized exchanges. The market may experience sudden liquidations due to institutional betrayals. Focus strictly on resource optimization and capital preservation.',
+  }
 ];
 
 const insert = db.prepare('INSERT INTO events (name, description) VALUES (?, ?) ON CONFLICT(name) DO UPDATE SET description = excluded.description');
