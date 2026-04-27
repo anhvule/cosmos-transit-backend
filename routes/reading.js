@@ -1216,8 +1216,13 @@ router.post('/investment-gain-days', async (req, res) => {
  *   "latitude":  10.7755,
  *   "longitude": 106.7021,
  *   "timezone":  "Asia/Ho_Chi_Minh",   // optional
- *   "year":      2024                  // year of Varshapravesh
+ *   "year":      2025                  // calendar year the horoscope is for
  * }
+ *
+ * `year` is the forecast calendar year (matches Yearly.docx labelling — a
+ * "2025 horoscope" for a Dec 29 birthday is the Tajika year that *starts*
+ * on Dec 29, 2024). Internally we pick the Pravesh whose Tajika year covers
+ * the majority of `year`.
  */
 router.post('/yearly-summary', async (req, res) => {
   try {

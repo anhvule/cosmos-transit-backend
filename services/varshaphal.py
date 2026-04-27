@@ -232,6 +232,27 @@ def house_of_sign(asc_sign, target_sign):
     return ((sign_index(target_sign) - sign_index(asc_sign)) % 12) + 1
 
 
+def find_varshapravesh_for_forecast_year(birth, calendar_year):
+    """Return the Varshapravesh whose Tajika year covers the majority of
+    `calendar_year`. This matches how Tajika-derived reports (incl. the
+    Yearly.docx reference) label their output: a "2025 yearly horoscope" for
+    a Dec 29 birthday is the Tajika year that *starts* on Dec 29, 2024 — not
+    the one that starts on Dec 29, 2025.
+
+    Heuristic: a Tajika year always starts on the user's birthday. The Pravesh
+    in (calendar_year - 1) covers the early part of `calendar_year`; the
+    Pravesh in `calendar_year` covers the later part. Whichever fraction is
+    larger picks the Pravesh; the cutoff is the birthday's day-of-year vs
+    midyear (~day 183).
+    """
+    bd_doy = (datetime(birth['year'], birth['month'], birth['day'])
+              - datetime(birth['year'], 1, 1)).days + 1
+    # If birthday is in the second half of the year, the Pravesh in
+    # (calendar_year - 1) covers more days of `calendar_year`.
+    pravesh_year = calendar_year - 1 if bd_doy > 183 else calendar_year
+    return find_varshapravesh(birth, pravesh_year)
+
+
 def compute_age_at_pravesh(birth, pravesh_dt):
     """Tajika age = whole years elapsed from birth to Varshapravesh (year 1 = 0th
     birthday solar return). Doc shows year 34 for someone born 1991-12-29
@@ -359,9 +380,9 @@ def _run_varshaphal():
     stdout: { varshapravesh, annualChart, muntha, sarvashtavarga, ... }"""
     payload = json.loads(sys.stdin.read())
     birth = parse_birth(payload)
-    year = int(payload['year'])
+    forecast_year = int(payload['year'])
 
-    pravesh_dt = find_varshapravesh(birth, year)
+    pravesh_dt = find_varshapravesh_for_forecast_year(birth, forecast_year)
     chart = build_annual_chart(birth, pravesh_dt)
 
     age_completed = compute_age_at_pravesh(birth, pravesh_dt)
@@ -417,11 +438,15 @@ def _run_monthly():
                           sunHouseFromMoon, jupiterHouseFromMoon }] }"""
     payload = json.loads(sys.stdin.read())
     birth = parse_birth(payload)
-    year = int(payload['year'])
+    forecast_year = int(payload['year'])
 
     # Period start = Varshapravesh date. Period end = next Varshapravesh.
-    pravesh = find_varshapravesh(birth, year)
-    next_pravesh = find_varshapravesh(birth, year + 1)
+    # Forecast-year semantics: pick the Pravesh whose Tajika year covers most
+    # of `forecast_year`, matching the reference Yearly.docx labelling.
+    pravesh = find_varshapravesh_for_forecast_year(birth, forecast_year)
+    # Next Pravesh is exactly one Tajika year later — its calendar year is
+    # +1 from the Pravesh's actual calendar year (not forecast_year+1).
+    next_pravesh = find_varshapravesh(birth, pravesh.year + 1)
 
     # Find Sun sidereal sign ingresses inside [pravesh, next_pravesh].
     # Sun moves ~1°/day; sample daily and bisect crossings.
