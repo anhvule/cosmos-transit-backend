@@ -1,91 +1,331 @@
 {
-  "_about": "Vedic monthly prediction templates keyed by Sun's transit house from natal Moon (Chandra Lagna). Each entry has a 'high'/'low' variant selected by the Sarvashtavarga point band — high (≥30 bindus) softens malefic indications, low (<25) intensifies them; mid (25–29) uses 'neutral'. Jupiter's house from natal Moon supplies a secondary modifier appended when relevant.",
+  "_about": "Enriched Vedic monthly prediction templates keyed by Sun's transit house from natal Moon (Chandra Lagna) and Jupiter's transit modifier. Enriched with detailed Work, Health, Relationship, and Investment predictions.",
   "sunFromMoon": {
     "1": {
-      "theme": "Self / body / vitality",
-      "high": "Sun transits your Moon-sign — your sense of self is highlighted but the favourable Sarvashtavarga support helps you stay centred. You can take on visible roles, lead initiatives, and command respect. Health is generally stable.",
-      "neutral": "Sun transiting your Moon-sign brings the spotlight to you. Manage your energy carefully, take care of your body and avoid confrontations with authority figures. Use this period for self-reflection and reset.",
-      "low": "Sun transits your Moon-sign with weak Sarvashtavarga support. Expect mental restlessness, fatigue, and friction with authority. Avoid risky decisions; conserve energy and rest."
+      "theme": "Enriched details for House 1",
+      "high": {
+        "work": "Excellent period for visibility, leadership, and personal projects. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve vitality, head, and overall immunity.",
+        "relationship": "Positive interactions regarding self-focus and potential ego clashes. Your confidence attracts others.",
+        "investment": "Favorable for self-development and avoiding high-risk assets. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in visibility, leadership, and personal projects. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to vitality, head, and overall immunity.",
+        "relationship": "Stable dynamics in self-focus and potential ego clashes. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in self-development and avoiding high-risk assets. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in visibility, leadership, and personal projects. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of vitality, head, and overall immunity. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to self-focus and potential ego clashes. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in self-development and avoiding high-risk assets. Protect capital."
+      }
     },
     "2": {
-      "theme": "Wealth / family / speech",
-      "high": "Sun in the 2nd from Moon with strong Sarvashtavarga points supports income, family stability and confident communication. A good window to negotiate, present ideas, or finalise financial plans.",
-      "neutral": "Sun in the 2nd from Moon — focus on finances, family obligations and what you say. Some mild tension around money or food is possible; keep speech measured.",
-      "low": "Sun in the 2nd from Moon with weak support flags eye-strain, throat issues and disputes around money or food. Tighten the budget and avoid harsh speech."
+      "theme": "Enriched details for House 2",
+      "high": {
+        "work": "Excellent period for financial negotiations, speech-driven roles, and resource management. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve throat, teeth, eyes, and diet.",
+        "relationship": "Positive interactions regarding family dynamics and vocal communication. Your confidence attracts others.",
+        "investment": "Favorable for savings, banking, gold, and conservative portfolios. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in financial negotiations, speech-driven roles, and resource management. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to throat, teeth, eyes, and diet.",
+        "relationship": "Stable dynamics in family dynamics and vocal communication. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in savings, banking, gold, and conservative portfolios. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in financial negotiations, speech-driven roles, and resource management. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of throat, teeth, eyes, and diet. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to family dynamics and vocal communication. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in savings, banking, gold, and conservative portfolios. Protect capital."
+      }
     },
     "3": {
-      "theme": "Effort / courage / siblings",
-      "high": "Sun in the 3rd from Moon (Upachaya) with strong points is excellent — push initiatives, sign agreements, and take calculated risks. Siblings or peers actively support you.",
-      "neutral": "Sun in the 3rd from Moon favours bold action and short trips. Initiatives launched now grow over time. Possible minor friction with siblings; address it head-on.",
-      "low": "Sun in the 3rd from Moon — courage is tested, energy needs to be channelled. Without Sarvashtavarga support, expect short-trip hassles and disputes with siblings."
+      "theme": "Enriched details for House 3",
+      "high": {
+        "work": "Excellent period for sales, short travels, communications, and new initiatives. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve shoulders, arms, and nervous energy.",
+        "relationship": "Positive interactions regarding siblings, neighbors, and peer networking. Your confidence attracts others.",
+        "investment": "Favorable for short-term trades, skill building, and calculated risks. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in sales, short travels, communications, and new initiatives. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to shoulders, arms, and nervous energy.",
+        "relationship": "Stable dynamics in siblings, neighbors, and peer networking. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in short-term trades, skill building, and calculated risks. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in sales, short travels, communications, and new initiatives. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of shoulders, arms, and nervous energy. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to siblings, neighbors, and peer networking. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in short-term trades, skill building, and calculated risks. Protect capital."
+      }
     },
     "4": {
-      "theme": "Home / mother / vehicles / inner peace",
-      "high": "Sun in the 4th from Moon stresses home and emotional foundations even with strong points. Spend time with family, restore the home base, and avoid stoking old conflicts.",
-      "neutral": "Sun in the 4th from Moon — domestic concerns, mother's health, or property matters demand attention. Inner restlessness is common; ground yourself with routine.",
-      "low": "Sun in the 4th from Moon with weak Sarvashtavarga points warns of conflict at home, troubles for mother or property losses. Keep peace and avoid major real-estate decisions."
+      "theme": "Enriched details for House 4",
+      "high": {
+        "work": "Excellent period for real estate, work-from-home, and foundational projects. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve chest, heart, and mental peace.",
+        "relationship": "Positive interactions regarding mother, domestic harmony, and inner circle. Your confidence attracts others.",
+        "investment": "Favorable for property, vehicles, and long-term secure bonds. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in real estate, work-from-home, and foundational projects. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to chest, heart, and mental peace.",
+        "relationship": "Stable dynamics in mother, domestic harmony, and inner circle. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in property, vehicles, and long-term secure bonds. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in real estate, work-from-home, and foundational projects. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of chest, heart, and mental peace. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to mother, domestic harmony, and inner circle. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in property, vehicles, and long-term secure bonds. Protect capital."
+      }
     },
     "5": {
-      "theme": "Children / creativity / speculation",
-      "high": "Sun in the 5th from Moon with strong points lights up creative pursuits and brings recognition to your work. Children prosper; speculative gains possible (with prudence).",
-      "neutral": "Sun in the 5th from Moon highlights children, creative output and speculative ventures. Stay measured — the Sun here can also drive arrogance.",
-      "low": "Sun in the 5th from Moon — concerns regarding children or creative blocks. Avoid speculation; use the time to learn rather than gamble."
+      "theme": "Enriched details for House 5",
+      "high": {
+        "work": "Excellent period for creativity, education, and entertainment. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve stomach, upper digestive tract, and energy levels.",
+        "relationship": "Positive interactions regarding romance, children, and playful interactions. Your confidence attracts others.",
+        "investment": "Favorable for speculation, stocks, and mutual funds. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in creativity, education, and entertainment. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to stomach, upper digestive tract, and energy levels.",
+        "relationship": "Stable dynamics in romance, children, and playful interactions. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in speculation, stocks, and mutual funds. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in creativity, education, and entertainment. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of stomach, upper digestive tract, and energy levels. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to romance, children, and playful interactions. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in speculation, stocks, and mutual funds. Protect capital."
+      }
     },
     "6": {
-      "theme": "Work / debts / health",
-      "high": "Sun in the 6th from Moon (Upachaya) with strong points is a power period for defeating opponents, clearing debts and excelling at work. Push hard at competitive tasks.",
-      "neutral": "Sun in the 6th from Moon favours work output and conflict resolution. Watch your diet to prevent stomach issues; clear pending obligations.",
-      "low": "Sun in the 6th from Moon with low Sarvashtavarga support points to overwork, digestive trouble or workplace politics. Pace yourself and avoid lending money."
+      "theme": "Enriched details for House 6",
+      "high": {
+        "work": "Excellent period for daily routines, service, and defeating competitors. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve intestines, digestion, and acute ailments.",
+        "relationship": "Positive interactions regarding coworkers, maternal relatives, and resolving disputes. Your confidence attracts others.",
+        "investment": "Favorable for debt management, cutting losses, and avoiding lending. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in daily routines, service, and defeating competitors. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to intestines, digestion, and acute ailments.",
+        "relationship": "Stable dynamics in coworkers, maternal relatives, and resolving disputes. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in debt management, cutting losses, and avoiding lending. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in daily routines, service, and defeating competitors. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of intestines, digestion, and acute ailments. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to coworkers, maternal relatives, and resolving disputes. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in debt management, cutting losses, and avoiding lending. Protect capital."
+      }
     },
     "7": {
-      "theme": "Partners / spouse / public",
-      "high": "Sun in the 7th from Moon — even a strong Sarvashtavarga reading does not fully soften this transit. Expect a busy public period; be diplomatic with partners and clients.",
-      "neutral": "Sun in the 7th from Moon stresses partnerships. Avoid major contracts or confrontations with spouse/business partners; the energy is ego-charged.",
-      "low": "Sun in the 7th from Moon with weak support warns of separation, partnership disputes, and travel exhaustion. Postpone weddings, partnerships and signings if possible."
+      "theme": "Enriched details for House 7",
+      "high": {
+        "work": "Excellent period for business partnerships, public dealing, and contracts. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve lower back, kidneys, and exhaustion from travel.",
+        "relationship": "Positive interactions regarding spouse, business partners, and public image. Your confidence attracts others.",
+        "investment": "Favorable for joint ventures, trade, and collaborative funds. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in business partnerships, public dealing, and contracts. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to lower back, kidneys, and exhaustion from travel.",
+        "relationship": "Stable dynamics in spouse, business partners, and public image. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in joint ventures, trade, and collaborative funds. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in business partnerships, public dealing, and contracts. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of lower back, kidneys, and exhaustion from travel. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to spouse, business partners, and public image. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in joint ventures, trade, and collaborative funds. Protect capital."
+      }
     },
     "8": {
-      "theme": "Transformation / hidden setbacks",
-      "high": "Sun in the 8th from Moon — even with strong Sarvashtavarga points, this is a low-key, internal period. Avoid risky exposure, undertake research and rest.",
-      "neutral": "Sun in the 8th from Moon brings hidden obstacles and a dip in vitality. Avoid surgery, lawsuits and high-stakes decisions; protect health and finances.",
-      "low": "Sun in the 8th from Moon with weak support is one of the most challenging transits — expect health setbacks, sudden expenses, and ego wounds. Be conservative."
+      "theme": "Enriched details for House 8",
+      "high": {
+        "work": "Excellent period for research, sudden changes, and hidden matters. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve reproductive organs, psychological stress, and chronic issues.",
+        "relationship": "Positive interactions regarding in-laws, deep transformations, and secrecy. Your confidence attracts others.",
+        "investment": "Favorable for insurance, inheritance, tax planning, and avoiding new ventures. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in research, sudden changes, and hidden matters. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to reproductive organs, psychological stress, and chronic issues.",
+        "relationship": "Stable dynamics in in-laws, deep transformations, and secrecy. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in insurance, inheritance, tax planning, and avoiding new ventures. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in research, sudden changes, and hidden matters. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of reproductive organs, psychological stress, and chronic issues. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to in-laws, deep transformations, and secrecy. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in insurance, inheritance, tax planning, and avoiding new ventures. Protect capital."
+      }
     },
     "9": {
-      "theme": "Fortune / father / dharma / travel",
-      "high": "Sun in the 9th from Moon with strong points blesses you with luck, paternal support and meaningful travel. Pilgrimages, higher studies and ethical decisions thrive.",
-      "neutral": "Sun in the 9th from Moon favours long-distance travel, learning and connection with mentors. Father may need attention; honour elders.",
-      "low": "Sun in the 9th from Moon with weak Sarvashtavarga support flags travel obstacles and friction with father/teacher figures. Keep ethics tight; avoid shortcuts."
+      "theme": "Enriched details for House 9",
+      "high": {
+        "work": "Excellent period for teaching, publishing, long-distance travel, and international affairs. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve hips, thighs, and liver function.",
+        "relationship": "Positive interactions regarding father, gurus, and mentors. Your confidence attracts others.",
+        "investment": "Favorable for long-term global funds, ethical investments, and higher education. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in teaching, publishing, long-distance travel, and international affairs. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to hips, thighs, and liver function.",
+        "relationship": "Stable dynamics in father, gurus, and mentors. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in long-term global funds, ethical investments, and higher education. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in teaching, publishing, long-distance travel, and international affairs. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of hips, thighs, and liver function. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to father, gurus, and mentors. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in long-term global funds, ethical investments, and higher education. Protect capital."
+      }
     },
     "10": {
-      "theme": "Career / status / public role",
-      "high": "Sun in the 10th from Moon with strong Sarvashtavarga support is a peak career window. Expect promotions, recognition, and successful negotiations with authorities.",
-      "neutral": "Sun in the 10th from Moon energises career and public standing. Aim high but stay humble — visibility brings scrutiny too.",
-      "low": "Sun in the 10th from Moon with weak support warns of conflicts with bosses and reputation risks. Deliver consistently rather than seeking limelight."
+      "theme": "Enriched details for House 10",
+      "high": {
+        "work": "Excellent period for career peaks, authorities, and public status. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve knees, bones, and stress from overwork.",
+        "relationship": "Positive interactions regarding bosses, authoritative figures, and professional network. Your confidence attracts others.",
+        "investment": "Favorable for blue-chip stocks, government bonds, and career-boosting assets. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in career peaks, authorities, and public status. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to knees, bones, and stress from overwork.",
+        "relationship": "Stable dynamics in bosses, authoritative figures, and professional network. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in blue-chip stocks, government bonds, and career-boosting assets. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in career peaks, authorities, and public status. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of knees, bones, and stress from overwork. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to bosses, authoritative figures, and professional network. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in blue-chip stocks, government bonds, and career-boosting assets. Protect capital."
+      }
     },
     "11": {
-      "theme": "Gains / network / fulfilment",
-      "high": "Sun in the 11th from Moon with strong points brings income, fulfilled goals and influential contacts. Excellent for networking and asking for raises.",
-      "neutral": "Sun in the 11th from Moon supports gains and networking. Existing initiatives ripen; seek mentors and benefactors.",
-      "low": "Sun in the 11th from Moon — even a malefic-friendly house cannot fully overcome weak Sarvashtavarga support. Manage expectations on income; don't overcommit."
+      "theme": "Enriched details for House 11",
+      "high": {
+        "work": "Excellent period for networking, large organizations, and reaping gains. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve calves, ankles, and blood circulation.",
+        "relationship": "Positive interactions regarding elder siblings, large social networks, and friends. Your confidence attracts others.",
+        "investment": "Favorable for high ROI assets, venture capital, and networking events. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in networking, large organizations, and reaping gains. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to calves, ankles, and blood circulation.",
+        "relationship": "Stable dynamics in elder siblings, large social networks, and friends. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in high ROI assets, venture capital, and networking events. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in networking, large organizations, and reaping gains. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of calves, ankles, and blood circulation. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to elder siblings, large social networks, and friends. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in high ROI assets, venture capital, and networking events. Protect capital."
+      }
     },
     "12": {
-      "theme": "Loss / expenses / retreat",
-      "high": "Sun in the 12th from Moon — the Sarvashtavarga cushion helps, but the period still tilts toward retreat, foreign matters and spiritual practice rather than visible action.",
-      "neutral": "Sun in the 12th from Moon brings expenses, sleep disturbances and a need for solitude. Use the time for inner work and to wind down current cycles.",
-      "low": "Sun in the 12th from Moon with weak Sarvashtavarga support warns of losses, isolation and foot/eye troubles. Pull back, cut expenses, and rest."
+      "theme": "Enriched details for House 12",
+      "high": {
+        "work": "Excellent period for foreign lands, isolated roles, and behind-the-scenes work. You are recognized for your efforts and leadership.",
+        "health": "Strong vitality. Good time to improve feet, sleep disorders, and immune system strain.",
+        "relationship": "Positive interactions regarding detachment, spiritual groups, and secret enemies. Your confidence attracts others.",
+        "investment": "Favorable for charity, foreign investments, and liquidating unprofitable assets. Good returns on well-planned moves."
+      },
+      "neutral": {
+        "work": "Steady progress in foreign lands, isolated roles, and behind-the-scenes work. Requires consistent effort without overreaching.",
+        "health": "Average health. Pay moderate attention to feet, sleep disorders, and immune system strain.",
+        "relationship": "Stable dynamics in detachment, spiritual groups, and secret enemies. Avoid unnecessary arguments.",
+        "investment": "Maintain status quo in charity, foreign investments, and liquidating unprofitable assets. Neither huge gains nor major losses."
+      },
+      "low": {
+        "work": "Challenges and delays in foreign lands, isolated roles, and behind-the-scenes work. Avoid workplace politics.",
+        "health": "Vulnerable phase. Take strict care of feet, sleep disorders, and immune system strain. Rest is crucial.",
+        "relationship": "Friction and misunderstandings related to detachment, spiritual groups, and secret enemies. Practice patience.",
+        "investment": "High risk of loss. Strictly avoid new investments in charity, foreign investments, and liquidating unprofitable assets. Protect capital."
+      }
     }
   },
   "jupiterFromMoonModifier": {
-    "1": "Jupiter on your Moon-sign brings expansion of self and inner growth, but can also bring weight gain or complacency.",
-    "2": "Jupiter in the 2nd from Moon supports family wealth and refined speech; mind overconsumption.",
-    "3": "Jupiter in the 3rd from Moon (a difficult position for Jupiter) can shrink courage and overload you with small responsibilities.",
-    "4": "Jupiter in the 4th from Moon adds mental ease, vehicle/property gains and supportive home conditions.",
-    "5": "Jupiter in the 5th from Moon is excellent — children, creativity, and intelligent decisions all benefit.",
-    "6": "Jupiter in the 6th from Moon (a difficult position) signals workplace strain and potential debt issues despite hard work.",
-    "7": "Jupiter in the 7th from Moon supports partnerships, marriage, and harmonious negotiations.",
-    "8": "Jupiter in the 8th from Moon highlights legacy, inheritance and hidden research — slow but profound shifts.",
-    "9": "Jupiter in the 9th from Moon is highly auspicious — luck, dharma, mentors and travel all flow.",
-    "10": "Jupiter in the 10th from Moon (a difficult position) can dilute professional focus; deliver results without overpromising.",
-    "11": "Jupiter in the 11th from Moon brings significant gains and powerful network growth.",
-    "12": "Jupiter in the 12th from Moon supports spiritual progress and foreign opportunities, but watch for unnecessary expenses."
+    "1": {
+      "work": "Expansion of personal brand and new beginnings.",
+      "health": "Prone to weight gain or lethargy; need disciplined diet.",
+      "relationship": "Increased optimism attracts people, but beware of ego.",
+      "investment": "Invest in personal growth and self-education."
+    },
+    "2": {
+      "work": "Growth in salary or business revenue.",
+      "health": "Watch out for overindulgence in rich foods affecting throat/teeth.",
+      "relationship": "Joyful family gatherings and harmonious speech.",
+      "investment": "Excellent for wealth accumulation, gold, and fixed deposits."
+    },
+    "3": {
+      "work": "Increased short trips and communication tasks; potential overload.",
+      "health": "Mental fatigue from over-socializing or over-working.",
+      "relationship": "Supportive but demanding ties with siblings/peers.",
+      "investment": "Moderate gains from short-term trades and publishing."
+    },
+    "4": {
+      "work": "Favorable for home-based businesses and real estate.",
+      "health": "Mental peace expands; chest/lung health improves.",
+      "relationship": "Deep emotional bonding with mother and family.",
+      "investment": "Highly favorable for buying property or vehicles."
+    },
+    "5": {
+      "work": "Creative peaks, success in academic or advisory roles.",
+      "health": "Good digestion and overall vitality recovery.",
+      "relationship": "Bliss in romance and joy through children.",
+      "investment": "Profitable period for stocks, mutual funds, and speculative gains."
+    },
+    "6": {
+      "work": "Expansion of duties; workplace conflicts might grow if unchecked.",
+      "health": "Liver or digestive issues due to negligence; monitor blood sugar.",
+      "relationship": "Need to be of service; avoid being overly critical of partners.",
+      "investment": "Focus on clearing debts rather than acquiring new loans."
+    },
+    "7": {
+      "work": "Favorable negotiations, successful contracts, and business growth.",
+      "health": "Balanced energy, though partner's health may need attention.",
+      "relationship": "Ideal for marriage, engagement, or deepening partnerships.",
+      "investment": "Great for joint ventures and collaborative financial planning."
+    },
+    "8": {
+      "work": "Deep research, occult studies, and sudden professional shifts.",
+      "health": "Hidden ailments may surface; focus on alternative healing.",
+      "relationship": "Intense transformations in close bonds; interactions with in-laws.",
+      "investment": "Gains through inheritance, insurance, or partner's wealth."
+    },
+    "9": {
+      "work": "Success in higher education, foreign travel, and publishing.",
+      "health": "Excellent recovery and protective grace over overall well-being.",
+      "relationship": "Support from father, gurus, and mentors.",
+      "investment": "Profitable long-term investments and foreign portfolios."
+    },
+    "10": {
+      "work": "Professional expansion, but expectations may exceed reality.",
+      "health": "Stress on knees/joints due to heavy workload.",
+      "relationship": "Good rapport with bosses, but avoid overpromising.",
+      "investment": "Reinvest profits into your own business or career tools."
+    },
+    "11": {
+      "work": "Fulfillment of ambitions and massive networking success.",
+      "health": "Recovery from past illnesses; generally robust health.",
+      "relationship": "Active social life, new influential friends, and elder sibling support.",
+      "investment": "Outstanding ROI, massive gains from previous investments."
+    },
+    "12": {
+      "work": "Success in foreign lands, MNCs, or isolated environments like hospitals.",
+      "health": "Need for better sleep hygiene; potential foot or lymphatic issues.",
+      "relationship": "Desire for solitude; letting go of toxic relationships.",
+      "investment": "High expenses; invest in charity, spiritual retreats, or foreign assets."
+    }
   }
 }
