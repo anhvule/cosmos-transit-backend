@@ -67,20 +67,37 @@ function baseEventName(description) {
 }
 
 /**
- * Lookup an event by base name, falling back to the alternate "in Nth house"
- * ⇄ "in the Nth house" phrasing so engine output (which omits "the" for
- * aspect events) still matches rows seeded with "the".
+ * Lookup an event description, trying up to four name variants in order:
+ *   1. The full description as-is (e.g. "Mars aspect Mercury in 8th house : Exact").
+ *   2. The base name with the ": Exact/Starts/Ends" phase suffix stripped.
+ *   3. Variant 1 with the "in Nth house" ⇄ "in the Nth house" phrasing toggled.
+ *   4. Variant 2 with the same phrasing toggle.
+ *
+ * Variant 1 is the priority because the seed DBs now carry per-phase rows
+ * (Starts / Exact / Ends with distinct copy). Variant 2 preserves the
+ * original "any phase shares one description" behavior for older rows.
+ * Variants 3 and 4 bridge engine output (which omits "the") with rows
+ * seeded as "in the Nth house".
  */
 function lookupEventWithFallback(stmt, description) {
+  const candidates = [description];
+
   const base = baseEventName(description);
-  let row = stmt.get(base);
-  if (!row) {
-    const alt = / in the \d+(?:st|nd|rd|th) house/i.test(base)
-      ? base.replace(/ in the (\d+(?:st|nd|rd|th) house)/i, ' in $1')
-      : base.replace(/ in (\d+(?:st|nd|rd|th) house)/i, ' in the $1');
-    if (alt !== base) row = stmt.get(alt);
+  if (base !== description) candidates.push(base);
+
+  // Append the toggled-phrasing form of every existing candidate.
+  for (const c of [...candidates]) {
+    const alt = / in the \d+(?:st|nd|rd|th) house/i.test(c)
+      ? c.replace(/ in the (\d+(?:st|nd|rd|th) house)/i, ' in $1')
+      : c.replace(/ in (\d+(?:st|nd|rd|th) house)/i, ' in the $1');
+    if (alt !== c) candidates.push(alt);
   }
-  return row ? row.description : '';
+
+  for (const candidate of candidates) {
+    const row = stmt.get(candidate);
+    if (row && row.description) return row.description;
+  }
+  return '';
 }
 
 /**
