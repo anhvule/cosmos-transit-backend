@@ -1,0 +1,286 @@
+{
+  "lagna": {
+    "Aries": "You may have a very independent nature. This may give enough opportunities to have own ventures. You may have a very active nature. At the same time, you like to have practical plans. You may have an interest in science and technology. People may praise you for your plans. You may be very ambitious as well.",
+    "Taurus": "You are practical and persistent in financial matters. You value stability, comfort, and material security. You may build wealth steadily through a long-term career or investments tied to land, food, or fashion. People may admire your endurance and reliability.",
+    "Gemini": "You are intellectually curious and adaptable. Multiple sources of income through communication, networking or trading suit you. You may earn through writing, teaching, technology or commerce. Be careful not to scatter your energies across too many ventures.",
+    "Cancer": "You are emotionally driven and family-oriented. Wealth comes through nurturing, caregiving, real estate, food or hospitality. Your intuition is a quiet but reliable guide in financial decisions. Property and home-based ventures are favoured.",
+    "Leo": "You are ambitious, generous and naturally authoritative. You attract wealth through leadership roles, creative work, or self-employment. You enjoy living well — be mindful of overspending on display.",
+    "Virgo": "You are analytical, detail-oriented and methodical. Wealth comes through service, analysis, healthcare or skilled work. You may have multiple talents in mathematics, language and planning. People may rely on your expertise.",
+    "Libra": "You are diplomatic, partnership-oriented and aesthetically inclined. Wealth often flows through collaborations, contracts, art, fashion, or law. Joint ventures and balanced negotiation are key drivers of your prosperity.",
+    "Scorpio": "You are intense, investigative and resilient. Wealth comes through research, transformation, finance, or sectors involving hidden things — insurance, mining, psychology. You may have sudden gains and losses; depth of focus is your strength.",
+    "Sagittarius": "You are optimistic, philosophical and adventurous. Wealth comes through teaching, publishing, foreign connections, law or spiritual fields. Long-distance travel and higher learning shape your financial path.",
+    "Capricorn": "You are disciplined, ambitious and patient. Wealth grows steadily through career, structure and long-term planning. You may rise to a position of authority through sustained effort. Slow but durable accumulation is your pattern.",
+    "Aquarius": "You are innovative, humanitarian and unconventional. Wealth comes through technology, networks, group ventures or progressive ideas. Income may be irregular but original. People may praise your originality.",
+    "Pisces": "You are imaginative, compassionate and intuitive. Wealth flows through creative arts, healing, spirituality, water-related fields or charity. Trust your intuition but verify financial details before committing."
+  },
+  "lagnaLordInHouse": {
+    "1": "Your focus is on self, identity and personal growth. Income tends to come through your own efforts and personality, not through partnership or inheritance.",
+    "2": "Your focus is on wealth, family and speech. Income comes through personal earnings, family support and your communication skills. Savings can build naturally.",
+    "3": "Your focus is on initiative, communication and short journeys. Income comes through writing, sales, siblings, or self-driven effort. Courage is your wealth signature.",
+    "4": "Your focus is on home, mother, property and emotional security. Income may flow through real estate, vehicles, family business or domestic comforts.",
+    "5": "Your focus is on creativity, children, speculation and intelligence. Income may come through education, entertainment, investments or artistic pursuits.",
+    "6": "Your focus is on service, work and overcoming obstacles. Income may come through healthcare, employment, legal work or resolving disputes. Hard work is rewarded.",
+    "7": "Your focus is on partnership, marriage and the public. Income comes through business partnerships, spouse, or interaction with the public.",
+    "8": "You may have an interest in occult sciences. You may be a lifelong researcher. That may be your source of income as well. You may be trying to gain profits through engineering and calculation related domains as well. You may even have connections with foreign lands. You may have some struggles in education, but you may be educated.",
+    "9": "Your focus is on fortune, dharma, higher learning and travel. Income comes through teaching, publishing, foreign lands, law or spiritual paths. Luck supports you.",
+    "10": "Your focus is on career, status and public reputation. Income comes through profession, authority and public recognition. Career is the main vehicle of wealth.",
+    "11": "Your focus is on gains, networks and fulfillment of desires. Income flows easily through friends, social circles and multiple sources. Profits are highlighted.",
+    "12": "Your focus is on liberation, foreign lands and inner life. Income may come from abroad, charitable work, or behind-the-scenes roles. Watch expenses carefully."
+  },
+  "nakshatra": {
+    "Ashwini": "You are quick, energetic and pioneering. Income may come through speed, healing or fresh starts. Watch impulsive decisions.",
+    "Bharani": "You are determined and intense. Wealth grows through endurance and creative or transformative work. Patience is your edge.",
+    "Krittika": "You are sharp and discerning. Income comes through skill, criticism and refinement. You can cut through obstacles to reach your goal.",
+    "Rohini": "You are charming and resourceful. Wealth flows through beauty, art, agriculture or steady accumulation. Material comfort is well supported.",
+    "Mrigashira": "You are curious and exploring. Income comes through travel, search, communication or shifting fields. Avoid restless changes.",
+    "Ardra": "You are intense and transformative. Wealth comes through technology, research or weathering storms. Periods of breakthrough alternate with reset.",
+    "Punarvasu": "You are optimistic and resilient. Income comes through teaching, generosity or recovering from setbacks. Wealth tends to renew itself.",
+    "Pushya": "You are nurturing and disciplined. Wealth comes through service, food, structure or institutional work. One of the most auspicious nakshatras for stable income.",
+    "Ashlesha": "You are strategic and perceptive. Income comes through hidden, deep or persuasive work. Use your insight ethically.",
+    "Magha": "You are dignified and ancestral in nature. Wealth comes through legacy, leadership or institutions. You may inherit or build a name.",
+    "Purva Phalguni": "There are enough opportunities to get name and fame. Wealth making may not be that challenging for you. At the same time, you may have to take care of your expenses.",
+    "Uttara Phalguni": "You are reliable and structured. Income comes through service, contracts and steady growth. Long-term partnerships build wealth.",
+    "Hasta": "You are skilled with hands and detail. Income comes through craft, healing, design or precise work. Income tends to be steady.",
+    "Chitra": "You may get many ways to make income. Your nakshthra is ruled by Mars and it is the planet of energy. Your high spirited nature may be the main reason for your income generation. Timely challenges can come up, but you must have the courage to get over all that. Your life may take off from mid-thirties. You can get stability within mid-fifties. You may make income in various sectors like real estate deals, engineering, and administration.",
+    "Swati": "You are independent and flexible. Income comes through trade, travel or self-directed ventures. Diplomacy aids prosperity.",
+    "Vishakha": "You are determined and goal-oriented. Wealth comes through focused ambition and breakthrough effort. Wait for the right moment to act.",
+    "Anuradha": "You may have to really be focused on making enough wealth. There are many chances to lose wealth through wrong ways. You need to have good control over your senses.",
+    "Jyeshtha": "You are responsible and protective. Income comes through leadership, eldest-sibling roles, or guardianship. Hard-won but lasting.",
+    "Mula": "You are deep and root-seeking. Income comes through research, philosophy or upheaval-and-rebuild cycles. Detachment helps in money matters.",
+    "Purva Ashadha": "You are unconquerable and inspired. Income comes through advocacy, speech or inspirational work. Your enthusiasm attracts support.",
+    "Uttara Ashadha": "You are principled and persistent. Wealth comes through righteous ambition and slow climb to authority. Long-term success is favoured.",
+    "Shravana": "You are listening and learning-oriented. Income comes through teaching, advisory roles or media. Reputation builds your wealth.",
+    "Dhanishta": "You are ambitious and rhythmic. Wealth comes through music, group endeavours, sports or wealth-related professions. Material success is strong.",
+    "Shatabhisha": "You are healing and innovative. Income comes through technology, medicine, research or solitary expertise. Privacy aids accumulation.",
+    "Purva Bhadrapada": "You are intense and idealistic. Income comes through unusual paths, philosophy or transformative ventures.",
+    "Uttara Bhadrapada": "You are deep and stabilising. Wealth comes through discipline, depth and behind-the-scenes work. Slow steady growth.",
+    "Revati": "You are kind and well-travelled in spirit. Income comes through care, travel, hospitality or gentle work. People support you generously."
+  },
+  "padaModifier": {
+    "1": "Your nakshatra is in first pada. The journey may be initiative-driven and self-starting.",
+    "2": "Your Moon nakshatra is in second pada. You may get enough opportunities to make money. At the same time, you may have to move with expert advice.",
+    "3": "Your nakshatra is in third pada. You may get name and fame, with intellectual leverage on your wealth path.",
+    "4": "Your nakshatra is in fourth pada. Emotional depth and inner work shape your financial decisions."
+  },
+  "houses": {
+    "second": {
+      "title": "Second House",
+      "preamble": "The second house — Dhana Bhava — shows your savings, family wealth and money gained through personal effort.",
+      "lordInHouse": {
+        "1": "Your second lord is in lagna. You will be self-driven in earning and the body of wealth depends on your personal effort.",
+        "2": "Your second lord is in its own house. Wealth is well-rooted; family and savings are solid.",
+        "3": "Your second lord is in the third house. Income flows through siblings, communication and short ventures.",
+        "4": "Your second lord is in the fourth house. Wealth comes through home, vehicles, mother and property.",
+        "5": "Your second lord is in the fifth house. Wealth comes through education, children, intelligence and speculation.",
+        "6": "Your second lord is in the sixth house. Wealth comes through work, service or overcoming opponents — but with effort.",
+        "7": "Your second lord is in the seventh house. Wealth comes through partnership, spouse or business with the public.",
+        "8": "Your second lord is in the eighth house. This placement indicates the interest for mystical sciences. You may like to do a lot of charity. That may give you gains as well. You may be a lifelong researcher. You may gain from ancestral properties as well.",
+        "9": "Your second lord is in the ninth house. Wealth comes through fortune, teaching or foreign lands.",
+        "10": "Your second lord is in the tenth house. Wealth flows directly through career and reputation.",
+        "11": "Your second lord is in the eleventh house. Strong gains, multiple income sources, profits flow easily.",
+        "12": "Your second lord is in the twelfth house. Wealth may go to expenses, foreign lands or charity — be cautious with savings."
+      },
+      "aspects": {
+        "Sun": "Sun aspects the second house. You may try to make money through authority and government related sectors. You should not be very arrogant in speech.",
+        "Moon": "Moon aspects the second house. Your speech may be soft and your emotions may guide your earning. Income through public-facing work is supported.",
+        "Mars": "Mars aspects second house. This is a complex aspect for Mars. This is the house for speech and Mars energy may make you a harsh speaker. You may try to spend, so there can be some challenges regarding financial stability. It would be good if you try to control your expenses.",
+        "Mercury": "Mercury aspects second house. You may try to make money through own ventures. There may be a lot of networking involved in income generation. You must take care of your expenses as well. Education and planning will be your value addition points. You may have multiple skills like in mathematics and literature. These skills may help you in income generation. Sectors like HR and training may help you in money making.",
+        "Jupiter": "Jupiter aspects the second house. This is one of the most auspicious aspects for wealth, family and speech. Wisdom and ethics shape your earning.",
+        "Venus": "Venus aspects the second house. This placement may give you a sweet speech. Your may make money through speech related area. You may get enough opportunities to make money through creative ventures. There are chances to get involved in arts and entertainment industry. People may admire you for your speech. They may help you in income generation.",
+        "Saturn": "Saturn aspects the second house. You may earn through hard work and discipline. Speech may be reserved; savings build slowly but durably.",
+        "Rahu": "Rahu aspects the second house. There can be unconventional or sudden sources of income. Watch for impulsive financial decisions.",
+        "Ketu": "Ketu aspects the second house. Wealth may feel detached; spiritual or research-related income is highlighted."
+      }
+    },
+    "fourth": {
+      "title": "Fourth House",
+      "preamble": "The fourth house — Sukha Bhava — shows happiness, home, property, vehicles and the blessings of mother.",
+      "lordInHouse": {
+        "1": "Your fourth lord is in lagna. Personal happiness is woven into your identity; home and self are well integrated.",
+        "2": "Your fourth lord is in the second house. Family wealth and home are connected; assets accumulate steadily.",
+        "3": "Your fourth lord is in the third house. Happiness comes through siblings, courage and short travel.",
+        "4": "Your fourth lord is in its own house. Strong placement — home, comforts and mother are well supported.",
+        "5": "Your fourth lord is in the fifth house. Happiness comes through children, education and creative pursuits.",
+        "6": "Your fourth lord is in sixth house. This is a complex place, so you have to be very careful. The planet which indicates the home and family is in a complex house. This indicates complexity related to family and home. You may have to be very careful with your maternal relatives. Financial dealings may bring some challenges. Try to have a purpose in your life. Try to control your anger. Your wanderlust should not bring any hurdles in growth.",
+        "7": "Your fourth lord is in the seventh house. Home and partnership are linked; spouse may bring property or comfort.",
+        "8": "Your fourth lord is in the eighth house. Home matters can be unsettled; inheritance is possible but with delays.",
+        "9": "Your fourth lord is in the ninth house. Home is blessed with fortune; possible relocation to a fortunate land.",
+        "10": "Your fourth lord is in the tenth house. Career and home support each other; possible work-from-home or property career.",
+        "11": "Your fourth lord is in the eleventh house. Home brings gains and a wide social circle.",
+        "12": "Your fourth lord is in the twelfth house. Home may be in foreign lands; expenses on property are common."
+      },
+      "aspects": {
+        "Sun": "Sun aspects the fourth house. Home life may be authority-driven; possible move for career.",
+        "Moon": "Moon aspects the fourth house. Strong emotional bond with home and mother; comfort and nurturing are emphasised.",
+        "Mars": "Mars aspects the fourth house. Energy and disputes can affect home; protect property carefully.",
+        "Mercury": "Mercury aspects the fourth house. Communication and study at home are highlighted; possible publishing or trade from home.",
+        "Jupiter": "Jupiter aspects the fourth house. A blessed home, good vehicles and a nurturing environment.",
+        "Venus": "Venus aspects the fourth house. Beautiful home, comforts and harmony with mother.",
+        "Saturn": "Saturn aspects fourth house. This aspect may bring a lot of effort in being happy at home. You may have to go an extra mile in completing your education successfully. Ofcourse this is a complex aspect and you may have work hard to make wealth. There may be some hurdles in education as well. There may be minor physical issues in the first half of life.",
+        "Rahu": "Rahu aspects the fourth house. Unconventional home situation; possible foreign residence.",
+        "Ketu": "Ketu aspects the fourth house. Detachment from home; spiritual orientation in the domestic space."
+      }
+    },
+    "ninth": {
+      "title": "Ninth House",
+      "preamble": "The ninth house — Bhagya Bhava — shows luck, dharma, higher learning, long journeys and the foundation of fortune.",
+      "lordInHouse": {
+        "1": "Your ninth lord is in lagna. Fortune is woven into your personality; you may be naturally lucky.",
+        "2": "Your ninth lord is in the second house. Luck supports family wealth and accumulation.",
+        "3": "Your ninth lord is in the third house. Luck supports siblings, courage and short journeys.",
+        "4": "Your ninth lord is in the fourth house. A fortunate home and supportive mother.",
+        "5": "Your ninth lord is in the fifth house. This is a great placement for name and fame. The planet for fortune is in the house for great karma which you accumulated in past birth. You may get a lot of blessings from your ancestors. Fortune is also shown through this placement. They may lay the foundation for your wealth. There may be enough wealth to be happy in your life. Progeny related happiness is also seen.",
+        "6": "Your ninth lord is in the sixth house. Fortune comes through service or after overcoming obstacles.",
+        "7": "Your ninth lord is in the seventh house. Spouse or partner brings luck; possible marriage to someone fortunate.",
+        "8": "Your ninth lord is in the eighth house. Fortune through inheritance, occult or sudden change.",
+        "9": "Your ninth lord is in its own house. Powerful Bhagya — strong fortune and dharma support.",
+        "10": "Your ninth lord is in the tenth house. Lucky career — work brings status and meaning.",
+        "11": "Your ninth lord is in the eleventh house. Luck flows directly into gains and friend networks.",
+        "12": "Your ninth lord is in the twelfth house. Fortune in foreign lands or spiritual paths."
+      },
+      "aspects": {
+        "Sun": "Sun occupies ninth house but has benefic influence. Your Sun has a lot of beneficial points. This indicates a lot of good results. You will have enough wealth to be happy. Spiritual deeds are also seen. You may have happiness through your son and father. Support from friends are also seen.",
+        "Moon": "Moon aspects the ninth house. Emotional connection to faith, teachers and travel.",
+        "Mars": "Mars aspects the ninth house. Energetic dharma; possible disputes with father or in higher studies.",
+        "Mercury": "Mercury aspects the ninth house. Wisdom expressed through writing, teaching or publishing.",
+        "Jupiter": "Jupiter aspects the ninth house. The most auspicious of aspects on the house of fortune — strong dharma and luck.",
+        "Venus": "Venus aspects the ninth house. Refined philosophy; gains through travel, art or dignified mentors.",
+        "Saturn": "Saturn aspects the ninth house. Discipline in dharma; slow but durable rise in fortune.",
+        "Rahu": "Rahu is in the ninth house. Rahu is receiving a positive and beneficial aspect so, you may expect good results. You may get enough name and fame. That will act as a catalyst in making wealth. You may have lot of subordinates. You may have a very high post in the society. Your intelligence may be highly appreciated. There may be a lot of interest in science and technology.",
+        "Ketu": "Ketu aspects the ninth house. Spiritual detachment, possible renunciation of conventional fortune for inner growth."
+      }
+    },
+    "eleventh": {
+      "title": "Eleventh House",
+      "preamble": "The eleventh house — Labha Bhava — shows gains, profits, fulfillment of desires and the friend circle that supports your prosperity.",
+      "lordInHouse": {
+        "1": "Your eleventh lord is in lagna. Gains come through your own personality and effort.",
+        "2": "Your eleventh lord is in the second house. Gains flow into family wealth and savings.",
+        "3": "Your eleventh lord is in the third house. Gains through siblings, communication and short ventures.",
+        "4": "Your eleventh lord is in the fourth house. Gains through home, real estate and mother.",
+        "5": "Your eleventh lord is in the fifth house. Gains through children, speculation and creative pursuits.",
+        "6": "Your eleventh lord is in the sixth house. Gains through service, employment or overcoming opponents.",
+        "7": "Your eleventh lord is in the seventh house. Gains through partnership, marriage or business.",
+        "8": "Your eleventh lord is in the eighth house. Gains may be sudden — through inheritance, insurance or hidden sources.",
+        "9": "Your eleventh lord is in the ninth house. Fortune fuels gains; foreign lands and dharma support profits.",
+        "10": "Your eleventh lord is in the tenth house. This is a great placement and it indicates wealth through your career. There may be a lot of prosperity. You may get support from your family. Support from family and bosses are also seen and that may helpful in career growth. You yourself may be a very authoritative person. More than multiple ventures, you may like to focus on a few. Your contributions towards your profession will be highly appreciated. People may praise your selfcontrolled nature. Your truthfulness may gain you a lot of respect.",
+        "11": "Your eleventh lord is in its own house. Strong gains — multiple income sources, supportive social network.",
+        "12": "Your eleventh lord is in the twelfth house. Gains may be drained by expenses or invested abroad — careful planning needed."
+      },
+      "aspects": {
+        "Sun": "Sun aspects the eleventh house. Gains through authority and government-related sectors.",
+        "Moon": "Moon aspects the eleventh house. Public favour brings gains; emotional alignment with profits.",
+        "Mars": "Mars aspects eleventh house. Try to be always listening to your teammates. Otherwise there can be some arguments with them and that can bring some challenges. You may have to control your speech, otherwise, there can be some issues with your team mates. A lot of wealth and landed properties are also seen. Support from the rulers may help you advance in your life. Happiness and cleverness will add value to your efforts.",
+        "Mercury": "Mercury aspects the eleventh house. Gains through writing, trade, networks and intellect.",
+        "Jupiter": "Jupiter aspects eleventh house. This aspect will bring more than one income generation methods. You may even have a team to guide. There may be a lot of intellectual projects in your life and that may project your intelligence. Multiple tasks may make you a busy body and that also may give you wealth. You like the agriculture and that also may bring much money. At the same time, you should be frugal.",
+        "Venus": "Venus aspects the eleventh house. Gains through art, beauty, partnerships and refinement.",
+        "Saturn": "Saturn aspects the eleventh house. Gains build slowly but durably; long-term effort yields lasting wealth.",
+        "Rahu": "Rahu aspects the eleventh house. Sudden, unconventional or foreign-source gains. Beware of greed.",
+        "Ketu": "Ketu aspects the eleventh house. Gains may come from spiritual or research-related fields; conventional gains feel less satisfying."
+      }
+    }
+  },
+  "hora": {
+    "Cancer": {
+      "Sun": "Sun is in Cancer in hora chart. Your authority is softened by emotional needs; ideal sectors are food, hospitality and family-run business.",
+      "Moon": "Moon is in Cancer in hora chart. Strong placement for steady savings and inherited wealth. Money sticks to you when you nurture it.",
+      "Mars": "Mars is in Cancer in hora chart. You may earn through real estate, engineering, or transformative work — but emotional decisions can drain wealth.",
+      "Mercury": "Mercury is in Cancer in hora chart. Communication and trade in nurturing or food-related fields suit you. Income tends to be steady.",
+      "Jupiter": "Jupiter is in Cancer in hora chart. Exalted placement — wealth through wisdom, teaching, advisory roles or matters connected with the home.",
+      "Venus": "Venus is in Cancer in hora chart. Fashion and styling related industry may bring income to you. As a part of work, you enter in contracts. Your chart shows enough wealth. Your spending nature can be a concern. Try to always crosscheck the track of your partners.",
+      "Saturn": "Saturn is situated in Cancer in hora chart. You may have to work harder to make money. This placement indicates a person who spend long hours at work. The income which you generated will stay with you forever. This also indicates a person who respects law and order. You may even get a lot of power and authority in the later part of your life.",
+      "Rahu": "Rahu is in Cancer in hora chart. Sudden financial swings from emotional or property-related ventures. Caution recommended.",
+      "Ketu": "Ketu is in Cancer in hora chart. Spiritual detachment from money; wealth may flow in unexpected, indirect ways."
+    },
+    "Leo": {
+      "Sun": "Sun occupies Leo in hora chart. You certainly are a very strong person. At the same time, you should not feel any bad about taking inputs from others. Your confidence and intelligence will be a value addition for you. Organic farming related industry may be ideal for you. Food related industry also is seen as ideal.",
+      "Moon": "Moon is in Leo in hora chart. You may have to go an extra mile in having savings. Try to control your expenses. It will be good if you consider the advice of your elders. Don't try to invest in risky businesses. Take care of your relationship with opposite gender.",
+      "Mars": "Mars is in Leo in hora chart. There may be a zeal to do a solo march in your life. There may be some creative projects in your life. Income can come from engineering related sectors. You may make gains through industries related to fire and motion. You should not be haste in spending money.",
+      "Mercury": "Mercury is in Leo in hora chart. Income through self-led ventures, leadership communication or government work.",
+      "Jupiter": "Jupiter is in Leo in hora chart. Wealth through teaching, advisory authority or running an institution.",
+      "Venus": "Venus is in Leo in hora chart. Wealth through arts, creative leadership and high-profile clients.",
+      "Saturn": "Saturn is in Leo in hora chart. Slow climb to authority; income comes from disciplined leadership over time.",
+      "Rahu": "Rahu is in Leo in hora chart. Ambition for fame and wealth — be careful that pride does not lead to overreach.",
+      "Ketu": "Ketu is in Leo in hora chart. Detachment from public recognition; income may come quietly despite hidden talent."
+    },
+    "ascendantNote": {
+      "Sun": "Sun and Lagna is situated in Leo in hora chart. There may be all kind of luxuries in your life. At the same time, you should be careful with expenses. You may tend to spend a lot. That may bring some challenges in your incoming gains. There may be some challenges in interpersonal relationships. Your ambitious nature should not ruin the relationships",
+      "Moon": "Lagna is in Cancer in the hora chart. Wealth flows through nurturing, savings and household-oriented ventures."
+    },
+    "preamble": "The Hora chart (D2) is the primary chart to analyse wealth. It shows whether your effort or your savings will be the primary engine of prosperity. Planets in Leo (Sun's hora) indicate active earning through effort; planets in Cancer (Moon's hora) indicate wealth that accumulates through patience and savings."
+  },
+  "yogas": {
+    "Anabha": {
+      "logic": "Planet (excepting Sun) situated in the 12th from Moon.",
+      "description": "Anabha Yoga is formed when the 12th house from the Moon is occupied by Mars, Mercury, Jupiter, Venus or Saturn either alone or together. Anabha Yoga makes a person wealthy and happy, and gives uncompromising ethics and standards. You will be physically appealing. You are polite, generous and kind. You will be interested in appearing well-groomed."
+    },
+    "Sunabha": {
+      "logic": "Planet (excepting Sun) situated in the 2nd from Moon.",
+      "description": "Sunabha Yoga indicates self-acquired wealth and intelligent earning. You may rise through your own merit, with steady accumulation."
+    },
+    "Durdhara": {
+      "logic": "Planets (excepting Sun) in BOTH the 2nd and 12th from Moon.",
+      "description": "Durdhara Yoga indicates both inflow and outflow of wealth — abundance with active expenses. You enjoy the comforts of life and have a generous nature."
+    },
+    "Parvatha": {
+      "logic": "Lord of lagna and lord of 12th house in mutually kendra position.",
+      "description": "You will become wealthy, prosperous, liberal, charitable, humorous and head of an institution, town or village. You will be passionate also."
+    },
+    "Sasa Mahayoga": {
+      "logic": "Saturn in a kendra in own house (Capricorn or Aquarius).",
+      "description": "As a result of Sasa Maha Yoga, you may be professionally connected with the police, law or the army. You will be dignified and competent in any position. You will have many assistants. Your life span will be over 70. People may consider you dishonest or self-centered. You will hold a position of leadership within your community."
+    },
+    "Ruchaka Mahayoga": {
+      "logic": "Mars in a kendra in own house (Aries or Scorpio) or exaltation (Capricorn).",
+      "description": "Ruchaka Yoga gives strength, courage, leadership and wealth gained through commanding action. You may rise to a position of authority through valor."
+    },
+    "Bhadra Mahayoga": {
+      "logic": "Mercury in a kendra in own house (Gemini or Virgo).",
+      "description": "Bhadra Yoga gives intelligence, eloquence and wealth through commerce, writing or analysis. You may live long with sharp mental faculties."
+    },
+    "Hamsa Mahayoga": {
+      "logic": "Jupiter in a kendra in own house (Sagittarius or Pisces) or exaltation (Cancer).",
+      "description": "Hamsa Yoga gives wisdom, righteousness and wealth through teaching, advisory or spiritual work. You will be well-respected."
+    },
+    "Malavya Mahayoga": {
+      "logic": "Venus in a kendra in own house (Taurus or Libra) or exaltation (Pisces).",
+      "description": "Malavya Yoga gives beauty, comfort, vehicles, refined wealth and a happy family. Luxury comes naturally."
+    },
+    "Pasa": {
+      "logic": "All seven planets occupy any five signs.",
+      "description": "This yoga is indicating wealth and prosperity. You will have subordinates. Your friends will be dependent on you. You will be known as a very friendly person. Your nature will attract many."
+    },
+    "Harsha": {
+      "logic": "Sixth lord occupies sixth, eighth or twelfth house.",
+      "description": "This yoga comes under Vipreetha Raja yoga. This yoga has the power to eliminate the negative effects in your life. You will have sound health. You will be a prosperous person. You will be interested in pious deeds."
+    },
+    "Sarala": {
+      "logic": "Eighth lord occupies sixth, eighth or twelfth house.",
+      "description": "This yoga comes under Vipreetha Raja yoga. This yoga has the power to eliminate the negative effects in your life. You will have good longevity. You will be very daring. You may not be worried about the consequences. This is a clear yoga to rise into popularity. You will be a prosperous person."
+    },
+    "Vimala": {
+      "logic": "Twelfth lord occupies sixth, eighth or twelfth house.",
+      "description": "This yoga comes under Vipreetha Raja yoga. You will be self-sufficient, frugal and respected. Your expenses will be controlled and gains will outpace losses."
+    },
+    "Swaveeryaddhana": {
+      "logic": "The second lord occupies a kendra (1, 4, 7, 10) or trikona (1, 5, 9) from lagna lord.",
+      "description": "This yoga is an indication of you making money by your own effort. You will get many opportunities to make money. It is even possible for you to make money in multiple ways. Altogether, this yoga is helping you to be financially independent. You will be known as a rich person."
+    },
+    "Raja": {
+      "logic": "Lords of First and Seventh houses are in conjunction (same sign).",
+      "description": "Raja Yoga is seen in this horoscope. You will rise to positions of power and authority."
+    },
+    "Parivartana": {
+      "logic": "Lords of Fifth and Ninth houses have mutually exchanged places.",
+      "description": "The above exchange is considered as a great combination (Maha-yoga). This indicates that the person will be wealthy, rise in status and enjoy physical pleasures."
+    },
+    "Lakshmi": {
+      "logic": "Lord of the ninth house in own or exaltation sign in a kendra or trikona, with a strong lagna lord.",
+      "description": "Lakshmi Yoga is a powerful combination for wealth, fame and prosperity. The blessings of Goddess Lakshmi flow through your life — abundant comforts and stable income."
+    },
+    "Dhana": {
+      "logic": "Lord of 2nd or 11th house placed in a friendly kendra or trikona.",
+      "description": "Dhana Yoga indicates clear pathways to wealth accumulation. Income flows through both effort and good fortune."
+    }
+  }
+}

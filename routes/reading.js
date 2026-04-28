@@ -16,6 +16,7 @@ const { computeDashaAtDate, getNakshatra } = require('../services/dasha');
 const { calculateEssenceCycle } = require('../services/essence-cycle');
 const { getYearlySummary } = require('../services/varshaphal');
 const { getMonthlyPrediction } = require('../services/monthly-prediction');
+const { getWealthAnalysis } = require('../services/wealth-analysis');
 const dashaDescriptions = require('../db/dasha-descriptions.json');
 
 /**
@@ -1285,6 +1286,47 @@ router.post('/monthly-prediction', async (req, res) => {
   } catch (error) {
     console.error('monthly-prediction error:', error.message);
     res.status(500).json({ error: 'Failed to compute monthly prediction. Please try again later.' });
+  }
+});
+
+/**
+ * POST /api/wealth-analysis
+ *
+ * Vedic wealth analysis from the natal chart, mirroring the structure of the
+ * Wealth.docx reference report:
+ *   1. Lagna-based prediction (Lagna sign + Lagna Lord's house placement)
+ *   2. Nakshatra-based prediction (Moon, Jupiter, Venus nakshatras + padas)
+ *   3. House analysis for wealth (2nd, 4th, 9th, 11th — lord placement + aspects)
+ *   4. Hora chart (D2) — planet placements in Sun's hora (Leo) vs Moon's hora (Cancer)
+ *   5. Wealth yogas — classical combinations detected in the chart
+ *
+ * Request body:
+ * {
+ *   "name":      "Alice",
+ *   "birthDate": "1991-12-29",
+ *   "birthTime": "13:30",
+ *   "latitude":  10.7755,
+ *   "longitude": 106.7021,
+ *   "timezone":  "Asia/Ho_Chi_Minh"   // optional
+ * }
+ */
+router.post('/wealth-analysis', async (req, res) => {
+  try {
+    const { name, birthDate, birthTime, latitude, longitude, timezone } = req.body;
+
+    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
+      return res.status(400).json({
+        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
+      });
+    }
+
+    const report = await getWealthAnalysis({
+      birthDate, birthTime, latitude, longitude, timezone,
+    });
+    res.json(report);
+  } catch (error) {
+    console.error('wealth-analysis error:', error.message);
+    res.status(500).json({ error: 'Failed to compute wealth analysis. Please try again later.' });
   }
 });
 
