@@ -137,3 +137,9 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# User-write SQLite (favourites is per-user data, never seeded — never commit it).
+db/favourites.db
+db/favourites.db-journal
+db/favourites.db-wal
+db/favourites.db-shm
