@@ -17,10 +17,31 @@ const { calculateEssenceCycle } = require('../services/essence-cycle');
 const { getYearlySummary } = require('../services/varshaphal');
 const { getMonthlyPrediction } = require('../services/monthly-prediction');
 const { getWealthAnalysis } = require('../services/wealth-analysis');
+const { resolveTimezone, TimezoneError } = require('../services/timezone');
 const favouritesDb = require('../db/favourites');
 const { createFavouritesService } = require('../services/favourites');
 const favouritesService = createFavouritesService(favouritesDb);
 const dashaDescriptions = require('../db/dasha-descriptions.json');
+
+/**
+ * Resolve `req.body.timezone` to an IANA string for the downstream Python
+ * engine, or send a 400 and return null on invalid input. Caller should
+ * stop processing when null is returned.
+ *
+ * The public API now accepts a numeric UTC offset (e.g. 7, +8, -5);
+ * legacy IANA strings (e.g. "Asia/Ho_Chi_Minh") still pass through.
+ */
+function resolveTimezoneOrRespond(rawTimezone, res) {
+  try {
+    return { ok: true, timezone: resolveTimezone(rawTimezone) };
+  } catch (e) {
+    if (e instanceof TimezoneError) {
+      res.status(400).json({ error: e.message });
+      return { ok: false };
+    }
+    throw e;
+  }
+}
 
 /**
  * Look up MD/AD/PD descriptions for the active dasha.
@@ -52,17 +73,23 @@ const gainDb = require('../db/gain');
 const lossDb = require('../db/loss');
 const foodDb = require('../db/food');
 
-// Pre-compile lookup statement for performance
-const lookupEvent = db.prepare('SELECT description FROM events WHERE name = ?');
-const lookupInvestmentEvent = investmentDb.prepare('SELECT description FROM events WHERE name = ?');
-const lookupCareerEvent = careerDb.prepare('SELECT description FROM events WHERE name = ?');
-const lookupRelationshipEvent = relationshipDb.prepare('SELECT description FROM events WHERE name = ?');
-const lookupNetworkEvent = networkDb.prepare('SELECT description FROM events WHERE name = ?');
-const lookupEngineeringEvent = engineeringDb.prepare('SELECT description FROM events WHERE name = ?');
-const lookupAdviceEvent = adviceDb.prepare('SELECT description FROM events WHERE name = ?');
-const lookupGainEvent = gainDb.prepare('SELECT description FROM events WHERE name = ?');
-const lookupLossEvent = lossDb.prepare('SELECT description FROM events WHERE name = ?');
-const lookupFoodEvent = foodDb.prepare('SELECT description FROM events WHERE name = ?');
+// Pre-compile lookup statement for performance.
+// Filter on ascendant='Aries' to preserve the original single-interpretation
+// behavior: the events table now carries empty placeholder rows for the
+// other 11 ascendants (filled by db/seed_all_ascendants.js), so an
+// unfiltered lookup would non-deterministically return either the Aries
+// description or an empty string.
+const LOOKUP_SQL = "SELECT description FROM events WHERE name = ? AND ascendant = 'Aries'";
+const lookupEvent = db.prepare(LOOKUP_SQL);
+const lookupInvestmentEvent = investmentDb.prepare(LOOKUP_SQL);
+const lookupCareerEvent = careerDb.prepare(LOOKUP_SQL);
+const lookupRelationshipEvent = relationshipDb.prepare(LOOKUP_SQL);
+const lookupNetworkEvent = networkDb.prepare(LOOKUP_SQL);
+const lookupEngineeringEvent = engineeringDb.prepare(LOOKUP_SQL);
+const lookupAdviceEvent = adviceDb.prepare(LOOKUP_SQL);
+const lookupGainEvent = gainDb.prepare(LOOKUP_SQL);
+const lookupLossEvent = lossDb.prepare(LOOKUP_SQL);
+const lookupFoodEvent = foodDb.prepare(LOOKUP_SQL);
 
 /**
  * Strip : Exact / : Starts / : Ends qualifiers from an event description
@@ -160,12 +187,14 @@ router.post('/reading', async (req, res) => {
         error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
       });
     }
+    const tz = resolveTimezoneOrRespond(timezone, res);
+    if (!tz.ok) return;
 
     let transitEvents;
 
     // Kerykeion path: single Python call returns everything
     const result = await astrologyService.getNatalTransitsAndReport(
-      { birthDate, birthTime, latitude, longitude, timezone },
+      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
       transitDate,
     );
     transitEvents = result.transitEvents;
@@ -733,6 +762,8 @@ function makeDebugHandler(interpretationLookup) {
           error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
         });
       }
+      const tz = resolveTimezoneOrRespond(timezone, res);
+      if (!tz.ok) return;
 
       const baseDateStr = transitDate
         ? new Date(transitDate).toISOString().substring(0, 10)
@@ -740,7 +771,7 @@ function makeDebugHandler(interpretationLookup) {
       const yesterdayStr = shiftDate(baseDateStr, -1);
       const tomorrowStr = shiftDate(baseDateStr, 1);
 
-      const birthParams = { birthDate, birthTime, latitude, longitude, timezone };
+      const birthParams = { birthDate, birthTime, latitude, longitude, timezone: tz.timezone };
       const results = await fetchResultsForDates(birthParams, [yesterdayStr, baseDateStr, tomorrowStr]);
 
       const transitEvents = computeFilteredEvents(
@@ -854,6 +885,8 @@ function makePeriodHandler(periodKind, interpretationLookup) {
           error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
         });
       }
+      const tz = resolveTimezoneOrRespond(timezone, res);
+      if (!tz.ok) return;
 
       let dates;
       let startDate;
@@ -878,7 +911,7 @@ function makePeriodHandler(periodKind, interpretationLookup) {
         return res.status(500).json({ error: `Unknown periodKind: ${periodKind}` });
       }
 
-      const birthParams = { birthDate, birthTime, latitude, longitude, timezone };
+      const birthParams = { birthDate, birthTime, latitude, longitude, timezone: tz.timezone };
       const { days, aggregatedAspects, aggregatedRulers } = await aggregatePeriod(
         birthParams,
         dates,
@@ -969,7 +1002,7 @@ router.post('/essence-cycle', (req, res) => {
  *   "birthTime": "07:40",
  *   "latitude":  6.9271,
  *   "longitude": 79.8612,
- *   "timezone":  "Asia/Colombo",   // optional
+ *   "timezone":  7,                // optional, numeric UTC offset in hours (-12..14, integers only)
  *   "transitDate": "2026-04-20"    // optional; defaults to today
  * }
  *
@@ -992,10 +1025,12 @@ router.post('/dasha', async (req, res) => {
         error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
       });
     }
+    const tz = resolveTimezoneOrRespond(timezone, res);
+    if (!tz.ok) return;
 
     // Fetch natal chart to get the Moon's sidereal (Lahiri) longitude.
     const { natalPlanets } = await astrologyService.getNatalTransits(
-      { birthDate, birthTime, latitude, longitude, timezone },
+      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
       null,
     );
     // natalPlanets are already in sidereal (Lahiri) coordinates, so fullDegree
@@ -1056,7 +1091,7 @@ router.post('/dasha', async (req, res) => {
  *   "birthTime": "07:40",
  *   "latitude":  6.9271,
  *   "longitude": 79.8612,
- *   "timezone":  "Asia/Colombo",   // optional
+ *   "timezone":  7,                // optional, numeric UTC offset in hours (-12..14, integers only)
  *   "month":     "2026-05",        // YYYY-MM
  *   "events":    ["Moon Transits the 8th House", "Mercury ruler of the 6th House in the 8th House"]
  * }
@@ -1083,9 +1118,11 @@ router.post('/events-calendar', async (req, res) => {
     if (!Array.isArray(events) || events.length === 0) {
       return res.status(400).json({ error: 'events must be a non-empty array of event names' });
     }
+    const tz = resolveTimezoneOrRespond(timezone, res);
+    if (!tz.ok) return;
 
     const matchingDates = await astrologyService.getMatchingDatesForMonth(
-      { birthDate, birthTime, latitude, longitude, timezone },
+      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
       month,
       events,
     );
@@ -1115,7 +1152,7 @@ router.post('/events-calendar', async (req, res) => {
  *   "birthTime": "07:40",
  *   "latitude":  6.9271,
  *   "longitude": 79.8612,
- *   "timezone":  "Asia/Colombo",   // optional
+ *   "timezone":  7,                // optional, numeric UTC offset in hours (-12..14, integers only)
  *   "month":     "2026-05"         // YYYY-MM
  * }
  *
@@ -1145,9 +1182,11 @@ router.post('/investment-loss-days', async (req, res) => {
     if (!month || !/^\d{4}-\d{2}$/.test(month)) {
       return res.status(400).json({ error: 'month must be in YYYY-MM format' });
     }
+    const tz = resolveTimezoneOrRespond(timezone, res);
+    if (!tz.ok) return;
 
     const riskDates = await getInvestmentLossDaysForMonth(
-      { birthDate, birthTime, latitude, longitude, timezone },
+      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
       month,
     );
 
@@ -1186,9 +1225,11 @@ router.post('/investment-gain-days', async (req, res) => {
     if (!month || !/^\d{4}-\d{2}$/.test(month)) {
       return res.status(400).json({ error: 'month must be in YYYY-MM format' });
     }
+    const tz = resolveTimezoneOrRespond(timezone, res);
+    if (!tz.ok) return;
 
     const gainDates = await getInvestmentGainDaysForMonth(
-      { birthDate, birthTime, latitude, longitude, timezone },
+      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
       month,
     );
 
@@ -1219,7 +1260,7 @@ router.post('/investment-gain-days', async (req, res) => {
  *   "birthTime": "13:30",
  *   "latitude":  10.7755,
  *   "longitude": 106.7021,
- *   "timezone":  "Asia/Ho_Chi_Minh",   // optional
+ *   "timezone":  7,                    // optional, numeric UTC offset in hours (-12..14, integers only)
  *   "year":      2025                  // calendar year the horoscope is for
  * }
  *
@@ -1241,9 +1282,11 @@ router.post('/yearly-summary', async (req, res) => {
     if (!Number.isInteger(yr) || yr < 1900 || yr > 2200) {
       return res.status(400).json({ error: 'year must be a 4-digit integer between 1900 and 2200' });
     }
+    const tz = resolveTimezoneOrRespond(timezone, res);
+    if (!tz.ok) return;
 
     const summary = await getYearlySummary(
-      { birthDate, birthTime, latitude, longitude, timezone },
+      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
       yr,
     );
     res.json(summary);
@@ -1280,9 +1323,11 @@ router.post('/monthly-prediction', async (req, res) => {
     if (!Number.isInteger(yr) || yr < 1900 || yr > 2200) {
       return res.status(400).json({ error: 'year must be a 4-digit integer between 1900 and 2200' });
     }
+    const tz = resolveTimezoneOrRespond(timezone, res);
+    if (!tz.ok) return;
 
     const result = await getMonthlyPrediction(
-      { birthDate, birthTime, latitude, longitude, timezone },
+      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
       yr,
     );
     res.json(result);
@@ -1310,7 +1355,7 @@ router.post('/monthly-prediction', async (req, res) => {
  *   "birthTime": "13:30",
  *   "latitude":  10.7755,
  *   "longitude": 106.7021,
- *   "timezone":  "Asia/Ho_Chi_Minh"   // optional
+ *   "timezone":  7                    // optional, numeric UTC offset in hours (-12..14, integers only)
  * }
  */
 router.post('/wealth-analysis', async (req, res) => {
@@ -1322,9 +1367,11 @@ router.post('/wealth-analysis', async (req, res) => {
         error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
       });
     }
+    const tz = resolveTimezoneOrRespond(timezone, res);
+    if (!tz.ok) return;
 
     const report = await getWealthAnalysis({
-      birthDate, birthTime, latitude, longitude, timezone,
+      birthDate, birthTime, latitude, longitude, timezone: tz.timezone,
     });
     res.json(report);
   } catch (error) {
