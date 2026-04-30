@@ -73,13 +73,13 @@ const gainDb = require('../db/gain');
 const lossDb = require('../db/loss');
 const foodDb = require('../db/food');
 
-// Pre-compile lookup statement for performance.
-// Filter on ascendant='Aries' to preserve the original single-interpretation
-// behavior: the events table now carries empty placeholder rows for the
-// other 11 ascendants (filled by db/seed_all_ascendants.js), so an
-// unfiltered lookup would non-deterministically return either the Aries
-// description or an empty string.
-const LOOKUP_SQL = "SELECT description FROM events WHERE name = ? AND ascendant = 'Aries'";
+// Pre-compile lookup statement for performance. Lookups are parameterized
+// on (name, ascendant); routes extract the native's ascendant from the
+// natal chart and pass it in. lookupEventWithFallback falls back to the
+// Aries-tagged row when the requested ascendant has no description seeded
+// yet — preserving the original single-interpretation behavior for any
+// ascendant whose dataset is incomplete.
+const LOOKUP_SQL = "SELECT description FROM events WHERE name = ? AND ascendant = ?";
 const lookupEvent = db.prepare(LOOKUP_SQL);
 const lookupInvestmentEvent = investmentDb.prepare(LOOKUP_SQL);
 const lookupCareerEvent = careerDb.prepare(LOOKUP_SQL);
@@ -90,6 +90,17 @@ const lookupAdviceEvent = adviceDb.prepare(LOOKUP_SQL);
 const lookupGainEvent = gainDb.prepare(LOOKUP_SQL);
 const lookupLossEvent = lossDb.prepare(LOOKUP_SQL);
 const lookupFoodEvent = foodDb.prepare(LOOKUP_SQL);
+
+/**
+ * Extract the ascendant sign (Aries/Taurus/.../Pisces) from a kerykeion
+ * result. Defaults to 'Aries' if the natal chart is missing — that way
+ * descriptions still resolve via the legacy seed even on edge cases.
+ */
+function ascendantFromResult(result) {
+  if (!result || !result.natalPlanets) return 'Aries';
+  const asc = result.natalPlanets.find(p => p && p.name === 'Ascendant');
+  return (asc && asc.sign) || 'Aries';
+}
 
 /**
  * Strip : Exact / : Starts / : Ends qualifiers from an event description
@@ -112,7 +123,7 @@ function baseEventName(description) {
  * Variants 3 and 4 bridge engine output (which omits "the") with rows
  * seeded as "in the Nth house".
  */
-function lookupEventWithFallback(stmt, description) {
+function lookupEventWithFallback(stmt, description, ascendant) {
   const candidates = [description];
 
   const base = baseEventName(description);
@@ -126,55 +137,66 @@ function lookupEventWithFallback(stmt, description) {
     if (alt !== c) candidates.push(alt);
   }
 
+  // First pass: ascendant-specific rows (the user's actual sign).
   for (const candidate of candidates) {
-    const row = stmt.get(candidate);
+    const row = stmt.get(candidate, ascendant);
     if (row && row.description) return row.description;
+  }
+  // Fallback: Aries row, which is the seeded baseline. This keeps the
+  // legacy single-interpretation behavior for any ascendant whose
+  // descriptions aren't filled in yet.
+  if (ascendant !== 'Aries') {
+    for (const candidate of candidates) {
+      const row = stmt.get(candidate, 'Aries');
+      if (row && row.description) return row.description;
+    }
   }
   return '';
 }
 
 /**
- * Look up the interpretation text for a transit event description.
- * Returns null if no match is found.
+ * Look up the interpretation text for a transit event description against
+ * the given ascendant's row. Falls back to the Aries row (and ultimately
+ * empty string) inside lookupEventWithFallback. Returns '' if no match.
  */
-function getEventInterpretation(description) {
-  return lookupEventWithFallback(lookupEvent, description);
+function getEventInterpretation(description, ascendant) {
+  return lookupEventWithFallback(lookupEvent, description, ascendant);
 }
 
-function getInvestmentEventInterpretation(description) {
-  return lookupEventWithFallback(lookupInvestmentEvent, description);
+function getInvestmentEventInterpretation(description, ascendant) {
+  return lookupEventWithFallback(lookupInvestmentEvent, description, ascendant);
 }
 
-function getCareerEventInterpretation(description) {
-  return lookupEventWithFallback(lookupCareerEvent, description);
+function getCareerEventInterpretation(description, ascendant) {
+  return lookupEventWithFallback(lookupCareerEvent, description, ascendant);
 }
 
-function getRelationshipEventInterpretation(description) {
-  return lookupEventWithFallback(lookupRelationshipEvent, description);
+function getRelationshipEventInterpretation(description, ascendant) {
+  return lookupEventWithFallback(lookupRelationshipEvent, description, ascendant);
 }
 
-function getNetworkEventInterpretation(description) {
-  return lookupEventWithFallback(lookupNetworkEvent, description);
+function getNetworkEventInterpretation(description, ascendant) {
+  return lookupEventWithFallback(lookupNetworkEvent, description, ascendant);
 }
 
-function getEngineeringEventInterpretation(description) {
-  return lookupEventWithFallback(lookupEngineeringEvent, description);
+function getEngineeringEventInterpretation(description, ascendant) {
+  return lookupEventWithFallback(lookupEngineeringEvent, description, ascendant);
 }
 
-function getAdviceEventInterpretation(description) {
-  return lookupEventWithFallback(lookupAdviceEvent, description);
+function getAdviceEventInterpretation(description, ascendant) {
+  return lookupEventWithFallback(lookupAdviceEvent, description, ascendant);
 }
 
-function getGainEventInterpretation(description) {
-  return lookupEventWithFallback(lookupGainEvent, description);
+function getGainEventInterpretation(description, ascendant) {
+  return lookupEventWithFallback(lookupGainEvent, description, ascendant);
 }
 
-function getLossEventInterpretation(description) {
-  return lookupEventWithFallback(lookupLossEvent, description);
+function getLossEventInterpretation(description, ascendant) {
+  return lookupEventWithFallback(lookupLossEvent, description, ascendant);
 }
 
-function getFoodEventInterpretation(description) {
-  return lookupEventWithFallback(lookupFoodEvent, description);
+function getFoodEventInterpretation(description, ascendant) {
+  return lookupEventWithFallback(lookupFoodEvent, description, ascendant);
 }
 
 router.post('/reading', async (req, res) => {
@@ -217,6 +239,8 @@ router.post('/reading', async (req, res) => {
       ? new Date(transitDate).toISOString().substring(0, 10)
       : new Date().toISOString().substring(0, 10);
 
+    const ascendant = ascendantFromResult(result);
+
     res.json({
       date: today,
       reading: aiResponse.reading,
@@ -225,13 +249,13 @@ router.post('/reading', async (req, res) => {
       aspects: transitEvents.map(e => ({
         type: e.type,
         description: e.description,
-        interpretation: getEventInterpretation(e.description),
+        interpretation: getEventInterpretation(e.description, ascendant),
         warning: e.warning ?? null,
       })),
       rulers: transitEvents.flatMap(e =>
         (e.rulers || []).map(r => ({
           description: r.description,
-          interpretation: getEventInterpretation(r.description),
+          interpretation: getEventInterpretation(r.description, ascendant),
         })),
       ),
     });
@@ -779,18 +803,19 @@ function makeDebugHandler(interpretationLookup) {
         results.get(baseDateStr),
         results.get(tomorrowStr),
       );
+      const ascendant = ascendantFromResult(results.get(baseDateStr));
 
       res.json({
         date: baseDateStr,
         aspects: transitEvents.map(e => ({
           impact: e.impact,
           description: e.description,
-          interpretation: interpretationLookup(e.description),
+          interpretation: interpretationLookup(e.description, ascendant),
         })),
         rulers: transitEvents.flatMap(e =>
           (e.rulers || []).map(r => ({
             description: r.description,
-            interpretation: interpretationLookup(r.description),
+            interpretation: interpretationLookup(r.description, ascendant),
           })),
         ),
       });
@@ -826,16 +851,17 @@ async function aggregatePeriod(birthParams, dates, interpretationLookup) {
     const yesterdayResult = results.get(shiftDate(date, -1));
     const tomorrowResult = results.get(shiftDate(date, 1));
     const events = computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult);
+    const ascendant = ascendantFromResult(todayResult);
 
     const aspects = events.map(e => ({
       impact: e.impact,
       description: e.description,
-      interpretation: interpretationLookup(e.description),
+      interpretation: interpretationLookup(e.description, ascendant),
     }));
     const rulers = events.flatMap(e =>
       (e.rulers || []).map(r => ({
         description: r.description,
-        interpretation: interpretationLookup(r.description),
+        interpretation: interpretationLookup(r.description, ascendant),
       })),
     );
 
