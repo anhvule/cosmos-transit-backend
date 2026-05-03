@@ -12,7 +12,7 @@ const { getInvestmentLossDaysForMonth, getInvestmentGainDaysForMonth } = astrolo
 console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 
 const { generateReading } = require('../services/gemini');
-const { computeDashaAtDate, getNakshatra } = require('../services/dasha');
+const { computeDashaAtDate, computeDashaRange, getNakshatra } = require('../services/dasha');
 const { annotatePeriods, annotatePeriod, planetMap } = require('../services/investment-dasha');
 const { calculateEssenceCycle } = require('../services/essence-cycle');
 const { getYearlySummary } = require('../services/varshaphal');
@@ -1183,6 +1183,122 @@ router.post('/dasha', async (req, res) => {
   } catch (error) {
     console.error('Dasha endpoint error:', error.message);
     res.status(500).json({ error: 'Failed to compute dasha. Please try again later.' });
+  }
+});
+
+/**
+ * POST /api/dasha-range
+ *
+ * Search for every Vimshottari dasha period (MD/AD/PD/SD) that overlaps a
+ * given [fromDate, toDate] window. Each period carries the same
+ * `favorable / reasons / warnings` annotation as /api/dasha.
+ *
+ * Request body:
+ * {
+ *   "name":      "Alice",
+ *   "birthDate": "1991-09-27",
+ *   "birthTime": "07:40",
+ *   "latitude":  6.9271,
+ *   "longitude": 79.8612,
+ *   "timezone":  7,
+ *   "fromDate":  "2024-01-01",
+ *   "toDate":    "2025-12-31"
+ * }
+ *
+ * Response:
+ * {
+ *   "fromDate": "2024-01-01",
+ *   "toDate":   "2025-12-31",
+ *   "mahadashas":      [{ planet, parent, startDate, endDate, favorable, reasons, warnings }, ...],
+ *   "antardashas":     [...],
+ *   "pratyantardashas":[...],
+ *   "sookshmadashas":  [...]
+ * }
+ *
+ * Caveat: SD list grows linearly with range width (~100 SDs/year).
+ * Caller should cap UI ranges at a few years; we don't truncate here.
+ */
+router.post('/dasha-range', async (req, res) => {
+  try {
+    const { name, birthDate, birthTime, latitude, longitude, timezone, fromDate, toDate } = req.body;
+
+    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
+      return res.status(400).json({
+        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
+      });
+    }
+    if (!fromDate || !toDate) {
+      return res.status(400).json({ error: 'fromDate and toDate are required (YYYY-MM-DD)' });
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(fromDate)) ||
+        !/^\d{4}-\d{2}-\d{2}$/.test(String(toDate))) {
+      return res.status(400).json({ error: 'fromDate and toDate must be YYYY-MM-DD' });
+    }
+    const tz = resolveTimezoneOrRespond(timezone, res);
+    if (!tz.ok) return;
+
+    const from = new Date(`${fromDate}T00:00:00Z`);
+    const to   = new Date(`${toDate}T23:59:59Z`);
+    if (!(from < to)) {
+      return res.status(400).json({ error: 'fromDate must be before toDate' });
+    }
+    // Hard cap on range width to keep responses bounded — 10 years of SDs
+    // is already ~1000 entries. The UI defaults much smaller.
+    const MAX_RANGE_DAYS = 10 * 366;
+    const rangeDays = (to - from) / 86400000;
+    if (rangeDays > MAX_RANGE_DAYS) {
+      return res.status(400).json({
+        error: `Range too wide (${Math.round(rangeDays)} days). Max ${MAX_RANGE_DAYS} days supported.`,
+      });
+    }
+
+    const { natalPlanets } = await astrologyService.getNatalTransits(
+      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
+      null,
+    );
+    const moon = (natalPlanets || []).find(p => p.name === 'Moon');
+    const moonLongitude = moon && (moon.sidereal_abs_pos != null ? moon.sidereal_abs_pos : moon.fullDegree);
+    if (moonLongitude == null) {
+      return res.status(500).json({ error: 'Could not determine Moon sidereal longitude from natal chart' });
+    }
+
+    const birthMoment = new Date(`${birthDate}T${birthTime}:00Z`);
+    const range = computeDashaRange(birthMoment, moonLongitude, from, to);
+
+    const natalMap = planetMap(natalPlanets);
+    // Annotate each level with its parent so MD–AD pair / level-specific
+    // rules fire correctly. The annotatePeriods helper accepts a single
+    // parent for the whole list, but here every entry has its own parent
+    // (because the search spans multiple MDs), so we annotate inline.
+    const { evaluatePeriodForInvestment } = require('../services/investment-dasha');
+    const annotateRange = (periods, level) =>
+      (periods || []).map(p => {
+        const evalResult = evaluatePeriodForInvestment(p.planet, natalMap, {
+          parentPlanet: p.parent,
+          level,
+        });
+        return {
+          planet: p.planet,
+          parent: p.parent || null,
+          startDate: p.startDate.toISOString(),
+          endDate: p.endDate.toISOString(),
+          favorable: evalResult.favorable,
+          reasons: evalResult.reasons,
+          warnings: evalResult.warnings,
+        };
+      });
+
+    res.json({
+      fromDate,
+      toDate,
+      mahadashas: annotateRange(range.mahadashas, 'mahadasha'),
+      antardashas: annotateRange(range.antardashas, 'antardasha'),
+      pratyantardashas: annotateRange(range.pratyantardashas, 'pratyantardasha'),
+      sookshmadashas: annotateRange(range.sookshmadashas, 'sookshmadasha'),
+    });
+  } catch (error) {
+    console.error('Dasha-range endpoint error:', error.message);
+    res.status(500).json({ error: 'Failed to compute dasha range. Please try again later.' });
   }
 });
 
