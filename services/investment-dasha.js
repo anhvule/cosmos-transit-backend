@@ -30,6 +30,19 @@
  *     • Dasha strength: results are positive only if the planet is
  *       well-placed; a debilitated planet kills the favorability.
  *
+ *   Conservative-mode tightening (vs the liberal early implementation):
+ *     • 8L lordship counts as favorable ONLY when 8L is placed in 2nd or
+ *       11th (strict SuddenGainSigns reading). 8L in own 8th or anywhere
+ *       else surfaces as a "dual-edged" warning.
+ *     • ANY planet placed in the 8th house downgrades to a CAUTION
+ *       warning (was previously a positive for non-Saturn). Mars-in-own
+ *       Scorpio in 8th is still cautious — Randhra is a dusthana.
+ *     • Rahu / Ketu placement positives (in 2/5/9/11 and the
+ *       King-of-Speculation kendra/trikona rule) require benefic
+ *       restraint — Jupiter or Venus aspecting / sitting in the same
+ *       house. Unrestrained shadow planets emit the explogalore
+ *       "unbalanced Rahu" warning instead.
+ *
  * Returned reasons are short, human-readable strings; the UI renders them as
  * a bulleted list under each favorable period.
  */
@@ -161,6 +174,44 @@ function houseLord(lagnaSign, n) {
   return SIGN_RULERS[sign] || null;
 }
 
+// ── Aspect helpers (Vedic graha drishti) ──────────────────────────────
+// Each planet aspects the 7th from itself; Mars also 4th and 8th,
+// Jupiter 5th and 9th, Saturn 3rd and 10th, and (per Brihat Parashara)
+// Rahu/Ketu 5th/7th/9th. We use 1-indexed offsets where 1 = same sign
+// (so the 7th aspect = offset 7, etc.).
+const ASPECT_OFFSETS = {
+  Mars:    [7, 4, 8],
+  Jupiter: [7, 5, 9],
+  Saturn:  [7, 3, 10],
+  Rahu:    [7, 5, 9],
+  Ketu:    [7, 5, 9],
+};
+function planetAspectsHouse(planet, planetHouse, targetHouse) {
+  if (!planetHouse || !targetHouse) return false;
+  const offsets = ASPECT_OFFSETS[planet] || [7];
+  return offsets.some(off => (((planetHouse - 1 + (off - 1)) % 12) + 1) === targetHouse);
+}
+
+/**
+ * Whether a benefic (Jupiter or Venus) is influencing `targetHouse` by
+ * either sitting in it or aspecting it. Used to gate Rahu / Ketu
+ * placements per the explogalore "unrestrained Rahu" warning.
+ *
+ * Mercury's beneficity flips with company (malefic if joining malefics)
+ * so we treat it as neutral here for the conservative ruleset.
+ */
+function hasBeneficInfluence(natalMap, targetHouse) {
+  for (const beneficName of ['Jupiter', 'Venus']) {
+    const b = natalMap[beneficName];
+    if (!b || !b.house) continue;
+    if (b.house === targetHouse) return { source: beneficName, kind: 'conjunction' };
+    if (planetAspectsHouse(beneficName, b.house, targetHouse)) {
+      return { source: beneficName, kind: 'aspect' };
+    }
+  }
+  return null;
+}
+
 /**
  * Evaluate whether the given dasha-period lord is favorable for investment,
  * given the native's natal chart.
@@ -206,43 +257,76 @@ function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
     return { favorable: false, reasons, warnings };
   }
 
-  // Rule 1 — Best timing: lord of 5th, 8th, or 11th house (the
-  // "5L/8L/11L Mahadasha/Antardasha" rule from SuddenGainSigns).
-  const ownedKey = owned.filter(h => KEY_LORDSHIPS.includes(h));
+  // ── Conservative-mode flags ─────────────────────────────────────────
+  // Shadow planets (Rahu / Ketu) need benefic restraint to count their
+  // wealth-house placements as favorable (per explogalore "unbalanced
+  // Rahu" rule). Without Jupiter or Venus aspecting / sitting in the
+  // shadow's house, the placement is downgraded to a warning.
+  const isShadow = (planet === 'Rahu' || planet === 'Ketu');
+  const beneficInf = isShadow ? hasBeneficInfluence(natalMap, planetHouse) : null;
+  const shadowUnrestrained = isShadow && !beneficInf;
+  const restraintNote = beneficInf
+    ? ` (${beneficInf.source}'s ${beneficInf.kind} restrains the shadow planet's volatility)`
+    : '';
+
+  // Rule 1 — Best timing: lord of 5th or 11th house always counts.
+  // 8L lordship is gated to the strict SuddenGainSigns reading: only
+  // counts when 8L is placed in 2nd or 11th house (8L sitting in its
+  // own 8th, or in any other house, is too dual-edged to flag green).
+  const ownedKey = owned.filter(h => {
+    if (h === 8) return [2, 11].includes(planetHouse);
+    return [5, 11].includes(h);
+  });
   if (ownedKey.length > 0) {
     const labels = ownedKey.map(h => `${ordinal(h)} (${HOUSE_KEY_LABEL[h]})`);
     reasons.push(
       `${planet} is lord of the ${labels.join(' and ')} house — the classical "best-timing" lordship for investment / speculation.`,
     );
   }
+  // Surface 8L's location explicitly when not in 2/11 so the user knows
+  // why the 8L rule didn't fire green.
+  if (owned.includes(8) && ![2, 11].includes(planetHouse)) {
+    warnings.push(
+      `${planet} is the 8th lord placed in the ${ordinal(planetHouse)} house — SuddenGainSigns flags 8L as auspicious only when in 2nd or 11th; here it remains dual-edged.`,
+    );
+  }
 
-  // Rule 2 — Placement in wealth/gain houses (2/5/8/9/11). Listed
-  // individually so the UI can show the most relevant rationale.
-  if (planetHouse === 5) {
-    reasons.push(
-      `${planet} sits in the 5th house — Suta Bhava, the primary house of speculation, intelligence, and Purva Punya (lottery / windfalls).`,
+  // Rule 2 — Placement in wealth/gain houses (2/5/9/11). Conservative
+  // version: shadow planets (Rahu/Ketu) need benefic restraint to score
+  // these as positives; otherwise a single "unrestrained" warning fires.
+  // The 8th house (Randhra) is now treated as cautious for ALL planets.
+  if (shadowUnrestrained && [2, 5, 9, 11].includes(planetHouse)) {
+    warnings.push(
+      `${planet} in the ${ordinal(planetHouse)} house but unrestrained — no Jupiter or Venus aspecting / joining it. Per explogalore, an unrestrained ${planet} in a speculation house risks overconfidence and large losses.`,
     );
+  } else {
+    if (planetHouse === 5) {
+      reasons.push(
+        `${planet} sits in the 5th house — Suta Bhava, the primary house of speculation, intelligence, and Purva Punya (lottery / windfalls)${isShadow ? restraintNote : ''}.`,
+      );
+    }
+    if (planetHouse === 11) {
+      reasons.push(
+        `${planet} sits in the 11th house — Labha Bhava, the house of gains, income, and fulfillment of desires${isShadow ? restraintNote : ''}.`,
+      );
+    }
+    if (planetHouse === 2) {
+      reasons.push(
+        `${planet} sits in the 2nd house — Dhana Bhava, controlling wealth accumulation and savings${isShadow ? restraintNote : ''}.`,
+      );
+    }
+    if (planetHouse === 9) {
+      reasons.push(
+        `${planet} sits in the 9th house — Bhagya Bhava, fortune and divine luck${isShadow ? restraintNote : ''}.`,
+      );
+    }
   }
-  if (planetHouse === 11) {
-    reasons.push(
-      `${planet} sits in the 11th house — Labha Bhava, the house of gains, income, and fulfillment of desires.`,
-    );
-  }
-  if (planetHouse === 2) {
-    reasons.push(
-      `${planet} sits in the 2nd house — Dhana Bhava, controlling wealth accumulation and savings.`,
-    );
-  }
-  if (planetHouse === 9) {
-    reasons.push(
-      `${planet} sits in the 9th house — Bhagya Bhava, fortune and divine luck.`,
-    );
-  }
-  if (planetHouse === 8 && planet !== 'Saturn') {
-    // 8th gives sudden/unearned wealth; flag as favorable but
-    // contextualized — Saturn-in-8 is more cautious.
-    reasons.push(
-      `${planet} sits in the 8th house — Randhra Bhava, governing sudden, unearned, or hidden wealth (windfalls, inheritance).`,
+  if (planetHouse === 8) {
+    // Conservative reading: the 8th gives windfalls but is also a
+    // dusthana. Flag for ALL planets (including Mars in own Scorpio)
+    // as a caution rather than a green-light.
+    warnings.push(
+      `${planet} sits in the 8th house — Randhra Bhava is dual-edged: potential for sudden / unearned wealth but high-risk. Treat any gains here as windfalls and size positions cautiously.`,
     );
   }
 
@@ -270,11 +354,24 @@ function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
   }
 
   // Rule 5 — Rahu, the "King of Speculation": well-placed in
-  // kendra/trikona/11 = fast and immense speculative gains.
-  if (planet === 'Rahu') {
-    if ([...KENDRA_HOUSES, ...TRIKONA_HOUSES, 11].includes(planetHouse)) {
+  // kendra/trikona/11 = fast and immense speculative gains. Conservative
+  // version requires benefic restraint (Jupiter or Venus aspecting /
+  // co-located) — without it, "unbalanced Rahu" risks overconfidence
+  // (explogalore). The shadowUnrestrained warning above already covers
+  // 5/9/11 placements, so we only emit the trikona-specific positive
+  // here when benefic-influenced; otherwise stay silent (warning was
+  // already raised).
+  if (planet === 'Rahu' &&
+      [...KENDRA_HOUSES, ...TRIKONA_HOUSES, 11].includes(planetHouse)) {
+    if (beneficInf) {
       reasons.push(
-        `Rahu in the ${ordinal(planetHouse)} house (${kendraTrikonaLabel(planetHouse) || '11th — gains'}) — the "King of Speculation" well-placed gives fast, unexpected gains in volatile markets.`,
+        `Rahu in the ${ordinal(planetHouse)} house (${kendraTrikonaLabel(planetHouse) || 'gains'}), restrained by ${beneficInf.source}'s ${beneficInf.kind} — King of Speculation well-channeled, fast unexpected gains in volatile markets.`,
+      );
+    } else if (![2, 5, 9, 11].includes(planetHouse)) {
+      // Kendra-but-not-trikona-or-11 placements (4, 7, 10): emit the
+      // unrestrained warning since the wealth-house path didn't.
+      warnings.push(
+        `Rahu in the ${ordinal(planetHouse)} house but unrestrained by Jupiter / Venus — explogalore "unbalanced Rahu" warning: overconfidence and large losses.`,
       );
     }
   }
