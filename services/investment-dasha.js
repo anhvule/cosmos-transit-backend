@@ -136,6 +136,32 @@ const FAVORABLE_MD_AD_PAIRS = {
 };
 
 /**
+ * Two natal planets share the same sign (i.e. natal conjunction). Used by
+ * the Budh-Aditya / Venus-Mars / Sun-Saturn / Moon-Rahu / 5L-10L / 5L-11L
+ * combination rules pulled from the jyotishlight + explogalore articles.
+ *
+ * Returns false (not throws) on any missing data so a partially-resolved
+ * natal chart can't take down the evaluator.
+ */
+function sameSign(natalMap, planetA, planetB) {
+  const a = natalMap[planetA];
+  const b = natalMap[planetB];
+  return !!(a && b && a.sign && a.sign === b.sign);
+}
+
+/**
+ * The native's nth-house lord (planet ruling the sign N houses from
+ * lagna). Returns null if natalMap doesn't carry a usable lagna sign.
+ */
+function houseLord(lagnaSign, n) {
+  if (!lagnaSign) return null;
+  const idx = signIndex(lagnaSign);
+  if (idx < 0) return null;
+  const sign = SIGNS[(idx + (n - 1) + 12) % 12];
+  return SIGN_RULERS[sign] || null;
+}
+
+/**
  * Evaluate whether the given dasha-period lord is favorable for investment,
  * given the native's natal chart.
  *
@@ -300,14 +326,108 @@ function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
       );
     }
   }
+  // ── Article-sourced combination rules (jyotishlight + explogalore) ──
+  // These fire for any dasha level; the planet under evaluation must be
+  // one of the two participants (otherwise an unrelated dasha would
+  // inherit a yoga it doesn't actually trigger).
+
+  // Mars in 2nd — impulsive trading / snap-decision losses.
+  if (planet === 'Mars' && planetHouse === 2) {
+    warnings.push(
+      `Mars in the 2nd house — impulsive energy in money matters can cause snap-decision losses; trade with discipline (explogalore).`,
+    );
+  }
+
+  // Budh-Aditya Yoga: Sun + Mercury same sign in 2/5/9/11 — wise market
+  // analysis, recognizing lucrative opportunities.
+  if ((planet === 'Sun' || planet === 'Mercury') &&
+      sameSign(natalMap, 'Sun', 'Mercury')) {
+    const yogaHouse = natalMap.Sun?.house;
+    if ([2, 5, 9, 11].includes(yogaHouse)) {
+      reasons.push(
+        `Budh–Aditya Yoga in the ${ordinal(yogaHouse)} house (Sun + Mercury) — sharp analytical edge for recognizing lucrative trades (explogalore).`,
+      );
+    }
+  }
+
+  // Venus-Mars conjunction — Mars's courage tempered by Venus's
+  // judgment, optimal entry/exit timing.
+  if ((planet === 'Venus' || planet === 'Mars') &&
+      sameSign(natalMap, 'Venus', 'Mars')) {
+    reasons.push(
+      `Venus–Mars conjunction in the natal chart — Mars's courage balanced by Venus's judgment, sharp entry/exit timing (explogalore).`,
+    );
+  }
+
+  // Sun-Saturn combination — methodical, disciplined long-term approach.
+  if ((planet === 'Sun' || planet === 'Saturn') &&
+      sameSign(natalMap, 'Sun', 'Saturn')) {
+    reasons.push(
+      `Sun–Saturn combination in the natal chart — methodical, disciplined approach; resistance to irrational trades and steady wealth compounding (explogalore).`,
+    );
+  }
+
+  // Moon-Rahu in 5th — emotional intelligence + bold innovation, success
+  // in high-risk speculation (crypto, derivatives). Note: in any OTHER
+  // house this conjunction is the panic-selling warning below.
+  const moonRahuConj = sameSign(natalMap, 'Moon', 'Rahu');
+  if (moonRahuConj && natalMap.Moon?.house === 5 &&
+      (planet === 'Moon' || planet === 'Rahu')) {
+    reasons.push(
+      `Moon–Rahu conjunction in the 5th house — emotional intelligence fused with bold innovation, success in high-risk speculation like crypto / derivatives (explogalore).`,
+    );
+  }
+
+  // Jupiter in 11th — attracts unexpected profits / windfalls.
+  if (planet === 'Jupiter' && planetHouse === 11) {
+    reasons.push(
+      `Jupiter in the 11th house — Guru in Labha Bhava attracts unexpected profits and amplifies networking-driven gains (explogalore).`,
+    );
+  }
+  // Mercury in 11th — multiple revenue streams.
+  if (planet === 'Mercury' && planetHouse === 11) {
+    reasons.push(
+      `Mercury in the 11th house — Budh in Labha Bhava builds multiple revenue streams and analytical income channels (explogalore).`,
+    );
+  }
+
+  // Strong 5L (own / exalted) — natural speculation timing.
+  if (owned.includes(5) && (dignity === 'exalted' || dignity === 'own')) {
+    reasons.push(
+      `${planet} (5th lord) is ${dignity === 'exalted' ? 'exalted' : 'in own sign'} — direct timing advantage for natural profitable speculation (explogalore).`,
+    );
+  }
+
+  // 5L + 10L conjunction — professional investment career.
+  // 5L + 11L conjunction — strong 5-11 axis (large speculative profits).
+  const fifthLord  = houseLord(lagnaSign, 5);
+  const tenthLord  = houseLord(lagnaSign, 10);
+  const elevenLord = houseLord(lagnaSign, 11);
+  if (fifthLord && tenthLord && fifthLord !== tenthLord &&
+      (planet === fifthLord || planet === tenthLord) &&
+      sameSign(natalMap, fifthLord, tenthLord)) {
+    reasons.push(
+      `5th lord (${fifthLord}) + 10th lord (${tenthLord}) conjunction — professional investment career indication (jyotishlight).`,
+    );
+  }
+  if (fifthLord && elevenLord && fifthLord !== elevenLord &&
+      (planet === fifthLord || planet === elevenLord) &&
+      sameSign(natalMap, fifthLord, elevenLord)) {
+    reasons.push(
+      `5th lord (${fifthLord}) + 11th lord (${elevenLord}) conjunction — strong 5-11 axis activation, large speculative profits (jyotishlight + SuddenGainSigns).`,
+    );
+  }
+
   // Moon-Rahu / Moon-Ketu conjunction (panic selling). Detect via same-sign
   // placement of Moon and Rahu/Ketu; only fires when the dasha lord is one
-  // of them.
+  // of them. Skipped when the conjunction is in the 5th house (handled as
+  // a positive reason above).
   if (planet === 'Moon' || planet === 'Rahu' || planet === 'Ketu') {
     const moon = natalMap.Moon;
     const rahu = natalMap.Rahu;
     const ketu = natalMap.Ketu;
-    if (moon && rahu && moon.sign === rahu.sign && (planet === 'Moon' || planet === 'Rahu')) {
+    if (moonRahuConj && moon?.house !== 5 &&
+        (planet === 'Moon' || planet === 'Rahu')) {
       warnings.push(
         `Moon–Rahu conjunction in the natal chart — emotional impulsivity / panic selling risk.`,
       );
