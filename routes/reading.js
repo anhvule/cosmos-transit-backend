@@ -1356,26 +1356,35 @@ const CELEBRITY_PROFILES = [
 /**
  * POST /api/caution-dates
  *
- * Returns the union of CAUTION pratyantardashas firing on the three
+ * Returns the union of CAUTION dasha-periods firing on the three
  * bundled celebrity profiles (Druckenmiller, Ackman, Soros) within the
  * given year. Used by the Vimshottari Dasha screen's "Yearly Caution
- * Forecast" section to highlight ~50-100-day windows where multiple
- * contrarian charts agree the period needs risk-down posture.
+ * Forecast" section to highlight windows where contrarian charts
+ * agree the period needs risk-down posture.
  *
  * Request body:
  * {
- *   "year": 2025
+ *   "year": 2025,
+ *   "level": "pratyantardasha"  // optional, default; or "sookshmadasha"
  * }
+ *
+ * Levels:
+ *   - pratyantardasha (default): ~50-100 day windows, practical for
+ *     trader risk-dial guidance. ~7-9 PDs per year per profile.
+ *   - sookshmadasha: ~5-10 day windows, ~10x more granular. Useful
+ *     for narrowing entry/exit timing inside a flagged PD. ~36-50
+ *     SDs per year per profile (so the year view can hit 100+ rows).
  *
  * Response:
  * {
  *   "year": 2025,
+ *   "level": "pratyantardasha",
  *   "periods": [
  *     {
  *       "profile": "soros",
  *       "profileName": "Soros",
  *       "planet": "Mars",
- *       "parent": "Saturn",          // parent AD planet
+ *       "parent": "Saturn",
  *       "startDate": "2025-04-12T...",
  *       "endDate": "2025-06-08T...",
  *       "warnings": [...]
@@ -1386,6 +1395,8 @@ const CELEBRITY_PROFILES = [
  */
 const { evaluatePeriodForInvestment: evalPeriod } = require('../services/investment-dasha');
 
+const VALID_CAUTION_LEVELS = new Set(['pratyantardasha', 'sookshmadasha']);
+
 router.post('/caution-dates', async (req, res) => {
   try {
     const yearRaw = req.body && req.body.year;
@@ -1393,6 +1404,12 @@ router.post('/caution-dates', async (req, res) => {
     if (!Number.isInteger(year) || year < 1900 || year > 2100) {
       return res.status(400).json({
         error: 'year must be an integer between 1900 and 2100',
+      });
+    }
+    const level = (req.body && req.body.level) || 'pratyantardasha';
+    if (!VALID_CAUTION_LEVELS.has(level)) {
+      return res.status(400).json({
+        error: 'level must be "pratyantardasha" or "sookshmadasha"',
       });
     }
     const fromDate = new Date(`${year}-01-01T00:00:00Z`);
@@ -1417,14 +1434,14 @@ router.post('/caution-dates', async (req, res) => {
       const birthMoment = new Date(`${profile.birthDate}T${profile.birthTime}:00Z`);
 
       const range = computeDashaRange(birthMoment, moonLon, fromDate, toDate);
-      // Pratyantardasha-level granularity is the sweet spot — ~50-100
-      // day windows are practical for trader risk-dial guidance.
-      // SDs would be too noisy (5-10 day windows × 3 profiles = chart
-      // chaos); ADs are too coarse (often span the whole year).
-      for (const pd of range.pratyantardashas) {
+      const sourcePeriods = level === 'sookshmadasha'
+        ? range.sookshmadashas
+        : range.pratyantardashas;
+
+      for (const pd of sourcePeriods) {
         const result = evalPeriod(pd.planet, natalMap, {
           parentPlanet: pd.parent,
-          level: 'pratyantardasha',
+          level,
         });
         // CAUTION = no positive reasons but at least one warning fires.
         // We only surface the strict "warnings-only" bucket here, since
@@ -1445,7 +1462,7 @@ router.post('/caution-dates', async (req, res) => {
     }
     periods.sort((a, b) => a.startDate.localeCompare(b.startDate));
 
-    res.json({ year, periods });
+    res.json({ year, level, periods });
   } catch (error) {
     console.error('Caution-dates endpoint error:', error.message);
     res.status(500).json({ error: 'Failed to compute caution dates. Please try again later.' });
