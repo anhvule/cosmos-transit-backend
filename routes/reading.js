@@ -13,6 +13,7 @@ console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 
 const { generateReading } = require('../services/gemini');
 const { computeDashaAtDate, getNakshatra } = require('../services/dasha');
+const { annotatePeriods, planetMap } = require('../services/investment-dasha');
 const { calculateEssenceCycle } = require('../services/essence-cycle');
 const { getYearlySummary } = require('../services/varshaphal');
 const { getMonthlyPrediction } = require('../services/monthly-prediction');
@@ -1090,6 +1091,18 @@ router.post('/dasha', async (req, res) => {
       result.pratyantardasha?.planet,
     );
 
+    // Investment-favorability annotation — needs the natal chart (already
+    // fetched above) to evaluate each dasha lord against SuddenGainSigns
+    // rules (5L/8L/11L lordship, wealth-house placement, speculation
+    // planets, etc.). Annotates ALL 9 ADs in the active MD, all 9 PDs in
+    // the active AD, and all 9 SDs in the active PD so the UI can show the
+    // user's full sub-period landscape with green flags on the favorable
+    // ones.
+    const natalMap = planetMap(natalPlanets);
+    const antardashas = annotatePeriods(result.antardashas, natalMap);
+    const pratyantardashas = annotatePeriods(result.pratyantardashas, natalMap);
+    const sookshmadashas = annotatePeriods(result.sookshmadashas, natalMap);
+
     res.json({
       date: dateStr,
       moonLongitude,
@@ -1097,6 +1110,18 @@ router.post('/dasha', async (req, res) => {
       mahadasha: fmt(result.mahadasha, mdDesc),
       antardasha: fmt(result.antardasha, adDesc),
       pratyantardasha: fmt(result.pratyantardasha, pdDesc),
+      sookshmadasha: fmt(result.sookshmadasha, ''),
+      // Per-level period lists with investment-favorability flags. The
+      // `favorable` periods are also extracted into investmentFavorable.* for
+      // convenience (UI can render them as "highlights" without filtering).
+      antardashas,
+      pratyantardashas,
+      sookshmadashas,
+      investmentFavorable: {
+        antardashas: antardashas.filter(p => p.favorable),
+        pratyantardashas: pratyantardashas.filter(p => p.favorable),
+        sookshmadashas: sookshmadashas.filter(p => p.favorable),
+      },
     });
   } catch (error) {
     console.error('Dasha endpoint error:', error.message);

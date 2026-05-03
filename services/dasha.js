@@ -16,6 +16,8 @@
  *      one that contains the query date.
  *   6. Within the active AD, build 9 Pratyantardashas (PDs) the same way and
  *      pick the one that contains the query date.
+ *   7. Within the active PD, build 9 Sookshmadashas (SDs) and pick the one
+ *      that contains the query date.
  */
 
 // Vimshottari order and period lengths (total = 120 years).
@@ -97,14 +99,51 @@ function yearsToDays(years) {
 }
 
 /**
- * Compute the active MD and AD at queryDate.
+ * Build the 9-period sequence starting at `startDate`, where each period i has
+ * length (parentYears × VIMSHOTTARI_SEQUENCE[(parentIdx+i)%9].years) / 120.
+ * Returns an array of { planet, years, startDate, endDate } in chronological
+ * order. The same proportional-subdivision rule is used at every nesting level
+ * (AD within MD, PD within AD, SD within PD).
+ */
+function buildSubperiods(parentPlanet, parentYears, parentStartDate) {
+  const startIdx = lordIndex(parentPlanet);
+  const periods = [];
+  let cursor = new Date(parentStartDate);
+  for (let i = 0; i < VIMSHOTTARI_SEQUENCE.length; i++) {
+    const sub = VIMSHOTTARI_SEQUENCE[(startIdx + i) % VIMSHOTTARI_SEQUENCE.length];
+    const subYears = (parentYears * sub.years) / TOTAL_YEARS;
+    const end = addDays(cursor, yearsToDays(subYears));
+    periods.push({
+      planet: sub.planet,
+      years: subYears,
+      startDate: new Date(cursor),
+      endDate: end,
+    });
+    cursor = end;
+  }
+  return periods;
+}
+
+/** Find the period in `periods` that contains `date`, or null. */
+function findActivePeriod(periods, date) {
+  for (const p of periods) {
+    if (date >= p.startDate && date < p.endDate) return p;
+  }
+  return null;
+}
+
+/**
+ * Compute the active MD/AD/PD/SD at queryDate, plus the full subperiod lists
+ * that bracket it (all 9 ADs in the active MD, all 9 PDs in the active AD,
+ * all 9 SDs in the active PD).
  *
  * @param {Date} birthMoment - Birth datetime (treated as an instant; local vs
  *                             UTC doesn't matter as long as queryDate uses the
  *                             same convention).
  * @param {number} moonSiderealLongitude - Moon's sidereal longitude at birth (degrees).
  * @param {Date} queryDate - Date to evaluate.
- * @returns {{ nakshatra: Object, mahadasha: Object, antardasha: Object, pratyantardasha: Object }}
+ * @returns {{ nakshatra, mahadasha, antardasha, pratyantardasha, sookshmadasha,
+ *             antardashas, pratyantardashas, sookshmadashas }}
  */
 function computeDashaAtDate(birthMoment, moonSiderealLongitude, queryDate) {
   const nak = getNakshatra(moonSiderealLongitude);
@@ -128,50 +167,71 @@ function computeDashaAtDate(birthMoment, moonSiderealLongitude, queryDate) {
     cursor = end;
   }
   if (!activeMd) {
-    return { nakshatra: nak, mahadasha: null, antardasha: null };
+    return {
+      nakshatra: nak,
+      mahadasha: null,
+      antardasha: null,
+      pratyantardasha: null,
+      sookshmadasha: null,
+      antardashas: [],
+      pratyantardashas: [],
+      sookshmadashas: [],
+    };
   }
 
-  // Build 9 antardashas within the active MD (each proportional to AD/120 × MD).
-  const mdIdx = lordIndex(activeMd.planet);
-  let adCursor = new Date(activeMd.startDate);
-  let activeAd = null;
-  let activeAdYears = 0;
-  for (let i = 0; i < VIMSHOTTARI_SEQUENCE.length; i++) {
-    const ad = VIMSHOTTARI_SEQUENCE[(mdIdx + i) % VIMSHOTTARI_SEQUENCE.length];
-    const adYears = (activeMd.years * ad.years) / TOTAL_YEARS;
-    const end = addDays(adCursor, yearsToDays(adYears));
-    if (queryDate >= adCursor && queryDate < end) {
-      activeAd = { planet: ad.planet, startDate: new Date(adCursor), endDate: end };
-      activeAdYears = adYears;
-      break;
-    }
-    adCursor = end;
-  }
+  // 9 ADs within the active MD, then locate the active one.
+  const antardashas = buildSubperiods(activeMd.planet, activeMd.years, activeMd.startDate);
+  const activeAd = findActivePeriod(antardashas, queryDate);
   if (!activeAd) {
-    return { nakshatra: nak, mahadasha: activeMd, antardasha: null, pratyantardasha: null };
+    return {
+      nakshatra: nak,
+      mahadasha: activeMd,
+      antardasha: null,
+      pratyantardasha: null,
+      sookshmadasha: null,
+      antardashas,
+      pratyantardashas: [],
+      sookshmadashas: [],
+    };
   }
 
-  // Build 9 pratyantardashas within the active AD (each proportional to PD/120 × AD).
-  const adIdx = lordIndex(activeAd.planet);
-  let pdCursor = new Date(activeAd.startDate);
-  let activePd = null;
-  for (let i = 0; i < VIMSHOTTARI_SEQUENCE.length; i++) {
-    const pd = VIMSHOTTARI_SEQUENCE[(adIdx + i) % VIMSHOTTARI_SEQUENCE.length];
-    const pdYears = (activeAdYears * pd.years) / TOTAL_YEARS;
-    const end = addDays(pdCursor, yearsToDays(pdYears));
-    if (queryDate >= pdCursor && queryDate < end) {
-      activePd = { planet: pd.planet, startDate: new Date(pdCursor), endDate: end };
-      break;
-    }
-    pdCursor = end;
+  // 9 PDs within the active AD, then locate the active one.
+  const pratyantardashas = buildSubperiods(activeAd.planet, activeAd.years, activeAd.startDate);
+  const activePd = findActivePeriod(pratyantardashas, queryDate);
+  if (!activePd) {
+    return {
+      nakshatra: nak,
+      mahadasha: activeMd,
+      antardasha: activeAd,
+      pratyantardasha: null,
+      sookshmadasha: null,
+      antardashas,
+      pratyantardashas,
+      sookshmadashas: [],
+    };
   }
 
-  return { nakshatra: nak, mahadasha: activeMd, antardasha: activeAd, pratyantardasha: activePd };
+  // 9 SDs within the active PD, then locate the active one.
+  const sookshmadashas = buildSubperiods(activePd.planet, activePd.years, activePd.startDate);
+  const activeSd = findActivePeriod(sookshmadashas, queryDate);
+
+  return {
+    nakshatra: nak,
+    mahadasha: activeMd,
+    antardasha: activeAd,
+    pratyantardasha: activePd,
+    sookshmadasha: activeSd,
+    antardashas,
+    pratyantardashas,
+    sookshmadashas,
+  };
 }
 
 module.exports = {
   computeDashaAtDate,
   getNakshatra,
+  buildSubperiods,
+  findActivePeriod,
   VIMSHOTTARI_SEQUENCE,
   NAKSHATRAS,
 };
