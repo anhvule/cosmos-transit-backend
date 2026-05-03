@@ -1167,9 +1167,13 @@ router.post('/dasha', async (req, res) => {
           parentPlanet: pdPlanet, level: 'sookshmadasha',
         }),
       ),
-      // Per-Dasha.docx: only return periods beneficial to speculative
-      // investment. The `investmentFavorable.*` lists are the filtered
-      // result; clients should render these directly.
+      // ALL sub-periods, each carrying its favorable / reasons / warnings
+      // tag — so the UI can color-code good (green) vs cautious (amber)
+      // windows side by side. The `investmentFavorable.*` lists below are
+      // a convenience — the filtered subset of these.
+      antardashas: allAds,
+      pratyantardashas: allPds,
+      sookshmadashas: allSds,
       investmentFavorable: {
         antardashas: allAds.filter(p => p.favorable),
         pratyantardashas: allPds.filter(p => p.favorable),
