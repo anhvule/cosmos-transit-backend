@@ -1312,6 +1312,147 @@ router.post('/dasha-range', async (req, res) => {
 });
 
 /**
+ * Three celebrity profiles used by /api/caution-dates. These were chosen
+ * because each beat the always-bullish baseline in the SPX backtest:
+ *
+ *   - Druckenmiller (+15% lift, 50% bear-detection)
+ *   - Soros        (+24% lift, 88% bear-detection — natural contrarian)
+ *   - Ackman       (+6% lift, 50% bear-detection)
+ *
+ * The premise: if a date triggers a CAUTION pratyantardasha on multiple
+ * of these contrarian charts simultaneously, it's a stronger candidate
+ * for "broad-market caution window" than any single chart alone.
+ */
+const CELEBRITY_PROFILES = [
+  {
+    key: 'druckenmiller',
+    name: 'Druckenmiller',
+    birthDate: '1953-06-14',
+    birthTime: '12:00',
+    latitude: 40.4406,
+    longitude: -79.9959,
+    timezone: 'America/New_York',
+  },
+  {
+    key: 'ackman',
+    name: 'Ackman',
+    birthDate: '1966-05-11',
+    birthTime: '12:00',
+    latitude: 41.1570,
+    longitude: -73.7660,
+    timezone: 'America/New_York',
+  },
+  {
+    key: 'soros',
+    name: 'Soros',
+    birthDate: '1930-08-12',
+    birthTime: '12:00',
+    latitude: 47.4979,
+    longitude: 19.0402,
+    timezone: 'Europe/Budapest',
+  },
+];
+
+/**
+ * POST /api/caution-dates
+ *
+ * Returns the union of CAUTION pratyantardashas firing on the three
+ * bundled celebrity profiles (Druckenmiller, Ackman, Soros) within the
+ * given year. Used by the Vimshottari Dasha screen's "Yearly Caution
+ * Forecast" section to highlight ~50-100-day windows where multiple
+ * contrarian charts agree the period needs risk-down posture.
+ *
+ * Request body:
+ * {
+ *   "year": 2025
+ * }
+ *
+ * Response:
+ * {
+ *   "year": 2025,
+ *   "periods": [
+ *     {
+ *       "profile": "soros",
+ *       "profileName": "Soros",
+ *       "planet": "Mars",
+ *       "parent": "Saturn",          // parent AD planet
+ *       "startDate": "2025-04-12T...",
+ *       "endDate": "2025-06-08T...",
+ *       "warnings": [...]
+ *     },
+ *     ...
+ *   ]
+ * }
+ */
+const { evaluatePeriodForInvestment: evalPeriod } = require('../services/investment-dasha');
+
+router.post('/caution-dates', async (req, res) => {
+  try {
+    const yearRaw = req.body && req.body.year;
+    const year = parseInt(yearRaw, 10);
+    if (!Number.isInteger(year) || year < 1900 || year > 2100) {
+      return res.status(400).json({
+        error: 'year must be an integer between 1900 and 2100',
+      });
+    }
+    const fromDate = new Date(`${year}-01-01T00:00:00Z`);
+    const toDate = new Date(`${year}-12-31T23:59:59Z`);
+
+    const periods = [];
+    for (const profile of CELEBRITY_PROFILES) {
+      const { natalPlanets } = await astrologyService.getNatalTransits(
+        {
+          birthDate: profile.birthDate,
+          birthTime: profile.birthTime,
+          latitude: profile.latitude,
+          longitude: profile.longitude,
+          timezone: profile.timezone,
+        },
+        null,
+      );
+      const moon = (natalPlanets || []).find(p => p.name === 'Moon');
+      const moonLon = moon && (moon.sidereal_abs_pos != null ? moon.sidereal_abs_pos : moon.fullDegree);
+      if (moonLon == null) continue;
+      const natalMap = planetMap(natalPlanets);
+      const birthMoment = new Date(`${profile.birthDate}T${profile.birthTime}:00Z`);
+
+      const range = computeDashaRange(birthMoment, moonLon, fromDate, toDate);
+      // Pratyantardasha-level granularity is the sweet spot — ~50-100
+      // day windows are practical for trader risk-dial guidance.
+      // SDs would be too noisy (5-10 day windows × 3 profiles = chart
+      // chaos); ADs are too coarse (often span the whole year).
+      for (const pd of range.pratyantardashas) {
+        const result = evalPeriod(pd.planet, natalMap, {
+          parentPlanet: pd.parent,
+          level: 'pratyantardasha',
+        });
+        // CAUTION = no positive reasons but at least one warning fires.
+        // We only surface the strict "warnings-only" bucket here, since
+        // mixed (some-positives-some-warnings) periods on a contrarian
+        // chart are too ambiguous to broadcast as broad-market caution.
+        if (result.reasons.length === 0 && result.warnings.length > 0) {
+          periods.push({
+            profile: profile.key,
+            profileName: profile.name,
+            planet: pd.planet,
+            parent: pd.parent || null,
+            startDate: pd.startDate.toISOString(),
+            endDate: pd.endDate.toISOString(),
+            warnings: result.warnings,
+          });
+        }
+      }
+    }
+    periods.sort((a, b) => a.startDate.localeCompare(b.startDate));
+
+    res.json({ year, periods });
+  } catch (error) {
+    console.error('Caution-dates endpoint error:', error.message);
+    res.status(500).json({ error: 'Failed to compute caution dates. Please try again later.' });
+  }
+});
+
+/**
  * POST /api/events-calendar
  *
  * Returns all dates in the given month where at least one of the requested
