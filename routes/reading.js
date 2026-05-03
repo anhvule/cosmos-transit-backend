@@ -1074,7 +1074,13 @@ router.post('/dasha', async (req, res) => {
     const tz = resolveTimezoneOrRespond(timezone, res);
     if (!tz.ok) return;
 
-    // Fetch natal chart to get the Moon's sidereal (Lahiri) longitude.
+    // Fetch natal chart only — the transit overlay was empirically
+    // unhelpful on AMZN/SPX backtests (~40% accuracy, no better than
+    // baseline) so we no longer pass transitDate or compute transits
+    // here. The natal-only dasha is what the docs actually validate.
+    const dateStr = transitDate
+      ? new Date(transitDate).toISOString().substring(0, 10)
+      : new Date().toISOString().substring(0, 10);
     const { natalPlanets } = await astrologyService.getNatalTransits(
       { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
       null,
@@ -1090,9 +1096,6 @@ router.post('/dasha', async (req, res) => {
     // Treat birth and query moments as naive instants in the same frame — the
     // absolute offset cancels out when we back-shift by elapsed MD years.
     const birthMoment = new Date(`${birthDate}T${birthTime}:00Z`);
-    const dateStr = transitDate
-      ? new Date(transitDate).toISOString().substring(0, 10)
-      : new Date().toISOString().substring(0, 10);
     const queryDate = new Date(`${dateStr}T12:00:00Z`);
 
     const result = computeDashaAtDate(birthMoment, moonLongitude, queryDate);
@@ -1137,6 +1140,12 @@ router.post('/dasha', async (req, res) => {
       parentPlanet: pdPlanet,
       level: 'sookshmadasha',
     });
+
+    // (Transit overlay was tested empirically against AMZN and S&P 500
+    // milestones and added ~zero accuracy lift — natal-only dasha is
+    // what we ship. The evaluateTransitOverlay function is still
+    // exported from investment-dasha.js for potential future use, but
+    // /api/dasha intentionally does not call it.)
 
     res.json({
       date: dateStr,
