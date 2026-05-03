@@ -227,8 +227,111 @@ function computeDashaAtDate(birthMoment, moonSiderealLongitude, queryDate) {
   };
 }
 
+/**
+ * Enumerate every dasha period (MD/AD/PD/SD) that overlaps the
+ * [fromDate, toDate] range. Used by the /api/dasha-range endpoint to
+ * power the "search across a date range" feature on the Vimshottari
+ * Dasha screen.
+ *
+ * Walking strategy: start from the hypothetical first MD (back-shifted
+ * from birth by the elapsed-nakshatra portion of the starting MD), step
+ * MD by MD until cursor passes `toDate`. For each MD overlapping the
+ * range we expand all 9 ADs, then PDs, then SDs and keep the ones whose
+ * window touches the range.
+ *
+ * Each returned period carries `parent` — the planet of the level above
+ * (MD planet for ADs, AD planet for PDs, PD planet for SDs). This lets
+ * the favorability evaluator fire its level-aware rules (Mercury–Sun
+ * AD pair, Mahadasha-only speculation list, etc.).
+ *
+ * Caveat: very wide ranges blow up the SD list (~1000 SDs per decade).
+ * Caller is expected to keep ranges reasonable; we still return them
+ * all rather than silently truncating.
+ *
+ * @param {Date} birthMoment
+ * @param {number} moonSiderealLongitude
+ * @param {Date} fromDate
+ * @param {Date} toDate
+ * @returns {{ mahadashas, antardashas, pratyantardashas, sookshmadashas }}
+ */
+function computeDashaRange(birthMoment, moonSiderealLongitude, fromDate, toDate) {
+  if (!(fromDate instanceof Date) || !(toDate instanceof Date) || fromDate >= toDate) {
+    return {
+      mahadashas: [], antardashas: [],
+      pratyantardashas: [], sookshmadashas: [],
+    };
+  }
+  const overlaps = (start, end) => end > fromDate && start < toDate;
+
+  const nak = getNakshatra(moonSiderealLongitude);
+  const startIdx = lordIndex(nak.lord);
+  const firstMdYears = VIMSHOTTARI_SEQUENCE[startIdx].years;
+  const elapsedYearsAtBirth = nak.fractionElapsed * firstMdYears;
+  const firstMdStart = addDays(birthMoment, -yearsToDays(elapsedYearsAtBirth));
+
+  const mahadashas = [];
+  const antardashas = [];
+  const pratyantardashas = [];
+  const sookshmadashas = [];
+
+  let cursor = new Date(firstMdStart);
+  // 4 cycles × 9 = 36 MDs caps the walk at ~480 years from birth — far
+  // beyond any practical query range.
+  for (let i = 0; i < VIMSHOTTARI_SEQUENCE.length * 4; i++) {
+    const mdMeta = VIMSHOTTARI_SEQUENCE[(startIdx + i) % VIMSHOTTARI_SEQUENCE.length];
+    const mdEnd = addDays(cursor, yearsToDays(mdMeta.years));
+
+    if (cursor >= toDate) break;
+    if (overlaps(cursor, mdEnd)) {
+      mahadashas.push({
+        planet: mdMeta.planet,
+        years: mdMeta.years,
+        startDate: new Date(cursor),
+        endDate: new Date(mdEnd),
+      });
+      const ads = buildSubperiods(mdMeta.planet, mdMeta.years, cursor);
+      for (const ad of ads) {
+        if (!overlaps(ad.startDate, ad.endDate)) continue;
+        antardashas.push({
+          planet: ad.planet,
+          years: ad.years,
+          startDate: new Date(ad.startDate),
+          endDate: new Date(ad.endDate),
+          parent: mdMeta.planet,
+        });
+        const pds = buildSubperiods(ad.planet, ad.years, ad.startDate);
+        for (const pd of pds) {
+          if (!overlaps(pd.startDate, pd.endDate)) continue;
+          pratyantardashas.push({
+            planet: pd.planet,
+            years: pd.years,
+            startDate: new Date(pd.startDate),
+            endDate: new Date(pd.endDate),
+            parent: ad.planet,
+          });
+          const sds = buildSubperiods(pd.planet, pd.years, pd.startDate);
+          for (const sd of sds) {
+            if (!overlaps(sd.startDate, sd.endDate)) continue;
+            sookshmadashas.push({
+              planet: sd.planet,
+              years: sd.years,
+              startDate: new Date(sd.startDate),
+              endDate: new Date(sd.endDate),
+              parent: pd.planet,
+            });
+          }
+        }
+      }
+    }
+    cursor = mdEnd;
+  }
+
+  return { mahadashas, antardashas, pratyantardashas, sookshmadashas };
+}
+
 module.exports = {
   computeDashaAtDate,
+  computeDashaRange,
   getNakshatra,
   buildSubperiods,
   findActivePeriod,
