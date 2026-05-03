@@ -2,21 +2,33 @@
  * Investment-favorable Dasha evaluator.
  *
  * For a given dasha-period planet (MD/AD/PD/SD lord) and the native's natal
- * chart, determines whether that period is auspicious for investment /
- * speculation per the SuddenGainSigns reference (Vedic astrology rules):
+ * chart, determines whether that period is auspicious for speculative
+ * investment per two reference docs:
  *
- *   • Best timing: lord of 5th, 8th, or 11th house in MD/AD.
- *   • Key houses for sudden gains: 2 (wealth), 5 (speculation/intuition),
- *     8 (sudden/unearned), 9 (fortune), 11 (gains).
- *   • Crucial speculation planets: Rahu (king of speculation), Mercury
- *     (intellect/quick decisions), Jupiter (long-term wealth), Moon
- *     (intuition), Venus (financial abundance).
- *   • Strong yogas: 5L–11L connection; 2L–11L parivartana; Jupiter–Rahu in
- *     kendra (1/4/7/10) or trikona (1/5/9); 8L well-placed in 2nd or 11th.
- *   • Warning combos: Rahu in 2nd (volatile money in/out); 5L/9L/11L in 12th
- *     (heavy losses); Moon–Rahu or Moon–Ketu conjunction (panic selling);
- *     Ketu transit over natal Venus (speculation losses — handled in transit
- *     analysis, not here).
+ *   SuddenGainSigns.docx — natal-chart placement / lordship rules:
+ *     • Best timing: lord of 5th, 8th, or 11th house in MD/AD.
+ *     • Key houses for sudden gains: 2 (wealth), 5 (speculation/intuition),
+ *       8 (sudden/unearned), 9 (fortune), 11 (gains).
+ *     • Crucial speculation planets: Rahu (king of speculation), Mercury
+ *       (intellect/quick decisions), Jupiter (long-term wealth), Moon
+ *       (intuition), Venus (financial abundance).
+ *     • Strong yogas: 5L–11L connection; 2L–11L parivartana; Jupiter–Rahu
+ *       in kendra (1/4/7/10) or trikona (1/5/9); 8L well-placed in 2nd
+ *       or 11th.
+ *     • Warning combos: Rahu in 2nd (volatile money in/out); 5L/9L/11L
+ *       in 12th (heavy losses); Moon–Rahu or Moon–Ketu conjunction
+ *       (panic selling); Ketu transit over natal Venus (speculation
+ *       losses — handled in transit analysis, not here).
+ *
+ *   Dasha.docx — Mahadasha-level speculation rules:
+ *     • Rahu / Mercury / Mars Mahadashas are the "best for speculation"
+ *       provided the planet is well-placed (own sign, exalted, or in
+ *       2/5/8/11). Debilitated → no positives, mark as caution.
+ *     • Specific MD–AD speculation pairs: Mercury–Sun (high-paying deals),
+ *       Jupiter–Venus (property appreciation), Venus–Mercury (high-tech /
+ *       creative investments).
+ *     • Dasha strength: results are positive only if the planet is
+ *       well-placed; a debilitated planet kills the favorability.
  *
  * Returned reasons are short, human-readable strings; the UI renders them as
  * a bulleted list under each favorable period.
@@ -79,6 +91,50 @@ const DUSTHANA_HOUSES = [6, 8, 12];
 
 const SPECULATION_PLANETS = new Set(['Rahu', 'Jupiter', 'Mercury', 'Moon', 'Venus']);
 
+// Mahadasha-level "best for speculation" planets per Dasha.docx — these
+// are the dashas the doc explicitly calls out as speculation-friendly when
+// the planet is well-placed.
+const SPECULATION_MD_PLANETS = new Set(['Rahu', 'Mercury', 'Mars']);
+
+// Classical dignity tables. `own` = planet's own signs (rulership),
+// `exalt` = sign of exaltation (debilitation is the opposite sign).
+// Rahu/Ketu have no classical dignity; some texts give Rahu→Aquarius,
+// Ketu→Scorpio as quasi-rulerships, but we omit them here so the
+// favorability logic stays conservative for the nodes (placement-based
+// only).
+const DIGNITY = {
+  Sun:     { own: ['Leo'],            exalt: 'Aries',     debil: 'Libra' },
+  Moon:    { own: ['Cancer'],         exalt: 'Taurus',    debil: 'Scorpio' },
+  Mars:    { own: ['Aries', 'Scorpio'],     exalt: 'Capricorn', debil: 'Cancer' },
+  Mercury: { own: ['Gemini', 'Virgo'],      exalt: 'Virgo',     debil: 'Pisces' },
+  Jupiter: { own: ['Sagittarius', 'Pisces'],exalt: 'Cancer',    debil: 'Capricorn' },
+  Venus:   { own: ['Taurus', 'Libra'],      exalt: 'Pisces',    debil: 'Virgo' },
+  Saturn:  { own: ['Capricorn', 'Aquarius'],exalt: 'Libra',     debil: 'Aries' },
+};
+
+/**
+ * Classify a planet's dignity from its natal sign:
+ *   "exalted" | "own" | "debilitated" | "neutral" | null (no data).
+ */
+function planetDignity(planet, sign) {
+  const d = DIGNITY[planet];
+  if (!d || !sign) return null;
+  if (d.exalt === sign) return 'exalted';
+  if ((d.own || []).includes(sign)) return 'own';
+  if (d.debil === sign) return 'debilitated';
+  return 'neutral';
+}
+
+/**
+ * Specific MD–AD speculation pairs called out in Dasha.docx. Map keys are
+ * MD planet → list of { ad, label }.
+ */
+const FAVORABLE_MD_AD_PAIRS = {
+  Mercury: [{ ad: 'Sun',     label: 'high-paying deals (per Dasha.docx)' }],
+  Jupiter: [{ ad: 'Venus',   label: 'property appreciation (per Dasha.docx)' }],
+  Venus:   [{ ad: 'Mercury', label: 'high-tech / creative investments (per Dasha.docx)' }],
+};
+
 /**
  * Evaluate whether the given dasha-period lord is favorable for investment,
  * given the native's natal chart.
@@ -86,9 +142,18 @@ const SPECULATION_PLANETS = new Set(['Rahu', 'Jupiter', 'Mercury', 'Moon', 'Venu
  * @param {string} planet - The dasha lord ('Sun', 'Moon', ..., 'Rahu', 'Ketu').
  * @param {Object} natalMap - { [planetName]: { sign, house, ... } } indexed
  *                            from natalPlanets; must include 'Ascendant'.
+ * @param {Object} [opts]
+ * @param {string} [opts.parentPlanet] - The parent dasha lord one level up
+ *   (e.g. the MD planet when evaluating an AD). Lets us fire MD–AD pair
+ *   rules from Dasha.docx (Mercury–Sun, Jupiter–Venus, Venus–Mercury).
+ * @param {string} [opts.level] - 'mahadasha' | 'antardasha' | 'pratyantardasha' |
+ *   'sookshmadasha'. The Mahadasha-level speculation rule (Rahu/Mercury/
+ *   Mars MD) fires for level==='mahadasha' only — sub-periods are still
+ *   evaluated by placement / lordship rules.
  * @returns {{ favorable: boolean, reasons: string[], warnings: string[] }}
  */
-function evaluatePeriodForInvestment(planet, natalMap) {
+function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
+  const { parentPlanet, level } = opts;
   const reasons = [];
   const warnings = [];
 
@@ -99,8 +164,21 @@ function evaluatePeriodForInvestment(planet, natalMap) {
   }
 
   const planetHouse = planetData.house;
+  const planetSign = planetData.sign;
   const lagnaSign = ascendant.sign;
   const owned = ownedHouseNumbers(planet, lagnaSign);
+  const dignity = planetDignity(planet, planetSign);
+
+  // ── Hard-stop rule from Dasha.docx ──────────────────────────────────
+  // Debilitated dasha lord — kills positive favorability. Doc states the
+  // results are positive ONLY if the planet is well-placed; debilitation
+  // = no positives, surface as a warning instead.
+  if (dignity === 'debilitated') {
+    warnings.push(
+      `${planet} is debilitated in ${planetSign} — Dasha.docx: dasha results require a well-placed planet, debilitation negates speculation gains.`,
+    );
+    return { favorable: false, reasons, warnings };
+  }
 
   // Rule 1 — Best timing: lord of 5th, 8th, or 11th house (the
   // "5L/8L/11L Mahadasha/Antardasha" rule from SuddenGainSigns).
@@ -241,6 +319,70 @@ function evaluatePeriodForInvestment(planet, natalMap) {
     }
   }
 
+  // ── Dasha.docx rules ────────────────────────────────────────────────
+  // Rule D1 — Mahadasha-level speculation friendly planets (Rahu, Mercury,
+  // Mars). Only fires for the actual Mahadasha; sub-periods inherit the
+  // generic placement/lordship logic above. Requires the planet to be
+  // well-placed (own / exalted / in 2/5/8/11) — a debilitated MD already
+  // returned early at the top of this function.
+  if (level === 'mahadasha' && SPECULATION_MD_PLANETS.has(planet)) {
+    const wellPlaced =
+      dignity === 'exalted' ||
+      dignity === 'own' ||
+      [2, 5, 8, 11].includes(planetHouse);
+    if (wellPlaced) {
+      const placeNote = dignity === 'exalted'
+        ? `exalted in ${planetSign}`
+        : dignity === 'own'
+        ? `in own sign ${planetSign}`
+        : `in the ${ordinal(planetHouse)} house`;
+      const planetNote = {
+        Rahu:    'sudden gains and unexpected windfalls (high risk; manage greed)',
+        Mercury: 'trading, business acumen, and short-term speculative profits',
+        Mars:    'risk-taking and aggressive investments (caution: can also trigger losses)',
+      }[planet];
+      reasons.push(
+        `${planet} Mahadasha (${placeNote}) — Dasha.docx flags it as one of the best mahadashas for speculation: ${planetNote}.`,
+      );
+    } else if (dignity !== 'debilitated') {
+      // Speculation-friendly MD planet but not well-placed → don't promote
+      // but note why we didn't.
+      warnings.push(
+        `${planet} Mahadasha is normally good for speculation, but here ${planet} is in the ${ordinal(planetHouse)} house and not in own / exalted / 2-5-8-11 — Dasha.docx requires "well-placed" for the period to deliver.`,
+      );
+    }
+  }
+
+  // Rule D2 — Specific MD–AD speculation pairs (Mercury–Sun,
+  // Jupiter–Venus, Venus–Mercury). Only fires when we know the parent
+  // (i.e. when evaluating an AD inside a known MD).
+  if (parentPlanet && level === 'antardasha') {
+    const pairs = FAVORABLE_MD_AD_PAIRS[parentPlanet] || [];
+    for (const pair of pairs) {
+      if (pair.ad === planet) {
+        reasons.push(
+          `${parentPlanet}–${planet} antardasha — Dasha.docx flags this pair as favorable for ${pair.label}.`,
+        );
+      }
+    }
+  }
+
+  // Rule D3 — Dignity bonus. Exalted / own-sign placement gets an extra
+  // confidence reason (only attached when other positives have already
+  // fired, so a generic exaltation alone doesn't auto-favor an otherwise
+  // unrelated period).
+  if (reasons.length > 0) {
+    if (dignity === 'exalted') {
+      reasons.push(
+        `Bonus: ${planet} is exalted in ${planetSign} — peak strength amplifies the dasha's results (Dasha.docx: "well-placed" planet rule).`,
+      );
+    } else if (dignity === 'own') {
+      reasons.push(
+        `Bonus: ${planet} is in its own sign ${planetSign} — strong, stable expression (Dasha.docx: "well-placed" planet rule).`,
+      );
+    }
+  }
+
   // Period is "favorable" if at least one positive reason fired. Warnings
   // alone (without any positives) keep favorable=false so the UI doesn't
   // green-light a clearly cautious period.
@@ -278,10 +420,24 @@ function planetMap(natalPlanets) {
  * Annotate a list of dasha periods with investment favorability. Each
  * input period must carry { planet, startDate, endDate }. Returns a new
  * array — does not mutate the inputs.
+ *
+ * @param {Array} periods - List of { planet, startDate, endDate }.
+ * @param {Object} natalMap - From `planetMap(natalPlanets)`.
+ * @param {Object} [opts]
+ * @param {string} [opts.parentPlanet] - Dasha lord one level up (MD when
+ *   annotating ADs, AD when annotating PDs, PD when annotating SDs). Lets
+ *   the MD–AD pair rule fire on AD lists.
+ * @param {string} [opts.level] - 'mahadasha' | 'antardasha' | 'pratyantardasha'
+ *   | 'sookshmadasha'. Drives level-specific rules (Mahadasha speculation
+ *   list, MD–AD pairs).
  */
-function annotatePeriods(periods, natalMap) {
+function annotatePeriods(periods, natalMap, opts = {}) {
+  const { parentPlanet, level } = opts;
   return (periods || []).map(p => {
-    const evalResult = evaluatePeriodForInvestment(p.planet, natalMap);
+    const evalResult = evaluatePeriodForInvestment(p.planet, natalMap, {
+      parentPlanet,
+      level,
+    });
     return {
       planet: p.planet,
       startDate: p.startDate instanceof Date ? p.startDate.toISOString() : p.startDate,
@@ -293,9 +449,32 @@ function annotatePeriods(periods, natalMap) {
   });
 }
 
+/**
+ * Annotate a single period (e.g. the active MD / AD / PD / SD) — same
+ * shape as annotatePeriods entries. Returns null when `period` is null.
+ */
+function annotatePeriod(period, natalMap, opts = {}) {
+  if (!period) return null;
+  const evalResult = evaluatePeriodForInvestment(period.planet, natalMap, opts);
+  return {
+    planet: period.planet,
+    startDate: period.startDate instanceof Date
+      ? period.startDate.toISOString()
+      : period.startDate,
+    endDate: period.endDate instanceof Date
+      ? period.endDate.toISOString()
+      : period.endDate,
+    favorable: evalResult.favorable,
+    reasons: evalResult.reasons,
+    warnings: evalResult.warnings,
+  };
+}
+
 module.exports = {
   evaluatePeriodForInvestment,
   annotatePeriods,
+  annotatePeriod,
   ownedHouseNumbers,
+  planetDignity,
   planetMap,
 };
