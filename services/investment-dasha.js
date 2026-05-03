@@ -174,47 +174,6 @@ function houseLord(lagnaSign, n) {
   return SIGN_RULERS[sign] || null;
 }
 
-/** Sign that is `n` houses from `lagnaSign` (1-indexed; 1 = lagna sign). */
-function signAtHouse(lagnaSign, n) {
-  if (!lagnaSign) return null;
-  const idx = signIndex(lagnaSign);
-  if (idx < 0) return null;
-  return SIGNS[(idx + (n - 1) + 12) % 12];
-}
-
-const MALEFICS = new Set(['Saturn', 'Mars', 'Rahu', 'Ketu']);
-
-/**
- * Papakartari Yoga ("structural strangulation") for a given house —
- * fires when the immediately PRECEDING and FOLLOWING houses are both
- * occupied by malefics (Saturn / Mars / Rahu / Ketu). Classical Vedic
- * reading: the house's significations are "hemmed in" — the wealth
- * (h2) or gains (h11) flow gets choked even when the chart looks
- * otherwise favorable.
- *
- * Returns { prevMalefic, nextMalefic, prevHouse, nextHouse } describing
- * the trapping malefics, or null if the house is not papakartari.
- */
-function papakartariFor(houseNum, natalMap, lagnaSign) {
-  if (!lagnaSign || houseNum < 1 || houseNum > 12) return null;
-  const prevHouseNum = houseNum === 1 ? 12 : houseNum - 1;
-  const nextHouseNum = houseNum === 12 ? 1 : houseNum + 1;
-  const prevSign = signAtHouse(lagnaSign, prevHouseNum);
-  const nextSign = signAtHouse(lagnaSign, nextHouseNum);
-  let prevMalefic = null;
-  let nextMalefic = null;
-  for (const name of MALEFICS) {
-    const p = natalMap[name];
-    if (!p?.sign) continue;
-    if (p.sign === prevSign) prevMalefic = prevMalefic || name;
-    if (p.sign === nextSign) nextMalefic = nextMalefic || name;
-  }
-  if (prevMalefic && nextMalefic) {
-    return { prevMalefic, nextMalefic, prevHouse: prevHouseNum, nextHouse: nextHouseNum };
-  }
-  return null;
-}
-
 // ── Aspect helpers (Vedic graha drishti) ──────────────────────────────
 // Each planet aspects the 7th from itself; Mars also 4th and 8th,
 // Jupiter 5th and 9th, Saturn 3rd and 10th, and (per Brihat Parashara)
@@ -287,17 +246,15 @@ function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
   const owned = ownedHouseNumbers(planet, lagnaSign);
   const dignity = planetDignity(planet, planetSign);
 
-  // ── Debilitation: soft penalty (per AMZN backtest feedback) ────────
-  // Previously a hard-stop that auto-failed every dasha of a debilitated
-  // planet — too binary. Many real charts have a debilitated benefic
-  // (e.g. Amazon's Jupiter in Capricorn) and still show positive
-  // outcomes during those periods. Treat debilitation as a warning that
-  // suppresses the dignity-bonus reason but does not cancel other
-  // positives outright.
+  // ── Hard-stop rule from Dasha.docx ──────────────────────────────────
+  // Debilitated dasha lord — kills positive favorability. Doc states the
+  // results are positive ONLY if the planet is well-placed; debilitation
+  // = no positives, surface as a warning instead.
   if (dignity === 'debilitated') {
     warnings.push(
-      `${planet} is debilitated in ${planetSign} — Dasha.docx: results are weakened; positives need to outweigh this caveat.`,
+      `${planet} is debilitated in ${planetSign} — Dasha.docx: dasha results require a well-placed planet, debilitation negates speculation gains.`,
     );
+    return { favorable: false, reasons, warnings };
   }
 
   // ── Conservative-mode flags ─────────────────────────────────────────
@@ -313,21 +270,10 @@ function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
     : '';
 
   // Rule 1 — Best timing: lord of 5th or 11th house always counts.
-  // 8L lordship is gated to the strict SuddenGainSigns reading (only
-  // when 8L is placed in 2nd or 11th house).
-  //
-  // CRITICAL OVERRIDE: when the lord of 5/9/11 sits in the 12th house,
-  // the lordship positive is CANCELLED — classical "lord-in-12" is a
-  // wealth-loss combination, not "favorable with caveat". This is the
-  // AMZN-backtest fix: Amazon's Venus is 5L in own Taurus (12th); the
-  // old code rated it favorable due to 3 positives. With cancellation,
-  // Venus dashas during Amazon's first decade now read as cautious.
-  const inTwelfth = planetHouse === 12;
-  const blockedByTwelfth = owned.filter(h => [5, 9, 11].includes(h));
-  const lordIn12 = inTwelfth && blockedByTwelfth.length > 0;
-
+  // 8L lordship is gated to the strict SuddenGainSigns reading: only
+  // counts when 8L is placed in 2nd or 11th house (8L sitting in its
+  // own 8th, or in any other house, is too dual-edged to flag green).
   const ownedKey = owned.filter(h => {
-    if (lordIn12 && [5, 11].includes(h)) return false; // suppress when in 12
     if (h === 8) return [2, 11].includes(planetHouse);
     return [5, 11].includes(h);
   });
@@ -335,12 +281,6 @@ function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
     const labels = ownedKey.map(h => `${ordinal(h)} (${HOUSE_KEY_LABEL[h]})`);
     reasons.push(
       `${planet} is lord of the ${labels.join(' and ')} house — the classical "best-timing" lordship for investment / speculation.`,
-    );
-  }
-  if (lordIn12) {
-    const lordList = blockedByTwelfth.map(h => `${ordinal(h)} lord`).join(' / ');
-    warnings.push(
-      `${planet} (${lordList}) in the 12th house — classical wealth-loss combination; OVERRIDES the lordship positive.`,
     );
   }
   // Surface 8L's location explicitly when not in 2/11 so the user knows
@@ -473,34 +413,15 @@ function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
       `Rahu in the 2nd house — money may arrive fast but leaves faster (high volatility / over-leverage risk).`,
     );
   }
-  // (5L / 9L / 11L in 12th warning is emitted up at the lordship rule —
-  // see the lordIn12 branch — so it can also cancel the lordship
-  // positive. We don't re-emit here.)
-
-  // ── Papakartari Yoga (structural strangulation) ────────────────────
-  // Fires when h2 (wealth) or h11 (gains) is hemmed in by malefics in
-  // the houses immediately on either side. We gate the warning to
-  // dasha lords whose period would amplify the strangulation:
-  //   • 2L / 11L periods (the lord's own period activates its house)
-  //   • A planet placed in h2 or h11 (its dasha activates the house
-  //     where it sits)
-  // Outside those, papakartari is structural drag but not specifically
-  // active right now, so we stay silent to avoid noise.
-  for (const targetHouse of [2, 11]) {
-    const yoga = papakartariFor(targetHouse, natalMap, lagnaSign);
-    if (!yoga) continue;
-    const isLordOfTarget = owned.includes(targetHouse);
-    const isPlacedInTarget = planetHouse === targetHouse;
-    if (!isLordOfTarget && !isPlacedInTarget) continue;
-    const houseLabel = targetHouse === 2 ? '2nd house (wealth)' : '11th house (gains)';
-    const role = isLordOfTarget && isPlacedInTarget
-      ? `lord of, and placed in, the ${houseLabel}`
-      : isLordOfTarget
-        ? `lord of the ${houseLabel}`
-        : `placed in the ${houseLabel}`;
-    warnings.push(
-      `Papakartari Yoga on the ${houseLabel} — hemmed in by ${yoga.prevMalefic} (${ordinal(yoga.prevHouse)}) and ${yoga.nextMalefic} (${ordinal(yoga.nextHouse)}). ${planet} is ${role}, so this period feels the strangulation: profits delayed or eaten by friction (taxes, fees, slippage).`,
-    );
+  // 5L / 9L / 11L in 12th — heavy losses risk.
+  if (planetHouse === 12) {
+    const offendingLordships = owned.filter(h => [5, 9, 11].includes(h));
+    if (offendingLordships.length > 0) {
+      const lordList = offendingLordships.map(h => `${ordinal(h)} lord`).join(' / ');
+      warnings.push(
+        `${planet} (${lordList}) in the 12th house — classical loss combination; cap position sizes.`,
+      );
+    }
   }
   // ── Article-sourced combination rules (jyotishlight + explogalore) ──
   // These fire for any dasha level; the planet under evaluation must be
@@ -746,124 +667,6 @@ function annotatePeriods(periods, natalMap, opts = {}) {
 }
 
 /**
- * Transit overlay: given the native's natal chart and current transit
- * planet positions, returns extra reasons / warnings that depend on
- * where slow malefics (Saturn, Rahu, Ketu) and Jupiter are *right now*.
- * The dasha-only model is fixed at birth and cannot distinguish bull
- * from bear regimes — this layer is the missing transit dimension.
- *
- * Rules implemented:
- *   • Saturn transiting natal 4th / 8th / 12th — Sade-Sati / Ashtam
- *     Shani style affliction → warning.
- *   • Saturn transiting natal 3rd / 6th / 11th (upachayas) — favorable
- *     for steady, disciplined gains → reason.
- *   • Jupiter transiting natal 2nd / 5th / 9th / 11th — Guru's grace
- *     on wealth/speculation/fortune houses → reason.
- *   • Rahu transiting over natal Moon (same sign) — emotional impulse,
- *     panic-trading risk → warning.
- *   • Ketu transiting over natal Venus (same sign) — SuddenGainSigns
- *     "speculation losses" rule → warning.
- *
- * Caller passes the array of transit planets returned by the kerykeion
- * bridge (each carrying `name` + `sign`). Lagna sign is read from the
- * natalMap. Returns { reasons: [], warnings: [] } — empty when transit
- * data is missing rather than throwing.
- */
-function evaluateTransitOverlay(natalMap, transitPlanets) {
-  const reasons = [];
-  const warnings = [];
-  if (!Array.isArray(transitPlanets) || transitPlanets.length === 0) {
-    return { reasons, warnings };
-  }
-  const lagnaSign = natalMap?.Ascendant?.sign;
-  if (!lagnaSign) return { reasons, warnings };
-
-  const transitMap = Object.fromEntries(
-    transitPlanets.filter(p => p && p.name).map(p => [p.name, p]),
-  );
-  const lagnaIdx = signIndex(lagnaSign);
-  const transitHouse = (sign) => {
-    const idx = signIndex(sign);
-    if (idx < 0 || lagnaIdx < 0) return null;
-    return ((idx - lagnaIdx + 12) % 12) + 1;
-  };
-
-  // Saturn transit
-  const tSat = transitMap.Saturn;
-  if (tSat?.sign) {
-    const h = transitHouse(tSat.sign);
-    if ([4, 8, 12].includes(h)) {
-      warnings.push(
-        `TRANSIT: Saturn currently in the ${ordinal(h)} house from natal lagna — Sade-Sati / Ashtam-Shani style affliction; expect contractions and reduced speculation gains during this window.`,
-      );
-    } else if ([3, 6, 11].includes(h)) {
-      reasons.push(
-        `TRANSIT: Saturn currently in the ${ordinal(h)} house (upachaya) — favorable for steady, disciplined gains.`,
-      );
-    }
-  }
-
-  // Jupiter transit
-  const tJup = transitMap.Jupiter;
-  if (tJup?.sign) {
-    const h = transitHouse(tJup.sign);
-    if ([2, 5, 9, 11].includes(h)) {
-      reasons.push(
-        `TRANSIT: Jupiter currently in the ${ordinal(h)} house — Guru blesses the wealth/speculation/fortune axis; expansion phase.`,
-      );
-    }
-  }
-
-  // Rahu over natal Moon — panic / impulsivity
-  const tRahu = transitMap.Rahu;
-  const nMoon = natalMap.Moon;
-  if (tRahu?.sign && nMoon?.sign && tRahu.sign === nMoon.sign) {
-    warnings.push(
-      `TRANSIT: Rahu currently transiting over natal Moon — emotional impulsivity / panic-trading risk; reduce position sizes.`,
-    );
-  }
-
-  // Ketu over natal Venus — SuddenGainSigns rule
-  const tKetu = transitMap.Ketu;
-  const nVenus = natalMap.Venus;
-  if (tKetu?.sign && nVenus?.sign && tKetu.sign === nVenus.sign) {
-    warnings.push(
-      `TRANSIT: Ketu currently transiting over natal Venus — SuddenGainSigns: speculation losses risk in this window.`,
-    );
-  }
-
-  return { reasons, warnings };
-}
-
-/**
- * Detect Ashtama Shani — the surgical version of Saturn-transit
- * malefic-house warnings. Classical reading: when transit Saturn sits
- * in the 8th house FROM THE NATAL MOON, it generates intense pressure,
- * hidden obstacles, and "right on direction but wrong on timing"
- * outcomes for trades. Far more specific than the previous "Saturn in
- * 4/8/12 from lagna" overlay (which fired too often and was reverted).
- *
- * Saturn spends ~2.5 years per sign so this rule activates roughly
- * once per ~30-year orbit. Returns a warning string or null.
- */
-function detectAshtamaShani(natalMap, transitPlanets) {
-  if (!Array.isArray(transitPlanets)) return null;
-  const tSat = transitPlanets.find(p => p && p.name === 'Saturn');
-  const moon = natalMap?.Moon;
-  if (!tSat?.sign || !moon?.sign) return null;
-  const moonIdx = signIndex(moon.sign);
-  const satIdx = signIndex(tSat.sign);
-  if (moonIdx < 0 || satIdx < 0) return null;
-  const houseFromMoon = ((satIdx - moonIdx + 12) % 12) + 1;
-  if (houseFromMoon !== 8) return null;
-  return (
-    `TRANSIT: Saturn currently in the 8th house from natal Moon (Ashtama Shani / Chandra-Ashtama) — ` +
-    `intense pressure, hidden obstacles, and "right on direction but wrong on timing" risk. ` +
-    `Stops are likely to get hit just before the trade goes your way; size cautiously and avoid leverage.`
-  );
-}
-
-/**
  * Annotate a single period (e.g. the active MD / AD / PD / SD) — same
  * shape as annotatePeriods entries. Returns null when `period` is null.
  */
@@ -888,9 +691,6 @@ module.exports = {
   evaluatePeriodForInvestment,
   annotatePeriods,
   annotatePeriod,
-  evaluateTransitOverlay,
-  detectAshtamaShani,
-  papakartariFor,
   ownedHouseNumbers,
   planetDignity,
   planetMap,

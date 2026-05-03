@@ -13,7 +13,7 @@ console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 
 const { generateReading } = require('../services/gemini');
 const { computeDashaAtDate, computeDashaRange, getNakshatra } = require('../services/dasha');
-const { annotatePeriods, annotatePeriod, detectAshtamaShani, planetMap } = require('../services/investment-dasha');
+const { annotatePeriods, annotatePeriod, planetMap } = require('../services/investment-dasha');
 const { calculateEssenceCycle } = require('../services/essence-cycle');
 const { getYearlySummary } = require('../services/varshaphal');
 const { getMonthlyPrediction } = require('../services/monthly-prediction');
@@ -1074,18 +1074,16 @@ router.post('/dasha', async (req, res) => {
     const tz = resolveTimezoneOrRespond(timezone, res);
     if (!tz.ok) return;
 
-    // Fetch natal chart + transit positions for the query date so we
-    // can apply ONE specific transit rule — Ashtama Shani (Saturn in
-    // 8th from natal Moon). The earlier blanket transit overlay was
-    // reverted (too noisy), but this surgical rule is well-validated
-    // in classical Vedic financial-astrology and only fires ~2.5 years
-    // every ~30 years per native, so it's not noisy.
+    // Fetch natal chart only — the transit overlay was empirically
+    // unhelpful on AMZN/SPX backtests (~40% accuracy, no better than
+    // baseline) so we no longer pass transitDate or compute transits
+    // here. The natal-only dasha is what the docs actually validate.
     const dateStr = transitDate
       ? new Date(transitDate).toISOString().substring(0, 10)
       : new Date().toISOString().substring(0, 10);
-    const { natalPlanets, transitPlanets } = await astrologyService.getNatalTransits(
+    const { natalPlanets } = await astrologyService.getNatalTransits(
       { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
-      dateStr,
+      null,
     );
     // natalPlanets are already in sidereal (Lahiri) coordinates, so fullDegree
     // is the sidereal absolute longitude we need for nakshatra lookup.
@@ -1143,21 +1141,11 @@ router.post('/dasha', async (req, res) => {
       level: 'sookshmadasha',
     });
 
-    // Surgical transit overlay — only Ashtama Shani (Saturn in 8th
-    // from natal Moon). Applied to the active MD/AD/PD/SD as an
-    // additional warning when present. Sub-period lists are NOT
-    // overlaid because their windows would see different transit
-    // positions; the overlay is a "right now" signal.
-    const ashtamaWarning = detectAshtamaShani(natalMap, transitPlanets);
-    const applyAshtamaShani = (annotated) => {
-      if (!annotated || !ashtamaWarning) return annotated;
-      const warnings = [...annotated.warnings, ashtamaWarning];
-      return {
-        ...annotated,
-        warnings,
-        favorable: annotated.reasons.length > warnings.length,
-      };
-    };
+    // (Transit overlay was tested empirically against AMZN and S&P 500
+    // milestones and added ~zero accuracy lift — natal-only dasha is
+    // what we ship. The evaluateTransitOverlay function is still
+    // exported from investment-dasha.js for potential future use, but
+    // /api/dasha intentionally does not call it.)
 
     res.json({
       date: dateStr,
@@ -1168,25 +1156,25 @@ router.post('/dasha', async (req, res) => {
       // the human-readable mahadasha text.
       mahadasha: mergePeriod(
         fmt(result.mahadasha, mdDesc),
-        applyAshtamaShani(annotatePeriod(result.mahadasha, natalMap, { level: 'mahadasha' })),
+        annotatePeriod(result.mahadasha, natalMap, { level: 'mahadasha' }),
       ),
       antardasha: mergePeriod(
         fmt(result.antardasha, adDesc),
-        applyAshtamaShani(annotatePeriod(result.antardasha, natalMap, {
+        annotatePeriod(result.antardasha, natalMap, {
           parentPlanet: mdPlanet, level: 'antardasha',
-        })),
+        }),
       ),
       pratyantardasha: mergePeriod(
         fmt(result.pratyantardasha, pdDesc),
-        applyAshtamaShani(annotatePeriod(result.pratyantardasha, natalMap, {
+        annotatePeriod(result.pratyantardasha, natalMap, {
           parentPlanet: adPlanet, level: 'pratyantardasha',
-        })),
+        }),
       ),
       sookshmadasha: mergePeriod(
         fmt(result.sookshmadasha, ''),
-        applyAshtamaShani(annotatePeriod(result.sookshmadasha, natalMap, {
+        annotatePeriod(result.sookshmadasha, natalMap, {
           parentPlanet: pdPlanet, level: 'sookshmadasha',
-        })),
+        }),
       ),
       // ALL sub-periods, each carrying its favorable / reasons / warnings
       // tag — so the UI can color-code good (green) vs cautious (amber)
