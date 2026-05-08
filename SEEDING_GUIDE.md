@@ -228,6 +228,18 @@ non-empty for a chart whose ascendant is fully seeded.
 | Chart | Ascendant | Career | Relationship | Advice | Food |
 |---|---|:-:|:-:|:-:|:-:|
 | 1991-09-13 15:30 PH (UTC+8) | Capricorn | ✅ 530 | ✅ ~720 (extended) | ✅ 530 | ✅ 530 |
+| Synthetic representative chart | Cancer | ✅ 529 | ✅ 529 | ✅ 529 | ✅ 529 |
+
+The Cancer rows above were authored against a synthetic representative natal
+chart (no birth data — the user opted to skip the kerykeion run and target a
+canonical Cancer ascendant). Natal placements used:
+
+- Sun=3rd (Virgo), Moon=2nd (Leo), Mercury=3rd (Virgo), Venus=4th (Libra, own),
+  Mars=7th (Capricorn, exalted yogakaraka), Jupiter=6th (Sagittarius, own),
+  Saturn=8th (Aquarius, own), Rahu=9th (Pisces), Ketu=3rd (Virgo).
+
+Generator: [`db/_generate_cancer_seeds.js`](db/_generate_cancer_seeds.js).
+Seed runners: `db/seed_{career,relationship,food,advice}_cancer.js`.
 
 Add new rows here as you complete each ascendant × lens combination.
 
