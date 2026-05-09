@@ -230,6 +230,7 @@ non-empty for a chart whose ascendant is fully seeded.
 | 1991-09-13 15:30 PH (UTC+8) | Capricorn | ✅ 530 | ✅ ~720 (extended) | ✅ 530 | ✅ 530 |
 | Synthetic representative chart | Cancer | ✅ 529 | ✅ 529 | ✅ 529 | ✅ 529 |
 | Synthetic representative chart | Aries | ✅ 530 | ✅ 530 | ✅ 530 | ✅ 530 |
+| Synthetic representative chart | Taurus | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 |
 
 The Cancer rows above were authored against a synthetic representative natal
 chart (no birth data — the user opted to skip the kerykeion run and target a
@@ -255,6 +256,20 @@ Generator: [`db/_generate_aries_seeds.js`](db/_generate_aries_seeds.js).
 Per-lens fills: `db/_aries_{career,relationship,food,advice}.js` are flat
 `name → description` maps; `db/_fill_aries.js` patches them into the seed
 files. Seed runners: `db/seed_{career,relationship,food,advice}_aries.js`.
+
+The Taurus rows were authored against a synthetic representative chart with
+three Mahapurusha Yogas (Malavya Venus-1H, Ruchaka Mars-7H, Sasa Saturn-10H),
+plus exalted Mercury in own-sign Virgo 5H and four further own-sign placements:
+
+- Sun=4th (Leo, own), Moon=3rd (Cancer, own), Mercury=5th (Virgo, own+exalted),
+  Venus=1st (Taurus, own — Malavya Yoga), Mars=7th (Scorpio, own — Ruchaka Yoga),
+  Jupiter=11th (Pisces, own), Saturn=10th (Aquarius, own — Sasa Yoga, yogakaraka),
+  Rahu=8th (Sagittarius), Ketu=2nd (Gemini).
+
+Generator: [`db/_generate_taurus_seeds.js`](db/_generate_taurus_seeds.js).
+Per-lens fills: `db/_taurus_{career,relationship,food,advice}.js` are flat
+`name → description` maps; `db/_fill_taurus.js` patches them into the seed
+files. Seed runners: `db/seed_{career,relationship,food,advice}_taurus.js`.
 
 Authoring rule (added per user feedback during Aries authoring): never lead a
 description with an astrology-jargon preamble like "Your 5th lord Sun sits
