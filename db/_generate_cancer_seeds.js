@@ -35,20 +35,20 @@ const SIGN_LORD = {
   Capricorn: 'Saturn', Aquarius: 'Saturn', Pisces: 'Jupiter',
 };
 
-// Representative Cancer ascendant native — natal chart
-// Choices favor a strong, archetypal Cancer chart with Mars-exalted-7H
-// yogakaraka, own-sign Jupiter in 6H, own-sign Saturn in 8H, Sun-Mercury-Ketu
-// cluster in Virgo-3H, Venus own-sign in 4H, Moon Leo-2H.
+// Representative Cancer ascendant native — natal chart for the user's
+// friend: Jupiter exalted in Cancer 1st house (Hamsa yoga), Mars exalted
+// in Capricorn 7th, own-sign Saturn in 8th, Sun-Mercury-Ketu cluster in
+// Virgo 3rd, Venus own-sign in 4th, Moon in Leo 2nd.
 const NATAL = {
-  Sun:     { sign: 'Virgo',       house: 3 },
-  Moon:    { sign: 'Leo',         house: 2 },
-  Mercury: { sign: 'Virgo',       house: 3 },
-  Venus:   { sign: 'Libra',       house: 4 },
-  Mars:    { sign: 'Capricorn',   house: 7 },  // exalted
-  Jupiter: { sign: 'Sagittarius', house: 6 },  // own sign
-  Saturn:  { sign: 'Aquarius',    house: 8 },  // own sign
-  Rahu:    { sign: 'Pisces',      house: 9 },
-  Ketu:    { sign: 'Virgo',       house: 3 },
+  Sun:     { sign: 'Virgo',     house: 3 },
+  Moon:    { sign: 'Leo',       house: 2 },
+  Mercury: { sign: 'Virgo',     house: 3 },
+  Venus:   { sign: 'Libra',     house: 4 },
+  Mars:    { sign: 'Capricorn', house: 7 },  // exalted
+  Jupiter: { sign: 'Cancer',    house: 1 },  // EXALTED — Hamsa yoga
+  Saturn:  { sign: 'Aquarius',  house: 8 },  // own sign
+  Rahu:    { sign: 'Pisces',    house: 9 },
+  Ketu:    { sign: 'Virgo',     house: 3 },
 };
 
 const PLANETS = ['Sun','Moon','Mercury','Venus','Mars','Jupiter','Saturn','Rahu','Ketu'];
@@ -182,13 +182,13 @@ function emitSeed(area) {
   const header = `// db/seed_${area}_cancer.js
 //
 // Per-ascendant fill-in seed for the **${area}** category, scoped to a
-// representative Cancer ascendant native with:
+// representative Cancer ascendant native with Jupiter exalted in 1st (Hamsa):
 //   Ascendant: Cancer
 //   Natal placements (sidereal Lahiri):
-//     Sun=3rd (Virgo)  Moon=2nd (Leo)  Mercury=3rd (Virgo)
+//     Jupiter=1st (Cancer, EXALTED — Hamsa yoga)
+//     Moon=2nd (Leo)  Sun=3rd (Virgo)  Mercury=3rd (Virgo)  Ketu=3rd (Virgo)
 //     Venus=4th (Libra, own)  Mars=7th (Capricorn, exalted)
-//     Jupiter=6th (Sagittarius, own)  Saturn=8th (Aquarius, own)
-//     Rahu=9th (Pisces)  Ketu=3rd (Virgo)
+//     Saturn=8th (Aquarius, own)  Rahu=9th (Pisces)
 //
 // All ${total} events below are the ones the kerykeion engine could emit for
 // this user across any transitDate. Fill in the \`description\` strings as

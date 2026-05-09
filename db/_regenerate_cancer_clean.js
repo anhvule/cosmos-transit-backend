@@ -12,11 +12,12 @@
 // planet themes encode this chart's actual placements:
 //
 //   Asc=Cancer (water/cardinal, Moon-ruled, Kapha-Pitta sensitive)
-//   Sun=3H + Mercury=3H + Ketu=3H (Virgo) — analytical editor cluster
+//   Jupiter=1H (Cancer, EXALTED) — Hamsa yoga; wisdom on the body, magnetic
+//                                   benevolence, expansive identity
 //   Moon=2H (Leo)  — passionate vocal/family-finance
+//   Sun=3H + Mercury=3H + Ketu=3H (Virgo) — analytical editor cluster
 //   Venus=4H (Libra, own) — beautiful home, mother as mentor
 //   Mars=7H (Capricorn, exalted) — disciplined partner is THE career engine
-//   Jupiter=6H (Sagittarius, own) — service-with-wisdom, healing/legal
 //   Saturn=8H (Aquarius, own)  — slow structural transformation, longevity
 //   Rahu=9H (Pisces) — foreign-spiritual obsession
 //
@@ -36,7 +37,7 @@ const NATAL_THEMES = {
   Mercury: { house: 3, theme: 'the precision mind — analytical writing, peer communication, hands-on craft' },
   Venus:   { house: 4, theme: 'the home as harmony engine — beautiful spaces, mother-as-mentor, family foundation' },
   Mars:    { house: 7, theme: 'the disciplined partner — your central career engine, where deals and structure converge' },
-  Jupiter: { house: 6, theme: 'service-with-wisdom — healing, legal, and dharmic care for clients and team' },
+  Jupiter: { house: 1, theme: 'wisdom-on-the-body — exalted expansive grace, the benevolent identity people instinctively trust' },
   Saturn:  { house: 8, theme: 'slow structural transformation — longevity, regulatory mastery, joint resources' },
   Rahu:    { house: 9, theme: 'the foreign-spiritual pull — unconventional mentors, cross-cultural pull' },
   Ketu:    { house: 3, theme: 'analytical detachment — solo deep work, dharmic distance from peer politics' },
@@ -46,10 +47,10 @@ const NATAL_THEMES = {
 // dynamic in that house. Empty houses get framing through their lord.
 const HOUSE_THEMES = {
   1: {
-    career: 'self-presentation and public face. Identity at work is fused with voice, family wealth, and the warmth of being heard',
-    relationship: 'how you show up in love and presence. Identity is wired into family-table warmth',
-    food: 'body, appetite, and how you eat. Cancer body is sensitive; warm, cooked, lightly spiced food is your baseline',
-    advice: 'self, body, public face. Identity here is wired into voice and family',
+    career: 'self-presentation, body, and public face. Wisdom-on-the-body lives here — magnetic benevolence, expansive identity that earns trust before words',
+    relationship: 'how you show up in love and presence. Wisdom and grace are encoded into your identity; people relax around you',
+    food: 'body, appetite, and how you eat. Cancer body is sensitive but blessed — the wisdom-current here naturally guides you to right food',
+    advice: 'self, body, public face. Your blessed identity is your asset; trust the inherent wisdom',
   },
   2: {
     career: 'income, voice, and family wealth. Your salary is paid for what you say, write, and present — speech is the channel',
@@ -76,10 +77,10 @@ const HOUSE_THEMES = {
     advice: 'creativity, romance, children, calculated risk. Channel through partnerships',
   },
   6: {
-    career: 'service, daily work, conflicts, debt, health. Your service-with-wisdom domain — teaching, healing, legal, regulatory',
-    relationship: 'caretaking, daily logistics, conflict resolution. Daily-service is your love language',
-    food: 'daily diet, supplements, gut health. Robust digestion blessed with healing wisdom',
-    advice: 'service, daily work, conflicts, health. Serve the hard problem with principle',
+    career: 'service, daily work, conflicts, debt, health. The service zone is ruled by your wisdom-current — service flows from your blessed identity',
+    relationship: 'caretaking, daily logistics, conflict resolution. Service emanates from your blessed identity; you give from a full cup',
+    food: 'daily diet, supplements, gut health. Digestion is supported by the inherent wisdom you carry',
+    advice: 'service, daily work, conflicts, health. Service flows naturally from your blessed self',
   },
   7: {
     career: 'partnerships, contracts, deals. The CENTRAL career engine — the disciplined partner brings structural rigor',
@@ -144,10 +145,10 @@ const RULERS = {
     'Mercury ruler of the 3rd House in the 3rd House':    'Peak natural intelligence for effort, communication, peer leadership, and courage — the engine of your career execution. The documents you write, the systems you design, the messages you send move careers (yours and others). Younger colleagues, technical peers, and hands-on operators are your principal channel. Industries: technical writing, software, sales, teaching, research, editing, journalism, analytics. Promotions arrive through the report nobody else dared write. The shadow: pedantic over-correction; deploy precision on the right problem and forgive the small errors of others.',
     'Venus ruler of the 4th House in the 4th House':      'Career flourishes when home and office are aesthetically aligned — a beautiful workspace is not luxury but infrastructure. Mother figures and female mentors carry the seed of your career fortune; their unsolicited advice routinely tilts trajectory. Real estate, design, hospitality, family business, education, fashion, and mediation are natural domains. Relocating to a city or neighborhood that feels right produces the next decade\'s biggest career jump. Female colleagues and clients are persistent agents of fortune.',
     'Mars ruler of the 5th House in the 7th House':       'Speculative and creative intelligence sits in the partnership zone with Saturn-like discipline. Creative output that pays best is co-authored: client briefs, partner-driven advisory, deal-structured creative work. Children of clients and mentees raised inside deals reciprocate years later. Speculation is favored only when partnered with disciplined counterparties — solo gambling fails. The major partnership in your life is also your major creative collaborator. Investment work, board advisory, and creative consultancy thrive.',
-    'Jupiter ruler of the 6th House in the 6th House':    'Built to win in service-as-domain: teaching, healing, legal advocacy, debt-recovery, regulatory work, judicial advisory. Conflicts at work resolve in your favor when fought on principle, not on emotion. Excellent expert witness, ombudsman, code-of-conduct guardian. Co-workers and subordinates flourish under your guidance. Health expands too — you are healthier than peers because the wisdom-current here exalts itself. The shadow: over-extending into other people\'s problems; learn the difference between principled service and martyr-rescue.',
+    'Jupiter ruler of the 6th House in the 1st House':    'Service flows out of your blessed identity — you ARE the teacher, healer, legal counsel, ombudsman; the work emanates rather than being performed. Co-workers, juniors, difficult clients all sense the inherent benevolence and bring their problems to you. Industries: teaching, healing, law, judicial work, regulatory advisory, healthcare, coaching, expert witness. Conflicts at work resolve in your favor when fought on principle. Health is exceptional because the wisdom-current is in your body itself. The shadow: rescuing others until you collapse; learn that your magnetic field already serves people without you over-giving.',
     'Saturn ruler of the 7th House in the 8th House':     'Partnership karma is wired through the transformation chamber. Long, structurally permanent business unions; counterparties tend to be older, slow, established, regulated. Deals close after extreme due-diligence, never in heat. Industries: insurance, succession, taxation, mergers and acquisitions, regulatory partnerships, infrastructure consortia. Every contract that ends violently leaves you with more authority than before. The shadow: counterparties test your patience to the bone. Your work is to outlast them.',
     'Saturn ruler of the 8th House in the 8th House':     'Career is a series of regenerations — roles end abruptly, identities are shed, and a more authoritative version emerges each cycle. You command natural authority in chaos that paralyzes others — turnarounds, restructurings, post-merger integration, succession, intelligence operations, surgical interventions. Industries: surgery, taxation, intelligence and security, private equity, energy, mining, insurance, succession planning. Slow income from hidden sources (royalties, deferred comp, vesting) is your karma. Bosses respect that you can sit calmly in the room where the building is on fire.',
-    'Jupiter ruler of the 9th House in the 6th House':    'Higher fortune at work is routed through the service axis. Father-figure mentors arrive disguised as bosses, clients, or the senior figure you\'re forced to serve. Foreign work and higher-learning ambitions land most when packaged as service, training, or healing. Excellent for adjunct teaching, expert advisory, certification work, judicial proceedings, principled consulting. Promotions correlate with taking on the difficult-client account or the regulatory-compliance assignment — they look like burdens; they are blessings.',
+    'Jupiter ruler of the 9th House in the 1st House':    'Dharma, higher learning, foreign engagements, and mentor-status are all wired directly into your identity. You are the born teacher / guru-figure others come to without being asked. Foreign work flows naturally because your presence translates across cultures. Father-figure mentors recognize you instantly as one of their own. Industries: teaching, philosophy, publishing, international advisory, certification, judicial work, religious or ethical leadership. Promotions arrive through people simply asking you to lead because they trust the wisdom you radiate.',
     'Mars ruler of the 10th House in the 7th House':      'This is THE central career engine of your chart — the disciplined partner-as-business-engine wired into the very top of your career arc. Career happens through deals, alliances, and disciplined contractual relationships. The spouse, business partner, or principal client is a structuring force in your professional life — older, more established, demanding, fair. Industries: structured consulting, deal-making, business development, contract law, joint ventures, infrastructure, government partnerships. Status accrues through deliverables, not flattery. Negotiate hard; firm asks are rewarded.',
     'Venus ruler of the 11th House in the 4th House':     'Gains are channeled through home, mother, real estate, and aesthetic foundation. Bonus pools, equity vesting, and gainful network expansion correlate with home stability — when the home is ordered, the income flows. Mother-figures, female mentors, and senior women in your network reliably surface the larger gains (offers, introductions, deferred comp clarifications). Industries with strong gain karma: real estate, design, family business, hospitality, education, beauty, luxury. Friendships built around the home table outpay friendships built at the bar.',
     'Mercury ruler of the 12th House in the 3rd House':   'Behind-the-scenes communication is a compounding career asset. Confidential reports, ghost-written content, foreign correspondence, NDA-bound technical writing, off-the-record briefings — these are your specialties. Foreign work routes through writing rather than relocation. Sleep-disruption around words: ideas come at night; keep a notebook by the bed. The shadow: leaks. Carelessly spoken words cost you more than carelessly written ones. Promotions sometimes arrive through a foreign manager who reads your written work in another timezone.',
@@ -158,10 +159,10 @@ const RULERS = {
     'Mercury ruler of the 3rd House in the 3rd House':    'Communication itself is your love language. The partner who can match your text wit, edit your draft, parse your sequence is the long-term match. Younger siblings, peers, and same-stage friends are central to the relational ecosystem. Excellent for relationships that begin in a shared craft or work context — co-authored projects, joint publications, debugging the same code. The shadow: editorial criticism delivered as love. Watch the line between sharpening the partner and cutting them.',
     'Venus ruler of the 4th House in the 4th House':      'This is the gold-standard placement for warm-home love. The strength of the relationship is measured by how peaceful the home feels when both partners are in it. Mother and mother-figure dynamics shape your romantic template profoundly. You need beauty in the shared space; visual disorder erodes affection. Family business, real-estate work, or hospitality work side-by-side with partner is favored. Female partners, female friends, and the mother archetype run through your love life.',
     'Mars ruler of the 5th House in the 7th House':       'Romance and partnership are inseparable from career and structure. Children of relationships, mentees, and creative collaborators all arrive through partnership channels. Speculative ventures with the partner are favored if they\'re disciplined. Romance flourishes in the structured shared project — co-founded business, joint property purchase, scheduled creative time — not in the unstructured "let\'s see how it goes" mode.',
-    'Jupiter ruler of the 6th House in the 6th House':    'Daily-service is your relationship love language. You take care of partners through the schedule, the doctor appointment, the code of honor. Conflicts in relationships resolve when you fight on principle, not on emotion. Health-care partnerships, healing work together, code-of-conduct alignments matter more than passion alone. The shadow: rescuing a partner is not loving them. Learn the line; don\'t let care collapse into self-erasure.',
+    'Jupiter ruler of the 6th House in the 1st House':    'Caretaking emanates from your blessed identity — partners, family, and friends bring their problems to you because they instinctively trust your presence. You serve naturally, without depleting (when you remember that). The right partner respects your magnetic-helper nature and doesn\'t exploit it. The shadow: rescuing a partner over decades while never asking what you need; the wisdom-current here can serve others endlessly to your own cost.',
     'Saturn ruler of the 7th House in the 8th House':     'Partnership karma routes through the transformation chamber. Marriage is structurally permanent but tested through extreme circumstances: long separations, family-of-origin reckonings, financial trials, mortality crises. What survives the test is forever. The right partner is older, slower, more established than you may expect at first. Casual relationships rarely satisfy; you need the structurally heavy bond.',
     'Saturn ruler of the 8th House in the 8th House':     'In-laws, intimacy, and shared-resources are your slow-build foundation. In-laws may be challenging but ultimately become structural support. Sexuality deepens through structured commitment; casual encounters are rarely satisfying long-term. Joint financial decisions with partner mature slowly and become permanent foundations. The 8H zone — surgery, mortality, inheritance, shared trauma — is where your bond is forged.',
-    'Jupiter ruler of the 9th House in the 6th House':    'Dharmic in-laws and father-figure mentors arrive through service contexts. The partner\'s family teaches you something fundamental about principle. Long-distance or cross-cultural relationships are favored when packaged as shared service — working together for a cause, healing project, teaching mission. The marriage that lasts decades is built on shared meaning, not shared pleasure.',
+    'Jupiter ruler of the 9th House in the 1st House':    'Cross-cultural pull, foreign-distance romance, and philosophical-shared-meaning all live wired into your identity. The partner who recognizes the inherent wisdom in you is the long-term match. The marriage that lasts is built on shared belief, shared meaning, shared spiritual orientation — not shared pleasure alone. Foreign or cross-cultural partners arrive through your magnetic teacher-presence.',
     'Mars ruler of the 10th House in the 7th House':      'Career and partner fuse into one structuring force. The spouse is older, more established, or simply more disciplined; they bring structural rigor to your career. You attract the responsible, capable, hardworking partner — the one who shows up on time and signs the contract. Soft-romance fades fast; durable-action romance lasts decades. Marriage often catalyzes the largest career step.',
     'Venus ruler of the 11th House in the 4th House':     'Social network, friends, and gainful relationships flow through home and family channels. Your closest friends become like family; they meet your mother. Gains from female friends and senior women are reliable. Friendships that start at home dinners outlast friendships that start at parties. The family table is your social and financial integrator — host generously and the network compounds.',
     'Mercury ruler of the 12th House in the 3rd House':   'Long-distance romance, written-letter intimacy, and foreign-partner dynamics are favored. Hidden conversations, foreign correspondence, and bedroom pillow-talk all share a thread. The shadow: careless words at intimate moments cost you. What is said in the bedroom reverberates beyond it; pillow-talk has karmic weight.',
@@ -172,10 +173,10 @@ const RULERS = {
     'Mercury ruler of the 3rd House in the 3rd House':    'Peak digestive intelligence sits in the precision-mind zone. You can read your gut\'s signals more accurately than most. Trust the body\'s yes or no on food more than any external nutrition rule. Best for: keeping a food journal, learning the systematic effects of each food on you, building a precise protocol. The Virgo-level precision in food digestion is your superpower if you train it. Shadow: orthorexia — rules that punish rather than serve. Stay structured but not rigid.',
     'Venus ruler of the 4th House in the 4th House':      'This is the gold-standard placement for home-cooked nourishment. Mother\'s recipes are not nostalgia — they are actual medicine for your constitution. The home kitchen IS your wellness center. Beautify the dining space; eat at a real table; protect the lunch hour. Hospitality work, family-style restaurants, and mother\'s-recipe products thrive as side income. Female mentors arrive with food wisdom.',
     'Mars ruler of the 5th House in the 7th House':       'Structured shared meals and partner-eating habits matter — eat with disciplined people; the partner\'s plate shapes yours. Speculative dietary trends backfire unless co-anchored with a disciplined counterparty. Best for: structured meal-prep with partner, scheduled couples-cooking, restaurant outings as a discipline.',
-    'Jupiter ruler of the 6th House in the 6th House':    'Wisdom-blessed health zone — the digestive system is naturally robust. You can eat what would destroy lesser stomachs IF you stay on principle (the wisdom-current rewards righteous eating, not gluttony). Best for: traditional clean diet, principled fasting (not vanity), turmeric-ginger-cumin foundation. Traditionally trained chefs find you instinctively. Long-pilgrimage food is exceptionally good for your gut.',
+    'Jupiter ruler of the 6th House in the 1st House':    'Wisdom-on-the-body — the digestive system is naturally robust because the blessing-current is in your physical identity. You can eat what would destroy lesser stomachs IF you stay on principle. Best for: traditional clean diet, principled fasting (not vanity), turmeric-ginger-cumin foundation, ghee, generous portions of warm cooked food. Body resists punishing diets and rewards generous nourishment. Traditional and Ayurvedic-trained chefs find you instinctively.',
     'Saturn ruler of the 7th House in the 8th House':     'Food during life transitions matters more — illness recovery, childbirth, surgery, deep grief. The structured fast, the disciplined elimination diet, the long-term protocol all serve you well. Joint food decisions with partner mature slowly. The 8H structural-food current rewards multi-year commitments to a regimen.',
     'Saturn ruler of the 8th House in the 8th House':     'Slow-build food habits compound massively over decades. The same measured diet at age 30 looks austere; at age 70 it has saved your life. Best for: longevity-protocol food, structured intermittent eating, traditional seasonal protocols. Avoid extreme one-week trend diets. The structural-food current here rewards multi-decade habit-building, not bursts of effort.',
-    'Jupiter ruler of the 9th House in the 6th House':    'Higher fortune in food is routed through dharmic eating. Mentors and gurus often share food wisdom; absorb it. Foreign cuisines work when traditionally sourced (vegetarian-leaning, traditional methods, mindful preparation). Long pilgrimages reset your gut better than any cleanse. The principled-eating tradition becomes your protocol.',
+    'Jupiter ruler of the 9th House in the 1st House':    'The wisdom-on-the-body recognizes traditional / cross-cultural food as native medicine. Mentors and gurus instinctively share food wisdom with you because you receive it as your own. Foreign-traditional cuisines work especially well: Mediterranean, Ayurvedic, traditional Japanese, family-recipe Italian. Pilgrimage food, ashram food, traditionally-prepared foreign meals all reset your gut in ways modern cleanses cannot.',
     'Mars ruler of the 10th House in the 7th House':      'Career and shared-eating fuse — business meals matter; the structured restaurant lunch with the right partner shapes career. Eat to be sharp for the deal; eat with discipline; the partner sees how you eat and forms judgments accordingly. Avoid combative eating habits at deal tables.',
     'Venus ruler of the 11th House in the 4th House':     'Gains channeled through home-cooking, mother\'s-recipe products, family-table hospitality. Best food side-incomes: home-bakery, family recipe books, hospitality, design of dining experiences. Friend-network gains arrive through hosting; the table is the social and financial integrator.',
     'Mercury ruler of the 12th House in the 3rd House':   'Foreign cuisine, late-night eating, and bedroom-snacking all share a thread. The shadow: night-eating that drains you the next day. Best for: structured travel-food protocol, foreign-cuisine integration done methodically. Watch confidential indulgences; sleep-eating (literal or metaphorical) costs you.',
@@ -186,10 +187,10 @@ const RULERS = {
     'Mercury ruler of the 3rd House in the 3rd House':    'Trust your analytical mind on the small decisions today. Send the email; ship the document; close the loop with the peer. Procrastination on small communications costs more than usual.',
     'Venus ruler of the 4th House in the 4th House':      'Home is medicine today. Tidy the workspace; cook the slow meal; call mother. The day\'s problems often dissolve in a clean kitchen.',
     'Mars ruler of the 5th House in the 7th House':       'Today your creative output is best made with the partner in mind. Pitch with rigor; think structurally about the date-night or the joint project.',
-    'Jupiter ruler of the 6th House in the 6th House':    'Serve the harder task with principle today. The boring admin, the difficult client, the long-deferred health appointment — all yield outsized rewards when you show up generously today.',
+    'Jupiter ruler of the 6th House in the 1st House':    'Today, serve from a full cup. Your blessed presence already does most of the work — you don\'t have to over-give to be helpful. Take the difficult-client meeting, the health appointment, the legal call.',
     'Saturn ruler of the 7th House in the 8th House':     'The relationship is being structurally tested under the surface today. Don\'t force; observe. Joint-finance, in-law, and deep-trust matters surface slowly. Be patient.',
     'Saturn ruler of the 8th House in the 8th House':     'Today hidden things are working in your favor. The forensic insight, the quiet research, the long-deferred audit — all produce more than visible action.',
-    'Jupiter ruler of the 9th House in the 6th House':    'Meaning today comes through service. Listen to your father-figure mentor; show up for the hard problem with principle; the universe blesses the unglamorous fix.',
+    'Jupiter ruler of the 9th House in the 1st House':    'Today, you are the teacher in the room — speak from the wisdom you already carry. Your presence translates across cultures and ranks. Take the speaking slot, the philosophical question, the cross-cultural call.',
     'Mars ruler of the 10th House in the 7th House':      'Today the career move and the relationship move are linked. Sign contracts with rigor. The partner-in-the-room shapes today\'s outcome.',
     'Venus ruler of the 11th House in the 4th House':     'Today gains arrive through home, family, and female-mentor channels. Reach out to the senior woman in your network; the family table opens doors.',
     'Mercury ruler of the 12th House in the 3rd House':   'Today, write the confidential note, the foreign correspondence, the quiet message. What\'s spoken carelessly costs you; what\'s written privately compounds.',
@@ -197,7 +198,7 @@ const RULERS = {
 };
 
 // ────────────────────────────────────────────────────────────────────────
-// DISPOSITORS — chart-specific (5 per lens)
+// DISPOSITORS — chart-specific (6 per lens)
 // ────────────────────────────────────────────────────────────────────────
 
 const DISPOSITORS = {
@@ -206,28 +207,32 @@ const DISPOSITORS = {
     'Sun in 3rd (Dispositor)':      'Methodical authority is wired directly to the emotional voice. Career-wise: when this current fires, your authority is heard through writing and short, decisive communications. The boss-archetype is exacting, fair, demanding of detail. Promotions are tied to acts of courage and precise effort — taking the difficult assignment, writing the deck nobody wants to write, leading the small but high-stakes team. The shadow: ego invested in being correct; right-and-cold loses to right-and-warm.',
     'Venus in 4th (Dispositor)':    'You are the diplomat-aesthete in your full power: design taste, mediation skill, mother-figure wisdom flowing through your professional life. Female colleagues, female clients, and senior women in your network are persistent agents of fortune. Industries: design, real estate, hospitality, family business, education, mediation. The shadow: over-pleasing softens the edges of authority — let the partnership-engine carry the firmness while warmth carries the relational layer.',
     'Saturn in 8th (Dispositor)':   'The slow structural force is the foundation under your career engine. When this energy comes online, expect the long-promised vesting, the inheritance, the regulatory clearance, the slow promotion to chief-of-something. Career compounds through staying power; everyone faster than you eventually disqualifies themselves. Industries: insurance, taxation, succession, regulatory mastery, infrastructure, longevity research. The shadow: isolation from the office social fabric — depth-of-work earns nobody small-talk credit.',
-    'Jupiter in 6th (Dispositor)':  'Career fortune arrives through serving a hard problem with high principle: judicial work, regulatory advocacy, expert teaching, healing, debt-resolution, ombudsman roles. Foreign engagements are blessed when packaged as service rather than ambition. The shadow: over-extension into other people\'s problems; learn the line between meaningful service and self-erasure.',
+    'Moon in 2nd (Dispositor)':     'The emotional voice channel is what activates your blessed identity in the world. Your wisdom-on-the-body translates into professional respect through speech, family-wealth dynamics, and the warmth of being heard. Public speaking, advisory podcasting, mentor-style explainers, paid wisdom — all surface through the family-table mood-channel. When this energy fires, an authoritative voice piece (talk, recording, family-business call) lands and propagates.',
+    'Jupiter in 1st (Dispositor)':  'Your foreign-spiritual ambitions are anchored by the wisdom-on-the-body itself — you don\'t chase teachers; you ARE one, and the right cross-cultural opportunities arrive because senior figures recognize your inherent stature. When this energy fires, foreign engagements, certifications, philosophical authorship, and mentor-status moves all activate together — the world recognizes the wisdom you already carry.',
   },
   relationship: {
     'Mercury in 3rd (Dispositor)':  'Your mind drives both relational authority and detachment habits. Partners must be able to handle your editorial mind without taking analytical observations as criticism. Fight with words — but choose them well; the precision wielded here cuts when used carelessly. The right partner can edit your draft and have you grateful for it.',
     'Sun in 3rd (Dispositor)':      'In love, you express care through what you ship, write, build for the partner — through small acts of methodical attention more than grand gestures. Father-figure shapes the relationship template profoundly. The boss-archetype shows up in love as the figure who insists on rigor.',
     'Venus in 4th (Dispositor)':    'The home is the relationship; the relationship is the home. Female partners, female friends, and the mother archetype all run through your love life. Beauty is not luxury but emotional infrastructure. Mother\'s wisdom on partner-choice carries weight you may underestimate.',
     'Saturn in 8th (Dispositor)':   'Structural discipline supports the partnership engine. When this comes online, the long-tested marriage proves itself; the in-law dynamic that took years to settle yields permanent stability. Casual is rarely satisfying; the bond needs the structurally heavy load to feel right.',
-    'Jupiter in 6th (Dispositor)':  'In relationships, you express love through care-taking the partner\'s health, schedule, and principles. The partner whose values align with your principled service is the long-term match. The shadow: rescuing isn\'t loving.',
+    'Moon in 2nd (Dispositor)':     'Your blessed identity is activated through family-table warmth and the emotional voice in love. Partners who can sit at your family meal AND match the warmth of your speech are the long-term match. When this fires, family-of-origin and the love relationship harmonize, often through a meal or a conversation about money.',
+    'Jupiter in 1st (Dispositor)':  'Your magnetic teacher-presence pulls partners who recognize wisdom and want to share its orbit. The cross-cultural / philosophical / spiritually-aligned partner finds you because the wisdom-on-the-body itself is the attractor. When this fires, a relationship deepens through shared meaning, often involving a foreign place, a teacher, or a philosophical commitment.',
   },
   food: {
     'Mercury in 3rd (Dispositor)':  'Your digestive intelligence is the engine driving both authority over food and ability to detach from cravings. Best for: tracking what works, eliminating what does not, building the precision protocol that becomes your standard. The shadow: orthorexia — rigid food rules that punish rather than serve. Stay structured but not punitive.',
     'Sun in 3rd (Dispositor)':      'Methodical authority on food is wired to emotional eating. Best for: structured meal authorship — the precision protocol that becomes your standard. The shadow: ego-around-food (the fancy diet, the curated photo, the food as identity). Eat for body, not for status.',
     'Venus in 4th (Dispositor)':    'Home-cooking is the harmony engine itself. The kitchen is the relationship; the table is the family; mother\'s recipes are the foundation. Female mentors arrive with food wisdom. Hospitality, family-recipe businesses, and beautiful-table-design work all favored.',
     'Saturn in 8th (Dispositor)':   'Structural food discipline anchors everything. The 25-year fasting practice; the lifelong elimination of one ingredient that didn\'t serve you; the slow long-term protocol. The shadow: rigidity that punishes the body during life events that demand flexibility (pregnancy, illness, social ritual).',
-    'Jupiter in 6th (Dispositor)':  'Service-with-wisdom anchors your foreign-cuisine interest. Foreign foods are blessed when traditionally sourced (vegetarian-leaning, mindfully prepared). The Italian grandmother\'s recipe, the rice-and-lentil porridge, the one-soup-three-side meal — all work for you because of their tradition, not their novelty.',
+    'Moon in 2nd (Dispositor)':     'Your blessed body responds to family-style feeding — warm, cooked, lightly spiced food shared at a real table. The emotional voice and the digestive system are linked: speaking warmly at meals improves digestion; eating in stressed silence harms it. Mother\'s recipes carry medicine your body recognizes.',
+    'Jupiter in 1st (Dispositor)':  'Wisdom-on-the-body craves traditional, generously prepared, principled food. Body resists punishing diets and rewards generous warm meals. Best for: ghee, traditional cooked grains, fresh dairy, turmeric-ginger-cumin spices, foreign-traditional cuisines (Mediterranean, Ayurvedic, Japanese), pilgrimage food. Don\'t starve the body that carries the blessing.',
   },
   advice: {
     'Mercury in 3rd (Dispositor)':  'The precise written word is your power today. Don\'t weaponize the analysis; deploy it. Use precision to close, not to wound.',
     'Sun in 3rd (Dispositor)':      'Lead through methodical effort today, not through ego. The mentor or boss respects what you ship, not what you say.',
     'Venus in 4th (Dispositor)':    'Harmony is your asset today. Mediate the dispute, beautify the workspace, deepen with mother. The diplomat-aesthete in you serves today.',
     'Saturn in 8th (Dispositor)':   'The slow structural work is protected today. The forensic deep-dive, the audit, the regulatory work all favored. Patience compounds.',
-    'Jupiter in 6th (Dispositor)':  'Serve the hard problem with high principle today. The wise helper in you is awake; let it work.',
+    'Moon in 2nd (Dispositor)':     'Today, your blessed identity activates through warm voice and family-table presence. Speak warmly; eat at a real table; the wisdom you carry transmits through small daily acts.',
+    'Jupiter in 1st (Dispositor)':  'Today, the teacher in you is on. Trust the wisdom you already carry; speak from depth; foreign and cross-cultural opportunities respond to your magnetic stature.',
   },
 };
 
@@ -260,23 +265,49 @@ function transitDescription(planet, house, lens) {
 
 function closingLine(planet, house, lens, isOccupied) {
   // Special chart-specific notes for highly-loaded houses
+
+  // Mars-return on the partnership engine (natal Mars exalted in 7H)
   if (house === 7 && planet === 'Mars' && lens === 'career') {
     return 'This is the Mars-return-style window on your central partnership engine — peak time of any 2-year cycle for binding contracts.';
   }
-  if (house === 6 && planet === 'Jupiter' && lens === 'career') {
-    return 'The wisdom-current here exalts service; difficult clients become teachers.';
-  }
+
+  // Saturn-return on the transformation chamber (natal Saturn own-sign in 8H)
   if (house === 8 && planet === 'Saturn' && lens === 'career') {
     return 'A rare structural reckoning on your transformation chamber — what survives is permanent.';
   }
+
+  // Jupiter Transits 1H — JUPITER RETURN on the natal exalted Jupiter (Hamsa).
+  // This is one of the most important transits of any 12-year cycle for this chart.
   if (house === 1 && planet === 'Jupiter') {
-    if (lens === 'career') return 'A once-in-12-years personal expansion blessing — plan the long-form personal-brand investment now.';
-    if (lens === 'food')   return 'A once-in-12-years body expansion — manage weight; the body wants comfort.';
-    if (lens === 'relationship') return 'A once-in-12-years personal-expansion in love — mentors arrive who shape your relational template.';
+    if (lens === 'career')       return 'A once-in-12-years return on the wisdom-on-the-body itself — peak career-elevation window. Take the formal title, the public teaching role, the senior mentor invitation. The blessing compounds for years from here.';
+    if (lens === 'relationship') return 'A once-in-12-years return on your blessed identity — peak window for the partner who recognizes the wisdom in you, mentors entering the relational arc, deepening through shared meaning.';
+    if (lens === 'food')         return 'A once-in-12-years return on the body itself — feed it generously and traditionally; the body wants warm, well-prepared, principled meals. Watch weight gain only insofar as it affects function.';
+    if (lens === 'advice')       return 'A once-in-12-years blessing day. Speak your wisdom, accept the elevation, take the teaching role.';
   }
+
+  // Saturn Transits 1H — Sade Sati 2nd leg humbling the natal Jupiter blessing
+  if (house === 1 && planet === 'Saturn') {
+    if (lens === 'career')       return 'A long, humbling chapter on the blessed identity — Saturn structurally tests the wisdom you carry. Slow recognition; deeper authority earned by surviving the test.';
+    if (lens === 'food')         return 'The body asks for less, simpler, more disciplined food during this multi-year chapter. Generous portions that worked before now overload the system.';
+    if (lens === 'relationship') return 'The blessed magnetism temporarily dims; the people who stay through this are your true bonds.';
+  }
+
+  // Rahu/Ketu transits over natal Jupiter in 1H — eclipses on the Hamsa
+  if (house === 1 && (planet === 'Rahu' || planet === 'Ketu')) {
+    if (lens === 'career')       return 'A once-in-18-years eclipse on the wisdom-on-the-body — the blessed identity gets restructured. Don\'t make permanent commitments while this is active.';
+    if (lens === 'advice')       return 'Identity is shifting; observe before acting on the new self-image.';
+  }
+
+  // Jupiter Transits 7H — Jupiter on natal Mars (exalted partnership engine)
   if (house === 7 && planet === 'Jupiter' && lens === 'relationship') {
     return 'Major commitment moves favored — engagement, marriage, formal lifelong unions.';
   }
+
+  // Jupiter Transits 8H — wisdom into the transformation chamber
+  if (house === 8 && planet === 'Jupiter' && lens === 'career') {
+    return 'Wisdom enters the transformation chamber — inheritance, severance, regulatory clearance, succession all favorably resolve.';
+  }
+
   return '';
 }
 
