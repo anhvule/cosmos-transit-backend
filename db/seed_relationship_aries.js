@@ -1,606 +1,937 @@
-// db/seed_relationship_aries.js
-//
-// Per-ascendant fill-in seed for the **relationship** category, scoped to a
-// representative Aries ascendant native with:
-//   Ascendant: Aries
-//   Natal placements (sidereal Lahiri):
-//     Sun=5th (Leo, own)  Moon=4th (Cancer, own)  Mercury=6th (Virgo, own+exalted)
-//     Venus=12th (Pisces, exalted)  Mars=1st (Aries, own — Ruchaka Yoga)
-//     Jupiter=9th (Sagittarius, own)  Saturn=10th (Capricorn, own — Sasa Yoga)
-//     Rahu=5th (Leo, conjunct Sun)  Ketu=11th (Aquarius)
-//
-// All 530 events below are the ones the kerykeion engine could emit for
-// this user across any transitDate. Fill in the `description` strings as
-// you compose relationship-specific interpretations, then run:
-//
-//   node db/seed_relationship_aries.js
-//
-// Empty descriptions are skipped — partial fills are safe to run repeatedly.
-
 const db = require('./relationship');
 
-const ASCENDANT = 'Aries';
-
 const events = [
-  // ────────────────────────────────────────────────────────────────────────
-  // RULERS (12)
-  // ────────────────────────────────────────────────────────────────────────
-  { name: 'Mars ruler of the 1st House in the 1st House', description: 'You walk into rooms as your own person. In love, that is both the gift and the friction: partners are drawn to the unmistakable self-direction, and then sometimes wear out under it. You need a counterpart who can hold their own ground without flinching, who does not require constant softening. Relationships fail when you try to shrink the warrior; they thrive when you channel that fire into protection rather than dominance.' },
-  { name: 'Venus ruler of the 2nd House in the 12th House', description: 'Speech of love runs through quiet, devotional, foreign, or hidden channels. You don\'t flirt loudly; you express affection through service, retreat-time, written letters, distance-bridging gestures. The voice that says "I love you" prefers the bedroom to the dinner table. Long-distance phases work for you. The shadow: words of affection slip through your fingers if not pinned to a deliberate ritual — write, send, repeat.' },
-  { name: 'Mercury ruler of the 3rd House in the 6th House', description: 'Communication with siblings, peers, and close friends is sharp, useful, and sometimes too clinical. You write what you cannot say; you fix what you cannot accept. With siblings you tend to be the troubleshooter. With friends, you become the one they call when there is a real problem — but make space for play too, or the bonds become purely transactional.' },
-  { name: 'Moon ruler of the 4th House in the 4th House', description: 'Home is your emotional center of gravity. Mother is a quiet anchor across decades. The dwelling itself — the kitchen, the windows, the wall colors — feeds your nervous system more than it should, and starves it when neglected. Relationships compound when your home is in order. A home that nourishes you is the prerequisite, not the reward, of romantic stability.' },
-  { name: 'Sun ruler of the 5th House in the 5th House', description: 'Romance runs warm, theatrical, generous, and pulled toward visibility. You like to be seen with the person you love; you choose partners who can hold the spotlight beside you. Children, mentees, and creative work are emotional anchors. The shadow: ego-pull toward partners who shine publicly more than they show up privately — verify the warmth backstage matches the warmth on stage.' },
-  { name: 'Mercury ruler of the 6th House in the 6th House', description: 'In intimate-circle conflicts you are sharp, precise, and a touch clinical. You diagnose; you adjudicate; you draft the resolution. That serves you in workplace and family-system disputes — but in romance, the same precision can wound. Soften by 20% before delivering the truth. Love is not a service-ticket queue.' },
-  { name: 'Venus ruler of the 7th House in the 12th House', description: 'Marriage and primary partnership lean foreign, devotional, hidden, or service-oriented. The spouse may come from abroad, from a hospitality or healing background, or arrive after a retreat. The partnership matures behind closed doors; private rituals carry it. Public-facing display of the relationship feels false. The shadow: the partner drifts inward or geographically distant when the relationship is forced into public visibility prematurely.' },
-  { name: 'Mars ruler of the 8th House in the 1st House', description: 'Intensity and transformation live in your body. Sexuality is direct, vital, sometimes overwhelming for softer partners. You bring the same Mars-energy to intimacy as to work — and partners either match it or step back. The shadow: sudden eruptions over old wounds. Cultivate a regular release valve (intense exercise, ritual, deep talk) so the 8H Mars does not catch the relationship sideways.' },
-  { name: 'Jupiter ruler of the 9th House in the 9th House', description: 'Romance is filtered through values, ethics, philosophy, and shared worldview. You commit to people whose principles you respect — and lose interest fast in those whose ethics blur. Foreign partners, teacher-student dynamics, age-gap relationships, and pilgrimage-style courtships all find their natural shape here. The shadow: principled rigidity that turns love into a doctrinal exam.' },
-  { name: 'Saturn ruler of the 10th House in the 10th House', description: 'Public-facing relationships (career partners, public couples-image) carry heavy structural weight. The world reads you and your partner as a unit; reputation is shared. Long, slow, irreversible commitments are your nature — fast romances rarely survive. The shadow: marrying the role rather than the person; verify the relationship works at home, not just on the resume.' },
-  { name: 'Saturn ruler of the 11th House in the 10th House', description: 'Friend networks compound through career and seniority more than through casual leisure. Your closest long-term friends tend to be older, more established, or formal. Romantic introductions arrive through professional rather than recreational channels. The shadow: the network you keep also gates who you can love — make space for friends outside the work circle.' },
-  { name: 'Jupiter ruler of the 12th House in the 9th House', description: 'Bedroom-pleasures and hidden romance carry a devotional, philosophical undertone. You are drawn to retreats, meditation, foreign trips, and pilgrimages where intimacy and spiritual growth fuse. Some of your deepest love memories will live in places no one else knows about. The shadow: confusing devotional partnership with rescue-fantasy — keep clarity between sacred and saving.' },
-
-  // ────────────────────────────────────────────────────────────────────────
-  // DISPOSITORS (6)
-  // ────────────────────────────────────────────────────────────────────────
-  { name: 'Sun in 5th (Dispositor)', description: 'When this engine fires, romance announces itself loudly. New crushes, public couplings, theatrical declarations, children-related news, mentee-protégé dynamics. Verify that the Rahu-amplified shine of a new partner is anchored to actual character before publicly committing.' },
-  { name: 'Moon in 4th (Dispositor)', description: 'When this engine fires, the home is the stage. Family approval matters; the kitchen-table version of your relationship is the truest one. Mother often weighs in with unsolicited but valuable instinct. Avoid pulling partners away from your home-base — they are meant to integrate, not replace.' },
-  { name: 'Mercury in 6th (Dispositor)', description: 'When this engine fires, expect surgical clarity in family-system or peer-circle disputes. Old conflicts close; debts owed within the relationship rebalance; the difficult sibling-conversation finally happens. The shadow: deploying the same precision in romance and wounding the partner.' },
-  { name: 'Jupiter in 9th (Dispositor)', description: 'When this engine fires, principled love and foreign-fortune bonds light up. Marriage proposals from abroad, ceremonial commitments, teacher-student bonds, ethics-driven courtships. Major life-decisions made together feel blessed when this dispositor activates.' },
-  { name: 'Mars in 1st (Dispositor)', description: 'When this engine fires, you assert yourself in romance — sometimes too directly. Bold confessions, decisive moves, founder-style commitment-asks. Verify the intensity is what the partner can hold, not what you need to discharge.' },
-  { name: 'Saturn in 10th (Dispositor)', description: 'When this engine fires, the long-arc commitment crystallizes. Marriage, formal cohabitation, joint long-term financial moves, legal partnership steps. The slow promise becomes the structural fact.' },
-
-  // ────────────────────────────────────────────────────────────────────────
-  // TRANSITS (108)
-  // ────────────────────────────────────────────────────────────────────────
-  { name: 'Sun Transits the 1st House', description: 'Annual visibility window for the persona. In love, your warmth is more openly extended; partners receive you without you having to over-explain. Best four-week stretch for a public relationship-step (announcement, photo, family introduction).' },
-  { name: 'Sun Transits the 2nd House', description: 'Conversations about money, voice, and family-finance light up the partnership. The bills, the joint account, the family-money question — all surface for open discussion.' },
-  { name: 'Sun Transits the 3rd House', description: 'Sibling and peer-circle dynamics light up. Best for the difficult brother/sister conversation, the peer-friendship reset, the courageous text you have been deferring.' },
-  { name: 'Sun Transits the 4th House', description: 'Home-base spotlight. Mother-related developments; family approval; the dwelling itself becomes the conversation. Real-estate-and-relationship decisions intertwine.' },
-  { name: 'Sun Transits the 5th House', description: 'Annual peak romance-visibility window. Best for the bold declaration, the public outing, the proposal, the announcement of pregnancy or new mentee. Verify spectacle is anchored in substance.' },
-  { name: 'Sun Transits the 6th House', description: 'Workplace and service-context relationship dynamics surface. The work-spouse situation, the colleague-flirt, the work-friend conflict — all find clarity. Health-of-the-relationship audits favored.' },
-  { name: 'Sun Transits the 7th House', description: 'Annual peak partnership-visibility window. Marriage, contracts, public-facing alliance moves. Watch ego friction with the spouse — the same light that illuminates also exposes.' },
-  { name: 'Sun Transits the 8th House', description: 'Visibility on shared resources, sexuality, in-laws, and transformations. Inheritance, joint-taxation, deep intimacy conversations. Keep the surface respect intact while the deep work happens.' },
-  { name: 'Sun Transits the 9th House', description: 'Visibility on values, ethics, foreign relationships. Best window for a wedding ceremony, a vow renewal, an ethics-driven commitment, a foreign-relationship clarification.' },
-  { name: 'Sun Transits the 10th House', description: 'Visibility on the public face of the relationship. The world sees you as a unit; reputation moves accordingly. Best for the public announcement, the joint career-step, the formal status update.' },
-  { name: 'Sun Transits the 11th House', description: 'Visibility on shared friendships, networks, gains. The friend-circle as a couple; the joint birthday; the network introductions. Watch for muted emotion despite social warmth.' },
-  { name: 'Sun Transits the 12th House', description: 'Visibility dims; intimacy deepens behind closed doors. Best for retreats, foreign trips together, devotional joint practice, private rituals.' },
-  { name: 'Moon Transits the 1st House', description: 'Two-day emotional charge on persona. Affection runs warmer; reach out to the partner with extra warmth. Watch impulsive declarations.' },
-  { name: 'Moon Transits the 2nd House', description: 'Emotion around money, voice, family-finance. Speak about resources when warm; defer when overcooked.' },
-  { name: 'Moon Transits the 3rd House', description: 'Emotional charge with siblings and close peers. Send the warm message; make the gentle call.' },
-  { name: 'Moon Transits the 4th House', description: 'Monthly emotional-home peak. The kitchen-table conversation lands; mother-call favored; partner appreciates being invited into your inner sanctum.' },
-  { name: 'Moon Transits the 5th House', description: 'Emotional charge on romance, children, creative play. Date nights, mentee-time, playful courtship. Watch the ambition undertow that can confuse passion with possession.' },
-  { name: 'Moon Transits the 6th House', description: 'Emotional intelligence in service-and-conflict zone. Soften any peer-circle correction; offer empathy in workplace-relationship dynamics.' },
-  { name: 'Moon Transits the 7th House', description: 'Emotional charge on the partner. Read their mood before pushing terms; warm tone wins over sharp clarity today.' },
-  { name: 'Moon Transits the 8th House', description: 'Emotional weight on intimacy, sexuality, shared resources. Sensitive 48-hour window; defer money-arguments two days.' },
-  { name: 'Moon Transits the 9th House', description: 'Emotional pull toward shared values, ethics, foreign-friend-of-relationship. Big-vision conversations about meaning.' },
-  { name: 'Moon Transits the 10th House', description: 'Emotional charge on public-facing relationship reputation. The room reads you and the partner; couples-photo lands well.' },
-  { name: 'Moon Transits the 11th House', description: 'Emotional warmth toward shared network with detachment undertone. Reach out to mutual friends, but expect cool reception emotionally.' },
-  { name: 'Moon Transits the 12th House', description: 'Emotional charge on private intimacy, retreat, foreign-friend, devotion. Sleep more together; private warmth compounds.' },
-  { name: 'Mercury Transits the 1st House', description: 'Bold communication of self in love. Confess, declare, send the personal-narrative letter. Watch overly aggressive phrasing.' },
-  { name: 'Mercury Transits the 2nd House', description: 'Patient communication around money, voice, family-finance with the partner. Excellent for joint-budget paperwork.' },
-  { name: 'Mercury Transits the 3rd House', description: 'Peak peer/sibling communication window. Send the long-deferred message; revive the cooled friendship.' },
-  { name: 'Mercury Transits the 4th House', description: 'Emotionally tuned home/family writing. Mother-letters, family-business communications, lease-with-partner paperwork.' },
-  { name: 'Mercury Transits the 5th House', description: 'Bold romance-communication. Love letters, dating-app outreach, mentee-coaching, children-related correspondence. Verify the volume is calibrated.' },
-  { name: 'Mercury Transits the 6th House', description: 'Sharp peer-and-workplace relationship communication. Settle the work-friend conflict; deliver the precise but warm correction.' },
-  { name: 'Mercury Transits the 7th House', description: 'Diplomatic, balanced negotiation with the partner. Excellent for marriage paperwork, prenups, joint-resource documents.' },
-  { name: 'Mercury Transits the 8th House', description: 'Investigative communication around sexuality, in-laws, shared resources. Tax docs, inheritance conversations, deep talks.' },
-  { name: 'Mercury Transits the 9th House', description: 'Visionary writing about values, philosophy, foreign-friend correspondence. Wedding-vow drafts; ethics conversations.' },
-  { name: 'Mercury Transits the 10th House', description: 'Disciplined, structural communication about the public face of the relationship. Joint announcements, status updates.' },
-  { name: 'Mercury Transits the 11th House', description: 'Sharp-but-detached communication with shared network. Group-text leadership, friend-circle logistics.' },
-  { name: 'Mercury Transits the 12th House', description: 'Confidential and devotional communication. Private letters, foreign-friend correspondence, intimate written rituals.' },
-  { name: 'Venus Transits the 1st House', description: 'Personal warmth and charm peak. Flirtation lands; first impressions go well; the mirror feels kind. Excellent for date-nights you initiate.' },
-  { name: 'Venus Transits the 2nd House', description: 'Soft window for joint-money, shared-voice, family-finance with the partner. Indulgence in food and beauty together.' },
-  { name: 'Venus Transits the 3rd House', description: 'Graceful peer and sibling warmth. Reconnect with the cooled friend; reach the difficult sibling.' },
-  { name: 'Venus Transits the 4th House', description: 'Beautiful home/mother/family-with-partner window. Sign the lease together, beautify the home, host the family.' },
-  { name: 'Venus Transits the 5th House', description: 'Peak romance-aesthetic visibility. Date-nights, creative play with the partner, mentee/protégé warmth. Indulgent.' },
-  { name: 'Venus Transits the 6th House', description: 'Diplomatic warmth in workplace and peer-circle relationships. The difficult colleague becomes a receptive ally.' },
-  { name: 'Venus Transits the 7th House', description: 'Annual peak partnership-warmth window. Sign the marriage paperwork, formalize the long-standing love, propose.' },
-  { name: 'Venus Transits the 8th House', description: 'Diplomatic intimacy. Inheritance, shared-resources, sexuality conversations soften. Excellent for fair-share negotiations.' },
-  { name: 'Venus Transits the 9th House', description: 'Graceful values, ethics, foreign-relationship window. Travel together, attend ceremonies, deepen ethics-conversation.' },
-  { name: 'Venus Transits the 10th House', description: 'Softens the public face. Joint photos, couples-branding, public couple-events all favored.' },
-  { name: 'Venus Transits the 11th House', description: 'Graceful but cool friend-network warmth. Group dinners, mutual-friend gatherings — pleasant but emotionally muted.' },
-  { name: 'Venus Transits the 12th House', description: 'Annual peak window for private intimacy, foreign love, devotional partnership. Retreats together; bedroom-pleasure deepens.' },
-  { name: 'Mars Transits the 1st House', description: 'High self-assertion in love. Bold confessions, founder-style commitment-asks. Watch domineering tone.' },
-  { name: 'Mars Transits the 2nd House', description: 'Heat around joint money, voice, family-finance. Avoid joint-budget arguments today; defer if possible.' },
-  { name: 'Mars Transits the 3rd House', description: 'Fierce peer/sibling energy. Bold messages, sibling confrontations, peer-circle decisive moves.' },
-  { name: 'Mars Transits the 4th House', description: 'Heat in home/family. Decisive real-estate-with-partner action; watch family arguments.' },
-  { name: 'Mars Transits the 5th House', description: 'Hot romance-and-creativity drive. Passionate phase; speculation in love possible; verify integrity before pursuing.' },
-  { name: 'Mars Transits the 6th House', description: 'Favorable conflict-resolution heat. Win the workplace dispute; settle the peer-debt fight.' },
-  { name: 'Mars Transits the 7th House', description: 'Friction in primary partnership. Hard to negotiate cleanly; defer the contract-style relationship conversation a week.' },
-  { name: 'Mars Transits the 8th House', description: 'Surgical action on intimacy, in-laws, shared resources. Restructurings of shared finances; sexuality-conversation peaks.' },
-  { name: 'Mars Transits the 9th House', description: 'Bold values-and-ethics action. Wedding-planning push, foreign-relationship decisive move, vow-renewal.' },
-  { name: 'Mars Transits the 10th House', description: 'Strong public-face-of-relationship action window. Joint career step, public couple-move.' },
-  { name: 'Mars Transits the 11th House', description: 'Assertive friend-network push with detachment. Group-decisions, mutual-friend conflicts decisively addressed.' },
-  { name: 'Mars Transits the 12th House', description: 'Heated private/foreign/intimate zone. Bedroom-intensity peaks; back-channel power-plays. Sleep loss possible.' },
-  { name: 'Jupiter Transits the 1st House', description: 'Annual self-expansion in love. Take the larger role in the partnership; declare the bigger commitment.' },
-  { name: 'Jupiter Transits the 2nd House', description: 'Wisdom-blessing on joint money, voice, family-finance. Long-term resource decisions blessed.' },
-  { name: 'Jupiter Transits the 3rd House', description: 'Wisdom on peers, siblings, short-effort. Major peer-friend deepenings; sibling reconciliation; new closeness.' },
-  { name: 'Jupiter Transits the 4th House', description: 'Peak home/family/real-estate-with-partner expansion year. Buy the home, deepen with mother, marry into family.' },
-  { name: 'Jupiter Transits the 5th House', description: 'Major romance-or-children-or-creativity year. Marriage proposals, pregnancy news, mentee placements, creative joint-projects.' },
-  { name: 'Jupiter Transits the 6th House', description: 'Wisdom into work-and-peer-circle relationships. Difficult colleagues become teachers; friend-debt resolves.' },
-  { name: 'Jupiter Transits the 7th House', description: 'Wisdom into primary partnership. Marriage, anchor JV with spouse-as-partner, prestige-couples-event.' },
-  { name: 'Jupiter Transits the 8th House', description: 'Wisdom into intimacy, in-laws, shared resources. Inheritance favorably resolves; sexuality-and-shared-life deepen.' },
-  { name: 'Jupiter Transits the 9th House', description: 'Among the most blessed partnership windows. Wedding ceremonies, ethics-driven joint commitments, foreign-relationship deepening.' },
-  { name: 'Jupiter Transits the 10th House', description: 'Peak public-face-of-relationship year. Joint prestige; couples-brand expansion.' },
-  { name: 'Jupiter Transits the 11th House', description: 'Wisdom on shared friendships. Mutual-friend network expands; joint social capital grows.' },
-  { name: 'Jupiter Transits the 12th House', description: 'Peak private-intimacy and devotional-partnership year. Foreign joint sabbatical; spiritual practice together.' },
-  { name: 'Saturn Transits the 1st House', description: 'Multi-year structural pressure on persona within the relationship. Slow down; simplify; build for permanence not display.' },
-  { name: 'Saturn Transits the 2nd House', description: 'Discipline on joint money, voice, family-finance. Slow but real wage-and-resource growth in the partnership.' },
-  { name: 'Saturn Transits the 3rd House', description: 'Discipline on peers and siblings. Long-arc rebuilding of strained friendships; sibling-relations restructuring.' },
-  { name: 'Saturn Transits the 4th House', description: 'Heavy home/family weight; mother-related responsibility intensifies; the dwelling carries structural change.' },
-  { name: 'Saturn Transits the 5th House', description: 'Romance/children/creativity tested. Long-arc relationship maturation; mentee-relationships restructure; speculation-in-love disciplined.' },
-  { name: 'Saturn Transits the 6th House', description: 'Favorable for service/conflict mastery. Work-and-peer relationships professionalize; long-debts within friendships resolve.' },
-  { name: 'Saturn Transits the 7th House', description: 'Multi-year structural test of marriage/primary partnership. Long-arc commitment matures; the spouse ages alongside you.' },
-  { name: 'Saturn Transits the 8th House', description: 'Major intimacy/in-laws/shared-resource restructuring. Inheritance chapters open and close. Hold steady.' },
-  { name: 'Saturn Transits the 9th House', description: 'Discipline on values, ethics, foreign-relationships. Slow visa or international-couples processes; ethics tested.' },
-  { name: 'Saturn Transits the 10th House', description: 'The 2.5-year window that seeds the long-term public-couple structure. Marriage, formal cohabitation, legal commitment.' },
-  { name: 'Saturn Transits the 11th House', description: 'Disciplined shared-network. Friend-circle consolidates; mutual-friends formalize role. The network purges what is no longer dharmic.' },
-  { name: 'Saturn Transits the 12th House', description: 'Discipline on private intimacy, foreign love, devotional bond. Long-distance phases formalize; retreats turn structural.' },
-  { name: 'Rahu Transits the 1st House', description: 'Eighteen-month obsessive self-reinvention in love. New persona within the relationship; new ambition together. Verify each leap.' },
-  { name: 'Rahu Transits the 2nd House', description: 'Obsessive ambition around joint money, voice, family-finance. Beware get-rich-quick schemes that pull the partnership.' },
-  { name: 'Rahu Transits the 3rd House', description: 'Obsessive peer/sibling chapter. Sudden reconnections with old friends; unconventional peer-bonds.' },
-  { name: 'Rahu Transits the 4th House', description: 'Obsessive home/mother/relocation-with-partner chapter. Foreign relocation pull strong. Verify before moving.' },
-  { name: 'Rahu Transits the 5th House', description: 'Eighteen-month peak romance-ambition. Sudden affairs, dramatic new courtship, mentee obsession. Verify integrity.' },
-  { name: 'Rahu Transits the 6th House', description: 'Favorable. Defeat a relationship-rival, settle a long peer-debt, transform workplace-relationship dynamics.' },
-  { name: 'Rahu Transits the 7th House', description: 'Obsessive primary-partnership chapter. Foreign partner pull; controversial marriage moves. Verify carefully.' },
-  { name: 'Rahu Transits the 8th House', description: 'Obsessive intimacy/in-laws/shared-resources chapter. Sudden inheritance; deep-sex obsession; in-laws turbulence.' },
-  { name: 'Rahu Transits the 9th House', description: 'Foreign-fortune obsession in love. International courtship, controversial guru-of-the-couple, ethics-questioning.' },
-  { name: 'Rahu Transits the 10th House', description: 'Obsessive public-face-of-relationship push. Sudden public couple-moves, foreign couple-relocation. Vet legitimacy.' },
-  { name: 'Rahu Transits the 11th House', description: 'Obsessive shared-friend-network chapter. Mutual-friend turbulence; new clique formation. Stay clean.' },
-  { name: 'Rahu Transits the 12th House', description: 'Obsessive private/foreign/intimate chapter. Foreign affair-pull, hidden-bond obsession, retreat-driven romance.' },
-  { name: 'Ketu Transits the 1st House', description: 'Eighteen-month identity-stripping in love. The old persona inside the relationship feels empty. Sit; do not over-rebuild.' },
-  { name: 'Ketu Transits the 2nd House', description: 'Detachment from joint money/voice/family-finance dynamics. The wealth-with-partner question feels meaningless temporarily.' },
-  { name: 'Ketu Transits the 3rd House', description: 'Detachment from peers/siblings. Old friendships fade; sibling-bonds cool naturally.' },
-  { name: 'Ketu Transits the 4th House', description: 'Home-and-mother detachment within the relationship. Sell-property impulses; mother\'s independence; leave-the-city signals.' },
-  { name: 'Ketu Transits the 5th House', description: 'Romance/children/creativity eclipse. Old romance feels hollow; mentee-pull fades; speculation-in-love loses charge.' },
-  { name: 'Ketu Transits the 6th House', description: 'Service detachment within the friend-circle. Old peer-conflicts dissolve without victory; debts forgiven.' },
-  { name: 'Ketu Transits the 7th House', description: 'Primary-partnership detachment. Old marriage chapter feels finished; spouse needs space.' },
-  { name: 'Ketu Transits the 8th House', description: 'Intimacy/in-laws/shared-resources acceleration of endings. Old chapters end abruptly.' },
-  { name: 'Ketu Transits the 9th House', description: 'Values/ethics/foreign-relationship detachment. Old ethical bonds feel outdated; foreign-friend ties cool.' },
-  { name: 'Ketu Transits the 10th House', description: 'Public-couple eclipse. Old couples-image dissolves; reputation feels weightless.' },
-  { name: 'Ketu Transits the 11th House', description: 'Eighteen-month deep purification of friendships. Friends drift; mutual-friend network reorganizes.' },
-  { name: 'Ketu Transits the 12th House', description: 'Private/foreign/devotional dissolution. Old hidden bonds close; pleasure-spending evaporates.' },
-
-  // ────────────────────────────────────────────────────────────────────────
-  // ANGLE ASPECTS (72)
-  // ────────────────────────────────────────────────────────────────────────
-  { name: 'Sun Aspecting Ascendant (ASC)', description: 'Visibility radiates through persona. The partner sees you clearly today; warm declarations land.' },
-  { name: 'Sun Aspecting Ascendant (ASC) : Starts', description: 'Visibility window opens. Polish how you show up to the partner.' },
-  { name: 'Sun Aspecting Ascendant (ASC) : Exact', description: 'Peak visibility day. Take the bold step; declare the love.' },
-  { name: 'Sun Aspecting Ascendant (ASC) : Ends', description: 'Visibility window closes. Lock in any declarations.' },
-  { name: 'Sun Aspecting Midheaven (MC)', description: 'Public-face-of-relationship visibility window. Joint announcements, couples-photos, formal status moves.' },
-  { name: 'Sun Aspecting Midheaven (MC) : Starts', description: 'Public-couple window opens. Plan the joint announcement.' },
-  { name: 'Sun Aspecting Midheaven (MC) : Exact', description: 'Peak public-couple day. Make the formal announcement.' },
-  { name: 'Sun Aspecting Midheaven (MC) : Ends', description: 'Public-couple window closes. Lock in any joint commitments.' },
-  { name: 'Moon Aspecting Ascendant (ASC)', description: 'Emotional warmth radiates. Affection runs warmer; partner receives you generously.' },
-  { name: 'Moon Aspecting Ascendant (ASC) : Starts', description: 'Emotional-self window opens. Prepare to be felt.' },
-  { name: 'Moon Aspecting Ascendant (ASC) : Exact', description: 'Peak emotional-self day. Warm presentations of self land.' },
-  { name: 'Moon Aspecting Ascendant (ASC) : Ends', description: 'Emotional-self window closes. The wave passes fast.' },
-  { name: 'Moon Aspecting Midheaven (MC)', description: 'Emotional charge on public-couple reputation. Warm couples-news possible.' },
-  { name: 'Moon Aspecting Midheaven (MC) : Starts', description: 'Emotional public-couple window opens.' },
-  { name: 'Moon Aspecting Midheaven (MC) : Exact', description: 'Peak emotional public-couple day. Warm joint moments land publicly.' },
-  { name: 'Moon Aspecting Midheaven (MC) : Ends', description: 'Emotional public-couple window closes.' },
-  { name: 'Mercury Aspecting Ascendant (ASC)', description: 'Sharp self-communication in love. Personal declarations, narrative refresh.' },
-  { name: 'Mercury Aspecting Ascendant (ASC) : Starts', description: 'Mind-on-self window opens. Refresh the personal-story.' },
-  { name: 'Mercury Aspecting Ascendant (ASC) : Exact', description: 'Peak self-communication day. Send the bold personal letter.' },
-  { name: 'Mercury Aspecting Ascendant (ASC) : Ends', description: 'Mind-on-self window closes. Lock in personal commitments.' },
-  { name: 'Mercury Aspecting Midheaven (MC)', description: 'Sharp public-couple communication. Joint announcements, formal status memos.' },
-  { name: 'Mercury Aspecting Midheaven (MC) : Starts', description: 'Public-couple-communication window opens.' },
-  { name: 'Mercury Aspecting Midheaven (MC) : Exact', description: 'Peak day. Send the public update.' },
-  { name: 'Mercury Aspecting Midheaven (MC) : Ends', description: 'Window closes. Convert into commitment.' },
-  { name: 'Venus Aspecting Ascendant (ASC)', description: 'Personal charm peaks. Flirtation lands; presence is magnetic.' },
-  { name: 'Venus Aspecting Ascendant (ASC) : Starts', description: 'Charm-self window opens.' },
-  { name: 'Venus Aspecting Ascendant (ASC) : Exact', description: 'Peak charm day. Make the warm ask.' },
-  { name: 'Venus Aspecting Ascendant (ASC) : Ends', description: 'Charm-self window closes.' },
-  { name: 'Venus Aspecting Midheaven (MC)', description: 'Softens public-couple face. Joint photos, couples-branding favored.' },
-  { name: 'Venus Aspecting Midheaven (MC) : Starts', description: 'Aesthetic-couple window opens.' },
-  { name: 'Venus Aspecting Midheaven (MC) : Exact', description: 'Peak aesthetic-couple day.' },
-  { name: 'Venus Aspecting Midheaven (MC) : Ends', description: 'Aesthetic-couple window closes.' },
-  { name: 'Mars Aspecting Ascendant (ASC)', description: 'Bold self-action in love. Founder-style commitment-asks.' },
-  { name: 'Mars Aspecting Ascendant (ASC) : Starts', description: 'Action-self window opens.' },
-  { name: 'Mars Aspecting Ascendant (ASC) : Exact', description: 'Peak action-self day. Take the bold relationship-step.' },
-  { name: 'Mars Aspecting Ascendant (ASC) : Ends', description: 'Action-self window closes.' },
-  { name: 'Mars Aspecting Midheaven (MC)', description: 'Bold public-couple action. Joint career step, public commitment move.' },
-  { name: 'Mars Aspecting Midheaven (MC) : Starts', description: 'Public-couple-action window opens.' },
-  { name: 'Mars Aspecting Midheaven (MC) : Exact', description: 'Peak day. Take the joint career step.' },
-  { name: 'Mars Aspecting Midheaven (MC) : Ends', description: 'Window closes. Lock in joint position.' },
-  { name: 'Jupiter Aspecting Ascendant (ASC)', description: 'Self-expansion in love. Take the larger role in the partnership.' },
-  { name: 'Jupiter Aspecting Ascendant (ASC) : Starts', description: 'Self-expansion window opens.' },
-  { name: 'Jupiter Aspecting Ascendant (ASC) : Exact', description: 'Peak self-expansion day. Accept the bigger relationship-role.' },
-  { name: 'Jupiter Aspecting Ascendant (ASC) : Ends', description: 'Self-expansion window closes. Lock in.' },
-  { name: 'Jupiter Aspecting Midheaven (MC)', description: 'Public-couple expansion. Joint prestige; couples-brand expansion.' },
-  { name: 'Jupiter Aspecting Midheaven (MC) : Starts', description: 'Public-couple-expansion window opens.' },
-  { name: 'Jupiter Aspecting Midheaven (MC) : Exact', description: 'Peak day. Accept the joint prestige.' },
-  { name: 'Jupiter Aspecting Midheaven (MC) : Ends', description: 'Window closes.' },
-  { name: 'Saturn Aspecting Ascendant (ASC)', description: 'Heavy structural pressure on persona within the relationship. Simplify.' },
-  { name: 'Saturn Aspecting Ascendant (ASC) : Starts', description: 'Structural-self window opens.' },
-  { name: 'Saturn Aspecting Ascendant (ASC) : Exact', description: 'Peak structural-self day. Reckoning is acute.' },
-  { name: 'Saturn Aspecting Ascendant (ASC) : Ends', description: 'Window closes. What survived is permanent.' },
-  { name: 'Saturn Aspecting Midheaven (MC)', description: 'Public-couple tested for staying power. Foundation-laying.' },
-  { name: 'Saturn Aspecting Midheaven (MC) : Starts', description: 'Public-couple-discipline window opens.' },
-  { name: 'Saturn Aspecting Midheaven (MC) : Exact', description: 'Peak day. The promise delayed; foundation laid.' },
-  { name: 'Saturn Aspecting Midheaven (MC) : Ends', description: 'Window closes.' },
-  { name: 'Rahu Aspecting Ascendant (ASC)', description: 'Chaotic identity expansion in love. New persona within the partnership.' },
-  { name: 'Rahu Aspecting Ascendant (ASC) : Starts', description: 'Reinvention-self window begins.' },
-  { name: 'Rahu Aspecting Ascendant (ASC) : Exact', description: 'Peak day. Take the unconventional move — but check basics.' },
-  { name: 'Rahu Aspecting Ascendant (ASC) : Ends', description: 'Window closes. Decide which experiments to keep.' },
-  { name: 'Rahu Aspecting Midheaven (MC)', description: 'Chaotic public-couple expansion. Sudden unconventional couple-moves.' },
-  { name: 'Rahu Aspecting Midheaven (MC) : Starts', description: 'Public-couple-reinvention window begins.' },
-  { name: 'Rahu Aspecting Midheaven (MC) : Exact', description: 'Peak day. Take the bold pivot — verify integrity.' },
-  { name: 'Rahu Aspecting Midheaven (MC) : Ends', description: 'Window closes.' },
-  { name: 'Ketu Aspecting Ascendant (ASC)', description: 'Identity-stripping inside the relationship. The old persona feels empty.' },
-  { name: 'Ketu Aspecting Ascendant (ASC) : Starts', description: 'Stripping window opens. The pull to step away rises.' },
-  { name: 'Ketu Aspecting Ascendant (ASC) : Exact', description: 'Peak day. Sit with the dissolution.' },
-  { name: 'Ketu Aspecting Ascendant (ASC) : Ends', description: 'Window closes. Move forward leaner.' },
-  { name: 'Ketu Aspecting Midheaven (MC)', description: 'Public-couple eclipse. Couples-image stalls; recognition feels hollow.' },
-  { name: 'Ketu Aspecting Midheaven (MC) : Starts', description: 'Public-couple-eclipse window begins.' },
-  { name: 'Ketu Aspecting Midheaven (MC) : Exact', description: 'Peak day. The couples-image dissolves quietly. Don\'t cling.' },
-  { name: 'Ketu Aspecting Midheaven (MC) : Ends', description: 'Window closes.' },
-
-  // ────────────────────────────────────────────────────────────────────────
-  // OUTER SPECIALS (8)
-  // ────────────────────────────────────────────────────────────────────────
-  { name: 'Pluto conjunct Saturn', description: 'Generational structural reckoning hitting your long-arc commitment engine. Marriage, formal partnership, public-couple status under multi-year transformation pressure.' },
-  { name: 'Pluto conjunct Saturn : Starts', description: 'Multi-year structural reckoning begins on the long-arc commitment. Old partnership frameworks dismantle.' },
-  { name: 'Pluto conjunct Saturn : Exact', description: 'Peak transformation day. The old partnership-form breaks; a new one is forced into being.' },
-  { name: 'Pluto conjunct Saturn : Ends', description: 'The partnership-transformation chapter completes. You emerge with a rebuilt commitment.' },
-  { name: 'Uranus conjunct Venus', description: 'Sudden disruption hitting the foreign and devotional love-channel. Unexpected foreign-friend turn; surprise back-channel romance; abrupt shifts in the private-intimacy circuit.' },
-  { name: 'Uranus conjunct Venus : Starts', description: 'Disruption window opens. Expect surprise foreign offers; back-channel love shifts.' },
-  { name: 'Uranus conjunct Venus : Exact', description: 'Peak surprise day. The foreign love-news arrives; the back-channel pivots.' },
-  { name: 'Uranus conjunct Venus : Ends', description: 'Disruption window closes. Integrate; release what didn\'t hold.' },
-
-  // ────────────────────────────────────────────────────────────────────────
-  // ASPECTS (324)
-  // ────────────────────────────────────────────────────────────────────────
-  { name: 'Sun aspect Sun in 5th house', description: 'Birthday-window ego activation in romance/creativity zone. Best for the bold declaration, the public outing, the proposal.' },
-  { name: 'Sun aspect Sun in 5th house : Starts', description: 'Annual romance window opens.' },
-  { name: 'Sun aspect Sun in 5th house : Exact', description: 'Peak day. Declare, propose, take the platform.' },
-  { name: 'Sun aspect Sun in 5th house : Ends', description: 'Window closes. Lock in commitments.' },
-  { name: 'Sun aspect Moon in 4th house', description: 'Visibility through home, mother, family-with-partner. Mother-channel relationship news.' },
-  { name: 'Sun aspect Moon in 4th house : Starts', description: 'Home-visibility window opens.' },
-  { name: 'Sun aspect Moon in 4th house : Exact', description: 'Peak home-anchored day. Sign the lease, host mother.' },
-  { name: 'Sun aspect Moon in 4th house : Ends', description: 'Window closes.' },
-  { name: 'Sun aspect Mercury in 6th house', description: 'Solar fire on peer/sibling/workplace-relationship clarity. Conflicts resolve.' },
-  { name: 'Sun aspect Mercury in 6th house : Starts', description: 'Window opens. Plan the precise resolution.' },
-  { name: 'Sun aspect Mercury in 6th house : Exact', description: 'Peak day. The hard peer/sibling conversation closes.' },
-  { name: 'Sun aspect Mercury in 6th house : Ends', description: 'Window closes.' },
-  { name: 'Sun aspect Venus in 12th house', description: 'Solar light on private-intimacy, foreign-love, devotional bond. Retreat-driven warmth.' },
-  { name: 'Sun aspect Venus in 12th house : Starts', description: 'Foreign-intimacy window opens.' },
-  { name: 'Sun aspect Venus in 12th house : Exact', description: 'Peak day. Take the foreign call; book the retreat together.' },
-  { name: 'Sun aspect Venus in 12th house : Ends', description: 'Window closes.' },
-  { name: 'Sun aspect Mars in 1st house', description: 'Solar fire on warrior identity in love. Bold declarations; founder-style asks.' },
-  { name: 'Sun aspect Mars in 1st house : Starts', description: 'Founder-fire window opens.' },
-  { name: 'Sun aspect Mars in 1st house : Exact', description: 'Peak day. Take the bold relationship-step.' },
-  { name: 'Sun aspect Mars in 1st house : Ends', description: 'Window closes.' },
-  { name: 'Sun aspect Jupiter in 9th house', description: 'Solar light on values/ethics/foreign-friend. Wedding/ceremony favorability; ethics-driven commitment.' },
-  { name: 'Sun aspect Jupiter in 9th house : Starts', description: 'Window opens. Plan ceremony or vow.' },
-  { name: 'Sun aspect Jupiter in 9th house : Exact', description: 'Peak day. The vow lands.' },
-  { name: 'Sun aspect Jupiter in 9th house : Ends', description: 'Window closes.' },
-  { name: 'Sun aspect Saturn in 10th house', description: 'Solar fire on public-face-of-relationship. Joint career-step or formal commitment.' },
-  { name: 'Sun aspect Saturn in 10th house : Starts', description: 'Window opens.' },
-  { name: 'Sun aspect Saturn in 10th house : Exact', description: 'Peak day. Take the joint formal step.' },
-  { name: 'Sun aspect Saturn in 10th house : Ends', description: 'Window closes.' },
-  { name: 'Sun aspect Rahu in 5th house', description: 'Ambition-amplified ego in romance. Watch fame-chasing in love.' },
-  { name: 'Sun aspect Rahu in 5th house : Starts', description: 'Window opens. Beware spectacle in romance.' },
-  { name: 'Sun aspect Rahu in 5th house : Exact', description: 'Peak day. The bold leap in love presents — verify integrity.' },
-  { name: 'Sun aspect Rahu in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Sun aspect Ketu in 11th house', description: 'Solar light on detached friend-network. Mutual-friend news lands; feel without grasping.' },
-  { name: 'Sun aspect Ketu in 11th house : Starts', description: 'Window opens.' },
-  { name: 'Sun aspect Ketu in 11th house : Exact', description: 'Peak day. Recognition lands flat.' },
-  { name: 'Sun aspect Ketu in 11th house : Ends', description: 'Window closes.' },
-  { name: 'Moon aspect Sun in 5th house', description: 'Emotional charge on romance/children/creativity. Warm date-nights, mentee-warmth, playful courtship.' },
-  { name: 'Moon aspect Sun in 5th house : Starts', description: 'Window opens. Soften the romance-tone.' },
-  { name: 'Moon aspect Sun in 5th house : Exact', description: 'Peak day. Make the heart-led romantic move.' },
-  { name: 'Moon aspect Sun in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Moon aspect Moon in 4th house', description: 'Monthly emotional-home peak. Family-with-partner warmth.' },
-  { name: 'Moon aspect Moon in 4th house : Starts', description: 'Window opens.' },
-  { name: 'Moon aspect Moon in 4th house : Exact', description: 'Peak day. Host mother; bring the partner home.' },
-  { name: 'Moon aspect Moon in 4th house : Ends', description: 'Window closes.' },
-  { name: 'Moon aspect Mercury in 6th house', description: 'Empathetic peer/workplace-relationship work. Soft conflict-resolution.' },
-  { name: 'Moon aspect Mercury in 6th house : Starts', description: 'Window opens. Soften the technical tone.' },
-  { name: 'Moon aspect Mercury in 6th house : Exact', description: 'Peak day. Hold the warm reconciliation.' },
-  { name: 'Moon aspect Mercury in 6th house : Ends', description: 'Window closes.' },
-  { name: 'Moon aspect Venus in 12th house', description: 'Emotional warmth on private intimacy, foreign-love, devotional bond.' },
-  { name: 'Moon aspect Venus in 12th house : Starts', description: 'Window opens. Plan the retreat.' },
-  { name: 'Moon aspect Venus in 12th house : Exact', description: 'Peak day. Take the foreign call; sit with devotion together.' },
-  { name: 'Moon aspect Venus in 12th house : Ends', description: 'Window closes.' },
-  { name: 'Moon aspect Mars in 1st house', description: 'Emotional charge on warrior identity in love. Body and heart aligned.' },
-  { name: 'Moon aspect Mars in 1st house : Starts', description: 'Window opens.' },
-  { name: 'Moon aspect Mars in 1st house : Exact', description: 'Peak day. Lead from heart and gut.' },
-  { name: 'Moon aspect Mars in 1st house : Ends', description: 'Window closes.' },
-  { name: 'Moon aspect Jupiter in 9th house', description: 'Emotional pull toward shared values, ethics, foreign-friend warmth.' },
-  { name: 'Moon aspect Jupiter in 9th house : Starts', description: 'Window opens.' },
-  { name: 'Moon aspect Jupiter in 9th house : Exact', description: 'Peak day. Deep values-conversation lands.' },
-  { name: 'Moon aspect Jupiter in 9th house : Ends', description: 'Window closes.' },
-  { name: 'Moon aspect Saturn in 10th house', description: 'Emotional weight on public-couple reputation. Sensitive 48-hour window.' },
-  { name: 'Moon aspect Saturn in 10th house : Starts', description: 'Window opens.' },
-  { name: 'Moon aspect Saturn in 10th house : Exact', description: 'Peak day. Hold warm-but-firm couples-conversation.' },
-  { name: 'Moon aspect Saturn in 10th house : Ends', description: 'Window closes.' },
-  { name: 'Moon aspect Rahu in 5th house', description: 'Emotional charge on romance-ambition. Watch obsessive craving.' },
-  { name: 'Moon aspect Rahu in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Moon aspect Rahu in 5th house : Exact', description: 'Peak day. The fame-pull peaks.' },
-  { name: 'Moon aspect Rahu in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Moon aspect Ketu in 11th house', description: 'Emotional detachment from friend-network. Mutual-friends feel cool.' },
-  { name: 'Moon aspect Ketu in 11th house : Starts', description: 'Window opens.' },
-  { name: 'Moon aspect Ketu in 11th house : Exact', description: 'Peak day. Cool friend-feeling peaks.' },
-  { name: 'Moon aspect Ketu in 11th house : Ends', description: 'Window closes.' },
-  { name: 'Mercury aspect Sun in 5th house', description: 'Sharp romance/creative communication. Love letters; bold dating-app messaging.' },
-  { name: 'Mercury aspect Sun in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Mercury aspect Sun in 5th house : Exact', description: 'Peak day. Send the bold romantic letter.' },
-  { name: 'Mercury aspect Sun in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Mercury aspect Moon in 4th house', description: 'Emotionally tuned home/family writing. Mother-letters, family-with-partner memos.' },
-  { name: 'Mercury aspect Moon in 4th house : Starts', description: 'Window opens.' },
-  { name: 'Mercury aspect Moon in 4th house : Exact', description: 'Peak day. Send the lease, the mother-letter.' },
-  { name: 'Mercury aspect Moon in 4th house : Ends', description: 'Window closes.' },
-  { name: 'Mercury aspect Mercury in 6th house', description: 'Peak peer/sibling/workplace-relationship clarity window of any quarter.' },
-  { name: 'Mercury aspect Mercury in 6th house : Starts', description: 'Window opens.' },
-  { name: 'Mercury aspect Mercury in 6th house : Exact', description: 'Peak day. Settle the long-pending peer or sibling conversation.' },
-  { name: 'Mercury aspect Mercury in 6th house : Ends', description: 'Window closes.' },
-  { name: 'Mercury aspect Venus in 12th house', description: 'Graceful private-intimacy and foreign-friend writing.' },
-  { name: 'Mercury aspect Venus in 12th house : Starts', description: 'Window opens.' },
-  { name: 'Mercury aspect Venus in 12th house : Exact', description: 'Peak day. Send the foreign-love letter.' },
-  { name: 'Mercury aspect Venus in 12th house : Ends', description: 'Window closes.' },
-  { name: 'Mercury aspect Mars in 1st house', description: 'Punchy bold self-communication in love. Founder-narrative refresh.' },
-  { name: 'Mercury aspect Mars in 1st house : Starts', description: 'Window opens.' },
-  { name: 'Mercury aspect Mars in 1st house : Exact', description: 'Peak day. Send the bold personal-narrative letter.' },
-  { name: 'Mercury aspect Mars in 1st house : Ends', description: 'Window closes.' },
-  { name: 'Mercury aspect Jupiter in 9th house', description: 'Visionary writing about values/ethics/foreign-relationship.' },
-  { name: 'Mercury aspect Jupiter in 9th house : Starts', description: 'Window opens.' },
-  { name: 'Mercury aspect Jupiter in 9th house : Exact', description: 'Peak day. Draft the vow; send the ethics-letter.' },
-  { name: 'Mercury aspect Jupiter in 9th house : Ends', description: 'Window closes.' },
-  { name: 'Mercury aspect Saturn in 10th house', description: 'Disciplined public-couple communication.' },
-  { name: 'Mercury aspect Saturn in 10th house : Starts', description: 'Window opens.' },
-  { name: 'Mercury aspect Saturn in 10th house : Exact', description: 'Peak day. Send the joint formal announcement.' },
-  { name: 'Mercury aspect Saturn in 10th house : Ends', description: 'Window closes.' },
-  { name: 'Mercury aspect Rahu in 5th house', description: 'Bold romance-communication. Verify before sending.' },
-  { name: 'Mercury aspect Rahu in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Mercury aspect Rahu in 5th house : Exact', description: 'Peak day. Viral romance-pitch lands.' },
-  { name: 'Mercury aspect Rahu in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Mercury aspect Ketu in 11th house', description: 'Sharp-detached friend-network communication. Cool group-text leadership.' },
-  { name: 'Mercury aspect Ketu in 11th house : Starts', description: 'Window opens.' },
-  { name: 'Mercury aspect Ketu in 11th house : Exact', description: 'Peak day. Cold friend-network logistics close.' },
-  { name: 'Mercury aspect Ketu in 11th house : Ends', description: 'Window closes.' },
-  { name: 'Venus aspect Sun in 5th house', description: 'Graceful romance-authority. Aesthetic date-nights, mentee-warmth, charm-driven courtship.' },
-  { name: 'Venus aspect Sun in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Venus aspect Sun in 5th house : Exact', description: 'Peak day. Launch the beautiful date or proposal.' },
-  { name: 'Venus aspect Sun in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Venus aspect Moon in 4th house', description: 'Beautiful home/mother/family-with-partner window.' },
-  { name: 'Venus aspect Moon in 4th house : Starts', description: 'Window opens.' },
-  { name: 'Venus aspect Moon in 4th house : Exact', description: 'Peak day. Sign, host, beautify.' },
-  { name: 'Venus aspect Moon in 4th house : Ends', description: 'Window closes.' },
-  { name: 'Venus aspect Mercury in 6th house', description: 'Diplomatic peer/sibling/workplace warmth. Difficult colleagues become receptive.' },
-  { name: 'Venus aspect Mercury in 6th house : Starts', description: 'Window opens.' },
-  { name: 'Venus aspect Mercury in 6th house : Exact', description: 'Peak day. The hard peer-talk lands warmly.' },
-  { name: 'Venus aspect Mercury in 6th house : Ends', description: 'Window closes.' },
-  { name: 'Venus aspect Venus in 12th house', description: 'Peak private-intimacy/foreign-love/devotional warmth. Hidden patrons of the heart surface.' },
-  { name: 'Venus aspect Venus in 12th house : Starts', description: 'Window opens.' },
-  { name: 'Venus aspect Venus in 12th house : Exact', description: 'Peak day. Foreign love-news lands; retreat-mandate clarifies.' },
-  { name: 'Venus aspect Venus in 12th house : Ends', description: 'Window closes.' },
-  { name: 'Venus aspect Mars in 1st house', description: 'Mars-Venus warmth on persona. Charm-driven founder-style asks.' },
-  { name: 'Venus aspect Mars in 1st house : Starts', description: 'Window opens.' },
-  { name: 'Venus aspect Mars in 1st house : Exact', description: 'Peak day. Make the warm bold ask.' },
-  { name: 'Venus aspect Mars in 1st house : Ends', description: 'Window closes.' },
-  { name: 'Venus aspect Jupiter in 9th house', description: 'Graceful foreign/dharma-of-love window. Diplomatic foreign-friend engagement.' },
-  { name: 'Venus aspect Jupiter in 9th house : Starts', description: 'Window opens.' },
-  { name: 'Venus aspect Jupiter in 9th house : Exact', description: 'Peak day. Sign the foreign-relationship deal warmly.' },
-  { name: 'Venus aspect Jupiter in 9th house : Ends', description: 'Window closes.' },
-  { name: 'Venus aspect Saturn in 10th house', description: 'Softens public-couple face. Couples-photos, brand campaigns favored.' },
-  { name: 'Venus aspect Saturn in 10th house : Starts', description: 'Window opens.' },
-  { name: 'Venus aspect Saturn in 10th house : Exact', description: 'Peak day.' },
-  { name: 'Venus aspect Saturn in 10th house : Ends', description: 'Window closes.' },
-  { name: 'Venus aspect Rahu in 5th house', description: 'Glamour-amplified romance window. Spotlight romance, fame-driven courtship. Verify substance.' },
-  { name: 'Venus aspect Rahu in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Venus aspect Rahu in 5th house : Exact', description: 'Peak day. Take the spotlight — anchor in dharma.' },
-  { name: 'Venus aspect Rahu in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Venus aspect Ketu in 11th house', description: 'Graceful but cool friend-network warmth. Bonus-of-the-network arrives muted.' },
-  { name: 'Venus aspect Ketu in 11th house : Starts', description: 'Window opens.' },
-  { name: 'Venus aspect Ketu in 11th house : Exact', description: 'Peak day. Friend-warmth lands; feel without grasping.' },
-  { name: 'Venus aspect Ketu in 11th house : Ends', description: 'Window closes.' },
-  { name: 'Mars aspect Sun in 5th house', description: 'Fiery romance-authority push. Bold courtship, passionate launches. Verify Rahu doesn\'t inflate.' },
-  { name: 'Mars aspect Sun in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Mars aspect Sun in 5th house : Exact', description: 'Peak day. Launch hard; verify integrity.' },
-  { name: 'Mars aspect Sun in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Mars aspect Moon in 4th house', description: 'Heated home-and-family-with-partner push. Decisive real-estate moves.' },
-  { name: 'Mars aspect Moon in 4th house : Starts', description: 'Window opens.' },
-  { name: 'Mars aspect Moon in 4th house : Exact', description: 'Peak day. Sign or close decisively; soften family communication.' },
-  { name: 'Mars aspect Moon in 4th house : Ends', description: 'Window closes.' },
-  { name: 'Mars aspect Mercury in 6th house', description: 'Fiery peer/sibling/workplace conflict-push. Win the dispute, settle the friend-debt.' },
-  { name: 'Mars aspect Mercury in 6th house : Starts', description: 'Window opens.' },
-  { name: 'Mars aspect Mercury in 6th house : Exact', description: 'Peak day. Defeat the rival; close the case.' },
-  { name: 'Mars aspect Mercury in 6th house : Ends', description: 'Window closes.' },
-  { name: 'Mars aspect Venus in 12th house', description: 'Heated private-intimacy/foreign-love zone. Bedroom-intensity peaks.' },
-  { name: 'Mars aspect Venus in 12th house : Starts', description: 'Window opens.' },
-  { name: 'Mars aspect Venus in 12th house : Exact', description: 'Peak day. Foreign or hidden battle peaks.' },
-  { name: 'Mars aspect Venus in 12th house : Ends', description: 'Window closes.' },
-  { name: 'Mars aspect Mars in 1st house', description: 'Peak self-action window of any two-year cycle in love. Founder-style commitment-asks.' },
-  { name: 'Mars aspect Mars in 1st house : Starts', description: 'Window opens.' },
-  { name: 'Mars aspect Mars in 1st house : Exact', description: 'Peak day. Take the founder-step; sign the bold paper.' },
-  { name: 'Mars aspect Mars in 1st house : Ends', description: 'Window closes.' },
-  { name: 'Mars aspect Jupiter in 9th house', description: 'Fiery values/ethics push. Wedding-planning aggression; ceremony-fight.' },
-  { name: 'Mars aspect Jupiter in 9th house : Starts', description: 'Window opens.' },
-  { name: 'Mars aspect Jupiter in 9th house : Exact', description: 'Peak day. Force the wedding-decision; settle the ethics-question.' },
-  { name: 'Mars aspect Jupiter in 9th house : Ends', description: 'Window closes.' },
-  { name: 'Mars aspect Saturn in 10th house', description: 'Fiery public-couple push. Bold joint career-step; demand the formal commitment.' },
-  { name: 'Mars aspect Saturn in 10th house : Starts', description: 'Window opens.' },
-  { name: 'Mars aspect Saturn in 10th house : Exact', description: 'Peak day. Take the joint formal step.' },
-  { name: 'Mars aspect Saturn in 10th house : Ends', description: 'Window closes.' },
-  { name: 'Mars aspect Rahu in 5th house', description: 'Fiery romance-ambition with shadow. Bold affairs or passionate moves; verify twice.' },
-  { name: 'Mars aspect Rahu in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Mars aspect Rahu in 5th house : Exact', description: 'Peak day. Take the bold leap — anchor in dharma.' },
-  { name: 'Mars aspect Rahu in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Mars aspect Ketu in 11th house', description: 'Heated friend-network push with detachment. Group-decisions, mutual-friend conflicts decisive.' },
-  { name: 'Mars aspect Ketu in 11th house : Starts', description: 'Window opens.' },
-  { name: 'Mars aspect Ketu in 11th house : Exact', description: 'Peak day. Win the network battle.' },
-  { name: 'Mars aspect Ketu in 11th house : Ends', description: 'Window closes.' },
-  { name: 'Jupiter aspect Sun in 5th house', description: 'Peak wisdom on romance/children/creativity. Major commitment-launches; mentor-blessed marriage.' },
-  { name: 'Jupiter aspect Sun in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Jupiter aspect Sun in 5th house : Exact', description: 'Peak day. Launch the principled relationship-step.' },
-  { name: 'Jupiter aspect Sun in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Jupiter aspect Moon in 4th house', description: 'Wisdom-blessing on home/mother/family-with-partner. Buy-the-home-together.' },
-  { name: 'Jupiter aspect Moon in 4th house : Starts', description: 'Window opens.' },
-  { name: 'Jupiter aspect Moon in 4th house : Exact', description: 'Peak day. Sign the lease together; deepen with mother.' },
-  { name: 'Jupiter aspect Moon in 4th house : Ends', description: 'Window closes.' },
-  { name: 'Jupiter aspect Mercury in 6th house', description: 'Wisdom on peer/workplace/sibling relationships. Difficult peers become teachers.' },
-  { name: 'Jupiter aspect Mercury in 6th house : Starts', description: 'Window opens.' },
-  { name: 'Jupiter aspect Mercury in 6th house : Exact', description: 'Peak day. Resolve the long sibling or peer issue.' },
-  { name: 'Jupiter aspect Mercury in 6th house : Ends', description: 'Window closes.' },
-  { name: 'Jupiter aspect Venus in 12th house', description: 'Peak private-intimacy/foreign-love/devotional expansion. Foreign joint-sabbatical.' },
-  { name: 'Jupiter aspect Venus in 12th house : Starts', description: 'Window opens.' },
-  { name: 'Jupiter aspect Venus in 12th house : Exact', description: 'Peak day. Foreign-love news lands.' },
-  { name: 'Jupiter aspect Venus in 12th house : Ends', description: 'Window closes.' },
-  { name: 'Jupiter aspect Mars in 1st house', description: 'Wisdom on warrior-identity in love. Take the larger relationship-role.' },
-  { name: 'Jupiter aspect Mars in 1st house : Starts', description: 'Window opens.' },
-  { name: 'Jupiter aspect Mars in 1st house : Exact', description: 'Peak day. Accept the larger commitment.' },
-  { name: 'Jupiter aspect Mars in 1st house : Ends', description: 'Window closes.' },
-  { name: 'Jupiter aspect Jupiter in 9th house', description: 'Peak values/ethics/foreign-relationship window of any twelve-year cycle. Wedding/ceremony/vow ideal.' },
-  { name: 'Jupiter aspect Jupiter in 9th house : Starts', description: 'Window opens.' },
-  { name: 'Jupiter aspect Jupiter in 9th house : Exact', description: 'Peak day. Take the foreign-relationship step; the vow lands.' },
-  { name: 'Jupiter aspect Jupiter in 9th house : Ends', description: 'Window closes.' },
-  { name: 'Jupiter aspect Saturn in 10th house', description: 'Wisdom on public-couple commitment. Marriage, formal-cohabitation, joint-prestige.' },
-  { name: 'Jupiter aspect Saturn in 10th house : Starts', description: 'Window opens.' },
-  { name: 'Jupiter aspect Saturn in 10th house : Exact', description: 'Peak day. Take the formal commitment.' },
-  { name: 'Jupiter aspect Saturn in 10th house : Ends', description: 'Window closes.' },
-  { name: 'Jupiter aspect Rahu in 5th house', description: 'Wisdom on romance-ambition. The fame-of-love-pull gets a guru.' },
-  { name: 'Jupiter aspect Rahu in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Jupiter aspect Rahu in 5th house : Exact', description: 'Peak day. Principled romance-ambition crystallizes.' },
-  { name: 'Jupiter aspect Rahu in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Jupiter aspect Ketu in 11th house', description: 'Wisdom on detached friend-network. Joint network-prestige with detachment.' },
-  { name: 'Jupiter aspect Ketu in 11th house : Starts', description: 'Window opens.' },
-  { name: 'Jupiter aspect Ketu in 11th house : Exact', description: 'Peak day. Major friend-event lands; honor without clinging.' },
-  { name: 'Jupiter aspect Ketu in 11th house : Ends', description: 'Window closes.' },
-  { name: 'Saturn aspect Sun in 5th house', description: 'Structural test of romance/children/creativity. Speculation in love tightens.' },
-  { name: 'Saturn aspect Sun in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Saturn aspect Sun in 5th house : Exact', description: 'Peak day. Romance-fame-pull is checked. Build for permanence.' },
-  { name: 'Saturn aspect Sun in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Saturn aspect Moon in 4th house', description: 'Heaviness on home/mother/family-with-partner. Mother-care intensifies.' },
-  { name: 'Saturn aspect Moon in 4th house : Starts', description: 'Window opens.' },
-  { name: 'Saturn aspect Moon in 4th house : Exact', description: 'Peak day. Mother needs care; real-estate restructures.' },
-  { name: 'Saturn aspect Moon in 4th house : Ends', description: 'Window closes.' },
-  { name: 'Saturn aspect Mercury in 6th house', description: 'Favorable for service/peer-conflict mastery. Long-arc rebuilding of strained friendships.' },
-  { name: 'Saturn aspect Mercury in 6th house : Starts', description: 'Window opens.' },
-  { name: 'Saturn aspect Mercury in 6th house : Exact', description: 'Peak day. The structural peer-resolution lands.' },
-  { name: 'Saturn aspect Mercury in 6th house : Ends', description: 'Window closes.' },
-  { name: 'Saturn aspect Venus in 12th house', description: 'Multi-year discipline on private-intimacy/foreign-love. Long-distance phases formalize.' },
-  { name: 'Saturn aspect Venus in 12th house : Starts', description: 'Window opens.' },
-  { name: 'Saturn aspect Venus in 12th house : Exact', description: 'Peak day. Foreign-relationship formalizes.' },
-  { name: 'Saturn aspect Venus in 12th house : Ends', description: 'Window closes.' },
-  { name: 'Saturn aspect Mars in 1st house', description: 'Heavy structural test of warrior-identity in love. Slow rebuilding.' },
-  { name: 'Saturn aspect Mars in 1st house : Starts', description: 'Window opens.' },
-  { name: 'Saturn aspect Mars in 1st house : Exact', description: 'Peak day. The persona-in-love is tested.' },
-  { name: 'Saturn aspect Mars in 1st house : Ends', description: 'Window closes.' },
-  { name: 'Saturn aspect Jupiter in 9th house', description: 'Discipline on values/ethics/foreign-relationship. Slow visa or ceremony-process.' },
-  { name: 'Saturn aspect Jupiter in 9th house : Starts', description: 'Window opens.' },
-  { name: 'Saturn aspect Jupiter in 9th house : Exact', description: 'Peak day. The principle is tested.' },
-  { name: 'Saturn aspect Jupiter in 9th house : Ends', description: 'Window closes.' },
-  { name: 'Saturn aspect Saturn in 10th house', description: 'Peak public-couple-restructure window of any thirty-year cycle. Marriage, formal cohabitation.' },
-  { name: 'Saturn aspect Saturn in 10th house : Starts', description: 'Window opens.' },
-  { name: 'Saturn aspect Saturn in 10th house : Exact', description: 'Peak day. Accept the multi-decade commitment chapter.' },
-  { name: 'Saturn aspect Saturn in 10th house : Ends', description: 'Window closes.' },
-  { name: 'Saturn aspect Rahu in 5th house', description: 'Discipline on romance-ambition. Speculative-love bubbles deflate.' },
-  { name: 'Saturn aspect Rahu in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Saturn aspect Rahu in 5th house : Exact', description: 'Peak day. The fame-of-love bubble pops.' },
-  { name: 'Saturn aspect Rahu in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Saturn aspect Ketu in 11th house', description: 'Disciplined friend-network. The network purges what is no longer dharmic.' },
-  { name: 'Saturn aspect Ketu in 11th house : Starts', description: 'Window opens.' },
-  { name: 'Saturn aspect Ketu in 11th house : Exact', description: 'Peak day. Structural friend-locks set.' },
-  { name: 'Saturn aspect Ketu in 11th house : Ends', description: 'Window closes.' },
-  { name: 'Rahu aspect Sun in 5th house', description: 'Peak romance-ambition window of any eighteen-year cycle. Verify dharma.' },
-  { name: 'Rahu aspect Sun in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Rahu aspect Sun in 5th house : Exact', description: 'Peak day. The bold love-leap presents — verify.' },
-  { name: 'Rahu aspect Sun in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Rahu aspect Moon in 4th house', description: 'Obsessive home/mother/relocation-with-partner chapter.' },
-  { name: 'Rahu aspect Moon in 4th house : Starts', description: 'Window opens.' },
-  { name: 'Rahu aspect Moon in 4th house : Exact', description: 'Peak day. Foreign-relocation pull peaks.' },
-  { name: 'Rahu aspect Moon in 4th house : Ends', description: 'Window closes.' },
-  { name: 'Rahu aspect Mercury in 6th house', description: 'Favorable. Defeat a relationship-rival, settle long peer-debt.' },
-  { name: 'Rahu aspect Mercury in 6th house : Starts', description: 'Window opens.' },
-  { name: 'Rahu aspect Mercury in 6th house : Exact', description: 'Peak day. Major peer or sibling adversary yields.' },
-  { name: 'Rahu aspect Mercury in 6th house : Ends', description: 'Window closes.' },
-  { name: 'Rahu aspect Venus in 12th house', description: 'Obsessive private-intimacy/foreign-love pull.' },
-  { name: 'Rahu aspect Venus in 12th house : Starts', description: 'Window opens.' },
-  { name: 'Rahu aspect Venus in 12th house : Exact', description: 'Peak day. Foreign-love pull peaks.' },
-  { name: 'Rahu aspect Venus in 12th house : Ends', description: 'Window closes.' },
-  { name: 'Rahu aspect Mars in 1st house', description: 'Obsessive founder-identity push in love. New persona within partnership.' },
-  { name: 'Rahu aspect Mars in 1st house : Starts', description: 'Window opens.' },
-  { name: 'Rahu aspect Mars in 1st house : Exact', description: 'Peak day. Founder-leap in love presents — verify.' },
-  { name: 'Rahu aspect Mars in 1st house : Ends', description: 'Window closes.' },
-  { name: 'Rahu aspect Jupiter in 9th house', description: 'Foreign-fortune obsession in love. International courtship.' },
-  { name: 'Rahu aspect Jupiter in 9th house : Starts', description: 'Window opens.' },
-  { name: 'Rahu aspect Jupiter in 9th house : Exact', description: 'Peak day. Foreign-fortune leap presents.' },
-  { name: 'Rahu aspect Jupiter in 9th house : Ends', description: 'Window closes.' },
-  { name: 'Rahu aspect Saturn in 10th house', description: 'Obsessive public-couple elevation push. Sudden status moves.' },
-  { name: 'Rahu aspect Saturn in 10th house : Starts', description: 'Window opens.' },
-  { name: 'Rahu aspect Saturn in 10th house : Exact', description: 'Peak day. Bold public-couple-leap presents — verify.' },
-  { name: 'Rahu aspect Saturn in 10th house : Ends', description: 'Window closes.' },
-  { name: 'Rahu aspect Rahu in 5th house', description: 'Eighteen-year apex of romance-ambition cycle. Anchor in dharma.' },
-  { name: 'Rahu aspect Rahu in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Rahu aspect Rahu in 5th house : Exact', description: 'Peak day. The romance-ambition cycle peaks.' },
-  { name: 'Rahu aspect Rahu in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Rahu aspect Ketu in 11th house', description: 'Generational reckoning of friend-network. Mutual-friend turbulence.' },
-  { name: 'Rahu aspect Ketu in 11th house : Starts', description: 'Window opens.' },
-  { name: 'Rahu aspect Ketu in 11th house : Exact', description: 'Peak day. Friend-defining event lands; old network dissolves.' },
-  { name: 'Rahu aspect Ketu in 11th house : Ends', description: 'Window closes.' },
-  { name: 'Ketu aspect Sun in 5th house', description: 'Romance-authority eclipse. Old crush-ambition feels hollow.' },
-  { name: 'Ketu aspect Sun in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Ketu aspect Sun in 5th house : Exact', description: 'Peak day. Old romance dissolves; cleaner love remains.' },
-  { name: 'Ketu aspect Sun in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Ketu aspect Moon in 4th house', description: 'Home/mother/family-with-partner detachment.' },
-  { name: 'Ketu aspect Moon in 4th house : Starts', description: 'Window opens.' },
-  { name: 'Ketu aspect Moon in 4th house : Exact', description: 'Peak day. Simplification impulse peaks.' },
-  { name: 'Ketu aspect Moon in 4th house : Ends', description: 'Window closes.' },
-  { name: 'Ketu aspect Mercury in 6th house', description: 'Peer/workplace-relationship detachment. Old conflicts dissolve quietly.' },
-  { name: 'Ketu aspect Mercury in 6th house : Starts', description: 'Window opens.' },
-  { name: 'Ketu aspect Mercury in 6th house : Exact', description: 'Peak day. Old peer-enemies disengage on their own.' },
-  { name: 'Ketu aspect Mercury in 6th house : Ends', description: 'Window closes.' },
-  { name: 'Ketu aspect Venus in 12th house', description: 'Private-intimacy/foreign-love dissolution. Pilgrimage-pull strong.' },
-  { name: 'Ketu aspect Venus in 12th house : Starts', description: 'Window opens.' },
-  { name: 'Ketu aspect Venus in 12th house : Exact', description: 'Peak day. Old foreign-love channel closes.' },
-  { name: 'Ketu aspect Venus in 12th house : Ends', description: 'Window closes.' },
-  { name: 'Ketu aspect Mars in 1st house', description: 'Founder-identity stripping in love. Old warrior-persona finished.' },
-  { name: 'Ketu aspect Mars in 1st house : Starts', description: 'Window opens.' },
-  { name: 'Ketu aspect Mars in 1st house : Exact', description: 'Peak day. Old persona dissolves.' },
-  { name: 'Ketu aspect Mars in 1st house : Ends', description: 'Window closes.' },
-  { name: 'Ketu aspect Jupiter in 9th house', description: 'Values/ethics/foreign-friend detachment.' },
-  { name: 'Ketu aspect Jupiter in 9th house : Starts', description: 'Window opens.' },
-  { name: 'Ketu aspect Jupiter in 9th house : Exact', description: 'Peak day. Old principle dissolves.' },
-  { name: 'Ketu aspect Jupiter in 9th house : Ends', description: 'Window closes.' },
-  { name: 'Ketu aspect Saturn in 10th house', description: 'Public-couple eclipse. Old couples-image dissolves.' },
-  { name: 'Ketu aspect Saturn in 10th house : Starts', description: 'Window opens.' },
-  { name: 'Ketu aspect Saturn in 10th house : Exact', description: 'Peak day. Old joint role dissolves.' },
-  { name: 'Ketu aspect Saturn in 10th house : Ends', description: 'Window closes.' },
-  { name: 'Ketu aspect Rahu in 5th house', description: 'Generational ambition vs. detachment reckoning in love.' },
-  { name: 'Ketu aspect Rahu in 5th house : Starts', description: 'Window opens.' },
-  { name: 'Ketu aspect Rahu in 5th house : Exact', description: 'Peak day. Old romance-ambition ends; new seeds.' },
-  { name: 'Ketu aspect Rahu in 5th house : Ends', description: 'Window closes.' },
-  { name: 'Ketu aspect Ketu in 11th house', description: 'Eighteen-year apex of friend-network detachment cycle.' },
-  { name: 'Ketu aspect Ketu in 11th house : Starts', description: 'Window opens.' },
-  { name: 'Ketu aspect Ketu in 11th house : Exact', description: 'Peak day. Old network completes its dissolve.' },
-  { name: 'Ketu aspect Ketu in 11th house : Ends', description: 'Window closes.' },
+  {
+    name: 'Moon Transits the 8th House',
+    description: "Deep-seated emotional insecurities and fears of betrayal rise to the surface, potentially triggering sudden bouts of depression. Sexual intimacy may feel intense but emotionally fraught, leading to power struggles or misunderstandings with your partner. Guard against irrational paranoia that can provoke unnecessary conflict and secretive behavior.",
+  },
+  {
+    name: 'Moon aspect Venus in 8th house',
+    description: "A powerful, almost obsessive longing for deep emotional and sexual fusion takes over. You may be drawn to secretive or taboo romantic encounters, or experience a profound rekindling of intimacy with a past partner. While magnetism is extraordinarily high, emotional vulnerability can lead to painful misunderstandings if trust is not established.",
+  },
+  {
+    name: 'Venus ruler of the 2nd House in the 8th House',
+    description: "Conflicts with your partner frequently revolve around shared finances, deep-rooted values, and hidden emotional needs. Intimacy is heavily intertwined with feelings of material security, and a lack of transparency can lead to intense arguments. Healing comes through uncovering childhood secrets that have subconsciously sabotaged your capacity for open love.",
+  },
+  {
+    name: 'Venus ruler of the 7th House in the 8th house',
+    description: "This is a highly transformative but challenging karmic placement for partnerships, heavily predisposing the relationship to secretive behavior, sexual intensity, or sudden upheaval. Trust is intensely tested, and fears of abandonment or betrayal can lead to deep emotional crises or divorce. Intimacy becomes a battlefield where profound psychological wounds must be resolved.",
+  },
+  {
+    name: 'Moon aspect Mercury in 8th house',
+    description: "Overthinking your relationship dynamics can trap you in a cycle of anxiety and emotional detachment. You may find yourself neurotically analyzing your partner's words, looking for hidden meanings that spark misunderstandings. However, clear, deeply psychological conversations about your sex life and hidden fears can foster profound emotional healing.",
+  },
+  {
+    name: 'Mercury ruler of the 3rd House in the 8th House',
+    description: "Communication in relationships is often defensive, secretive, or easily misunderstood, leading to sudden and explosive arguments. Early developmental traumas make it difficult to articulate your true emotional needs to a partner, fostering isolation and depression. Deep psychological self-analysis is required to stop projecting your inner turmoil onto loved ones.",
+  },
+  {
+    name: 'Mercury ruler of the 6th House in the 8th House',
+    description: "Anxiety and stress from daily life severely disrupt your emotional equilibrium, often manifesting as a loss of sexual desire or petty arguments with your partner. Misunderstandings frequently arise from an obsessive focus on flaws within the relationship. You must consciously separate your mental exhaustion from your romantic life to avoid chronic conflict.",
+  },
+  {
+    name: 'Moon aspect Mars in 8th house',
+    description: "Volatile emotions and repressed anger can erupt into intense, passionate arguments with your partner. Sexual energy is aggressive and can be used as a weapon for dominance or a tool for profound, raw connection. You must actively redirect jealous or vindictive feelings to avoid destructive misunderstandings.",
+  },
+  {
+    name: 'Mars ruler of the 1st House in the 8th House',
+    description: "You project an aura of intense, brooding passion, but inner emotional struggles often sabotage your relationships. A deep-seated fear of vulnerability makes you defensive, leading to frequent conflicts and a tendency to attract chaotic or secretive partners. Confronting your own psychological darkness is essential to achieving stable, trusting intimacy.",
+  },
+  {
+    name: 'Mars ruler of the 8th House in the 8th House',
+    description: "Your sexual and emotional needs are profound, possessing a raw, almost psychic intensity that can overwhelm a partner. Issues of shame, guilt, or past trauma make you fiercely private, sometimes leading to emotional withdrawal or depression. When trust is established, the relationship becomes a powerful vehicle for mutual psychological and sexual transformation.",
+  },
+  {
+    name: 'Moon Transits the 9th House',
+    description: "Emotional conflicts may arise from fundamental differences in beliefs, morals, or future visions with your partner. You may feel restless or disconnected, seeking higher meaning and feeling depressed if the relationship feels spiritually stagnant. Open, philosophical discussions are needed to bridge the gap and prevent ideological arguments.",
+  },
+  {
+    name: 'Moon aspect Sun in 9th house',
+    description: "A harmonious alignment where your core identity and emotional needs find common ground in shared beliefs with your partner. Misunderstandings can be resolved by appealing to your mutual moral compass and higher ideals. It is a time of emotional renewal, where love is strengthened through a shared vision of the future.",
+  },
+  {
+    name: 'Sun ruler of the 5th House in the 9th House',
+    description: "Romantic love is idealized, and you seek a partner who is also a spiritual or philosophical guide. Conflicts rarely stem from petty issues but rather from clashes over fundamental truths or child-rearing philosophies. There is a deep, warm emotional connection that thrives on mutual respect and shared adventures.",
+  },
+  {
+    name: 'Moon aspect Rahu in 9th house',
+    description: "Fanatical emotions or obsessive beliefs can severely disrupt relationship harmony, causing you to project unrealistic expectations onto your partner. Sudden, intense arguments may flare up over cultural differences or moral judgments. You are prone to emotional illusions, confusing obsessive attachment with spiritual connection.",
+  },
+  {
+    name: 'Moon aspect Ketu in 3rd house',
+    description: "Communication with your partner feels disjointed, leading to a profound sense of emotional isolation or apathy. You may lack the desire to engage in arguments, instead withdrawing into a detached, depressive state. A unique, non-verbal emotional understanding is required to navigate this lack of conventional intimacy.",
+  },
+  {
+    name: 'Moon Transits the 10th House',
+    description: "Public reputation and career stressors heavily infiltrate your emotional life, leading to coldness or neglect in your partnership. You may project authority onto your partner or resent them for not supporting your ambitions, sparking power struggles. Emotional vulnerability is suppressed in favor of maintaining control, creating distance.",
+  },
+  {
+    name: 'Sun Transits the 12th House',
+    description: "A period of deep emotional withdrawal where past relationship failures and repressed grief come to the surface, often triggering depression. You may feel an urge to isolate yourself from your partner, leading them to feel abandoned or rejected. Hidden enemies or secret romantic desires can create significant inner conflict and misunderstanding.",
+  },
+  {
+    name: 'Moon aspect Saturn in 10th house',
+    description: "A heavy, depressive energy pervades your emotional expression, making you feel unloved or burdened by relationship responsibilities. You may perceive your partner as critical or demanding, leading to defensive walls and a lack of sexual intimacy. Conflict arises from emotional starvation and the rigid enforcement of boundaries.",
+  },
+  {
+    name: 'Saturn ruler of the 10th House in the 10th House',
+    description: "Your primary emotional investment is in your public life, often leaving your romantic partner feeling neglected and starved for affection. Intimacy is treated as a duty rather than a passion, leading to a sterile or highly structured relationship dynamic. Deep-seated fears of failure prevent you from fully surrendering to emotional vulnerability.",
+  },
+  {
+    name: 'Saturn ruler of the 11th House in the 10th House',
+    description: "You seek practical, grounded support from a partner rather than passionate romance, valuing loyalty over emotional depth. Conflicts arise if your partner demands excessive emotional validation that you are unwilling to provide. Misunderstandings occur when your pragmatic approach to love is mistaken for coldness or lack of interest.",
+  },
+  {
+    name: 'Moon Transits the 11th House',
+    description: "Interference from friends or social groups can create unexpected friction and jealousy within your romantic partnership. You may feel emotionally drained by the demands of others, causing you to emotionally neglect your primary relationship. Misunderstandings arise from a lack of clear boundaries between your social life and private intimacy.",
+  },
+  {
+    name: 'Moon aspect Jupiter in 5th house',
+    description: "A beautiful period of emotional generosity, where your heart is open to giving and receiving deep, joyful love. Sexual intimacy is warm, playful, and spiritually uplifting, dissolving past resentments. Arguments are easily resolved through mutual forgiveness and a shared desire for happiness.",
+  },
+  {
+    name: 'Jupiter ruler of the 9th House in the 5th House',
+    description: "You attract partners who act as teachers or guides, and your emotional connection is rooted in shared wisdom and spiritual growth. Conflicts are rare but may occur if there is a perceived lack of moral integrity. Love is expansive, and physical intimacy is viewed as a sacred, joyful celebration of life.",
+  },
+  {
+    name: 'Jupiter ruler of the 12th House in the 5th House',
+    description: "Romantic relationships often carry a theme of sacrifice, secret sorrow, or karmic lessons that trigger deep introspection. You may fall in love with unavailable people or experience emotional misunderstandings due to your tendency to over-idealize partners. Healing requires channeling this emotional longing into profound spiritual or creative expression.",
+  },
+  {
+    name: 'Moon Transits the 12th House',
+    description: "Subconscious fears, past traumas, and deep-seated insecurities flood your mind, making you highly susceptible to depression and emotional isolation. You may unconsciously push your partner away or misinterpret their actions through a lens of past pain. Secret affairs or hidden desires may surface, leading to complex moral conflicts.",
+  },
+  {
+    name: 'Mars aspect Jupiter in 5th house',
+    description: "High physical energy and a strong desire for fun inject intense passion and sexual excitement into your romantic life. You are direct and bold in pursuing love, which can be thrilling but may lead to arguments if your partner feels overwhelmed. Overconfidence can lead to impulsive emotional decisions or dramatic, short-lived romances.",
+  },
+  {
+    name: 'Sun in 9th (Dispositor)',
+    description: "Your ego and sense of self-worth are deeply tied to your moral compass, meaning you cannot tolerate a partner who acts with deceit. Righteous indignation can cause severe arguments if you feel your partner lacks integrity. Emotional distance occurs when you judge your loved one rather than seeking to understand them.",
+  },
+  {
+    name: 'Moon aspect Moon in 6th house',
+    description: "Your emotional state is highly sensitive to the daily routines and criticisms of your partner, making you prone to nagging or petty arguments. Anxiety over the relationship's stability can manifest as physical illness or digestive issues. You must avoid adopting a victim mentality or treating your partner as a project to be fixed.",
+  },
+  {
+    name: 'Moon ruler of the 4th House in the 6th House',
+    description: "Childhood conditioning and deep-seated family trauma heavily influence your adult relationships, often leading to a subconscious attraction to conflict. You may feel emotionally burdened by your partner, viewing love as an act of service or a heavy debt to be paid. Chronic misunderstandings arise from unhealed emotional wounds regarding security and maternal care.",
+  },
+  {
+    name: 'Moon Transits the 1st House',
+    description: "You wear your heart on your sleeve, demanding immediate emotional validation and projecting your shifting moods directly onto your partner. Heightened sensitivity makes you easily offended, leading to defensive arguments. However, this transit also brings profound emotional honesty and the potential for a deeply nurturing, romantic reset.",
+  },
+  {
+    name: 'Moon Transits the 2nd House',
+    description: "Emotional security is heavily tethered to financial stability and physical affection, making you feel unloved if resources or touch are lacking. Arguments may flare up over shared expenses, spending habits, or perceived possessiveness. Comfort eating or emotional withdrawal can occur if you feel your self-worth is unappreciated by your partner.",
+  },
+  {
+    name: 'Venus aspect Moon in 6th house',
+    description: "A desire to nurture and harmonize clashes with a tendency to overly criticize your partner's habits or daily routines. Love is expressed through acts of service, but resentment builds if these efforts are not acknowledged, leading to passive-aggressive conflict. Intimacy requires overcoming a need for perfection and embracing emotional messiness.",
+  },
+  {
+    name: 'Mercury in 8th (Dispositor)',
+    description: "Your mind is a steel trap for emotional grievances, and you possess the ability to cut deeply with your words during arguments. You overanalyze your partner's psychology, often uncovering hidden truths but risking profound misunderstandings through suspicion. Open, brutally honest communication is the only way to release pent-up sexual and emotional tension.",
+  },
+  {
+    name: 'Moon Transits the 3rd House',
+    description: "Restless emotions and a hyperactive mind lead to rapid-fire communication that can easily be misinterpreted by your partner. You may use words to distance yourself emotionally, engaging in superficial chatter rather than vulnerable connection. Flirtation or emotional curiosity outside the relationship could spark jealousy or conflict.",
+  },
+  {
+    name: 'Venus Transits the 1st House',
+    description: "Your romantic magnetism and physical allure are dramatically heightened, making you incredibly attractive to your partner and others. You possess the charm to smooth over any recent arguments and reignite deep, sensual intimacy. However, narcissism or a demand for constant admiration can cause friction if your partner feels overshadowed.",
+  },
+  {
+    name: 'Moon Transits the 4th House',
+    description: "A deep craving for emotional safety and domestic harmony takes over, making you highly sensitive to your partner's moods within the home. Unresolved issues from your past or childhood may be unconsciously projected onto your lover, leading to nostalgic sadness or depression. True intimacy is found in quiet, private vulnerability and physical closeness.",
+  },
+  {
+    name: 'Mars aspect Moon in 6th house',
+    description: "Irritability and emotional impatience lead to sharp, stinging arguments with your partner over daily chores or responsibilities. You may feel a burning resentment that your emotional needs are being ignored, leading to impulsive outbursts. Sexual frustration is high, and physical intimacy may be used as a way to release pent-up aggressive energy.",
+  },
+  {
+    name: 'Uranus conjunct Venus',
+    description: "A highly volatile transit that injects shocking, electrifying energy into your love life, often leading to sudden attractions or abrupt breakups. The need for absolute emotional freedom clashes with traditional commitment, causing severe misunderstandings with a possessive partner. Sexual experimentation and unconventional relationship dynamics are favored, but stability is practically nonexistent.",
+  },
+  {
+    name: 'Mars in 8th (Dispositor)',
+    description: "Deep, combative psychological urges dominate your emotional landscape, making you crave intense, almost destructive levels of intimacy. Power struggles, jealousy, and possessiveness are common, as you view vulnerability as a threat. Transformative sexual encounters can heal trauma, but unresolved anger will poison the relationship from the inside out.",
+  },
+  {
+    name: 'Moon Transits the 5th House',
+    description: "A dramatic, expressive emotional state demands romance, attention, and playful interaction from your partner. If you feel ignored, you may resort to theatrical arguments or emotional manipulation to regain the spotlight. Sexual energy is creative and joyous, providing a perfect opportunity to reignite the spark and clear away depressive thoughts.",
+  },
+  {
+    name: 'Mars Transits the 12th House',
+    description: "Repressed anger and subconscious resentments simmer just below the surface, severely disrupting your sleep and emotional peace. You may engage in secretive behavior or attract partners who drain your energy and exacerbate feelings of depression. Confronting hidden enemies, including your own self-sabotaging sexual desires, is necessary to avoid toxic relationship patterns.",
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house',
+    description: "Communication with your partner flows effortlessly, filled with optimism, humor, and shared visions for the future. You are able to discuss complex emotional issues or past conflicts without defensiveness, leading to beautiful resolutions. This intellectual synergy heavily stimulates sexual attraction and romantic playfulness.",
+  },
+  {
+    name: 'Sun aspect Moon in 6th house',
+    description: "Ego and emotional needs clash over the balance of power in daily routines, leading to a critical and nitpicking dynamic with your partner. You may feel unappreciated for the unseen sacrifices you make, causing you to withdraw into a mild depression. Resolving these misunderstandings requires a humble evaluation of how you both serve the relationship.",
+  },
+  {
+    name: 'Sun Transits the 1st House',
+    description: "A surge of self-focus and vitality can make you appear domineering or insensitive to your partner's emotional needs. While your confidence is attractive and can lead to passionate encounters, a refusal to compromise will trigger fierce arguments. You must balance your desire for independence with the collaborative requirements of love.",
+  },
+  {
+    name: 'Mercury Transits the 12th House',
+    description: "Communication breaks down as you struggle to articulate complex, subconscious emotions, leading to profound misunderstandings with your partner. You may keep secrets to avoid conflict, but this emotional evasion only deepens feelings of isolation and depression. Intuitive, non-verbal connection and deep psychological reflection are required to maintain intimacy.",
+  },
+  {
+    name: 'Ketu aspect Sun in the 9th house',
+    description: "A deep sense of spiritual detachment or disillusionment affects your relationship, making you question the core purpose of your partnership. You may feel a karmic urge to walk away from a partner who does not align with your true path, leading to sudden, unexplainable distance. Ego clashes dissolve into apathy, and emotional fulfillment is sought purely within.",
+  },
+  {
+    name: 'Venus Aspecting Ascendant (ASC)',
+    description: "You project an aura of warmth, harmony, and sensual grace, drawing your partner closer and effortlessly resolving past arguments. Your desire for peace makes you highly agreeable, though you must be careful not to suppress your true feelings just to avoid conflict. Intimacy is deep, affectionate, and focused on mutual emotional and physical pleasure.",
+  },
+  {
+    name: 'Jupiter in 5th (Dispositor)',
+    description: "A deeply optimistic and expansive energy blesses your romantic life, allowing for grand gestures of love and profound emotional healing. You are generous with your affection, which naturally dissolves any lingering misunderstandings or depression. If single, you are highly likely to attract a partner who brings joy, wisdom, and vibrant sexual energy into your life.",
+  },
+  {
+    name: 'Moon Transits the 6th House',
+    description: "Emotional hypochondria and a hyper-focus on your partner's flaws create a tense, unromantic atmosphere prone to bickering. You may use acts of service as a shield against true vulnerability, leading to an emotionally sterile dynamic. Managing your own anxiety and digestive health is crucial to preventing minor irritations from escalating into major conflicts.",
+  },
+  {
+    name: 'Moon Transits the 7th House',
+    description: "Your emotional well-being is entirely dependent on your partner's mood, making you highly reactive and prone to codependency. You actively seek deep connection and sexual union, but fear of rejection can cause you to compromise your own boundaries. Open, balanced negotiation is required to prevent resentment and maintain emotional equilibrium.",
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house',
+    description: "A heavy, restrictive energy stifles emotional expression, causing you to feel judged or inadequate in the eyes of your partner. Rigid beliefs or a pessimistic outlook can lead to chronic depression and a deep sense of isolation within the relationship. Intimacy requires breaking down walls of pride and accepting that vulnerability is not a weakness.",
+  },
+  {
+    name: 'Venus Transits the 2nd House',
+    description: "You seek tangible proof of love through gifts, physical touch, and financial security, feeling unloved if these are withheld. Sensuality is heightened, making sexual intimacy slow, deeply physical, and deeply comforting. Misunderstandings only arise if you mistake material possessiveness for genuine emotional connection.",
+  },
+  {
+    name: 'Venus aspect Venus in 8th house',
+    description: "An incredibly intense, almost karmic pull toward deep sexual and emotional merging dominates your relationships. You crave a love that transforms you, but this intensity can easily tip into jealousy, possessiveness, and fear of betrayal. When channeled positively, this energy heals old wounds through profound, unshakable intimacy.",
+  },
+  {
+    name: 'Sun Aspecting Ascendant (ASC)',
+    description: "Your confidence and radiant energy command attention, bringing passion and vitality to your romantic life. However, an inflated ego may cause you to steamroll your partner's emotional needs, sparking arguments over who is in control. Mutual respect is necessary to ensure your bright light warms the relationship rather than burning it.",
+  },
+  {
+    name: 'Mercury Aspecting Ascendant (ASC)',
+    description: "Your mind is highly active, demanding constant intellectual stimulation and verbal engagement from your partner. While this allows for the rapid clearing of misunderstandings through logic, you may struggle to connect on a purely emotional or sexual level. Guard against using sharp sarcasm or logic as a weapon during moments of vulnerability.",
+  },
+  {
+    name: 'Venus aspect Mercury in 8th house',
+    description: "You are able to articulate your deepest, most hidden desires and fears to your partner with beautiful clarity. Conversations about sex, shared resources, and psychological triggers heal old wounds and bring you closer. It is a powerful time for pillow talk that transforms the foundation of your intimacy.",
+  },
+  {
+    name: 'Venus aspect Mars in 8th house',
+    description: "A volatile mix of lust, jealousy, and extreme passion creates a highly charged atmosphere in your relationship. Sexual chemistry is magnetic and explosive, often serving as the primary way you resolve deep-seated arguments. You must be cautious of toxic power struggles, as the line between love and destructive obsession is perilously thin.",
+  },
+  {
+    name: 'Mars aspect Venus in 8th house',
+    description: "Aggressive sexual desires and a craving for absolute emotional possession dominate your interactions. You may intentionally provoke conflict with your partner just to experience the passionate intensity of making up. If trust is lacking, this aspect breeds severe paranoia, betrayal, and deeply wounding misunderstandings.",
+  },
+  {
+    name: 'Venus Transits the 3rd House',
+    description: "Love is expressed through sweet words, flirtatious text messages, and playful banter, keeping the relationship light and free of depression. You seek a partner who is also a friend, and intellectual compatibility becomes the primary driver of sexual attraction. Misunderstandings are easily smoothed over through charming and diplomatic communication.",
+  },
+  {
+    name: 'Mercury Transits the 2nd House',
+    description: "Conversations with your partner heavily center around finances, shared values, and material security, requiring pragmatic honesty. You may use logical arguments to mask deep emotional insecurities regarding your self-worth. Clear communication about what you truly value will prevent stubborn conflicts over money and possession.",
+  },
+  {
+    name: 'Sun Transits the 2nd House',
+    description: "Your ego is closely tied to your ability to provide or maintain control over shared resources, leading to potential power struggles with your partner. Arguments about money mask deeper emotional issues regarding self-esteem and feeling valued. You must learn to separate your inherent worth from your financial contributions to maintain harmony.",
+  },
+  {
+    name: 'Mercury Transits the 1st House',
+    description: "You are eager to express your feelings and discuss the relationship dynamic, but your approach may be overly analytical and lacking emotional depth. You run the risk of talking *at* your partner rather than *with* them, sparking arguments born of intellectual arrogance. True connection requires listening just as fiercely as you speak.",
+  },
+  {
+    name: 'Mars Transits the 1st House',
+    description: "A surge of fiery independence makes you highly combative, impatient, and easily provoked into fierce arguments with your partner. Sexual energy is aggressive and self-focused, demanding immediate gratification rather than emotional communion. You must consciously channel this aggressive energy into physical activity to avoid burning down your relationship.",
+  },
+  {
+    name: 'Mars aspect Ketu in 3rd house',
+    description: "Deep-seated anger and frustration become blocked, leading to a volatile internal state where you feel completely misunderstood by your partner. You may abruptly cut off communication or walk away from arguments, causing severe emotional whiplash. The inability to express your passions verbally can lead to depressive apathy or sudden, inexplicable severances.",
+  },
+  {
+    name: 'Mercury aspect Venus in 8th house',
+    description: "You possess the psychological insight to lovingly dissect your relationship dynamics, bringing hidden resentments into the light for healing. Conversations about intimacy, shared trauma, and sexual desires flow easily, deepening the bond. It is an excellent time to renegotiate boundaries and clear up any lingering misunderstandings regarding trust.",
+  },
+  {
+    name: 'Sun aspect Venus in 8th house',
+    description: "Your ego demands intense, transformative love, and you may purposefully test your partner to ensure their absolute loyalty. Jealousy and possessiveness can overshadow genuine affection, leading to painful power struggles. True intimacy is achieved only when you stop trying to control the relationship and surrender to deep emotional vulnerability.",
+  },
+  {
+    name: 'Mercury aspect Mercury in 8th house',
+    description: "Your mind becomes obsessive, analyzing every detail of your partner's behavior for signs of deceit or hidden agendas. This hyper-focus can breed profound misunderstandings if you substitute paranoid logic for actual emotional truth. Channel this psychological acuity into understanding your own fears rather than interrogating your loved one.",
+  },
+  {
+    name: 'Venus aspect Sun in 9th house',
+    description: "Love is expansive, generous, and closely tied to a shared sense of higher purpose and moral integrity. You view your partner with deep admiration, and conflicts are easily resolved by focusing on your mutual long-term vision. The relationship serves as a guiding light, protecting you both from feelings of despair or depression.",
+  },
+  {
+    name: 'Mars Aspecting Ascendant (ASC)',
+    description: "You project an intimidating, highly sexualized energy that can either deeply attract or aggressively repel a partner. Your quick temper means arguments ignite rapidly, often over trivial matters where you refuse to yield. You must learn to soften your approach to intimacy, ensuring passion does not devolve into emotional bullying.",
+  },
+  {
+    name: 'Venus aspect Rahu in 9th house',
+    description: "An intoxicating but potentially illusionary desire for an exotic or idealized romance sweeps you away. You may project unrealistic, almost fanatical expectations onto your partner, setting the stage for deep disappointment and misunderstanding. Cross-cultural love affairs or unconventional sexual explorations are highly favored, but require strong grounding in reality.",
+  },
+  {
+    name: 'Venus aspect Ketu in 3rd house',
+    description: "A profound sense of emotional detachment characterizes your interactions, making you feel disconnected even during physical intimacy. You may feel karmically drawn to past lovers, or experience a sudden loss of desire for your current partner. Misunderstandings arise from your inability to verbalize this strange, fading affection, leading to mutual confusion.",
+  },
+  {
+    name: 'Mercury aspect Mars in 8th house',
+    description: "Your communication style becomes razor-sharp, piercing, and highly combative, making arguments with your partner deeply wounding. You possess a psychological edge that you may use to attack their insecurities when you feel threatened. Transform this destructive mental energy by engaging in honest, unfiltered discussions about your mutual sexual and emotional frustrations.",
+  },
+  {
+    name: 'Mercury Transits the 3rd House',
+    description: "Your mind is eager to connect, making you highly communicative, flirtatious, and attentive to your partner's daily needs. Misunderstandings are rare because you are willing to discuss every detail until a logical resolution is found. However, beware of prioritizing logical debates over deep, silent emotional resonance.",
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house',
+    description: "Intense mental agitation and a paranoid focus on hidden secrets drive you to interrogate your partner ruthlessly. Arguments escalate quickly as you refuse to let go of perceived slights, turning minor disagreements into deep psychological warfare. You must consciously step back from obsessive thoughts to prevent destroying the trust in your relationship.",
+  },
+  {
+    name: 'Jupiter Transits the 4th House',
+    description: "A beautiful period of domestic peace, emotional healing, and a deep sense of security within your partnership. Past resentments and underlying depression melt away as you focus on creating a loving, nurturing home environment together. Intimacy is deeply comforting, grounded in mutual support and a shared foundation.",
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house',
+    description: "A highly fortunate aspect that brings profound emotional healing, sexual abundance, and deep psychological understanding to your partnership. You are able to forgive past betrayals and expand your capacity for transformative, unconditional love. Hidden resources—both emotional and financial—become available, strengthening the bond significantly.",
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house',
+    description: "Your conscious mind is deeply focused on the underlying mechanics of your relationship, seeking to understand the root causes of conflict. You may become overly analytical, demanding clear explanations for your partner's complex emotions. True clarity comes when you align your logical inquiries with genuine empathy and psychological insight.",
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house',
+    description: "Communication with your partner is elevated, focusing on shared truths, philosophies, and long-term goals. You find emotional validation through intellectual agreement, and arguments are resolved by appealing to higher moral standards. This transit fosters a deep respect that acts as a strong foundation for lasting intimacy.",
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house',
+    description: "Communication severely breaks down, characterized by misunderstandings, misread signals, and a profound inability to articulate your emotional needs. You may feel a depressive apathy toward discussing relationship issues, preferring silence over futile arguments. You must rely on intuitive, non-verbal connection to bridge the gap until mental clarity returns.",
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house',
+    description: "Your mind races with unconventional ideas and obsessive thoughts regarding the future of your relationship. You may engage in frantic, overly intellectualized arguments with your partner regarding beliefs or moral superiority. Beware of deceit or self-delusion in communication, as you are prone to making promises you cannot spiritually uphold.",
+  },
+  {
+    name: 'Venus Transits the 4th House',
+    description: "You seek absolute peace, emotional safety, and deep affection within the private sanctuary of your home. You and your partner bond over shared domestic bliss, creating a strong buffer against outside stress or depression. Physical intimacy is gentle, deeply romantic, and heavily tied to feelings of emotional belonging.",
+  },
+  {
+    name: 'Sun aspect Mars in 8th house',
+    description: "Ego and raw aggression collide in the deepest, most vulnerable areas of your relationship, sparking intense power struggles. You may fiercely guard your secrets while demanding absolute transparency from your partner, leading to explosive, damaging arguments. Sexual intimacy can be highly dominant or combative, requiring immense trust to prevent emotional trauma.",
+  },
+  {
+    name: 'Venus Aspecting Midheaven (MC)',
+    description: "Your public image and career are deeply intertwined with your romantic life, and you may seek a partner who elevates your social status. You project charm and grace, making it easy to attract love, but conflicts may arise if the relationship feels more like a PR arrangement than genuine intimacy. Ensure true emotional depth supports your outward harmony.",
+  },
+  {
+    name: 'Saturn in 10th (Dispositor)',
+    description: "The immense pressure of public duty and career ambition crushes your emotional availability, leaving your partner feeling chronically isolated. A deep-seated fear of failure leads to functional depression, where romance and sex are discarded as frivolous distractions. Misunderstandings crystallize into rigid walls if you refuse to prioritize emotional vulnerability over professional control.",
+  },
+  {
+    name: 'Jupiter Aspecting Midheaven (MC)',
+    description: "A sense of grand optimism and expansive growth blesses your approach to both career and relationships. You offer generous support to your partner's ambitions, and conflicts are easily dissolved by your overarching desire for mutual success. Joy and public validation act as strong antidotes to any lingering private depression.",
+  },
+  {
+    name: 'Sun Transits the 3rd House',
+    description: "Your ego seeks validation through clear, decisive communication, and you demand intellectual respect from your partner. Arguments may occur if you adopt a condescending or overly authoritative tone during everyday discussions. However, your strong, confident energy can also sweep away misunderstandings and reignite mental attraction.",
+  },
+  {
+    name: 'Mars aspect Mars in 8th house',
+    description: "A highly volatile placement where primal aggression meets deep psychological vulnerability, creating a powder keg in relationships. You fight fiercely with your partner, and sexual intimacy is often raw, dominant, and driven by a need for ultimate control. Unresolved anger easily mutates into paranoia, making it vital to practice emotional surrender.",
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house',
+    description: "Love is viewed through a lens of duty, restriction, and public expectation, making spontaneous romance incredibly difficult. You may feel unloved or heavily criticized by your partner, leading to a cold, depressive emotional environment. Intimacy requires breaking through immense walls of fear and learning to trust that vulnerability will not lead to rejection.",
+  },
+  {
+    name: 'Sun Transits the 12th House',
+    description: "Your vitality drops, and ego defenses crumble, forcing you to confront deep subconscious fears and unresolved relationship karma. You may isolate yourself from your partner, triggering profound misunderstandings and feelings of mutual abandonment. Secret emotional affairs or hidden grief can severely impact your capacity for true, present-moment intimacy.",
+  },
+  {
+    name: 'Mercury aspects the Moon in the 6th house',
+    description: "You hyper-analyze every emotional nuance and minor flaw in your relationship, leading to chronic anxiety and nagging. Arguments frequently erupt over chores, health, or daily habits, leaving both you and your partner emotionally exhausted. You must calm your nervous system to prevent your critical mind from destroying romantic affection.",
+  },
+  {
+    name: 'Sun Transits the 2nd House',
+    description: "Conflicts over self-worth, possessiveness, and financial control dominate the relationship dynamic. You demand tangible, material proof of your partner's loyalty, and arguments flare fiercely if you feel emotionally undervalued. Balancing the ego's need for security with the heart's need for unconditional love is required to restore peace.",
+  },
+  {
+    name: 'Sun Transits the 3rd House',
+    description: "You assert your willpower through communication, often insisting on having the final word in any disagreement with your partner. While your clarity can swiftly cut through confusion, your refusal to compromise can lead to bitter, ego-driven arguments. Intellectual dominance must be softened with emotional empathy to maintain connection.",
+  },
+  {
+    name: 'Mars Transits the 2nd House',
+    description: "Fierce arguments erupt over money, shared resources, and fundamental values, severely threatening emotional security. You use your words as weapons, engaging in harsh, impulsive speech that causes deep misunderstandings and wounds your partner. Sexual energy is intensely physical and possessive, demanding complete surrender.",
+  },
+  {
+    name: 'Mercury Transits the 4th House',
+    description: "Your mind turns inward to family dynamics and childhood memories, deeply coloring how you communicate with your partner. You may intellectually dissect your emotional foundations, which can heal past traumas or lead to neurotic over-analysis of your shared domestic life. Intimate conversations in the safety of your home foster deep connection.",
+  },
+  {
+    name: 'Pluto conjunct Saturn',
+    description: "An incredibly heavy, karmic aspect that enforces brutal structural changes in your relationship through intense pressure and restriction. You may endure prolonged periods of emotional depression, facing deep fears of abandonment or control. Only relationships built on absolute truth and resilience can survive this profound, grueling transformation.",
+  },
+  {
+    name: 'Sun aspects Sun in 9th house',
+    description: "A powerful alignment of ego and higher purpose, bringing immense clarity and mutual respect to your partnership. You inspire your partner to grow, and arguments are virtually non-existent when you share a unified moral and spiritual vision. This aspect burns away petty insecurities, replacing them with a confident, enlightened love.",
+  },
+  {
+    name: 'Sun aspect Ketu in the 3rd house',
+    description: "Your ego feels dissolved or rejected in communication, making you feel entirely unheard and misunderstood by your partner. You lack the willpower to argue, often withdrawing into a state of quiet depression and emotional apathy. You must let go of the need for constant validation and find peace in silent, spiritual detachment.",
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house',
+    description: "A relentless, obsessive drive to impose your beliefs and ego onto your partner causes severe ideological clashes. You may suffer from delusions of grandeur, causing deep misunderstandings as your partner rebels against your dogmatic control. Emotional connection is lost in the chaotic pursuit of a false or fanatical truth.",
+  },
+  {
+    name: 'Venus Transits the 5th House',
+    description: "A beautiful, deeply romantic transit that brings profound joy, playful flirtation, and a surge of creative sexual expression. You fall in love easily, and existing partnerships are revitalized through shared fun and deep emotional warmth. Misunderstandings evaporate in the face of genuine affection and an open, generous heart.",
+  },
+  {
+    name: 'Mars aspect Sun in 9th house',
+    description: "Aggressive passions and strong egos clash over philosophical differences or moral judgments within the relationship. You are fiercely defensive of your beliefs, leading to fiery arguments where neither you nor your partner will back down. Sexual energy is vibrant but competitive, requiring mutual respect to avoid turning the bedroom into a battleground.",
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house',
+    description: "Explosive, fanatical anger erupts abruptly, causing severe disruptions and potential severances over ideological differences with your partner. You act impulsively and aggressively, driven by a chaotic, obsessive energy that destroys trust and breeds profound misunderstandings. Physical and emotional volatility makes this a dangerous time for relationship stability.",
+  },
+  {
+    name: 'Jupiter aspect Saturn in 10th house',
+    description: "A period of stabilizing growth where you and your partner work hard to build a solid, respectable foundation for your shared future. Emotional patience and loyalty replace the need for fleeting passion, curing underlying anxieties or depression regarding commitment. Misunderstandings are handled with mature grace and a long-term perspective.",
+  },
+  {
+    name: 'Sun Transits the 4th House',
+    description: "Your ego and vital energy withdraw into the private domestic sphere, making you fiercely protective of your emotional boundaries. Conflicts arise if your partner disturbs your sanctuary or challenges your authority within the home. Deep introspection can heal old family wounds, but isolation may lead to a heavy, brooding mood.",
+  },
+  {
+    name: 'Sun Aspecting Midheaven (MC)',
+    description: "Your relationship dynamic is put on public display, and your partner's actions deeply affect your ego and reputation. You desire a powerful 'power couple' dynamic, but power struggles will ensue if one partner feels overshadowed. Ensure your outward success does not come at the cost of authentic, private intimacy.",
+  },
+  {
+    name: 'Venus aspect Jupiter in 5th house',
+    description: "An incredibly auspicious time for love, characterized by deep emotional fulfillment, extreme generosity, and passionate romance. You and your partner share a joyous, expansive physical intimacy that heals all past grievances. There is a profound sense of mutual appreciation that actively repels depression and conflict.",
+  },
+  {
+    name: 'Sun aspect Saturn in 10th house',
+    description: "The heavy burden of career and public expectation crushes your emotional vitality, leaving the relationship feeling cold and burdensome. You may project authority and criticism onto your partner, or feel intensely restricted by their demands, leading to chronic depression. True intimacy is blocked by an immense fear of vulnerability and failure.",
+  },
+  {
+    name: 'Venus Transits the 6th House',
+    description: "Love is expressed through dutiful service, but an over-analytical focus on your partner's flaws can drain the romance completely. You may feel unappreciated, leading to passive-aggressive behavior and petty arguments over daily chores. Intimacy is hindered by anxiety, requiring you to let go of perfectionism to truly connect.",
+  },
+  {
+    name: 'Mars Transits the 3rd House',
+    description: "You are highly combative, quick-witted, and prone to using harsh, aggressive words that cut your partner deeply. Arguments flare up instantly, often over minor misunderstandings or a desire to prove your intellectual dominance. Sexual energy is fast and impulsive, but lacks the emotional depth needed for lasting satisfaction.",
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC)',
+    description: "Fierce ambition and aggressive energy dominate your life, heavily bleeding into your relationship and causing power struggles. You demand absolute support from your partner and will initiate conflict if you feel held back. Sexual tension is high, but the relationship risks becoming a battleground for dominance rather than a sanctuary of love.",
+  },
+  {
+    name: 'Mercury Aspecting Midheaven (MC)',
+    description: "Your communication with your partner is heavily focused on practical matters, career goals, and public image. While this ensures alignment on future plans, it can leave the relationship feeling devoid of emotional warmth or romance. Ensure you take time to articulate your feelings, not just your strategies, to prevent emotional distance.",
+  },
+  {
+    name: 'Mercury aspect Saturn in 10th house',
+    description: "Communication becomes rigid, pessimistic, and heavily guarded, leading to profound misunderstandings and a depressive emotional atmosphere. You expect rejection and therefore speak with a cold authority that alienates your partner. Breaking this deadlock requires immense patience and the courage to articulate your deepest fears of inadequacy.",
+  },
+  {
+    name: 'Sun Transits the 5th House',
+    description: "Your heart opens with dramatic flair, demanding center stage in your romantic life. You seek passionate, joyful connection, but immense pride can lead to fierce arguments if you feel your partner is ignoring your needs. Sexual expression is confident and vital, burning away depressive thoughts through sheer creative energy.",
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house',
+    description: "Intense frustration builds as your aggressive desires clash with rigid boundaries, leading to severe emotional blockages and explosive, bitter arguments. You feel controlled or restricted by your partner, resulting in deep resentment and a complete shutdown of sexual intimacy. This toxic pressure cooker demands a safe, structural release to avoid destroying the partnership.",
+  },
+  {
+    name: 'Mercury Transits the 5th House',
+    description: "You crave intellectual stimulation and playful banter in your romantic life, finding deep emotional connection through shared ideas. Misunderstandings are swiftly cleared up through rational, creative discussions. However, beware of treating your partner's deep emotions as mere psychological puzzles to be solved rather than feelings to be held.",
+  },
+  {
+    name: 'Jupiter aspect Mercury in 8th house',
+    description: "A brilliant time for deep psychological exploration with your partner, allowing you to unravel complex emotional traumas with optimism and grace. You communicate about taboo subjects, sex, and shared fears with profound understanding, completely eliminating misunderstandings. This mental synergy acts as a powerful healing force against depression.",
+  },
+  {
+    name: 'Venus Transits the 7th House',
+    description: "A transit dedicated entirely to harmony, where you seek deep emotional and physical union with your partner above all else. You are highly compromising, eager to resolve past conflicts, and deeply invested in mutual pleasure. However, a fear of being alone can lead to codependency, causing you to sweep genuine issues under the rug.",
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house',
+    description: "Deep, karmic fears clash with chaotic, obsessive desires, creating a terrifying internal conflict that severely destabilizes your relationship. You may project heavy blame onto your partner for your spiritual or ideological failures, leading to bitter, irreconcilable arguments. A profound, depressive crisis of faith requires radical honesty to overcome.",
+  },
+  {
+    name: 'Mercury Transits the 6th House',
+    description: "Your mind is plagued by nervous anxiety, causing you to constantly critique and nag your partner over trivial daily matters. Communication is fraught with worry, and hypochondria can severely dampen any desire for sexual intimacy. You must actively stop dissecting the relationship to prevent chronic misunderstandings and emotional exhaustion.",
+  },
+  {
+    name: 'Sun aspect Jupiter in the 5th house',
+    description: "Ego and optimism blend perfectly, bringing an era of immense joy, generosity, and romantic success to your partnership. You possess a bright, healing energy that naturally dissolves your partner's insecurities and wards off depression. Mutual respect and a shared desire for a beautiful life make conflicts incredibly rare.",
+  },
+  {
+    name: 'Sun Transits the 6th House',
+    description: "Ego clashes occur over issues of service, health, and unequal division of labor, making you deeply resentful of your partner. You feel emotionally drained and unappreciated, which can manifest as physical illness or a heavy, depressive mood. Healing requires setting strict boundaries and demanding mutual respect in the daily grind of life.",
+  },
+  {
+    name: 'Mars Transits the 4th House',
+    description: "Aggressive, volatile energy invades your home, turning your private sanctuary into a war zone of domestic disputes. Unresolved childhood trauma and deep-seated emotional pain trigger explosive anger toward your partner. You must find a safe outlet for this intense emotional pain to prevent permanently damaging the foundation of your trust.",
+  },
+  {
+    name: 'Mercury Transits the 7th House',
+    description: "Open, objective negotiation is the dominant theme, allowing you and your partner to clearly define boundaries and clear up past misunderstandings. You seek a mental equal, and emotional intimacy is achieved through mutual understanding rather than pure passion. Guard against over-intellectualizing your love life, ensuring you still connect on a heart level.",
+  },
+  {
+    name: 'Sun Transits the 7th House',
+    description: "Your ego identity is intensely wrapped up in your partnership, often leading to power struggles over who dictates the relationship's direction. You may project your own insecurities onto your partner, demanding they validate you constantly to stave off depression. True balance requires surrendering dominance and treating your partner as a true equal.",
+  },
+  {
+    name: 'Jupiter Transits the 5th House',
+    description: "A highly fortunate transit that expands your heart, bringing immense joy, romantic opportunities, and deep emotional healing. You are generous and forgiving, naturally dissolving any past conflicts or misunderstandings with your partner. Sexual intimacy is viewed as a joyous, spiritual celebration, deeply protecting the relationship from negativity.",
+  },
+  {
+    name: 'Mars Transits the 5th House',
+    description: "Passionate, dramatic, and intensely competitive energy rules your love life, leading to thrilling romance but also explosive, ego-driven arguments. You demand constant excitement and may provoke your partner just to feel the rush of conflict and the ensuing sexual makeup. You must control your impatience and impulsive anger to avoid burning out the relationship.",
+  },
+  {
+    name: 'Sun Transits the 8th House',
+    description: "The ego descends into the underworld, triggering deep psychological crises, fears of abandonment, and intense power struggles with your partner. You are highly suspicious, prone to depression, and may use sex as a tool for control rather than connection. Immense transformation is possible, but only by facing your darkest fears of betrayal and surrendering to vulnerability.",
+  },
+  {
+    name: 'Rahu Transits the 10th House',
+    description: "An obsessive, chaotic ambition for worldly success consumes you, causing severe neglect of your emotional life and partnership. The illusion of status makes you emotionally distant, leading to deep misunderstandings as your partner feels abandoned. This relentless outward drive often masks a profound inner emptiness and fear of genuine intimacy.",
+  },
+  {
+    name: 'Ketu Transits the 4th House',
+    description: "A profound sense of emotional detachment from your home and roots makes you feel utterly isolated, even when lying next to your partner. You experience a deep, unexplainable depression and a desire to escape domestic responsibilities, leading to intense misunderstandings. Healing requires acknowledging this karmic emotional void without blaming your loved ones.",
+  },
+  {
+    name: 'Mercury Transits the 8th House',
+    description: "Your mind probes the deepest, darkest secrets of your relationship, leading to intense conversations about sex, trauma, and shared resources. While you can uncover hidden truths and heal past betrayals, paranoia can also cause you to twist your partner's words, creating severe misunderstandings. Use this psychological depth for healing, not interrogation.",
+  },
+  {
+    name: 'Ketu aspect Mars in 8th house',
+    description: "Aggression and sexual desire are bizarrely suppressed or deeply misunderstood, leading to intense frustration and emotional paralysis. You may feel a sudden, inexplicable repulsion toward intimacy, severely confusing your partner and sparking conflict. This karmic aspect demands the release of toxic, unresolved anger from the past to cure deep psychological impotence.",
+  },
+  {
+    name: 'Rahu aspect Moon in the 6th house',
+    description: "Obsessive, neurotic fears regarding your health or daily routines severely destabilize your emotional equilibrium, leading to irrational arguments. You project your chaotic internal state onto your partner, constantly finding fault and creating a toxic, stressful environment. You must ground your mind to escape this cycle of emotional illusions and petty conflicts.",
+  },
+  {
+    name: 'Sun Transits the 9th House',
+    description: "Ego and beliefs merge, bringing a period of deep philosophical alignment and mutual respect with your partner. However, if your morals clash, you may exhibit extreme self-righteousness, causing severe, unyielding arguments. A shared vision for the future and adherence to truth are the ultimate healers of any underlying depression.",
+  },
+  {
+    name: 'Mercury Transits the 9th House',
+    description: "You seek a partner who stimulates your mind, finding emotional connection through deep philosophical debates and shared learning. Misunderstandings are resolved by looking at the bigger picture and refusing to get bogged down in petty details. Be careful not to preach or adopt an intellectually superior tone during disagreements.",
+  },
+  {
+    name: 'Venus Transits the 8th House',
+    description: "Love becomes an intense, life-or-death experience filled with extreme passion, jealousy, and a profound fear of betrayal. You crave soul-deep sexual and emotional merging, but mistrust can lead to manipulative power struggles and devastating heartbreak. Only absolute emotional honesty can transform this turbulent energy into an unbreakable bond.",
+  },
+  {
+    name: 'Mercury Transits the 10th House',
+    description: "Your emotional communication takes on a formal, authoritative tone, potentially making your partner feel managed rather than loved. You prioritize practical goals and public reputation over private intimacy, which can lead to misunderstandings regarding your emotional investment. You must intentionally drop your professional mask to connect authentically behind closed doors.",
+  },
+  {
+    name: 'Sun Transits the 10th House',
+    description: "Your sense of self is elevated, bringing confidence that can either deeply attract your partner or alienate them through arrogance. You demand respect and may prioritize your career over emotional availability, leading to conflicts if your partner feels neglected. Ensure your desire for authority does not crush the equal, vulnerable partnership required for true love.",
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house',
+    description: "A powerful combination that brings immense psychological courage, allowing you to confront and heal deep-seated relationship traumas and sexual hangups. You and your partner can resolve intense conflicts through honest, expansive dialogue, transforming anger into passionate devotion. This aspect fiercely protects against depression by illuminating the darkest corners of intimacy.",
+  },
+  {
+    name: 'Moon Aspecting Midheaven (MC)',
+    description: "Your private emotional fluctuations are highly visible to the world, making it difficult to hide relationship conflicts. You rely heavily on your partner for emotional support regarding your life path, and feel deeply insecure if they lack faith in you. Nurturing your private foundation is essential to maintaining your public composure.",
+  },
+  {
+    name: 'Mercury Transits the 11th House',
+    description: "Communication with your partner thrives when integrated with broader social circles and shared future aspirations. You seek a relationship built on friendship and intellectual equality, easily talking through any minor misunderstandings. However, prioritizing group dynamics over one-on-one intimacy can sometimes leave your partner feeling emotionally sidelined.",
+  },
+  {
+    name: 'Moon Aspecting Ascendant (ASC)',
+    description: "You are intensely emotionally porous, projecting your feelings directly into your environment and absorbing your partner's moods. This deep empathy fosters profound romantic connection but makes you highly vulnerable to their stress or anger. You must learn to separate your emotional identity from theirs to avoid codependency and reactive arguments.",
+  },
+  {
+    name: 'Venus Transits the 9th House',
+    description: "You seek a love that is expansive, adventurous, and free from the restrictive chains of petty jealousy or emotional possessiveness. You may be drawn to partners from different backgrounds, finding intimacy through shared spiritual or physical journeys. Clinging to past traumas or narrow beliefs will immediately suffocate this beautiful, freeing romantic energy.",
+  },
+  {
+    name: 'Sun Transits the 11th House',
+    description: "Your ego seeks validation through group acceptance, and you desire a partner who enhances your social standing. Arguments may arise if you prioritize friends or networking over your partner's emotional needs, causing them to feel undervalued. True happiness requires balancing your extensive social ambitions with deep, private devotion.",
+  },
+  {
+    name: 'Venus Transits the 10th House',
+    description: "You are attracted to power, success, and maturity, seeking a partner who offers both emotional and public stability. Love is expressed practically, but an over-concern with reputation can cause you to suppress genuine emotions to maintain appearances. Ensure that your relationship is a source of profound private comfort, not just a successful public merger.",
+  },
+  {
+    name: 'Jupiter Aspecting Midheaven (MC) : Ends',
+    description: 'The expansive optimism regarding career and relationship alignment begins to settle. The public display of affection or shared success transitions into a more private reality, requiring you to find joy without external validation.',
+  },
+  {
+    name: 'Jupiter aspect Jupiter in 5th house : Exact',
+    description: 'A peak moment of joyous emotional expansion and romantic luck. Sexual intimacy is intensely spiritually fulfilling, completely banishing feelings of depression and allowing for profound mutual forgiveness of past conflicts.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Ends',
+    description: 'The period of intense, courageous psychological healing in sexual matters concludes. You and your partner must now maintain the newly established boundaries and trust without the expansive, protective push of Jupiter.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Exact',
+    description: 'Peak psychological courage allows for breathtakingly honest conversations about sex, trauma, and shared fears. A profound sexual healing occurs, clearing away deep-seated resentment and explosive anger to forge an unbreakable bond.',
+  },
+  {
+    name: 'Jupiter aspect Mars in 8th house : Starts',
+    description: 'A wave of optimistic energy begins to interact with deep, aggressive emotional wounds. You start to find the courage to confront sexual hangups and past relationship traumas together, initiating a powerful healing cycle.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Ends',
+    description: 'The optimistic buffer against daily emotional anxieties fades. You must rely on established routines and conscious patience to prevent petty arguments and hypochondria from creeping back into the relationship dynamic.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Exact',
+    description: 'A beautiful peak of emotional harmony within the daily grind. Acts of service become profound expressions of love, completely dissolving nagging anxieties and preventing petty arguments from taking root in your shared life.',
+  },
+  {
+    name: 'Jupiter aspect Moon in 6th house : Starts',
+    description: 'You begin to feel a soothing, expansive energy calming your daily anxieties. A desire to nurture your partner grows, easing chronic tension, minor hypochondria, and the urge to bicker over small misunderstandings.',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Ends',
+    description: 'The profound wave of sexual healing and emotional forgiveness begins to subside. The deep, transformative bond formed must now be sustained through conscious effort without Jupiter\'s exaggerated expansive grace.',
+  },
+  {
+    name: 'Jupiter aspect Venus in 8th house : Starts',
+    description: 'A period of intense emotional generosity and deep sexual healing begins. You start to release toxic jealousies and fears of betrayal, opening the door for a profoundly transformative and deeply trusting intimacy.',
+  },
+  {
+    name: 'Ketu aspect Mars in 8th house : Exact',
+    description: 'A highly volatile peak of karmic sexual suppression. Deep, unexplainable anger or a sudden, paralyzing loss of libido can create severe misunderstandings with your partner, requiring immense spiritual surrender to avoid a toxic rupture.',
+  },
+  {
+    name: 'Ketu aspect Sun in 9th house : Exact',
+    description: 'The ego experiences a profound, karmic detachment from shared beliefs. You may feel a sudden, total apathy towards arguing, preferring spiritual isolation and silence over defending your relationship\'s philosophical foundation.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Ends',
+    description: 'The intense, aggressive drive for public control in the relationship subsides. Power struggles over career and status begin to relax, allowing for more private emotional vulnerability and a softening of domestic tension.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Exact',
+    description: 'A critical peak of ambition and ego where you may ruthlessly enforce your will on the relationship\'s public direction. Fierce arguments over dominance and career support can severely threaten genuine, private intimacy.',
+  },
+  {
+    name: 'Mars Aspecting Midheaven (MC) : Starts',
+    description: 'Aggressive, ambitious energy begins to color your partnership. You may start projecting your career frustrations onto your partner, sparking early power struggles and a tense, competitive emotional atmosphere.',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Exact',
+    description: 'An explosive powder keg of primal aggression and deep psychological vulnerability. Sexual tension is at its absolute peak, capable of leading to transformative, raw intimacy or dangerously destructive arguments fueled by paranoia.',
+  },
+  {
+    name: 'Mars aspect Mars in 8th house : Starts',
+    description: 'Deep, dormant anger and intense sexual desires begin to stir. You may feel a growing, almost primal urge to dominate or test your partner\'s emotional limits, setting the stage for intense power struggles.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Ends',
+    description: 'The period of cutting, paranoid communication subsides. You can begin to gently rebuild trust and emotional safety after a grueling phase of intense psychological interrogations and verbal warfare.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Exact',
+    description: 'A dangerous peak of intellectual cruelty where words are used as precise weapons. Obsessive paranoia and psychological probing cause deep wounds and severe misunderstandings, requiring strict mental discipline to avoid destroying trust.',
+  },
+  {
+    name: 'Mars aspect Mercury in 8th house : Starts',
+    description: 'Your mind begins to sharpen into a weapon, seeking out your partner\'s hidden flaws. The urge to initiate aggressive, probing arguments over secrets starts to rise, threatening to disrupt emotional peace.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Ends',
+    description: 'The cycle of irritable, nagging arguments over daily chores fades. Emotional exhaustion lifts, allowing for a more peaceful co-existence and a return of gentle affection in your shared routine.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Exact',
+    description: 'A sharp peak of emotional irritability where minor daily flaws trigger explosive arguments. Digestion and health may suffer from the severe stress of chronic domestic bickering and a severe lack of emotional patience.',
+  },
+  {
+    name: 'Mars aspect Moon in 6th house : Starts',
+    description: 'Impatience with your partner\'s daily habits begins to build. You feel a growing emotional irritation that threatens to disrupt the peace of your shared routine and trigger petty, vindictive conflicts.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Ends',
+    description: 'The chaotic, fanatical clashes over beliefs and morals start to dissipate. The relationship begins to ground itself and stabilize after a terrifying period of intense, obsessive, and irrational arguments.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Exact',
+    description: 'A terrifying peak of ideological warfare and impulsive aggression. Explosive, unyielding arguments over beliefs can cause severe, sudden severances in the relationship if ego and obsession are not immediately checked.',
+  },
+  {
+    name: 'Mars aspect Rahu in 9th house : Starts',
+    description: 'A chaotic, obsessive energy begins to fuel your passions. You start to feel fiercely defensive of your beliefs, setting the stage for irrational conflicts and profound misunderstandings with your partner.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Ends',
+    description: 'The suffocating pressure between aggressive desire and rigid restriction begins to ease. You can start to unthaw the cold, bitter resentment that has blocked intimacy and caused severe emotional depression.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Exact',
+    description: 'A breaking point of immense frustration where furious anger hits an immovable wall of restriction. Profound emotional blockages and cold, bitter arguments completely freeze sexual intimacy, leading to deep despair.',
+  },
+  {
+    name: 'Mars aspect Saturn in 10th house : Starts',
+    description: 'You begin to feel your passions being heavily restricted by duty or your partner\'s perceived coldness. A slow-burning resentment starts to build, threatening to shut down open communication and sexual desire.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Ends',
+    description: 'The fiery, ego-driven clashes over beliefs begin to cool down. You and your partner can start to find compromise and mutual respect after a period of intense, exhausting ideological battles.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Exact',
+    description: 'A fierce climax of ego and aggression where neither partner will yield their moral high ground. Sexual energy is intensely competitive, risking severe emotional damage if the bedroom becomes an extension of the battlefield.',
+  },
+  {
+    name: 'Mars aspect Sun in 9th house : Starts',
+    description: 'A competitive, self-righteous energy begins to emerge. You start to feel the urge to forcefully defend your worldview against your partner, sparking the early stages of fierce, ego-driven arguments.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Ends',
+    description: 'The intense, volatile period of jealousy, lust, and possessiveness begins to settle into a more stable, albeit permanently transformed, intimacy. The danger of destructive obsession passes.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Exact',
+    description: 'A volatile peak of extreme sexual magnetism intertwined with dark possessiveness. Arguments are intentionally provoked to fuel the explosive, passionate intensity of making up, walking a dangerous line between love and toxic obsession.',
+  },
+  {
+    name: 'Mars aspect Venus in 8th house : Starts',
+    description: 'Deep, aggressive sexual desires and feelings of jealousy begin to surface. You feel a growing, consuming need to emotionally and physically possess your partner, setting the stage for intense power dynamics.',
+  },
+  {
+    name: 'Mercury Aspecting Ascendant (ASC) : Exact',
+    description: 'Your need to verbally connect peaks, making you highly communicative but potentially detached. Rationalizing deep emotions can lead to severe misunderstandings if your partner requires silent, feeling-based empathy rather than a logical debate.',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Exact',
+    description: 'A beautiful peak of optimistic, joyful communication. You effortlessly talk through past traumas, using humor, intellectual synergy, and expansive forgiveness to dramatically deepen romantic and sexual attraction.',
+  },
+  {
+    name: 'Mercury aspect Jupiter in 5th house : Starts',
+    description: 'Communication begins to flow with a new sense of hope and expansiveness. You start to find the precise words to heal old relationship wounds and invite playful flirtation back into the dynamic.',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Ends',
+    description: 'The painful period of communication breakdown, misunderstandings, and emotional apathy lifts. You can slowly begin to articulate your feelings and rebuild the verbal bridge to your partner.',
+  },
+  {
+    name: 'Mercury aspect Ketu in 3rd house : Starts',
+    description: 'Words begin to fail you, and a sense of detached karmic apathy creeps into your communication. You start to feel profoundly misunderstood, withdrawing into silence rather than fighting for connection.',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Exact',
+    description: 'A peak of neurotic hyper-analysis where you dissect your partner\'s every mood. Chronic anxiety over minor relationship flaws leads to exhausting, petty arguments, digestive issues, and severe emotional burnout.',
+  },
+  {
+    name: 'Mercury aspect Moon in 6th house : Starts',
+    description: 'Your mind becomes hyper-focused on the daily emotional mechanics of the relationship. A tendency to nag or overly criticize begins to emerge, fueled by underlying anxieties rather than genuine malice.',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Ends',
+    description: 'The obsessive, chaotic mental loops regarding relationship philosophies and grand future plans calm down. You return to a more grounded, realistic, and honest way of communicating with your partner.',
+  },
+  {
+    name: 'Mercury aspect Rahu in 9th house : Starts',
+    description: 'Your mind begins to race with fanatical or highly unconventional ideas about love. You start projecting intellectual illusions onto your partner, risking severe miscommunication and broken promises.',
+  },
+  {
+    name: 'Mercury aspect Saturn in 10th house : Starts',
+    description: 'Communication starts to feel heavy, restricted, and overly formal. A deep fear of rejection or failure begins to stifle your ability to express vulnerability, leading to emotional coldness and depressive silences.',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Ends',
+    description: 'The period of elevated, philosophical dialogue concludes. The relationship shifts from grand, unifying visions back to the necessary, everyday communication required to maintain the partnership.',
+  },
+  {
+    name: 'Mercury aspect Sun in 9th house : Starts',
+    description: 'You begin to desire deep, intellectual alignment with your partner. Conversations start focusing heavily on shared truths, morals, and future visions, laying the groundwork for profound mutual respect.',
+  },
+  {
+    name: 'Moon Aspecting Ascendant (ASC) : Exact',
+    description: 'Your emotional boundaries are completely permeable, directly absorbing your partner\'s exact state of mind. This brings profound, psychic empathy but risks intense, reactive arguments and deep depression if their mood is toxic.',
+  },
+  {
+    name: 'Moon Aspecting Midheaven (MC) : Exact',
+    description: 'Your private emotional life and inner insecurities are acutely visible to the public. You lean heavily on your partner for career support, feeling deep depression and initiating conflict if they fail to validate your public persona.',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Ends',
+    description: 'The grueling, karmic structural transformation of the relationship completes. You emerge from deep emotional depression with a brutally honest, entirely rebuilt foundation, free of illusions and false dependencies.',
+  },
+  {
+    name: 'Pluto conjunct Saturn : Starts',
+    description: 'An incredibly heavy, karmic pressure begins to bear down on the relationship. Deep, primal fears of control, abandonment, and structural collapse start to surface, initiating a period of intense psychological survival.',
+  },
+  {
+    name: 'Rahu aspect Moon in 6th house : Exact',
+    description: 'A terrifying peak of emotional illusion and health anxiety. You project chaotic, paranoid fears onto your partner, creating a deeply toxic, stressful atmosphere of conflict fueled entirely by ungrounded mental obsessions.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Ends',
+    description: 'The severe karmic crisis of faith and bitter mutual blame begins to lift. You can start rebuilding trust and ideological harmony after a period of terrifying emotional instability and deep depression.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Exact',
+    description: 'A catastrophic peak of internal conflict where karmic fear violently meets chaotic obsession. Bitter, irreconcilable arguments erupt as you project your own deep spiritual and moral failures entirely onto your partner.',
+  },
+  {
+    name: 'Saturn aspect Rahu in 9th house : Starts',
+    description: 'A heavy, terrifying clash of fear and chaotic desire begins to destabilize your core beliefs. You start to feel a deep, depressive paranoia about the relationship\'s future, leading to toxic, accusatory communication.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Ends',
+    description: 'The heavy, oppressive cloud of judgment and ideological restriction lifts. You slowly begin to rediscover warmth, mutual respect, and emotional freedom in your shared beliefs and long-term vision.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Exact',
+    description: 'A crushing peak of pessimistic energy where you feel fundamentally judged or spiritually restricted by your partner. Deep depression sets in as the relationship feels entirely like a rigid, loveless duty devoid of light.',
+  },
+  {
+    name: 'Saturn aspect Sun in 9th house : Starts',
+    description: 'A cold, restrictive energy begins to cast a shadow over your shared philosophies. You start to feel heavily burdened by the moral expectations of the partnership, leading to feelings of inadequacy and isolation.',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Ends',
+    description: 'The magnificent era of joyous, expansive romance begins to fade into a more normal, sustainable routine. The profound emotional healing remains, but the exuberant, dramatic highs naturally settle.',
+  },
+  {
+    name: 'Sun aspect Jupiter in 5th house : Starts',
+    description: 'A bright, deeply healing energy begins to illuminate your romantic life. You start to feel a surge of optimism, generosity, and playful sexual attraction that rapidly chases away any lingering relationship depression.',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Ends',
+    description: 'The period of karmic ego dissolution and communication apathy ends. You slowly regain the willpower to express yourself, ending the silent depression and fighting to reconnect with your partner.',
+  },
+  {
+    name: 'Sun aspect Ketu in 3rd house : Starts',
+    description: 'Your ego begins to detach entirely from verbal communication. A quiet depression and a profound sense of being utterly unheard starts to isolate you, leading you to withdraw rather than argue.',
+  },
+  {
+    name: 'Sun aspect Mars in 8th house : Starts',
+    description: 'Ego and raw aggression begin to descend into the relationship\'s most vulnerable, secretive depths. You start feeling an intense, competitive urge to control shared resources and sexual intimacy, sparking power struggles.',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Ends',
+    description: 'The intense, almost paranoid analytical focus on relationship secrets and psychological motives begins to relax. The obsessive need to intellectually dissect every intimate moment and hidden fear fades.',
+  },
+  {
+    name: 'Sun aspect Mercury in 8th house : Starts',
+    description: 'Your conscious mind starts forcefully probing the psychological depths of the partnership. You begin demanding logical, absolute explanations for complex, hidden emotional dynamics, risking severe misunderstandings.',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Ends',
+    description: 'The exhausting ego clashes over daily chores and unequal emotional labor begin to resolve. The critical, nitpicking atmosphere lifts, allowing for a return of appreciation and gentle domestic harmony.',
+  },
+  {
+    name: 'Sun aspect Moon in 6th house : Starts',
+    description: 'Your ego begins to aggressively clash with the daily emotional needs and routines of the relationship. A tendency to feel deeply unappreciated for acts of service starts causing emotional withdrawal and petty conflict.',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Ends',
+    description: 'The chaotic, fanatical drive for ideological dominance burns out. You can start to repair the severe misunderstandings and emotional damage caused by your period of dogmatic, inflexible behavior.',
+  },
+  {
+    name: 'Sun aspect Rahu in 9th house : Starts',
+    description: 'A relentless, obsessive urge to impose your beliefs onto your partner begins. You start losing touch with emotional empathy in favor of a fanatical, self-righteous truth, setting the stage for explosive conflict.',
+  },
+  {
+    name: 'Sun aspect Saturn in 10th house : Starts',
+    description: 'The heavy burden of public reputation and career ambition begins to crush the relationship\'s vitality. You start projecting cold authority or feeling intensely restricted by your partner, initiating a cycle of depression.',
+  },
+  {
+    name: 'Sun aspect Sun in 9th house : Exact',
+    description: 'A brilliant climax of mutual respect and shared higher purpose. The relationship burns away petty insecurities and past conflicts, operating on a unified, enlightened, and profoundly deeply connected frequency.',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Ends',
+    description: 'The intense, possessive need for transformative love and constant loyalty testing subsides. The relationship settles into a deeper, less volatile emotional truth where trust replaces paranoia and jealousy.',
+  },
+  {
+    name: 'Sun aspect Venus in 8th house : Starts',
+    description: 'Your ego begins to demand profound, almost dangerous levels of soul-merging intimacy. You start subconsciously testing your partner\'s loyalty, breeding intense jealousy and the potential for devastating power struggles.',
+  },
+  {
+    name: 'Uranus aspect Saturn in 10th house : Exact',
+    description: 'A shocking, highly disruptive energy violently shatters rigid relationship structures and public expectations. Sudden, unexpected conflicts force a radical, highly uncomfortable renegotiation of your long-term commitments and emotional duties.',
+  },
+  {
+    name: 'Venus Aspecting Ascendant (ASC) : Exact',
+    description: 'A peak of romantic magnetism and sensual grace. You effortlessly attract your partner and resolve conflicts through pure, physical affection, though you risk burying deep emotional resentments merely to maintain this perfect outward harmony.',
+  },
+  {
+    name: 'Venus aspect Ketu in 3rd house : Starts',
+    description: 'A profound, karmically unexplainable emotional detachment begins to seep into your daily interactions. You start feeling a strange, hollow loss of desire, leading to silent mutual confusion and a sense of romantic isolation.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Ends',
+    description: 'The tendency to express love through anxious, overbearing service and nagging criticism fades. You return to a more balanced, emotionally generous, and less perfection-focused state of intimacy.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Exact',
+    description: 'A peak of conflicted nurturing where deep love is bizarrely expressed as hyper-critical perfectionism. Resentment boils over into sharp, passive-aggressive arguments if your exhausting acts of service go unappreciated.',
+  },
+  {
+    name: 'Venus aspect Moon in 6th house : Starts',
+    description: 'You begin to express affection through detailed acts of service, but simultaneously start hyper-focusing on your partner\'s flaws. An anxious, critical undertone enters the romance, threatening emotional peace.',
+  },
+  {
+    name: 'Venus aspect Rahu in 9th house : Starts',
+    description: 'An intoxicating, highly illusionary desire for an idealized or exotic romance begins to take hold. You start projecting unrealistic, fanatical expectations onto your partner that will inevitably lead to profound misunderstanding and heartbreak.',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Ends',
+    description: 'The cold, restrictive period of viewing love solely as a burdensome public duty ends. You slowly begin to thaw the heavy emotional walls and invite warmth, spontaneity, and sexual desire back into the romance.',
+  },
+  {
+    name: 'Venus aspect Saturn in 10th house : Starts',
+    description: 'Love starts to feel heavily restricted by public expectation, career stress, and duty. A deep fear of rejection begins to build thick, depressive walls around your physical intimacy, making you feel entirely unloved.',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Ends',
+    description: 'The expansive, highly idealized period of love based heavily on shared beliefs begins to ground itself in daily reality. The relationship gently shifts back from grand visions to the work of everyday affection.',
+  },
+  {
+    name: 'Venus aspect Sun in 9th house : Starts',
+    description: 'You begin to view your partner with immense admiration and a renewed sense of shared higher purpose. A generous, expansive love starts to form, acting as a powerful shield against petty conflicts and depression.',
+  },
+  {
+    name: 'Venus ruler of the 7th House in the 8th House',
+    description: 'This is a highly transformative but fundamentally challenging karmic placement for partnerships. It heavily predisposes the relationship to secretive behavior, overwhelming sexual intensity, and the constant threat of sudden upheaval. Trust is intensely and repeatedly tested; deep-seated fears of abandonment or betrayal can quickly lead to profound emotional crises, explosive arguments, or divorce. True intimacy here is a battlefield where profound psychological wounds must be directly confronted and resolved to achieve lasting peace.',
+  }
 ];
 
 const update = db.prepare(
   'UPDATE events SET description = ? WHERE ascendant = ? AND name = ?'
 );
 
-function run() {
-  const tx = db.transaction(() => {
-    let updated = 0, empty = 0, notFound = 0;
-    for (const e of events) {
-      if (!e.description) { empty++; continue; }
-      const r = update.run(e.description, ASCENDANT, e.name);
-      if (r.changes > 0) updated++;
-      else notFound++;
-    }
-    return { updated, empty, notFound };
-  });
-  return tx();
-}
+const ASCENDANT = 'Aries';
 
-if (require.main === module) {
-  const { updated, empty, notFound } = run();
-  console.log(
-    `[${ASCENDANT} relationship] ${updated} updated · ${empty} still empty · ` +
-    `${notFound} not in DB`,
-  );
-}
+const seedAll = db.transaction(() => {
+  let updated = 0;
+  let notFound = 0;
+  for (const event of events) {
+    if (!event.description) continue;
+    const r = update.run(event.description, ASCENDANT, event.name);
+    if (r.changes > 0) updated++;
+    else notFound++;
+  }
+  return { updated, notFound };
+});
 
-module.exports = { events, ASCENDANT };
+const { updated, notFound } = seedAll();
+console.log(`[${ASCENDANT}] ${updated} updated · ${notFound} not in DB.`);
