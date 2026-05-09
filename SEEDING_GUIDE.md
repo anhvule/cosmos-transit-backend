@@ -231,6 +231,7 @@ non-empty for a chart whose ascendant is fully seeded.
 | Synthetic representative chart | Cancer | ✅ 529 | ✅ 529 | ✅ 529 | ✅ 529 |
 | Synthetic representative chart | Aries | ✅ 530 | ✅ 530 | ✅ 530 | ✅ 530 |
 | Synthetic representative chart | Leo | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 |
+| Synthetic representative chart | Sagittarius | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 |
 
 The Cancer rows above were authored against a synthetic representative natal
 chart (no birth data — the user opted to skip the kerykeion run and target a
@@ -273,6 +274,23 @@ Note: Leo descriptions were authored *before* the "no jargon-preamble" rule
 above was finalized for Aries, and follow the older Cancer/Capricorn style
 (many lead with "Your Nth lord X..."). Consider a follow-up rewrite pass to
 align with the new authoring convention.
+
+The Sagittarius rows were authored against a synthetic representative chart
+with a strong archetypal Jupiter-ruled lineup — Hamsa Mahapurusha Yoga in
+lagna, Bhadra Mahapurusha Yoga at MC, plus 9L Sun and 5L Mars and 11L Venus
+all in own signs in their own houses:
+
+- Sun=9th (Leo, own — Karmadhipati 9L in 9H), Moon=8th (Cancer, own — 8L
+  self-disposed), Mercury=10th (Virgo, own + exalted — Bhadra + yogakaraka
+  7L+10L), Venus=11th (Libra, own — 11L in 11H gains), Mars=5th (Aries,
+  own — 5L in 5H), Jupiter=1st (Sagittarius, own — Hamsa in lagna),
+  Saturn=2nd (Capricorn, own — 2L+3L in 2H dhana yoga), Rahu=6th (Taurus —
+  enemy-defeat), Ketu=12th (Scorpio — moksha).
+
+Generator: [`db/_generate_sagittarius_seeds.js`](db/_generate_sagittarius_seeds.js).
+Per-lens fills: `db/_sagittarius_{career,relationship,food,advice}.js` are
+flat `name → description` maps; `db/_fill_sagittarius.js` patches them into
+the seed files. Seed runners: `db/seed_{career,relationship,food,advice}_sagittarius.js`.
 
 Authoring rule (added per user feedback during Aries authoring): never lead a
 description with an astrology-jargon preamble like "Your 5th lord Sun sits
