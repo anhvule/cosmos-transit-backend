@@ -110,26 +110,32 @@ const events = [
     name: 'Saturn Transits the 11th house', 
     description: 'When transiting Saturn enters your 11th house of friendships, networking, and long-term goals, your relationship\'s social circle and future visions undergo a severe structural audit. You may experience a painful pruning of shared friends, leaving you and your partner feeling socially isolated and plunging you into a quiet, lonely depression. The carefree, social aspect of your bond is replaced by a heavy focus on serious, long-term strategic networking. Arguments revolve around which friends are "useful" or practical, and whether your ultimate visions for the future are truly compatible. Misunderstandings occur when your partner views your sudden social coldness as snobbery, while you are simply exhausted by superficial connections. To survive, you must act as a highly disciplined, unified team, realizing that true friendship within the marriage is proven through the grueling work of building a secure, respectable future together.' 
   },
-  { 
-    name: 'Saturn Transits the 12th house', 
-    description: 'When transiting Saturn enters your 12th house of the subconscious and karmic endings, your darkest, most terrifying hidden fears and toxic relational patterns collide violently with a massive, unyielding wall of harsh reality. The secretive fantasies, codependencies, or escapist behaviors that have quietly infected your relationship are suddenly exposed to the cold, unforgiving light of Saturn\'s discipline. This transit forces a brutal karmic reckoning; you can no longer hide from the truth of your psychological baggage. This triggers an agonizing, paralyzing depression, as the coping mechanisms you relied upon are systematically destroyed. Arguments are terrifyingly stark, forcing you to face the consequences of any past deceit. Misunderstandings dissolve into a stark, painful clarity. To survive this grueling psychological audit, you must accept absolute, radical responsibility for your hidden fears, preparing to let go of whatever structures no longer serve your soul\'s evolution.' 
-  }
+  {
+    name: 'Saturn Transits the 12th house',
+    description: 'When transiting Saturn enters your 12th house of the subconscious and karmic endings, your darkest, most terrifying hidden fears and toxic relational patterns collide violently with a massive, unyielding wall of harsh reality. The secretive fantasies, codependencies, or escapist behaviors that have quietly infected your relationship are suddenly exposed to the cold, unforgiving light of Saturn\'s discipline. This transit forces a brutal karmic reckoning; you can no longer hide from the truth of your psychological baggage. This triggers an agonizing, paralyzing depression, as the coping mechanisms you relied upon are systematically destroyed. Arguments are terrifyingly stark, forcing you to face the consequences of any past deceit. Misunderstandings dissolve into a stark, painful clarity. To survive this grueling psychological audit, you must accept absolute, radical responsibility for your hidden fears, preparing to let go of whatever structures no longer serve your soul\'s evolution.'
+  },
+  // Gap events found via live-API audit — not in the original firable
+  // enumeration but emitted by the engine for this chart.
+  { name: 'Mars in 9th (Dispositor)', description: 'Your relationships test your principles more than they test your warmth. When this dispositor fires, the partnership decision in front of you is really a dharma decision in disguise. The right partner aligns with your foreign-flavored, principled, mentor-worthy life-trajectory — not just your present comfort. Choose accordingly, even when the choice costs.' },
+  { name: 'Uranus aspect Saturn in 1st house : Exact', description: 'Today a structural relationship pattern fractures suddenly. The committed partnership feels electric and unstable; the marriage you assumed permanent reveals an unexpected tension; the long-term partner shows a side you haven\'t seen. Don\'t over-react. Uranus is asking the relationship to evolve into something less rigid, not necessarily to end. Listen for what wants to change, then renegotiate the structure deliberately rather than walking out impulsively.' }
 ];
 
-const update = db.prepare(
-  'UPDATE events SET description = ? WHERE ascendant = ? AND name = ?'
+// UPSERT (not UPDATE) so events authored here that don\'t yet have a row
+// in the per-ascendant table are inserted on first run.
+const upsert = db.prepare(
+  'INSERT INTO events (ascendant, name, description) VALUES (?, ?, ?) ' +
+  'ON CONFLICT(ascendant, name) DO UPDATE SET description = excluded.description'
 );
 
 function run() {
   const tx = db.transaction(() => {
-    let updated = 0, empty = 0, notFound = 0;
+    let updated = 0, empty = 0;
     for (const e of events) {
       if (!e.description) { empty++; continue; }
-      const r = update.run(e.description, ASCENDANT, e.name);
-      if (r.changes > 0) updated++;
-      else notFound++;
+      upsert.run(ASCENDANT, e.name, e.description);
+      updated++;
     }
-    return { updated, empty, notFound };
+    return { updated, empty, notFound: 0 };
   });
   return tx();
 }
@@ -138,7 +144,7 @@ if (require.main === module) {
   const { updated, empty, notFound } = run();
   console.log(
     `[${ASCENDANT} relationship] ${updated} updated · ${empty} still empty · ` +
-    `${notFound} not Transits the DB`,
+    `${notFound} not in DB`,
   );
 }
 

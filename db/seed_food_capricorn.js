@@ -47,6 +47,9 @@ const events = [
   { name: 'Saturn in 1st (Dispositor)', description: 'Your body wants rhythm above all. Eat at regular times; sleep at regular times; the discipline of routine IS the diet. Vata-dominant constitution: warm cooked foods, oils and ghee, root vegetables, soups, stews, kitchari. Avoid raw/cold/processed/skipping meals. Aging-friendly eating — your body wants the discipline more than the variety.' },
   { name: 'Sun in 8th (Dispositor)', description: 'Strong Pitta digestive fire — when balanced, you can transform food powerfully; when imbalanced, you burn yourself with heartburn, ulcers, gastritis. Cooling foods (coconut water, ghee, sweet fruits, leafy greens) balance the fire. Avoid excessive spicy, oily, fried, alcohol. Eat in regenerative cycles.' },
   { name: 'Venus in 7th (Dispositor)', description: 'Aesthetic eating matters to you — the plate, the setting, the company. Beautiful food digests better. Cook with love or eat what someone cooked with love — emotional vibration of food matters as much as nutrients. Watch comfort-eating in stressed partnerships; the sweet/creamy/luxurious cravings are real. Pace and ritual.' },
+  // Gap events found via live-API audit.
+  { name: 'Mars in 9th (Dispositor)', description: 'Your dietary discipline is dharma in action. Eat clean, weighed, principled meals — Ayurvedic kitchari, foreign-cuisine wisdom, sattvic plates. Resist convenience eating that violates your standard. The body responds to ethical food the way the mind responds to ethical action: faster, clearer, more durable.' },
+  { name: 'Uranus aspect Saturn in 1st house : Exact', description: 'Today the body suddenly rejects something you\'ve eaten reliably for years. A food sensitivity surfaces without warning; the dietary routine that worked stops working; an unexpected reaction reveals a hidden intolerance. Don\'t panic-overhaul the diet. Note exactly what triggered the response; eliminate one variable at a time. Saturn-1st constitution is deeper than any single meal — the structural shift demands recalibration, not abandonment.' },
 
   // ────────────────────────────────────────────────────────────────────────
   // TRANSITS — every planet through every house (108)
@@ -577,20 +580,22 @@ const events = [
   { name: 'Venus aspect Venus in 7th house : Starts', description: 'Annual partner-meal peak energy rising.' },
 ];
 
-const update = db.prepare(
-  'UPDATE events SET description = ? WHERE ascendant = ? AND name = ?'
+// UPSERT (not UPDATE) so events authored here that don\'t yet have a row
+// in the per-ascendant table are inserted on first run.
+const upsert = db.prepare(
+  'INSERT INTO events (ascendant, name, description) VALUES (?, ?, ?) ' +
+  'ON CONFLICT(ascendant, name) DO UPDATE SET description = excluded.description'
 );
 
 function run() {
   const tx = db.transaction(() => {
-    let updated = 0, empty = 0, notFound = 0;
+    let updated = 0, empty = 0;
     for (const e of events) {
       if (!e.description) { empty++; continue; }
-      const r = update.run(e.description, ASCENDANT, e.name);
-      if (r.changes > 0) updated++;
-      else notFound++;
+      upsert.run(ASCENDANT, e.name, e.description);
+      updated++;
     }
-    return { updated, empty, notFound };
+    return { updated, empty, notFound: 0 };
   });
   return tx();
 }
