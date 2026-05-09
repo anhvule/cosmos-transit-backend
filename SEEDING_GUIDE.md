@@ -27,13 +27,19 @@ A native's birth data:
 }
 ```
 
-Plus the **lens** to write from (one or more):
-- **career** — promotion, layoff, projects, contracts, boss, colleagues
-- **relationship** — partner, marriage, romance, social bonds
-- **investment** — speculation, finance, equity, gains
-- **gain** / **loss** — sudden gain / sudden loss days
-- **advice** — daily-navigation, what to do/avoid today
-- **food** — diet, eating, digestion, Ayurvedic guidance
+Plus the **lens** to write from (one or more). Each lens backs a live API
+endpoint in `routes/reading.js` — the seeded `description` text is what the
+endpoint returns as `interpretation` for matching events.
+
+| Lens | API endpoint | DB module | What it covers |
+|---|---|---|---|
+| career | `POST /api/career` | `db/career.js` | promotion, layoff, projects, contracts, boss, colleagues |
+| relationship | `POST /api/relationship` | `db/relationship.js` | partner, marriage, romance, social bonds |
+| investment | `POST /api/investment` | `db/investment.js` | speculation, finance, equity, gains |
+| advice | `POST /api/advice` | `db/advice.js` | daily-navigation, what to do/avoid today |
+| food | `POST /api/food` | `db/food.js` | diet, eating, digestion, Ayurvedic guidance |
+| gain | `POST /api/gain` | `db/gain.js` | sudden gain / windfall windows |
+| loss | `POST /api/loss` | `db/loss.js` | sudden loss / risk windows / what to protect |
 
 ---
 
@@ -111,6 +117,27 @@ fire** for this chart given the natal placements — leave them empty.
   body, slow digestion, traditional warm cooked food. The interpretation
   must be recognizably *theirs*, not a horoscope-app generic.
 
+**Character-count targets per lens**
+
+The global `db/seed_<lens>.js` files (the original Capricorn-native authored
+set) define the canonical length for each lens. Match these distributions
+when authoring a new ascendant — staying in range keeps the API responses
+visually consistent across endpoints.
+
+| Lens | Median chars | p25–p75 range | Hard ceiling |
+|---|---:|---:|---:|
+| advice | 213 | 184–226 | 260 |
+| career | 234 | 224–246 | 360 |
+| investment | 237 | 220–251 | 310 |
+| food | 258 | 173–273 | 320 |
+| gain | 234 | 171–298 | 450 |
+| loss | 235 | 215–247 | 330 |
+| relationship | 330 | 218–350 | 540 |
+
+**Rule of thumb**: target the median ±20 chars for routine aspects; allow up
+to the p75 for rulers and dispositors; only go beyond p75 when the natal
+placement genuinely warrants the extra context.
+
 **Lens-specific framing**
 
 | Lens | Framing |
@@ -130,6 +157,53 @@ Each aspect has 4 phase strings:
 - `: Starts` — rising / approaching; what to prepare
 - `: Exact` — peak day; what to do *today*
 - `: Ends` — separating / fading; what to lock in
+
+---
+
+## 4b. Shortcut: copy the global lens descriptions into a new ascendant
+
+If full chart-specific authoring is out of scope and you only need every
+endpoint to return *something* meaningful for a new ascendant, the cheapest
+path is to clone the canonical `db/seed_<lens>.js` content into
+`db/seed_<lens>_<ascendant>.js` and rewire the SQL to scope by ascendant.
+
+This is what was done for Aries on top of the existing chart-specific files
+(commit history: PR #21). It populated all 7 lenses (advice, career,
+investment, food, gain, loss, relationship) for the Aries rows in one pass
+without re-authoring 1,590+ descriptions from scratch.
+
+**Procedure**
+
+```bash
+# 1. Copy each global seed into the per-ascendant variant
+for lens in advice career investment food gain loss relationship; do
+  cp db/seed_${lens}.js db/seed_${lens}_aries.js
+done
+
+# 2. Patch the SQL — global files use `ON CONFLICT(name)` which fails
+#    against the per-ascendant `UNIQUE(ascendant, name)` schema. Rewrite
+#    the trailing block to UPDATE WHERE ascendant=<Asc>. See
+#    db/_fix_aries_copies.js for the exact transform.
+node db/_fix_aries_copies.js
+
+# 3. Run each seeder
+for lens in advice career investment food gain loss relationship; do
+  node db/seed_${lens}_aries.js
+done
+```
+
+**Trade-off**: the copied descriptions read against the *original* Capricorn
+native's chart, not the new ascendant's natal placements. They will be
+generically useful but never fully chart-specific. Use the
+chart-specific authoring path (sections 5–6 below) when the native warrants
+real precision; use this shortcut to fill gap lenses (e.g. investment / gain
+/ loss, which have no per-ascendant authored set yet) without blocking
+the API.
+
+**Counts after the shortcut, per lens, in the global file**:
+advice/career/investment/food/loss/relationship = 228 events;
+gain = 165 events. Only event names that match the firable set for the
+target ascendant will update; the rest are no-ops.
 
 ---
 
@@ -225,15 +299,23 @@ non-empty for a chart whose ascendant is fully seeded.
 
 ## 9. Existing seeded charts
 
-| Chart | Ascendant | Career | Relationship | Advice | Food |
-|---|---|:-:|:-:|:-:|:-:|
-| 1991-09-13 15:30 PH (UTC+8) | Capricorn | ✅ 530 | ✅ ~720 (extended) | ✅ 530 | ✅ 530 |
-| Synthetic representative chart | Cancer | ✅ 529 | ✅ 529 | ✅ 529 | ✅ 529 |
-| Synthetic representative chart | Aries | ✅ 530 | ✅ 530 | ✅ 530 | ✅ 530 |
-| Synthetic representative chart | Taurus | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 |
-| Synthetic representative chart | Leo | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 |
-| Synthetic representative chart | Sagittarius | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 |
-| Synthetic representative chart | Virgo | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 |
+Counts shown are the number of *firable* (chart-specific) events filled
+per lens — not the number of rows in the DB. The remaining ~3,800 empty
+rows per ascendant are non-firable templates and stay empty by design.
+
+| Chart | Ascendant | Career | Relationship | Advice | Food | Investment | Gain | Loss |
+|---|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 1991-09-13 15:30 PH (UTC+8) | Capricorn | ✅ 530 | ✅ ~720 (extended) | ✅ 530 | ✅ 530 | — | — | — |
+| Synthetic representative chart | Cancer | ✅ 529 | ✅ 529 | ✅ 529 | ✅ 529 | — | — | — |
+| Synthetic representative chart | Aries | ✅ 530 | ✅ 530 | ✅ 530 | ✅ 530 | 🟡 225* | 🟡 165* | 🟡 225* |
+| Synthetic representative chart | Taurus | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 | — | — | — |
+| Synthetic representative chart | Leo | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 | — | — | — |
+| Synthetic representative chart | Sagittarius | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 | — | — | — |
+| Synthetic representative chart | Virgo | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 | — | — | — |
+
+\* Aries investment / gain / loss were seeded with the section 4b shortcut —
+descriptions are the global (Capricorn-native) text scoped to Aries DB rows
+that share an event name. Not yet chart-specifically authored for Aries.
 
 The Cancer rows above were authored against a synthetic representative natal
 chart (no birth data — the user opted to skip the kerykeion run and target a

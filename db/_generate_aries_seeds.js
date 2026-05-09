@@ -266,7 +266,7 @@ module.exports = { events, ASCENDANT };
   return header;
 }
 
-const targets = ['career', 'relationship', 'food', 'advice'];
+const targets = ['career', 'relationship', 'food', 'advice', 'investment', 'gain', 'loss'];
 for (const area of targets) {
   const out = path.join(__dirname, `seed_${area}_aries.js`);
   if (fs.existsSync(out)) {
