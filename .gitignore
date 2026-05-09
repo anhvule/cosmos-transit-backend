@@ -143,3 +143,11 @@ db/favourites.db
 db/favourites.db-journal
 db/favourites.db-wal
 db/favourites.db-shm
+
+# cosmos.db SQLite is committed (seed data, like the legacy *_events.db files).
+# Its runtime WAL/SHM sidecars and human-readable exports are not — they are
+# regenerable from db/seed_templates.js + db/_authored/.
+db/cosmos.db-wal
+db/cosmos.db-shm
+db/cosmos_seed.json
+db/cosmos_seed.md

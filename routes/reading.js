@@ -111,6 +111,21 @@ const lookupGainEvent = gainDb.prepare(LOOKUP_SQL);
 const lookupLossEvent = lossDb.prepare(LOOKUP_SQL);
 const lookupFoodEvent = foodDb.prepare(LOOKUP_SQL);
 
+// New structured-template DB (db/cosmos.db). Used by /api/panda/* routes.
+// Lookup is by parsed structured key, not by name string.
+const cosmosDb = require('../db/cosmos');
+const { parseEventName } = require('../services/cosmos_event_parser');
+
+function getCosmosInterpretation(lens) {
+  // Accept (description, ascendant) to match the other lookup signatures,
+  // even though cosmos templates are chart-agnostic and ignore ascendant.
+  return (description, _ascendant) => {
+    const key = parseEventName(description);
+    if (!key) return '';
+    return cosmosDb.lookup(lens, key);
+  };
+}
+
 /**
  * Extract the ascendant sign (Aries/Taurus/.../Pisces) from a kerykeion
  * result. Defaults to 'Aries' if the natal chart is missing — that way
@@ -991,6 +1006,18 @@ router.post('/advice', makeDebugHandler(getAdviceEventInterpretation));
 router.post('/gain', makeDebugHandler(getGainEventInterpretation));
 router.post('/loss', makeDebugHandler(getLossEventInterpretation));
 router.post('/food', makeDebugHandler(getFoodEventInterpretation));
+
+// ── /api/panda/* routes (new cosmos.db structured-template DB) ──────
+// Same kerykeion call + same response shape as the legacy routes above,
+// but the interpretation is looked up via parsed structured key against
+// db/cosmos.db. Runs alongside the legacy routes; both can coexist.
+router.post('/panda/career',       makeDebugHandler(getCosmosInterpretation('career')));
+router.post('/panda/relationship', makeDebugHandler(getCosmosInterpretation('relationship')));
+router.post('/panda/investment',   makeDebugHandler(getCosmosInterpretation('investment')));
+router.post('/panda/advice',       makeDebugHandler(getCosmosInterpretation('advice')));
+router.post('/panda/food',         makeDebugHandler(getCosmosInterpretation('food')));
+router.post('/panda/gain',         makeDebugHandler(getCosmosInterpretation('gain')));
+router.post('/panda/loss',         makeDebugHandler(getCosmosInterpretation('loss')));
 
 router.post('/investment-weekly', makePeriodHandler('week', getInvestmentEventInterpretation));
 router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEventInterpretation));
