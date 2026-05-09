@@ -47,6 +47,16 @@ const events = [
   { name: 'Saturn in 1st (Dispositor)', description: 'Your natal Saturn in the 1st in his own sign Capricorn disposes Saturn-himself — a self-referential discipline of unusual depth. In career terms, you ARE the dispositor; the structure you build is the structure that builds you. When this dispositor fires across transits, the message is always the same: do the work, do it slowly, do it well, and the institution will eventually be your name. Old-soul leadership — colleagues sense seniority in you long before titles confirm it. Industries that flourish: traditional, hierarchical, time-respected — government, judiciary, infrastructure, mining, classical professions, monastic disciplines, military or paramilitary, IT systems engineering as a craft (not as a startup). Layoffs are extremely rare in your karma; what looks like one is usually a self-engineered exit driven by burnout or principle. The shadow: rigidity, isolation, the conviction that nobody else can do it right. The dharma: ennoble the slow build, and forgive yourself for not being a meteor.' },
   { name: 'Sun in 8th (Dispositor)', description: 'Your natal Sun in the 8th in his own sign Leo disposes himself, plus the cluster of Mercury and Jupiter that share Leo. The royal will lives in the cave — a powerful, dignified Vipareet placement. In career terms, you are the figure who holds steady when others lose their nerve: turnarounds, surgical decisions, post-merger integration, succession battles, intelligence operations, regulatory crisis. Authority is earned in fire, not granted in calm. When this dispositor fires, expect a moment that reveals who you are when the structure is collapsing — and that moment is your platform. Father-figure boss can be both teacher and obstacle; internalize the lesson without becoming the man. Industries: surgery, taxation, intelligence/security, private equity, occult counsel, energy/mining, insurance, succession planning. The shadow: pride that thinks itself essential after a regeneration is over. The dharma: lead through transformation, then step back so the next leader can rise.' },
   { name: 'Venus in 7th (Dispositor)', description: 'Your natal Venus in the 7th in Cancer (a deep-water cardinal placement) disposes the Moon (10th) — the harmony-seeking diplomat is wired directly to the public-image system. In career terms, deals close because clients trust you emotionally before they trust you intellectually. Diplomacy is your edge; aesthetic judgment is your tool; the mother archetype runs through your client relationships. When this dispositor fires, expect a partnership to advance — a contract to sign, a client to renew, a co-founder to commit, a marriage of business interest to formalize. Industries that flourish: design, hospitality, mediation, beauty, luxury, family business, marriage-counseling-style consulting, brand strategy. Female colleagues and clients are persistent agents of fortune. The shadow: over-pleasing that softens the edges of your authority — Venus in 7th can dilute decisiveness into endless diplomacy if Saturn-in-1st doesn\'t hold the structure. The dharma: be warm without being weak.' },
+  // Discovered via live-API audit (engine emits this even though Mars
+  // isn\'t the strict sign-lord of any natal-planet sign).
+  { name: 'Mars in 9th (Dispositor)', description: 'Your principled action engine is your career\'s deepest engine. When this dispositor fires in a transit story, expect the dharma-aligned move — the certification chosen on principle, the foreign assignment accepted because it\'s right rather than because it pays — to compound your career standing far more than the political maneuver. Mars exalted in Virgo sets your professional precision standard; uphold it on this day, even when nobody is checking.' },
+
+  // ────────────────────────────────────────────────────────────────────────
+  // OUTER-PLANET ASPECTS — observed via live-API audit; the engine emits
+  // Uranus/Neptune/Pluto aspects to natal planets at the natal planet\'s
+  // house, with phase variants. Add as observed.
+  // ────────────────────────────────────────────────────────────────────────
+  { name: 'Uranus aspect Saturn in 1st house : Exact', description: 'Today the structural foundation of your professional identity gets a sudden electric shock. A long-held title, role, or self-image cracks open without warning — a reorganization announced over your head, a regulatory ruling that reshapes your industry, an unexpected disruption to the boss-figure you depended on. Don\'t fight the lightning. Saturn-in-1st has built durable structure; Uranus is asking you to upgrade it, not abandon it. Best for: accepting the unexpected restructure with composure; worst for: clinging to the old org chart.' },
 
   // ────────────────────────────────────────────────────────────────────────
   // TRANSITS — every planet through every house (108)
@@ -577,20 +587,25 @@ const events = [
   { name: 'Venus aspect Venus in 7th house : Starts', description: 'Venus-Venus aspect forming — annual Venus-return-on-natal-Venus energy rising. Best for: preparing the partnership-formalization documentation, scheduling the contract-signing moments for peak, opening to the senior-female-counterparty introductions multiplying.' },
 ];
 
-const update = db.prepare(
-  'UPDATE events SET description = ? WHERE ascendant = ? AND name = ?'
+// UPSERT (not UPDATE) so events authored here that don\'t yet have a row
+// in the per-ascendant table are inserted on first run. The engine emits a
+// few event names not in the original auto-seeded enumeration (notably
+// outer-planet aspects and certain dispositor variants found via live-API
+// audit); INSERT-on-conflict-UPDATE keeps every fill flowing into the DB.
+const upsert = db.prepare(
+  'INSERT INTO events (ascendant, name, description) VALUES (?, ?, ?) ' +
+  'ON CONFLICT(ascendant, name) DO UPDATE SET description = excluded.description'
 );
 
 function run() {
   const tx = db.transaction(() => {
-    let updated = 0, empty = 0, notFound = 0;
+    let updated = 0, empty = 0;
     for (const e of events) {
       if (!e.description) { empty++; continue; }
-      const r = update.run(e.description, ASCENDANT, e.name);
-      if (r.changes > 0) updated++;
-      else notFound++;
+      upsert.run(ASCENDANT, e.name, e.description);
+      updated++;
     }
-    return { updated, empty, notFound };
+    return { updated, empty, notFound: 0 };
   });
   return tx();
 }

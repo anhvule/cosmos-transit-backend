@@ -47,6 +47,9 @@ const events = [
   { name: 'Saturn in 1st (Dispositor)', description: 'You are a self-referential discipline. The structure you build is the structure that builds you. Do the work, slowly, well, and the institution will eventually be your name. Old-soul leadership; colleagues sense seniority in you long before titles confirm it. Industries that fit your karma: traditional, hierarchical, time-respected — government, judiciary, mining, real-estate, IT systems engineering as a craft. Layoffs are extremely rare in your karma; what looks like one is usually self-engineered. The shadow: rigidity, isolation, the conviction that nobody else can do it right. The dharma: ennoble the slow build.' },
   { name: 'Sun in 8th (Dispositor)', description: 'The royal will lives in the cave. You are the figure who holds steady when others lose their nerve — turnarounds, surgical decisions, post-merger integration, succession battles, intelligence operations, regulatory crisis. Authority is earned in fire, not granted in calm. Father-figure boss is both teacher and obstacle; internalize the lesson without becoming the man. Industries: surgery, taxation, intelligence/security, private equity, occult counsel, energy/mining, insurance, succession planning. The shadow: pride that thinks itself essential after a regeneration is over.' },
   { name: 'Venus in 7th (Dispositor)', description: 'You are a diplomat at heart. Deals close because clients trust you emotionally before they trust you intellectually. Diplomacy is your edge; aesthetic judgment is your tool; the mother archetype runs through your client relationships. Expect a partnership to advance — a contract to sign, a client to renew, a co-founder to commit, a marriage of business interest to formalize. Industries: design, hospitality, mediation, beauty, luxury, family business, brand strategy. The shadow: over-pleasing softening decisive leadership; be warm without being weak.' },
+  // Gap events found via live-API audit.
+  { name: 'Mars in 9th (Dispositor)', description: 'When this configuration is active in your day, the choice in front of you is a principle-test, not a preference-test. Walk the path your inner teacher endorses, even if it\'s slower or harder. Your gains across years come from this fidelity. Resist the easy shortcut that violates dharma; resist the comfortable compromise that betrays the standard you set yourself.' },
+  { name: 'Uranus aspect Saturn in 1st house : Exact', description: 'A foundational structure in your life cracks open today without warning — the body, the persona, the institutional identity that felt unmoveable. Don\'t panic-decide. Sit with the shock; let the new shape reveal itself before you commit to a response. Saturn rebuilds slowly; Uranus delivers the necessary disruption. The reset that arrives unbidden is the one you needed but couldn\'t initiate yourself.' },
 
   // ────────────────────────────────────────────────────────────────────────
   // TRANSITS — every planet through every house (108)
@@ -577,20 +580,22 @@ const events = [
   { name: 'Venus aspect Venus in 7th house : Starts', description: 'Annual Venus-return energy rising. Prepare the partnership-formalization documentation.' },
 ];
 
-const update = db.prepare(
-  'UPDATE events SET description = ? WHERE ascendant = ? AND name = ?'
+// UPSERT (not UPDATE) so events authored here that don\'t yet have a row
+// in the per-ascendant table are inserted on first run.
+const upsert = db.prepare(
+  'INSERT INTO events (ascendant, name, description) VALUES (?, ?, ?) ' +
+  'ON CONFLICT(ascendant, name) DO UPDATE SET description = excluded.description'
 );
 
 function run() {
   const tx = db.transaction(() => {
-    let updated = 0, empty = 0, notFound = 0;
+    let updated = 0, empty = 0;
     for (const e of events) {
       if (!e.description) { empty++; continue; }
-      const r = update.run(e.description, ASCENDANT, e.name);
-      if (r.changes > 0) updated++;
-      else notFound++;
+      upsert.run(ASCENDANT, e.name, e.description);
+      updated++;
     }
-    return { updated, empty, notFound };
+    return { updated, empty, notFound: 0 };
   });
   return tx();
 }
