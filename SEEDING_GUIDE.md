@@ -229,6 +229,7 @@ non-empty for a chart whose ascendant is fully seeded.
 |---|---|:-:|:-:|:-:|:-:|
 | 1991-09-13 15:30 PH (UTC+8) | Capricorn | ✅ 530 | ✅ ~720 (extended) | ✅ 530 | ✅ 530 |
 | Synthetic representative chart | Cancer | ✅ 529 | ✅ 529 | ✅ 529 | ✅ 529 |
+| Synthetic representative chart | Aries | ✅ 530 | ✅ 530 | ✅ 530 | ✅ 530 |
 
 The Cancer rows above were authored against a synthetic representative natal
 chart (no birth data — the user opted to skip the kerykeion run and target a
@@ -240,6 +241,26 @@ canonical Cancer ascendant). Natal placements used:
 
 Generator: [`db/_generate_cancer_seeds.js`](db/_generate_cancer_seeds.js).
 Seed runners: `db/seed_{career,relationship,food,advice}_cancer.js`.
+
+The Aries rows were authored against a synthetic representative chart with
+three Mahapurusha-style yogas (Ruchaka Mars-1H, Sasa Saturn-10H) plus an
+exalted Mercury in own-sign Virgo 6H (Vipareet) and exalted Venus in 12H:
+
+- Sun=5th (Leo, own), Moon=4th (Cancer, own), Mercury=6th (Virgo, own+exalted),
+  Venus=12th (Pisces, exalted), Mars=1st (Aries, own — Ruchaka Yoga),
+  Jupiter=9th (Sagittarius, own), Saturn=10th (Capricorn, own — Sasa Yoga),
+  Rahu=5th (Leo, conjunct Sun), Ketu=11th (Aquarius).
+
+Generator: [`db/_generate_aries_seeds.js`](db/_generate_aries_seeds.js).
+Per-lens fills: `db/_aries_{career,relationship,food,advice}.js` are flat
+`name → description` maps; `db/_fill_aries.js` patches them into the seed
+files. Seed runners: `db/seed_{career,relationship,food,advice}_aries.js`.
+
+Authoring rule (added per user feedback during Aries authoring): never lead a
+description with an astrology-jargon preamble like "Your 5th lord Sun sits
+in the 5th in own sign Leo —". Lead directly with the guidance ("You are
+wired to be the visible creative principal..."). Reference natal placements
+through their *effects*, not as opening labels.
 
 Add new rows here as you complete each ascendant × lens combination.
 
