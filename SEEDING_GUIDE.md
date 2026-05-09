@@ -230,6 +230,7 @@ non-empty for a chart whose ascendant is fully seeded.
 | 1991-09-13 15:30 PH (UTC+8) | Capricorn | ✅ 530 | ✅ ~720 (extended) | ✅ 530 | ✅ 530 |
 | Synthetic representative chart | Cancer | ✅ 529 | ✅ 529 | ✅ 529 | ✅ 529 |
 | Synthetic representative chart | Aries | ✅ 530 | ✅ 530 | ✅ 530 | ✅ 530 |
+| Synthetic representative chart | Leo | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 |
 
 The Cancer rows above were authored against a synthetic representative natal
 chart (no birth data — the user opted to skip the kerykeion run and target a
@@ -255,6 +256,23 @@ Generator: [`db/_generate_aries_seeds.js`](db/_generate_aries_seeds.js).
 Per-lens fills: `db/_aries_{career,relationship,food,advice}.js` are flat
 `name → description` maps; `db/_fill_aries.js` patches them into the seed
 files. Seed runners: `db/seed_{career,relationship,food,advice}_aries.js`.
+
+The Leo rows were authored against a synthetic representative Leo native with
+strongly archetypal placements (own-sign / exalted in kendra/trikona):
+
+- Sun=1st (Leo, own — kingly self in lagna), Moon=11th (Gemini),
+  Mercury=2nd (Virgo, own), Venus=10th (Taurus, own — Malavya yoga),
+  Mars=9th (Aries, own — Ruchaka-style yogakaraka for Leo, ruling 4 and 9),
+  Jupiter=5th (Sagittarius, own — 5L in 5H), Saturn=3rd (Libra, exalted),
+  Rahu=6th (Capricorn), Ketu=12th (Cancer).
+
+Generator: [`db/_generate_leo_seeds.js`](db/_generate_leo_seeds.js).
+Seed runners: `db/seed_{career,relationship,food,advice}_leo.js`.
+
+Note: Leo descriptions were authored *before* the "no jargon-preamble" rule
+above was finalized for Aries, and follow the older Cancer/Capricorn style
+(many lead with "Your Nth lord X..."). Consider a follow-up rewrite pass to
+align with the new authoring convention.
 
 Authoring rule (added per user feedback during Aries authoring): never lead a
 description with an astrology-jargon preamble like "Your 5th lord Sun sits
