@@ -232,6 +232,7 @@ non-empty for a chart whose ascendant is fully seeded.
 | Synthetic representative chart | Aries | ✅ 530 | ✅ 530 | ✅ 530 | ✅ 530 |
 | Synthetic representative chart | Taurus | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 |
 | Synthetic representative chart | Leo | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 |
+| Synthetic representative chart | Virgo | ✅ 531 | ✅ 531 | ✅ 531 | ✅ 531 |
 
 The Cancer rows above were authored against a synthetic representative natal
 chart (no birth data — the user opted to skip the kerykeion run and target a
@@ -288,6 +289,24 @@ Note: Leo descriptions were authored *before* the "no jargon-preamble" rule
 above was finalized for Aries, and follow the older Cancer/Capricorn style
 (many lead with "Your Nth lord X..."). Consider a follow-up rewrite pass to
 align with the new authoring convention.
+
+The Virgo rows were authored against a synthetic representative chart with
+three Mahapurusha-style yogas (Bhadra Mercury-1H own+exalted, Hamsa
+Jupiter-4H own, Malavya Venus-7H exalted) plus an own-sign Mars in 8H
+(8L-in-8 Vipareet) and Saturn own-sign in 5H (disciplined creative engine):
+
+- Sun=12th (Leo, own), Moon=11th (Cancer, own),
+  Mercury=1st (Virgo, own+exalted — Bhadra Yoga),
+  Venus=7th (Pisces, exalted — Malavya Yoga),
+  Mars=8th (Aries, own — 8L-in-8 Vipareet),
+  Jupiter=4th (Sagittarius, own — Hamsa Yoga),
+  Saturn=5th (Capricorn, own),
+  Rahu=3rd (Scorpio), Ketu=9th (Taurus).
+
+Generator: [`db/_generate_virgo_seeds.js`](db/_generate_virgo_seeds.js).
+Per-lens fills: `db/_virgo_{career,relationship,food,advice}.js` are flat
+`name → description` maps; `db/_fill_virgo.js` patches them into the seed
+files. Seed runners: `db/seed_{career,relationship,food,advice}_virgo.js`.
 
 Authoring rule (added per user feedback during Aries authoring): never lead a
 description with an astrology-jargon preamble like "Your 5th lord Sun sits
