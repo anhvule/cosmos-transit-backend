@@ -1421,55 +1421,34 @@ router.post('/dasha-range', async (req, res) => {
 });
 
 /**
- * Three celebrity profiles used by /api/caution-dates. These were chosen
- * because each beat the always-bullish baseline in the SPX backtest:
+ * Bundled celebrity charts used by /api/caution-dates. Imported from
+ * services/market-signal.js so both endpoints share a single source of
+ * truth — and the same rigour bar.
  *
- *   - Druckenmiller (+15% lift, 50% bear-detection)
- *   - Soros        (+24% lift, 88% bear-detection — natural contrarian)
- *   - Ackman       (+6% lift, 50% bear-detection)
+ * The panel is verified-time-only: every chart's birth time is publicly
+ * attested (AstroDatabank Rodden rating A or better, or a comparable
+ * journalistic citation). Dasha periods depend critically on the natal
+ * Moon's exact longitude, which shifts ~0.5°/hour — a 12-hour error on
+ * an unknown birth time can move pratyantardasha boundaries by weeks.
+ * The previous panel (Druckenmiller / Soros / Ackman-at-noon) used noon
+ * placeholders for two of three charts and one wrong time for Ackman;
+ * those have been dropped in favour of attested data.
  *
- * The premise: if a date triggers a CAUTION pratyantardasha on multiple
- * of these contrarian charts simultaneously, it's a stronger candidate
- * for "broad-market caution window" than any single chart alone.
+ * Current panel (see services/market-signal.js for source citations):
+ *   - Warren Buffett   (Rodden A)
+ *   - Bill Ackman      (Bloomberg / Amanda Gordon, 2013)
+ *   - Michael Bloomberg(Rodden AA)
  */
-const CELEBRITY_PROFILES = [
-  {
-    key: 'druckenmiller',
-    name: 'Druckenmiller',
-    birthDate: '1953-06-14',
-    birthTime: '12:00',
-    latitude: 40.4406,
-    longitude: -79.9959,
-    timezone: 'America/New_York',
-  },
-  {
-    key: 'ackman',
-    name: 'Ackman',
-    birthDate: '1966-05-11',
-    birthTime: '12:00',
-    latitude: 41.1570,
-    longitude: -73.7660,
-    timezone: 'America/New_York',
-  },
-  {
-    key: 'soros',
-    name: 'Soros',
-    birthDate: '1930-08-12',
-    birthTime: '12:00',
-    latitude: 47.4979,
-    longitude: 19.0402,
-    timezone: 'Europe/Budapest',
-  },
-];
+const { INVESTOR_PROFILES: CELEBRITY_PROFILES } = require('../services/market-signal');
 
 /**
  * POST /api/caution-dates
  *
- * Returns the union of CAUTION dasha-periods firing on the three
- * bundled celebrity profiles (Druckenmiller, Ackman, Soros) within the
- * given year. Used by the Vimshottari Dasha screen's "Yearly Caution
- * Forecast" section to highlight windows where contrarian charts
- * agree the period needs risk-down posture.
+ * Returns the union of CAUTION dasha-periods firing on the bundled
+ * verified-time celebrity profiles (Buffett, Ackman, Bloomberg) within
+ * the given year. Used by the Vimshottari Dasha screen's "Yearly Caution
+ * Forecast" section to highlight windows where multiple charts agree the
+ * period needs risk-down posture.
  *
  * Request body:
  * {

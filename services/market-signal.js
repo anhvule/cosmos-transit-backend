@@ -2,108 +2,70 @@
  * Multi-investor speculative-market signal aggregator.
  *
  * For each transit date in a caller-supplied list, evaluate the bundled
- * famous-investor charts (Druckenmiller, Ackman, Soros, Buffett, Dalio,
- * Tudor Jones, Icahn, Simons) against the SuddenGainSigns and
- * SuddenLossesSigns rule sets. Each chart yields a per-date verdict
- * (favourable / cautious / normal), then the eight are aggregated into a
- * single market signal.
+ * famous-investor charts against the SuddenGainSigns and SuddenLossesSigns
+ * rule sets. Each chart yields a per-date verdict (favourable / cautious /
+ * normal), then the panel is aggregated into a single market signal.
  *
- * Rationale: these traders span distinct, empirically successful speculative
- * styles — discretionary macro, activist, contrarian, value, risk parity,
- * trend, and quantitative. When the Vedic transit picture is *simultaneously*
- * favourable or cautious across a strong majority of these styles, that
- * cross-style agreement is treated as a structurally stronger signal than
- * any single chart on its own.
+ * The panel is intentionally narrow — only investors whose birth times are
+ * publicly attested (Rodden rating A or better, or a comparable sourced
+ * journalistic citation) are included. Birth-time accuracy matters: the
+ * gain/loss rule set leans heavily on Moon house placement, which shifts a
+ * full house every ~2 hours and is meaningless on a "noon chart" when the
+ * real time is unknown. Famous-but-unattested investors (Soros, Druckenmiller,
+ * Dalio, Tudor Jones, Icahn, Simons) were considered and dropped — no public
+ * birth time exists for them, and astrologer rectifications are speculation.
  *
- * Birth-time note: exact birth times for these traders are not in the public
- * record, so we use 12:00 local (the convention already used by
- * /api/caution-dates). This means house placements for slow-moving features
- * (Moon house, ascendant) carry meaningful uncertainty. The rule set is
- * chosen to lean on aspects (orb-driven, time-robust) more than on house
- * placement to keep the signal usable despite the noon assumption.
+ * Current panel:
+ *   - Warren Buffett   (1930-08-30 15:00 Omaha; Rodden A — Hewitt collection)
+ *   - Bill Ackman      (1966-05-11 00:30 Chappaqua; Bloomberg, Amanda Gordon)
+ *   - Michael Bloomberg(1942-02-14 15:40 EWT Brighton MA; Rodden AA)
+ *
+ * When the transit picture *simultaneously* favours risk-on or risk-off
+ * across the majority of this panel, the agreement is treated as a stronger
+ * cross-trader signal than any single chart alone. New investors can be
+ * added to INVESTOR_PROFILES below — keep the bar at verified-time only.
  */
 
 const { getInvestmentSignsForDates } = require('./astrology_kerykeion_bridge');
 
 const INVESTOR_PROFILES = [
   {
-    key: 'druckenmiller',
-    name: 'Stanley Druckenmiller',
-    style: 'Top-down macro · momentum',
-    birthDate: '1953-06-14',
-    birthTime: '12:00',
-    latitude: 40.4406,
-    longitude: -79.9959,
-    timezone: 'America/New_York',
+    key: 'buffett',
+    name: 'Warren Buffett',
+    style: 'Value · long-horizon equity',
+    birthDate: '1930-08-30',
+    birthTime: '15:00',
+    birthTimeKnown: true,
+    birthTimeSource: 'AstroDatabank Rodden rating A — Hewitt collection',
+    latitude: 41.2565,
+    longitude: -95.9345,
+    timezone: 'America/Chicago',
   },
   {
     key: 'ackman',
     name: 'Bill Ackman',
     style: 'Activist · concentrated equity',
     birthDate: '1966-05-11',
-    birthTime: '12:00',
+    birthTime: '00:30',
+    birthTimeKnown: true,
+    birthTimeSource: 'Bloomberg / Amanda Gordon (May 13, 2013)',
     latitude: 41.1570,
     longitude: -73.7660,
     timezone: 'America/New_York',
   },
   {
-    key: 'soros',
-    name: 'George Soros',
-    style: 'Reflexivity · contrarian macro',
-    birthDate: '1930-08-12',
-    birthTime: '12:00',
-    latitude: 47.4979,
-    longitude: 19.0402,
-    timezone: 'Europe/Budapest',
-  },
-  {
-    key: 'buffett',
-    name: 'Warren Buffett',
-    style: 'Value · long-horizon equity',
-    birthDate: '1930-08-30',
-    birthTime: '12:00',
-    latitude: 41.2565,
-    longitude: -95.9345,
-    timezone: 'America/Chicago',
-  },
-  {
-    key: 'dalio',
-    name: 'Ray Dalio',
-    style: 'Macro · All Weather risk parity',
-    birthDate: '1949-08-08',
-    birthTime: '12:00',
-    latitude: 40.7557,
-    longitude: -73.8831,
-    timezone: 'America/New_York',
-  },
-  {
-    key: 'tudor_jones',
-    name: 'Paul Tudor Jones',
-    style: 'Discretionary macro · trend-following',
-    birthDate: '1954-09-28',
-    birthTime: '12:00',
-    latitude: 35.1495,
-    longitude: -90.0490,
-    timezone: 'America/Chicago',
-  },
-  {
-    key: 'icahn',
-    name: 'Carl Icahn',
-    style: 'Activist · contrarian timing',
-    birthDate: '1936-02-16',
-    birthTime: '12:00',
-    latitude: 40.6035,
-    longitude: -73.7547,
-    timezone: 'America/New_York',
-  },
-  {
-    key: 'simons',
-    name: 'Jim Simons',
-    style: 'Quant · statistical arbitrage',
-    birthDate: '1938-04-25',
-    birthTime: '12:00',
-    latitude: 42.3318,
-    longitude: -71.1212,
+    key: 'bloomberg',
+    name: 'Michael Bloomberg',
+    style: 'Salomon equity trader · Bloomberg LP founder',
+    birthDate: '1942-02-14',
+    birthTime: '15:40',
+    birthTimeKnown: true,
+    birthTimeSource: 'AstroDatabank Rodden rating AA — birth record',
+    // Brighton neighborhood of Boston. Eastern War Time was in effect on
+    // 1942-02-14 (EWT instituted Feb 9, 1942) — the IANA America/New_York
+    // zone resolves "15:40" on this date to EWT (UTC-4) automatically.
+    latitude: 42.3496,
+    longitude: -71.1565,
     timezone: 'America/New_York',
   },
 ];
@@ -233,7 +195,13 @@ async function computeMarketSignal(dates) {
 }
 
 function stripProfile(p) {
-  return { key: p.key, name: p.name, style: p.style };
+  return {
+    key: p.key,
+    name: p.name,
+    style: p.style,
+    birthTimeKnown: p.birthTimeKnown === true,
+    birthTimeSource: p.birthTimeSource || 'unknown',
+  };
 }
 
 function summariseDay(verdict, perInvestor) {
