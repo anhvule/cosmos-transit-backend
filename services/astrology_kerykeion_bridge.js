@@ -889,6 +889,69 @@ async function getInvestmentGainDaysForMonth(birthData, month) {
   return gainDates;
 }
 
+/**
+ * Evaluate the shared gain-vs-loss rule sets for an arbitrary date list.
+ * Single Python batch invocation per call — used by the multi-investor
+ * market-signal aggregator where each profile is evaluated against the
+ * same caller-supplied date range (typically a 7-day week).
+ *
+ * Returns per-date results for EVERY requested date (including empty
+ * { gainSigns: [], lossSigns: [] } days), unlike the month-scoped
+ * functions which skip zero-sign days.
+ *
+ * Filtering rule (matches the existing month functions):
+ *   - LOSS_RULES are evaluated against :Exact + unqualified events only
+ *     (drop :Starts / :Ends — approaching/separating windows are too
+ *     weak to count as risk triggers).
+ *   - GAIN_RULES are evaluated against the full event stream (the existing
+ *     gain function applies no filtering — benefic energy is considered
+ *     present through the separating phase).
+ */
+async function getInvestmentSignsForDates(birthData, dates) {
+  const { LOSS_RULES, GAIN_RULES, evaluateRules } = require('./investment-signs-rules');
+
+  if (!Array.isArray(dates) || dates.length === 0) return [];
+  const uniqueDates = Array.from(new Set(dates)).sort();
+
+  const input = {
+    birthDate: birthData.birthDate,
+    birthTime: birthData.birthTime,
+    latitude: birthData.latitude,
+    longitude: birthData.longitude,
+    timezone: birthData.timezone || 'Asia/Ho_Chi_Minh',
+    transitDates: uniqueDates,
+  };
+  const { results, planetHouses } = await callPythonBatch(input);
+
+  return uniqueDates.map(date => {
+    const allEvents = results[date] || [];
+    const houses = planetHouses[date] || {};
+
+    const lossEvents = allEvents.filter(
+      e => !/(:\s*(Starts|Ends))$/.test(e.description || ''),
+    );
+
+    const { signs: lossSigns, topWeight: lossTopWeight } =
+      evaluateRules(LOSS_RULES, lossEvents, houses);
+    const { signs: gainSigns, topWeight: gainTopWeight } =
+      evaluateRules(GAIN_RULES, allEvents, houses);
+
+    const lossScore = lossSigns.reduce((s, x) => s + (x.weight || 0), 0);
+    const gainScore = gainSigns.reduce((s, x) => s + (x.weight || 0), 0);
+
+    return {
+      date,
+      gainSigns,
+      lossSigns,
+      gainScore,
+      lossScore,
+      gainTopWeight,
+      lossTopWeight,
+      netScore: gainScore - lossScore,
+    };
+  });
+}
+
 module.exports = {
   getNatalTransits,
   getNatalTransitsAndReport,
@@ -896,4 +959,5 @@ module.exports = {
   getMatchingDatesForMonth,
   getInvestmentLossDaysForMonth,
   getInvestmentGainDaysForMonth,
+  getInvestmentSignsForDates,
 };
