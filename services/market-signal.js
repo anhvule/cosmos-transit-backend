@@ -2,59 +2,71 @@
  * Multi-investor speculative-market signal aggregator.
  *
  * For each transit date in a caller-supplied list, evaluate the bundled
- * famous-investor charts (Druckenmiller / Ackman / Soros — the same three
- * profiles used by /api/caution-dates) against the SuddenGainSigns and
- * SuddenLossesSigns rule sets. Each chart yields a per-date verdict
- * (favourable / cautious / normal), then the three are aggregated into a
- * single market signal.
+ * famous-investor charts against the SuddenGainSigns and SuddenLossesSigns
+ * rule sets. Each chart yields a per-date verdict (favourable / cautious /
+ * normal), then the panel is aggregated into a single market signal.
  *
- * Rationale: these three traders represent distinct, empirically successful
- * speculative styles (long-term macro, activist, reflexivity-driven
- * contrarian). When the Vedic transit picture is *simultaneously* favourable
- * or cautious across all three contrarian charts, that signal is treated as
- * structurally stronger than any single chart on its own — the same premise
- * that drives the caution-dates union.
+ * The panel is intentionally narrow — only investors whose birth times are
+ * publicly attested (Rodden rating A or better, or a comparable sourced
+ * journalistic citation) are included. Birth-time accuracy matters: the
+ * gain/loss rule set leans heavily on Moon house placement, which shifts a
+ * full house every ~2 hours and is meaningless on a "noon chart" when the
+ * real time is unknown. Famous-but-unattested investors (Soros, Druckenmiller,
+ * Dalio, Tudor Jones, Icahn, Simons) were considered and dropped — no public
+ * birth time exists for them, and astrologer rectifications are speculation.
  *
- * Birth-time note: exact birth times for these traders are not in the public
- * record, so we use 12:00 local (the convention already used by
- * /api/caution-dates). This means house placements for slow-moving features
- * (Moon house, ascendant) carry meaningful uncertainty. The rule set is
- * chosen to lean on aspects (orb-driven, time-robust) more than on house
- * placement to keep the signal usable despite the noon assumption.
+ * Current panel:
+ *   - Warren Buffett   (1930-08-30 15:00 Omaha; Rodden A — Hewitt collection)
+ *   - Bill Ackman      (1966-05-11 00:30 Chappaqua; Bloomberg, Amanda Gordon)
+ *   - Michael Bloomberg(1942-02-14 15:40 EWT Brighton MA; Rodden AA)
+ *
+ * When the transit picture *simultaneously* favours risk-on or risk-off
+ * across the majority of this panel, the agreement is treated as a stronger
+ * cross-trader signal than any single chart alone. New investors can be
+ * added to INVESTOR_PROFILES below — keep the bar at verified-time only.
  */
 
 const { getInvestmentSignsForDates } = require('./astrology_kerykeion_bridge');
 
 const INVESTOR_PROFILES = [
   {
-    key: 'druckenmiller',
-    name: 'Stanley Druckenmiller',
-    style: 'Top-down macro · momentum',
-    birthDate: '1953-06-14',
-    birthTime: '12:00',
-    latitude: 40.4406,
-    longitude: -79.9959,
-    timezone: 'America/New_York',
+    key: 'buffett',
+    name: 'Warren Buffett',
+    style: 'Value · long-horizon equity',
+    birthDate: '1930-08-30',
+    birthTime: '15:00',
+    birthTimeKnown: true,
+    birthTimeSource: 'AstroDatabank Rodden rating A — Hewitt collection',
+    latitude: 41.2565,
+    longitude: -95.9345,
+    timezone: 'America/Chicago',
   },
   {
     key: 'ackman',
     name: 'Bill Ackman',
     style: 'Activist · concentrated equity',
     birthDate: '1966-05-11',
-    birthTime: '12:00',
+    birthTime: '00:30',
+    birthTimeKnown: true,
+    birthTimeSource: 'Bloomberg / Amanda Gordon (May 13, 2013)',
     latitude: 41.1570,
     longitude: -73.7660,
     timezone: 'America/New_York',
   },
   {
-    key: 'soros',
-    name: 'George Soros',
-    style: 'Reflexivity · contrarian macro',
-    birthDate: '1930-08-12',
-    birthTime: '12:00',
-    latitude: 47.4979,
-    longitude: 19.0402,
-    timezone: 'Europe/Budapest',
+    key: 'bloomberg',
+    name: 'Michael Bloomberg',
+    style: 'Salomon equity trader · Bloomberg LP founder',
+    birthDate: '1942-02-14',
+    birthTime: '15:40',
+    birthTimeKnown: true,
+    birthTimeSource: 'AstroDatabank Rodden rating AA — birth record',
+    // Brighton neighborhood of Boston. Eastern War Time was in effect on
+    // 1942-02-14 (EWT instituted Feb 9, 1942) — the IANA America/New_York
+    // zone resolves "15:40" on this date to EWT (UTC-4) automatically.
+    latitude: 42.3496,
+    longitude: -71.1565,
+    timezone: 'America/New_York',
   },
 ];
 
@@ -86,38 +98,41 @@ function classifyPerInvestor({ gainScore, lossScore, gainTopWeight, lossTopWeigh
 
 /**
  * Aggregate per-investor verdicts into the overall market signal.
- * Rules:
- *   - 2+ favourable AND 0 cautious → favourable
- *   - 2+ cautious   AND 0 favourable → cautious
- *   - mixed signals (favourable + cautious on the same day) → normal,
- *     because disagreement across these three contrarian styles is a
- *     classic "no-edge" tape.
- *   - everything else → normal
+ *
+ * Scales to any panel size. Thresholds:
+ *   - strongMajority = ceil(N * 0.6) — minimum count to fire a signal
+ *   - superMajority  = ceil(N * 0.75) — count required for "high" confidence
+ *   - tolerance      = 0 for N ≤ 3, else 1 — at small N we demand unanimity
+ *                      on the losing side; with more charts, a single
+ *                      dissenter is allowed without collapsing to "normal"
+ *
+ * For N=3 (the original panel) this resolves to: ≥2 fav AND 0 cau → medium,
+ * 3 fav AND 0 cau → high — preserving the previous semantics. For N=8 it
+ * becomes: ≥5 fav AND ≤1 cau → medium, ≥6 fav AND ≤1 cau → high.
  */
 function aggregateVerdicts(perInvestor) {
   const fav = perInvestor.filter(p => p.verdict === 'favourable').length;
   const cau = perInvestor.filter(p => p.verdict === 'cautious').length;
+  const n = perInvestor.length;
+  if (n === 0) return { verdict: 'normal', confidence: 'low' };
 
-  let verdict = 'normal';
-  let confidence = 'low';
-  if (fav >= 2 && cau === 0) {
-    verdict = 'favourable';
-    confidence = fav === 3 ? 'high' : 'medium';
-  } else if (cau >= 2 && fav === 0) {
-    verdict = 'cautious';
-    confidence = cau === 3 ? 'high' : 'medium';
-  } else if (fav === 1 && cau === 0) {
-    verdict = 'normal';
-    confidence = 'low';
-  } else if (cau === 1 && fav === 0) {
-    verdict = 'normal';
-    confidence = 'low';
-  } else {
-    // Mixed — at least one favourable AND at least one cautious.
-    verdict = 'normal';
-    confidence = 'low';
+  const strongMajority = Math.ceil(n * 0.6);
+  const superMajority = Math.ceil(n * 0.75);
+  const tolerance = n <= 3 ? 0 : 1;
+
+  if (fav >= strongMajority && cau <= tolerance) {
+    return {
+      verdict: 'favourable',
+      confidence: fav >= superMajority ? 'high' : 'medium',
+    };
   }
-  return { verdict, confidence };
+  if (cau >= strongMajority && fav <= tolerance) {
+    return {
+      verdict: 'cautious',
+      confidence: cau >= superMajority ? 'high' : 'medium',
+    };
+  }
+  return { verdict: 'normal', confidence: 'low' };
 }
 
 /**
@@ -180,28 +195,44 @@ async function computeMarketSignal(dates) {
 }
 
 function stripProfile(p) {
-  return { key: p.key, name: p.name, style: p.style };
+  return {
+    key: p.key,
+    name: p.name,
+    style: p.style,
+    birthTimeKnown: p.birthTimeKnown === true,
+    birthTimeSource: p.birthTimeSource || 'unknown',
+  };
 }
 
 function summariseDay(verdict, perInvestor) {
-  const fav = perInvestor.filter(p => p.verdict === 'favourable').map(p => p.profileName);
-  const cau = perInvestor.filter(p => p.verdict === 'cautious').map(p => p.profileName);
+  const favNames = perInvestor.filter(p => p.verdict === 'favourable').map(p => p.profileName);
+  const cauNames = perInvestor.filter(p => p.verdict === 'cautious').map(p => p.profileName);
+  const n = perInvestor.length;
+  const fav = favNames.length;
+  const cau = cauNames.length;
+  const norm = n - fav - cau;
+
+  // Show up to 3 names then "+N more" for readability with larger panels.
+  const fmtNames = (arr) => arr.length <= 3
+    ? arr.join(', ')
+    : `${arr.slice(0, 3).join(', ')} +${arr.length - 3} more`;
+
   if (verdict === 'favourable') {
-    return `Speculative tape favours risk-on: ${fav.join(', ')} chart${fav.length === 1 ? '' : 's'} align${fav.length === 1 ? 's' : ''} with gain combinations.`;
+    return `Speculative tape favours risk-on (${fav}/${n}): ${fmtNames(favNames)} align with gain combinations.`;
   }
   if (verdict === 'cautious') {
-    return `Speculative risk elevated: ${cau.join(', ')} chart${cau.length === 1 ? '' : 's'} fire${cau.length === 1 ? 's' : ''} loss combinations — size down, avoid F&O / leveraged entries.`;
+    return `Speculative risk elevated (${cau}/${n}): ${fmtNames(cauNames)} fire loss combinations — size down, avoid F&O / leveraged entries.`;
   }
-  if (fav.length && cau.length) {
-    return `Mixed tape: ${fav.join(', ')} lean${fav.length === 1 ? 's' : ''} bullish while ${cau.join(', ')} flag${cau.length === 1 ? 's' : ''} caution — no edge.`;
+  if (fav > 0 && cau > 0) {
+    return `Mixed tape: ${fav} bullish (${fmtNames(favNames)}) vs ${cau} cautious (${fmtNames(cauNames)}) — no edge.`;
   }
-  if (fav.length) {
-    return `Modest bullish lean from ${fav.join(', ')} only — insufficient confirmation across charts.`;
+  if (fav > 0) {
+    return `Modest bullish lean from ${fav}/${n} (${fmtNames(favNames)}) — insufficient confirmation across the panel.`;
   }
-  if (cau.length) {
-    return `Modest caution from ${cau.join(', ')} only — not broad enough to act on.`;
+  if (cau > 0) {
+    return `Modest caution from ${cau}/${n} (${fmtNames(cauNames)}) — not broad enough to act on.`;
   }
-  return 'Neutral tape: no significant gain or loss triggers across the three speculative charts.';
+  return `Neutral tape: no significant gain or loss triggers across the ${n}-chart panel.`;
 }
 
 /**
