@@ -2,18 +2,18 @@
  * Multi-investor speculative-market signal aggregator.
  *
  * For each transit date in a caller-supplied list, evaluate the bundled
- * famous-investor charts (Druckenmiller / Ackman / Soros — the same three
- * profiles used by /api/caution-dates) against the SuddenGainSigns and
+ * famous-investor charts (Druckenmiller, Ackman, Soros, Buffett, Dalio,
+ * Tudor Jones, Icahn, Simons) against the SuddenGainSigns and
  * SuddenLossesSigns rule sets. Each chart yields a per-date verdict
- * (favourable / cautious / normal), then the three are aggregated into a
+ * (favourable / cautious / normal), then the eight are aggregated into a
  * single market signal.
  *
- * Rationale: these three traders represent distinct, empirically successful
- * speculative styles (long-term macro, activist, reflexivity-driven
- * contrarian). When the Vedic transit picture is *simultaneously* favourable
- * or cautious across all three contrarian charts, that signal is treated as
- * structurally stronger than any single chart on its own — the same premise
- * that drives the caution-dates union.
+ * Rationale: these traders span distinct, empirically successful speculative
+ * styles — discretionary macro, activist, contrarian, value, risk parity,
+ * trend, and quantitative. When the Vedic transit picture is *simultaneously*
+ * favourable or cautious across a strong majority of these styles, that
+ * cross-style agreement is treated as a structurally stronger signal than
+ * any single chart on its own.
  *
  * Birth-time note: exact birth times for these traders are not in the public
  * record, so we use 12:00 local (the convention already used by
@@ -56,6 +56,56 @@ const INVESTOR_PROFILES = [
     longitude: 19.0402,
     timezone: 'Europe/Budapest',
   },
+  {
+    key: 'buffett',
+    name: 'Warren Buffett',
+    style: 'Value · long-horizon equity',
+    birthDate: '1930-08-30',
+    birthTime: '12:00',
+    latitude: 41.2565,
+    longitude: -95.9345,
+    timezone: 'America/Chicago',
+  },
+  {
+    key: 'dalio',
+    name: 'Ray Dalio',
+    style: 'Macro · All Weather risk parity',
+    birthDate: '1949-08-08',
+    birthTime: '12:00',
+    latitude: 40.7557,
+    longitude: -73.8831,
+    timezone: 'America/New_York',
+  },
+  {
+    key: 'tudor_jones',
+    name: 'Paul Tudor Jones',
+    style: 'Discretionary macro · trend-following',
+    birthDate: '1954-09-28',
+    birthTime: '12:00',
+    latitude: 35.1495,
+    longitude: -90.0490,
+    timezone: 'America/Chicago',
+  },
+  {
+    key: 'icahn',
+    name: 'Carl Icahn',
+    style: 'Activist · contrarian timing',
+    birthDate: '1936-02-16',
+    birthTime: '12:00',
+    latitude: 40.6035,
+    longitude: -73.7547,
+    timezone: 'America/New_York',
+  },
+  {
+    key: 'simons',
+    name: 'Jim Simons',
+    style: 'Quant · statistical arbitrage',
+    birthDate: '1938-04-25',
+    birthTime: '12:00',
+    latitude: 42.3318,
+    longitude: -71.1212,
+    timezone: 'America/New_York',
+  },
 ];
 
 /**
@@ -86,38 +136,41 @@ function classifyPerInvestor({ gainScore, lossScore, gainTopWeight, lossTopWeigh
 
 /**
  * Aggregate per-investor verdicts into the overall market signal.
- * Rules:
- *   - 2+ favourable AND 0 cautious → favourable
- *   - 2+ cautious   AND 0 favourable → cautious
- *   - mixed signals (favourable + cautious on the same day) → normal,
- *     because disagreement across these three contrarian styles is a
- *     classic "no-edge" tape.
- *   - everything else → normal
+ *
+ * Scales to any panel size. Thresholds:
+ *   - strongMajority = ceil(N * 0.6) — minimum count to fire a signal
+ *   - superMajority  = ceil(N * 0.75) — count required for "high" confidence
+ *   - tolerance      = 0 for N ≤ 3, else 1 — at small N we demand unanimity
+ *                      on the losing side; with more charts, a single
+ *                      dissenter is allowed without collapsing to "normal"
+ *
+ * For N=3 (the original panel) this resolves to: ≥2 fav AND 0 cau → medium,
+ * 3 fav AND 0 cau → high — preserving the previous semantics. For N=8 it
+ * becomes: ≥5 fav AND ≤1 cau → medium, ≥6 fav AND ≤1 cau → high.
  */
 function aggregateVerdicts(perInvestor) {
   const fav = perInvestor.filter(p => p.verdict === 'favourable').length;
   const cau = perInvestor.filter(p => p.verdict === 'cautious').length;
+  const n = perInvestor.length;
+  if (n === 0) return { verdict: 'normal', confidence: 'low' };
 
-  let verdict = 'normal';
-  let confidence = 'low';
-  if (fav >= 2 && cau === 0) {
-    verdict = 'favourable';
-    confidence = fav === 3 ? 'high' : 'medium';
-  } else if (cau >= 2 && fav === 0) {
-    verdict = 'cautious';
-    confidence = cau === 3 ? 'high' : 'medium';
-  } else if (fav === 1 && cau === 0) {
-    verdict = 'normal';
-    confidence = 'low';
-  } else if (cau === 1 && fav === 0) {
-    verdict = 'normal';
-    confidence = 'low';
-  } else {
-    // Mixed — at least one favourable AND at least one cautious.
-    verdict = 'normal';
-    confidence = 'low';
+  const strongMajority = Math.ceil(n * 0.6);
+  const superMajority = Math.ceil(n * 0.75);
+  const tolerance = n <= 3 ? 0 : 1;
+
+  if (fav >= strongMajority && cau <= tolerance) {
+    return {
+      verdict: 'favourable',
+      confidence: fav >= superMajority ? 'high' : 'medium',
+    };
   }
-  return { verdict, confidence };
+  if (cau >= strongMajority && fav <= tolerance) {
+    return {
+      verdict: 'cautious',
+      confidence: cau >= superMajority ? 'high' : 'medium',
+    };
+  }
+  return { verdict: 'normal', confidence: 'low' };
 }
 
 /**
@@ -184,24 +237,34 @@ function stripProfile(p) {
 }
 
 function summariseDay(verdict, perInvestor) {
-  const fav = perInvestor.filter(p => p.verdict === 'favourable').map(p => p.profileName);
-  const cau = perInvestor.filter(p => p.verdict === 'cautious').map(p => p.profileName);
+  const favNames = perInvestor.filter(p => p.verdict === 'favourable').map(p => p.profileName);
+  const cauNames = perInvestor.filter(p => p.verdict === 'cautious').map(p => p.profileName);
+  const n = perInvestor.length;
+  const fav = favNames.length;
+  const cau = cauNames.length;
+  const norm = n - fav - cau;
+
+  // Show up to 3 names then "+N more" for readability with larger panels.
+  const fmtNames = (arr) => arr.length <= 3
+    ? arr.join(', ')
+    : `${arr.slice(0, 3).join(', ')} +${arr.length - 3} more`;
+
   if (verdict === 'favourable') {
-    return `Speculative tape favours risk-on: ${fav.join(', ')} chart${fav.length === 1 ? '' : 's'} align${fav.length === 1 ? 's' : ''} with gain combinations.`;
+    return `Speculative tape favours risk-on (${fav}/${n}): ${fmtNames(favNames)} align with gain combinations.`;
   }
   if (verdict === 'cautious') {
-    return `Speculative risk elevated: ${cau.join(', ')} chart${cau.length === 1 ? '' : 's'} fire${cau.length === 1 ? 's' : ''} loss combinations — size down, avoid F&O / leveraged entries.`;
+    return `Speculative risk elevated (${cau}/${n}): ${fmtNames(cauNames)} fire loss combinations — size down, avoid F&O / leveraged entries.`;
   }
-  if (fav.length && cau.length) {
-    return `Mixed tape: ${fav.join(', ')} lean${fav.length === 1 ? 's' : ''} bullish while ${cau.join(', ')} flag${cau.length === 1 ? 's' : ''} caution — no edge.`;
+  if (fav > 0 && cau > 0) {
+    return `Mixed tape: ${fav} bullish (${fmtNames(favNames)}) vs ${cau} cautious (${fmtNames(cauNames)}) — no edge.`;
   }
-  if (fav.length) {
-    return `Modest bullish lean from ${fav.join(', ')} only — insufficient confirmation across charts.`;
+  if (fav > 0) {
+    return `Modest bullish lean from ${fav}/${n} (${fmtNames(favNames)}) — insufficient confirmation across the panel.`;
   }
-  if (cau.length) {
-    return `Modest caution from ${cau.join(', ')} only — not broad enough to act on.`;
+  if (cau > 0) {
+    return `Modest caution from ${cau}/${n} (${fmtNames(cauNames)}) — not broad enough to act on.`;
   }
-  return 'Neutral tape: no significant gain or loss triggers across the three speculative charts.';
+  return `Neutral tape: no significant gain or loss triggers across the ${n}-chart panel.`;
 }
 
 /**
