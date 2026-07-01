@@ -792,6 +792,35 @@ function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
       return true;
     });
 
+  // Ruler/dispositor placements are permanent natal-chart facts. The bridge
+  // nests them under their parent aspect, so when milestone dedup drops the
+  // parent (e.g. a separating :Ends continuation, or a non-local-min :Exact),
+  // the placements disappear with it. Re-home any such orphaned rulers onto a
+  // surviving event so they surface every day the underlying aspect is in orb.
+  const survivingRulerDescs = new Set();
+  for (const e of transitEvents) {
+    for (const r of (e.rulers || [])) survivingRulerDescs.add(r.description);
+  }
+  const orphanRulers = [];
+  const seenOrphan = new Set();
+  for (const e of (todayResult.transitEvents || [])) {
+    for (const r of (e.rulers || [])) {
+      if (!r || !r.description) continue;
+      if (survivingRulerDescs.has(r.description)) continue;
+      if (seenOrphan.has(r.description)) continue;
+      seenOrphan.add(r.description);
+      orphanRulers.push(r);
+    }
+  }
+  if (orphanRulers.length) {
+    if (transitEvents.length) {
+      const carrier = transitEvents[0];
+      carrier.rulers = [...(carrier.rulers || []), ...orphanRulers];
+    } else {
+      transitEvents.push({ type: 'ruler_carrier', description: null, rulers: orphanRulers });
+    }
+  }
+
   return transitEvents;
 }
 
@@ -842,7 +871,7 @@ function makeDebugHandler(interpretationLookup) {
 
       res.json({
         date: baseDateStr,
-        aspects: transitEvents.map(e => ({
+        aspects: transitEvents.filter(e => e.description).map(e => ({
           impact: e.impact,
           description: e.description,
           interpretation: interpretationLookup(e.description, ascendant),
@@ -888,7 +917,7 @@ async function aggregatePeriod(birthParams, dates, interpretationLookup) {
     const events = computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult);
     const ascendant = ascendantFromResult(todayResult);
 
-    const aspects = events.map(e => ({
+    const aspects = events.filter(e => e.description).map(e => ({
       impact: e.impact,
       description: e.description,
       interpretation: interpretationLookup(e.description, ascendant),
