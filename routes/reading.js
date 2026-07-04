@@ -8,10 +8,8 @@ const useKerykeion = process.env.ASTROLOGY_ENGINE === 'kerykeion';
 
 let astrologyService;
 astrologyService = require('../services/astrology_kerykeion_bridge');
-const { getInvestmentLossDaysForMonth, getInvestmentGainDaysForMonth } = astrologyService;
 console.log('Astrology engine: kerykeion (local Swiss Ephemeris)');
 
-const { generateReading } = require('../services/gemini');
 const { computeDashaAtDate, computeDashaRange, getNakshatra } = require('../services/dasha');
 const { annotatePeriods, annotatePeriod, planetMap } = require('../services/investment-dasha');
 const { calculateEssenceCycle } = require('../services/essence-cycle');
@@ -82,15 +80,10 @@ function getDashaDescriptions(mdPlanet, adPlanet, pdPlanet) {
     pdDesc: pd?.description || '',
   };
 }
-const db = require('../db/index');
 const investmentDb = require('../db/investment');
 const careerDb = require('../db/career');
 const relationshipDb = require('../db/relationship');
-const networkDb = require('../db/network');
-const engineeringDb = require('../db/engineering');
 const adviceDb = require('../db/advice');
-const gainDb = require('../db/gain');
-const lossDb = require('../db/loss');
 const foodDb = require('../db/food');
 
 // Pre-compile lookup statement for performance. Lookups are parameterized
@@ -100,15 +93,10 @@ const foodDb = require('../db/food');
 // yet — preserving the original single-interpretation behavior for any
 // ascendant whose dataset is incomplete.
 const LOOKUP_SQL = "SELECT description FROM events WHERE name = ? AND ascendant = ?";
-const lookupEvent = db.prepare(LOOKUP_SQL);
 const lookupInvestmentEvent = investmentDb.prepare(LOOKUP_SQL);
 const lookupCareerEvent = careerDb.prepare(LOOKUP_SQL);
 const lookupRelationshipEvent = relationshipDb.prepare(LOOKUP_SQL);
-const lookupNetworkEvent = networkDb.prepare(LOOKUP_SQL);
-const lookupEngineeringEvent = engineeringDb.prepare(LOOKUP_SQL);
 const lookupAdviceEvent = adviceDb.prepare(LOOKUP_SQL);
-const lookupGainEvent = gainDb.prepare(LOOKUP_SQL);
-const lookupLossEvent = lossDb.prepare(LOOKUP_SQL);
 const lookupFoodEvent = foodDb.prepare(LOOKUP_SQL);
 
 // New structured-template DB (db/cosmos.db). Used by /api/panda/* routes.
@@ -189,15 +177,6 @@ function lookupEventWithFallback(stmt, description, ascendant) {
   return '';
 }
 
-/**
- * Look up the interpretation text for a transit event description against
- * the given ascendant's row. Falls back to the Aries row (and ultimately
- * empty string) inside lookupEventWithFallback. Returns '' if no match.
- */
-function getEventInterpretation(description, ascendant) {
-  return lookupEventWithFallback(lookupEvent, description, ascendant);
-}
-
 function getInvestmentEventInterpretation(description, ascendant) {
   return lookupEventWithFallback(lookupInvestmentEvent, description, ascendant);
 }
@@ -210,100 +189,16 @@ function getRelationshipEventInterpretation(description, ascendant) {
   return lookupEventWithFallback(lookupRelationshipEvent, description, ascendant);
 }
 
-function getNetworkEventInterpretation(description, ascendant) {
-  return lookupEventWithFallback(lookupNetworkEvent, description, ascendant);
-}
-
-function getEngineeringEventInterpretation(description, ascendant) {
-  return lookupEventWithFallback(lookupEngineeringEvent, description, ascendant);
-}
-
 function getAdviceEventInterpretation(description, ascendant) {
   return lookupEventWithFallback(lookupAdviceEvent, description, ascendant);
-}
-
-function getGainEventInterpretation(description, ascendant) {
-  return lookupEventWithFallback(lookupGainEvent, description, ascendant);
-}
-
-function getLossEventInterpretation(description, ascendant) {
-  return lookupEventWithFallback(lookupLossEvent, description, ascendant);
 }
 
 function getFoodEventInterpretation(description, ascendant) {
   return lookupEventWithFallback(lookupFoodEvent, description, ascendant);
 }
 
-router.post('/reading', async (req, res) => {
-  try {
-    const { name, birthDate, birthTime, latitude, longitude, transitDate, timezone } = req.body;
-
-    // Validate required fields
-    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
-      return res.status(400).json({
-        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
-      });
-    }
-    const tz = resolveTimezoneOrRespond(timezone, res);
-    if (!tz.ok) return;
-
-    let transitEvents;
-
-    // Kerykeion path: single Python call returns everything
-    const result = await astrologyService.getNatalTransitsAndReport(
-      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
-      transitDate,
-    );
-    transitEvents = result.transitEvents;
-
-    // Extract aspect-style data for Gemini prompt compatibility
-    // const aspects = transitEvents.filter(e => e.type === 'aspect');
-    // if (aspects.length === 0) {
-    //   aspects.push(
-    //     { transitPlanet: 'Moon', aspect: 'conjunction', natalPlanet: 'Sun', exact: false },
-    //   );
-    // }
-
-    // Generate AI reading using Gemini
-    const aiResponse = await generateReading(name, transitEvents);
-
-    console.log('Generated AI response:', aiResponse);
-
-    // Return formatted response with transit events
-    const today = transitDate
-      ? new Date(transitDate).toISOString().substring(0, 10)
-      : new Date().toISOString().substring(0, 10);
-
-    const ascendant = ascendantFromResult(result);
-
-    res.json({
-      date: today,
-      reading: aiResponse.reading,
-      focusAreas: aiResponse.focusAreas,
-      transitSummary: aiResponse.transitSummary,
-      aspects: transitEvents.map(e => ({
-        type: e.type,
-        description: e.description,
-        interpretation: getEventInterpretation(e.description, ascendant),
-        warning: e.warning ?? null,
-      })),
-      rulers: transitEvents.flatMap(e =>
-        (e.rulers || []).map(r => ({
-          description: r.description,
-          interpretation: getEventInterpretation(r.description, ascendant),
-        })),
-      ),
-    });
-  } catch (error) {
-    console.error('Reading endpoint error:', error.message);
-    res.status(500).json({
-      error: 'Failed to generate reading. Please try again later.',
-    });
-  }
-});
-
 // Filter today's transit events using yesterday/tomorrow context for dedup.
-// Extracted from /debug so it can be reused for week/month aggregation routes.
+// Used by week/month aggregation routes.
 function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
     // Slow-planet :Exact needs a tighter 0.6° orb cap because Jupiter/Saturn
     // windows can span 10+ days at 1°. Personal planets use 0.85° so the
@@ -1025,15 +920,9 @@ function makePeriodHandler(periodKind, interpretationLookup) {
   };
 }
 
-router.post('/debug', makeDebugHandler(getEventInterpretation));
-router.post('/investment', makeDebugHandler(getInvestmentEventInterpretation));
 router.post('/career', makeDebugHandler(getCareerEventInterpretation));
 router.post('/relationship', makeDebugHandler(getRelationshipEventInterpretation));
-router.post('/network', makeDebugHandler(getNetworkEventInterpretation));
-router.post('/engineering', makeDebugHandler(getEngineeringEventInterpretation));
 router.post('/advice', makeDebugHandler(getAdviceEventInterpretation));
-router.post('/gain', makeDebugHandler(getGainEventInterpretation));
-router.post('/loss', makeDebugHandler(getLossEventInterpretation));
 router.post('/food', makeDebugHandler(getFoodEventInterpretation));
 
 // ── /api/panda/* routes (new cosmos.db structured-template DB) ──────
@@ -1042,11 +931,6 @@ router.post('/food', makeDebugHandler(getFoodEventInterpretation));
 // db/cosmos.db. Runs alongside the legacy routes; both can coexist.
 router.post('/panda/career',       makeDebugHandler(getCosmosInterpretation('career')));
 router.post('/panda/relationship', makeDebugHandler(getCosmosInterpretation('relationship')));
-router.post('/panda/investment',   makeDebugHandler(getCosmosInterpretation('investment')));
-router.post('/panda/advice',       makeDebugHandler(getCosmosInterpretation('advice')));
-router.post('/panda/food',         makeDebugHandler(getCosmosInterpretation('food')));
-router.post('/panda/gain',         makeDebugHandler(getCosmosInterpretation('gain')));
-router.post('/panda/loss',         makeDebugHandler(getCosmosInterpretation('loss')));
 
 router.post('/investment-weekly', makePeriodHandler('week', getInvestmentEventInterpretation));
 router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEventInterpretation));
@@ -1583,168 +1467,6 @@ router.post('/caution-dates', async (req, res) => {
   } catch (error) {
     console.error('Caution-dates endpoint error:', error.message);
     res.status(500).json({ error: 'Failed to compute caution dates. Please try again later.' });
-  }
-});
-
-/**
- * POST /api/events-calendar
- *
- * Returns all dates in the given month where at least one of the requested
- * events appears in the transit report.
- *
- * Request body:
- * {
- *   "name":      "Alice",
- *   "birthDate": "1991-09-27",
- *   "birthTime": "07:40",
- *   "latitude":  6.9271,
- *   "longitude": 79.8612,
- *   "timezone":  7,                // optional, numeric UTC offset in hours (-12..14, integers only)
- *   "month":     "2026-05",        // YYYY-MM
- *   "events":    ["Moon Transits the 8th House", "Mercury ruler of the 6th House in the 8th House"]
- * }
- *
- * Response:
- * {
- *   "month": "2026-05",
- *   "events": ["Moon Transits the 8th House", ...],
- *   "matchingDates": ["2026-05-04", "2026-05-17", ...]
- * }
- */
-router.post('/events-calendar', async (req, res) => {
-  try {
-    const { name, birthDate, birthTime, latitude, longitude, timezone, month, events } = req.body;
-
-    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
-      return res.status(400).json({
-        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
-      });
-    }
-    if (!month || !/^\d{4}-\d{2}$/.test(month)) {
-      return res.status(400).json({ error: 'month must be in YYYY-MM format' });
-    }
-    if (!Array.isArray(events) || events.length === 0) {
-      return res.status(400).json({ error: 'events must be a non-empty array of event names' });
-    }
-    const tz = resolveTimezoneOrRespond(timezone, res);
-    if (!tz.ok) return;
-
-    const matchingDates = await astrologyService.getMatchingDatesForMonth(
-      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
-      month,
-      events,
-    );
-
-    res.json({ month, events, matchingDates });
-  } catch (error) {
-    console.error('events-calendar error:', error.message);
-    res.status(500).json({ error: 'Failed to compute events calendar. Please try again later.' });
-  }
-});
-
-/**
- * POST /api/investment-loss-days
- *
- * Returns all days in the given month that show astrological signs linked to
- * sudden investment losses (based on Vedic astrology principles):
- *   - Moon in 6th / 8th / 12th house
- *   - Moon conjunct or opposite natal Rahu/Ketu (Grahan Yoga)
- *   - Rahu/Ketu transiting natal Jupiter or Venus
- *   - Saturn ingressing into the 8th house (Ashtam Shani)
- *   - Sun aspecting natal Rahu/Ketu (Grahan Yoga)
- *
- * Request body:
- * {
- *   "name":      "Alice",
- *   "birthDate": "1991-09-27",
- *   "birthTime": "07:40",
- *   "latitude":  6.9271,
- *   "longitude": 79.8612,
- *   "timezone":  7,                // optional, numeric UTC offset in hours (-12..14, integers only)
- *   "month":     "2026-05"         // YYYY-MM
- * }
- *
- * Response:
- * {
- *   "month": "2026-05",
- *   "riskDates": [
- *     {
- *       "date": "2026-05-04",
- *       "signs": [
- *         { "sign": "Moon in 8th House (sudden events, unexpected losses)", "description": "Moon in 8th House" },
- *         { "sign": "Moon conjunct/opposite Rahu or Ketu ...", "description": "Moon conjunction Rahu in 2nd house" }
- *       ]
- *     }
- *   ]
- * }
- */
-router.post('/investment-loss-days', async (req, res) => {
-  try {
-    const { name, birthDate, birthTime, latitude, longitude, timezone, month } = req.body;
-
-    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
-      return res.status(400).json({
-        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
-      });
-    }
-    if (!month || !/^\d{4}-\d{2}$/.test(month)) {
-      return res.status(400).json({ error: 'month must be in YYYY-MM format' });
-    }
-    const tz = resolveTimezoneOrRespond(timezone, res);
-    if (!tz.ok) return;
-
-    const riskDates = await getInvestmentLossDaysForMonth(
-      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
-      month,
-    );
-
-    res.json({ month, riskDates });
-  } catch (error) {
-    console.error('investment-loss-days error:', error.message);
-    res.status(500).json({ error: 'Failed to compute investment loss days. Please try again later.' });
-  }
-});
-
-/**
- * POST /api/investment-gain-days
- *
- * Returns all days in the given month that show astrological signs favorable
- * for speculation and sudden gains (based on SuddenGainSigns.docx):
- *   - Moon in 2nd / 5th / 9th / 11th house
- *   - Moon conjunct/trine/sextile natal Mars (Chandra-Mangal Yoga)
- *   - Moon conjunct/trine/sextile natal Jupiter (luck + expansion)
- *   - Moon conjunct/trine/sextile natal Venus (financial abundance)
- *   - Jupiter transiting 5th or 11th house
- *   - Venus aspecting natal Jupiter in 5th/11th house
- *   - Sun aspecting natal Jupiter in 5th house
- *   - Mercury aspecting natal Venus in 2nd/5th/9th/11th house
- *
- * Only :Exact (or unqualified) events are considered.
- */
-router.post('/investment-gain-days', async (req, res) => {
-  try {
-    const { name, birthDate, birthTime, latitude, longitude, timezone, month } = req.body;
-
-    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
-      return res.status(400).json({
-        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
-      });
-    }
-    if (!month || !/^\d{4}-\d{2}$/.test(month)) {
-      return res.status(400).json({ error: 'month must be in YYYY-MM format' });
-    }
-    const tz = resolveTimezoneOrRespond(timezone, res);
-    if (!tz.ok) return;
-
-    const gainDates = await getInvestmentGainDaysForMonth(
-      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
-      month,
-    );
-
-    res.json({ month, gainDates });
-  } catch (error) {
-    console.error('investment-gain-days error:', error.message);
-    res.status(500).json({ error: 'Failed to compute investment gain days. Please try again later.' });
   }
 });
 

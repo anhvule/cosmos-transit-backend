@@ -18,16 +18,11 @@
 const path = require('path');
 
 const DBS = [
-  { label: 'galactic', module: './index' },
   { label: 'advice',   module: './advice' },
   { label: 'career',   module: './career' },
   { label: 'investment', module: './investment' },
   { label: 'relationship', module: './relationship' },
-  { label: 'network',  module: './network' },
-  { label: 'engineering', module: './engineering' },
   { label: 'food',     module: './food' },
-  { label: 'gain',     module: './gain' },
-  { label: 'loss',     module: './loss' },
 ];
 
 const PLANETS = ['Sun', 'Moon', 'Mercury', 'Venus', 'Mars', 'Jupiter', 'Saturn', 'Rahu', 'Ketu'];
