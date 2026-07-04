@@ -198,7 +198,7 @@ function getFoodEventInterpretation(description, ascendant) {
 }
 
 // Filter today's transit events using yesterday/tomorrow context for dedup.
-// Extracted from /debug so it can be reused for week/month aggregation routes.
+// Used by week/month aggregation routes.
 function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
     // Slow-planet :Exact needs a tighter 0.6° orb cap because Jupiter/Saturn
     // windows can span 10+ days at 1°. Personal planets use 0.85° so the
