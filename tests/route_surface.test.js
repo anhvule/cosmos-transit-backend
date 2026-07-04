@@ -18,6 +18,8 @@ const KEEP_POST = [
   '/food',
   '/investment-monthly',
   '/investment-weekly',
+  '/market-signal',
+  '/market-signal-weekly',
   '/monthly-prediction',
   '/panda/career',
   '/panda/relationship',

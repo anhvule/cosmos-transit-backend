@@ -936,6 +936,88 @@ router.post('/investment-weekly', makePeriodHandler('week', getInvestmentEventIn
 router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEventInterpretation));
 
 /**
+ * POST /api/market-signal
+ *
+ * Predict the speculative-market posture (favourable / cautious / normal) for
+ * a single transit date by running the SuddenGainSigns and SuddenLossesSigns
+ * rule sets against three bundled famous-investor charts:
+ *   - Stanley Druckenmiller (top-down macro · momentum)
+ *   - Bill Ackman          (activist · concentrated equity)
+ *   - George Soros         (reflexivity · contrarian macro)
+ *
+ * The verdict is the aggregation across the three charts — same premise as
+ * /api/caution-dates, but applied per-date via the gain/loss rule sets rather
+ * than via the dasha layer. See services/market-signal.js for the rationale.
+ *
+ * Request body:
+ * {
+ *   "transitDate": "2026-05-17"  // optional; defaults to today (UTC)
+ * }
+ *
+ * Response:
+ * {
+ *   "transitDate": "2026-05-17",
+ *   "investors":   [{ key, name, style }, ...],
+ *   "day": { date, verdict, confidence, summary, perInvestor: [...] }
+ * }
+ */
+router.post('/market-signal', async (req, res) => {
+  try {
+    const raw = (req.body && req.body.transitDate) || new Date().toISOString().substring(0, 10);
+    const date = new Date(raw).toISOString().substring(0, 10);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      return res.status(400).json({ error: 'transitDate must be YYYY-MM-DD' });
+    }
+    const { computeMarketSignal } = require('../services/market-signal');
+    const { investors, days } = await computeMarketSignal([date]);
+    res.json({ transitDate: date, investors, day: days[0] });
+  } catch (error) {
+    console.error('market-signal endpoint error:', error.message);
+    res.status(500).json({ error: 'Failed to compute market signal. Please try again later.' });
+  }
+});
+
+/**
+ * POST /api/market-signal-weekly
+ *
+ * Same as /api/market-signal but for an entire Mon–Sun window. Used by the
+ * weekly UI to render a 7-day market-posture strip.
+ *
+ * Request body:
+ * {
+ *   "weekStart": "2026-05-11"  // YYYY-MM-DD (Monday). Required.
+ * }
+ *
+ * Response:
+ * {
+ *   "weekStart": "2026-05-11",
+ *   "weekEnd":   "2026-05-17",
+ *   "investors": [...],
+ *   "days":      [{ date, verdict, confidence, summary, perInvestor }, ... 7 entries ]
+ * }
+ */
+router.post('/market-signal-weekly', async (req, res) => {
+  try {
+    const weekStart = req.body && req.body.weekStart;
+    if (!weekStart || !/^\d{4}-\d{2}-\d{2}$/.test(weekStart)) {
+      return res.status(400).json({ error: 'weekStart must be in YYYY-MM-DD format' });
+    }
+    const { computeMarketSignal, weekDates } = require('../services/market-signal');
+    const dates = weekDates(weekStart);
+    const { investors, days } = await computeMarketSignal(dates);
+    res.json({
+      weekStart,
+      weekEnd: dates[dates.length - 1],
+      investors,
+      days,
+    });
+  } catch (error) {
+    console.error('market-signal-weekly endpoint error:', error.message);
+    res.status(500).json({ error: 'Failed to compute weekly market signal. Please try again later.' });
+  }
+});
+
+/**
  * POST /api/essence-cycle
  *
  * Compute the 10-year Essence Cycle table — Western (Pythagorean) numerology.
@@ -1252,55 +1334,34 @@ router.post('/dasha-range', async (req, res) => {
 });
 
 /**
- * Three celebrity profiles used by /api/caution-dates. These were chosen
- * because each beat the always-bullish baseline in the SPX backtest:
+ * Bundled celebrity charts used by /api/caution-dates. Imported from
+ * services/market-signal.js so both endpoints share a single source of
+ * truth — and the same rigour bar.
  *
- *   - Druckenmiller (+15% lift, 50% bear-detection)
- *   - Soros        (+24% lift, 88% bear-detection — natural contrarian)
- *   - Ackman       (+6% lift, 50% bear-detection)
+ * The panel is verified-time-only: every chart's birth time is publicly
+ * attested (AstroDatabank Rodden rating A or better, or a comparable
+ * journalistic citation). Dasha periods depend critically on the natal
+ * Moon's exact longitude, which shifts ~0.5°/hour — a 12-hour error on
+ * an unknown birth time can move pratyantardasha boundaries by weeks.
+ * The previous panel (Druckenmiller / Soros / Ackman-at-noon) used noon
+ * placeholders for two of three charts and one wrong time for Ackman;
+ * those have been dropped in favour of attested data.
  *
- * The premise: if a date triggers a CAUTION pratyantardasha on multiple
- * of these contrarian charts simultaneously, it's a stronger candidate
- * for "broad-market caution window" than any single chart alone.
+ * Current panel (see services/market-signal.js for source citations):
+ *   - Warren Buffett   (Rodden A)
+ *   - Bill Ackman      (Bloomberg / Amanda Gordon, 2013)
+ *   - Michael Bloomberg(Rodden AA)
  */
-const CELEBRITY_PROFILES = [
-  {
-    key: 'druckenmiller',
-    name: 'Druckenmiller',
-    birthDate: '1953-06-14',
-    birthTime: '12:00',
-    latitude: 40.4406,
-    longitude: -79.9959,
-    timezone: 'America/New_York',
-  },
-  {
-    key: 'ackman',
-    name: 'Ackman',
-    birthDate: '1966-05-11',
-    birthTime: '12:00',
-    latitude: 41.1570,
-    longitude: -73.7660,
-    timezone: 'America/New_York',
-  },
-  {
-    key: 'soros',
-    name: 'Soros',
-    birthDate: '1930-08-12',
-    birthTime: '12:00',
-    latitude: 47.4979,
-    longitude: 19.0402,
-    timezone: 'Europe/Budapest',
-  },
-];
+const { INVESTOR_PROFILES: CELEBRITY_PROFILES } = require('../services/market-signal');
 
 /**
  * POST /api/caution-dates
  *
- * Returns the union of CAUTION dasha-periods firing on the three
- * bundled celebrity profiles (Druckenmiller, Ackman, Soros) within the
- * given year. Used by the Vimshottari Dasha screen's "Yearly Caution
- * Forecast" section to highlight windows where contrarian charts
- * agree the period needs risk-down posture.
+ * Returns the union of CAUTION dasha-periods firing on the bundled
+ * verified-time celebrity profiles (Buffett, Ackman, Bloomberg) within
+ * the given year. Used by the Vimshottari Dasha screen's "Yearly Caution
+ * Forecast" section to highlight windows where multiple charts agree the
+ * period needs risk-down posture.
  *
  * Request body:
  * {
