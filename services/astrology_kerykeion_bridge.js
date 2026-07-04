@@ -378,9 +378,12 @@ async function getMatchingDatesForMonth(birthData, month, events) {
           endsLastDay.add(`${date}|${base}`);
         }
       }
-      // ── MC/ASC aspects: cap :Ends at 3° so only the planner's window fires ──
+      // ── MC/ASC aspects: cap :Ends just above 3° so the planner's window fires ──
+      // 3.2° keeps the final :Ends day (e.g. Jupiter-MC on 2026-07-13 at orb
+      // ~3.06°) while still excluding the next day (~3.28°), matching the
+      // planner's Jun 14 – Jul 13 window for this chart.
       if (e.type === 'mc_aspect' && (e.description || '').endsWith(': Ends')) {
-        const MC_ENDS_ORB_CAP = 3;
+        const MC_ENDS_ORB_CAP = 3.2;
         if (typeof e.orb === 'number' && e.orb >= MC_ENDS_ORB_CAP) continue;
 
         const base = e.description.replace(/\s*:\s*Ends$/, '').trim().toLowerCase();
