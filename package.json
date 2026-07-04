@@ -7,6 +7,7 @@
     "start": "node server.js",
     "dev": "node --watch server.js",
     "test": "jest --verbose",
+    "test:planner": "jest --verbose tests/verify_planner_career.test.js",
     "seed:all": "node db/seed_all_ascendants.js"
   },
   "keywords": [],
@@ -27,7 +28,8 @@
   "jest": {
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/.claude/"
+      "/.claude/",
+      "verify_planner_career\\.test\\.js$"
     ]
   }
 }
