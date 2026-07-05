@@ -13,6 +13,8 @@
     "2026-12-20": [
       "Rahu aspect Moon in the 6th house : Exact",
       "Moon ruler of the 4th House in the 6th House",
+      "Mercury in 8th (Dispositor)",
+      "Moon ruler of the 4th House in the 6th House",
       "Mercury in 8th (Dispositor)"
     ],
     "2026-12-21": [
@@ -20,7 +22,10 @@
       "Mars ruler of the 1st House in the 8th House",
       "Mars ruler of the 8th House in the 8th House",
       "Mars in 8th (Dispositor)",
-      "Moon Transits the 2nd House"
+      "Moon Transits the 2nd House",
+      "Mars ruler of the 8th House in the 8th House",
+      "Mars in 8th (Dispositor)",
+      "Mars ruler of the 1st House in the 8th House"
     ],
     "2026-12-22": [
       "Moon aspect Venus in 8th house",
@@ -34,6 +39,15 @@
       "Mars ruler of the 1st House in the 8th House",
       "Mars ruler of the 8th House in the 8th House",
       "Moon Transits the 3rd House"
+    ],
+    "2026-12-23": [
+      "Mercury ruler of the 3rd House in the 8th House",
+      "Mercury ruler of the 6th House in the 8th House",
+      "Mars ruler of the 1st House in the 8th House",
+      "Moon aspect Mercury in 8th house",
+      "Moon aspect Mars in 8th house",
+      "Moon Transits the 3rd House",
+      "Mars ruler of the 8th House in the 8th House"
     ],
     "2026-12-24": [
       "Moon aspect Sun in 9th house",
@@ -62,6 +76,12 @@
       "Moon Transits the 6th House",
       "Mercury aspect Sun in 9th house : Exact",
       "Sun ruler of the 5th House in the 9th House",
+      "Jupiter in 5th (Dispositor)",
+      "Sun aspect Sun in 9th house : Exact"
+    ],
+    "2026-12-30": [
+      "Sun ruler of the 5th House in the 9th House",
+      "Mercury aspect Sun in 9th house : Exact",
       "Jupiter in 5th (Dispositor)"
     ],
     "2026-12-31": [],
@@ -98,7 +118,10 @@
       "Mars in 8th (Dispositor)",
       "Moon aspect Mercury in 8th house",
       "Mercury ruler of the 3rd House in the 8th House",
-      "Mercury ruler of the 6th House in the 8th House"
+      "Mercury ruler of the 6th House in the 8th House",
+      "Venus ruler of the 2nd House in the 8th House",
+      "Venus ruler of the 7th House in the 8th house",
+      "Mars in 8th (Dispositor)"
     ],
     "2027-01-06": [
       "Moon aspect Mars in 8th house",
@@ -133,7 +156,9 @@
     ],
     "2027-01-13": [
       "Saturn in 10th (Dispositor)",
-      "Moon Transits the 12th House"
+      "Moon Transits the 12th House",
+      "Mercury Aspecting Midheaven (MC) : Exact",
+      "Saturn in 10th (Dispositor)"
     ],
     "2027-01-14": [
       "Sun Transit the 10th House"
@@ -144,7 +169,8 @@
       "Mars ruler of the 8th House in the 8th House",
       "Mars in 8th (Dispositor)",
       "Moon aspect Moon in 6th house",
-      "Moon ruler of the 4th House in the 6th House"
+      "Moon ruler of the 4th House in the 6th House",
+      "Jupiter aspect Mars in 8th house"
     ],
     "2027-01-16": [
       "Moon Transits the 1st House"
@@ -153,7 +179,10 @@
       "Mercury aspect Saturn in 10th house : Exact",
       "Saturn ruler of the 10th House in the 10th House",
       "Saturn ruler of the 11th House in the 10th House",
-      "Saturn in 10th (Dispositor)"
+      "Saturn in 10th (Dispositor)",
+      "Saturn ruler of the 11th House in the 10th House",
+      "Saturn in 10th (Dispositor)",
+      "Saturn ruler of the 10th House in the 10th House"
     ],
     "2027-01-18": [
       "Moon Transits the 2nd House",
@@ -171,7 +200,9 @@
       "Mars ruler of the 1st House in the 8th House",
       "Mars ruler of the 8th House in the 8th House",
       "Moon Transits the 3rd House",
-      "Saturn in 10th (Dispositor)"
+      "Saturn in 10th (Dispositor)",
+      "Saturn in 10th (Dispositor)",
+      "Sun Aspecting Midheaven (MC) : Exact"
     ],
     "2027-01-21": [
       "Moon aspect Sun in 9th house",
@@ -181,15 +212,21 @@
       "Venus aspect Mercury in 8th house : Exact",
       "Mercury ruler of the 3rd House in the 8th House",
       "Mercury ruler of the 6th House in the 8th House",
-      "Mars in 8th (Dispositor)"
+      "Mars in 8th (Dispositor)",
+      "Mars in 8th (Dispositor)",
+      "Mercury ruler of the 6th House in the 8th House",
+      "Mercury ruler of the 3rd House in the 8th House"
     ],
     "2027-01-22": [
       "Moon Transits the 4th House",
-      "Saturn in 10th (Dispositor)"
+      "Saturn in 10th (Dispositor)",
+      "Saturn in 10th (Dispositor)",
+      "Moon Aspecting Midheaven (MC) : Exact"
     ],
     "2027-01-23": [
       "Moon aspect Saturn in 10th house",
-      "Saturn ruler of the 10th House in the 10th House"
+      "Saturn ruler of the 10th House in the 10th House",
+      "Saturn ruler of the 11th House in the 10th House"
     ]
   }
 }

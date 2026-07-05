@@ -18,6 +18,23 @@ function normalizeTitle(title) {
   return s;
 }
 
+const PHASE_SUFFIX_RE = /\s*:\s*(starts|exact|ends)$/i;
+
+function stripPhaseSuffix(normalized) {
+  return normalized.replace(PHASE_SUFFIX_RE, '');
+}
+
+/** True when actual satisfies expected (fixture may omit : Starts/Exact/Ends). */
+function titleMatchesExpected(expectedNorm, actualNorm) {
+  if (actualNorm === expectedNorm) return true;
+  // Fixture base title; API adds phase suffix only
+  if (!PHASE_SUFFIX_RE.test(expectedNorm)
+      && stripPhaseSuffix(actualNorm) === expectedNorm) {
+    return true;
+  }
+  return false;
+}
+
 function titlesFromCareerResponse(body) {
   const aspects = (body && body.aspects) || [];
   const rulers = (body && body.rulers) || [];
@@ -36,12 +53,17 @@ function titlesFromCareerResponse(body) {
  * Preserves original expected strings for failure messages.
  */
 function missingTitles(expectedTitles, actualTitles) {
-  const actualSet = new Set((actualTitles || []).map(normalizeTitle));
-  return (expectedTitles || []).filter(t => !actualSet.has(normalizeTitle(t)));
+  const actualNorms = (actualTitles || []).map(normalizeTitle);
+  return (expectedTitles || []).filter((t) => {
+    const expectedNorm = normalizeTitle(t);
+    return !actualNorms.some((actualNorm) => titleMatchesExpected(expectedNorm, actualNorm));
+  });
 }
 
 module.exports = {
   normalizeTitle,
+  stripPhaseSuffix,
+  titleMatchesExpected,
   titlesFromCareerResponse,
   missingTitles,
 };

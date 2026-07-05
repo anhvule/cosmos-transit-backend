@@ -9,8 +9,6 @@
       "Moon aspect Saturn in 10th house",
       "Saturn ruler of the 10th House in the 10th House",
       "Saturn ruler of the 11th House in the 10th House",
-      "Saturn ruler of the 10th House in the 10th House",
-      "Saturn ruler of the 11th House in the 10th House",
       "Saturn in 10th (Dispositor)"
     ],
     "2027-01-24": [
@@ -27,7 +25,10 @@
       "Sun aspect Saturn in 10th house : Exact",
       "Saturn ruler of the 10th House in the 10th House",
       "Saturn ruler of the 11th House in the 10th House",
-      "Saturn in 10th (Dispositor)"
+      "Saturn in 10th (Dispositor)",
+      "Saturn in 10th (Dispositor)",
+      "Saturn ruler of the 11th House in the 10th House",
+      "Saturn ruler of the 10th House in the 10th House"
     ],
     "2027-01-27": [],
     "2027-01-28": [
@@ -38,11 +39,16 @@
       "Mercury Transits the 11th House",
       "Moon aspect Moon in 6th house",
       "Moon ruler of the 4th House in the 6th House",
-      "Moon Transits the 7th House"
+      "Moon Transits the 7th House",
+      "Mars ruler of the 8th House in the 8th House",
+      "Mars in 8th (Dispositor)",
+      "Mars ruler of the 1st House in the 8th House"
     ],
     "2027-01-29": [
       "Mars in 8th (Dispositor)",
-      "Venus Transits the 9th House"
+      "Venus Transits the 9th House",
+      "Moon Aspecting Ascendant (ASC) : Exact",
+      "Mars in 8th (Dispositor)"
     ],
     "2027-01-30": [
       "Moon Transits the 8th House"
@@ -94,10 +100,15 @@
       "Mars ruler of the 1st House in the 8th House",
       "Mars ruler of the 8th House in the 8th House",
       "Mars in 8th (Dispositor)",
-      "Moon Transits the 12th House"
+      "Moon Transits the 12th House",
+      "Mars in 8th (Dispositor)",
+      "Mars ruler of the 1st House in the 8th House",
+      "Mars ruler of the 8th House in the 8th House"
     ],
     "2027-02-10": [
       "Venus aspect Sun in 9th house : Exact",
+      "Sun ruler of the 5th House in the 9th House",
+      "Jupiter in 5th (Dispositor)",
       "Sun ruler of the 5th House in the 9th House",
       "Jupiter in 5th (Dispositor)"
     ],
@@ -111,7 +122,9 @@
     ],
     "2027-02-13": [
       "Mars in 8th (Dispositor)",
-      "Sun Transits the 11th House"
+      "Sun Transits the 11th House",
+      "Mars in 8th (Dispositor)",
+      "Moon Aspecting Ascendant (ASC) : Exact"
     ],
     "2027-02-14": [
       "Moon Transits the 2nd House",
@@ -155,7 +168,8 @@
       "Mars aspect Venus in 8th house : Starts",
       "Venus ruler of the 2nd House in the 8th House",
       "Venus ruler of the 7th House in the 8th house",
-      "Mars in 8th (Dispositor)"
+      "Mars in 8th (Dispositor)",
+      "Mars aspect Venus in 8th house"
     ],
     "2027-02-23": [],
     "2027-02-24": [
@@ -168,7 +182,11 @@
     "2027-02-25": [
       "Saturn ruler of the 10th House in the 10th House",
       "Saturn ruler of the 11th House in the 10th House",
-      "Saturn in 10th (Dispositor)"
+      "Saturn in 10th (Dispositor)",
+      "Saturn in 10th (Dispositor)",
+      "Saturn ruler of the 11th House in the 10th House",
+      "Pluto conjunct Saturn : Exact",
+      "Saturn ruler of the 10th House in the 10th House"
     ],
     "2027-02-26": [],
     "2027-02-27": [
@@ -177,9 +195,10 @@
       "Venus ruler of the 2nd House in the 8th House",
       "Venus ruler of the 7th House in the 8th house",
       "Mars aspect Venus in 8th house : Exact",
-      "Venus ruler of the 2nd House in the 8th House",
+      "Mars in 8th (Dispositor)",
       "Venus ruler of the 7th House in the 8th house",
-      "Mars in 8th (Dispositor)"
+      "Mars in 8th (Dispositor)",
+      "Venus ruler of the 2nd House in the 8th House"
     ],
     "2027-02-28": [],
     "2027-03-01": [
@@ -190,7 +209,9 @@
       "Moon aspect Mars in 8th house",
       "Mars ruler of the 1st House in the 8th House",
       "Mars ruler of the 8th House in the 8th House",
-      "Moon Transits the 9th House"
+      "Moon Transits the 9th House",
+      "Saturn in 10th (Dispositor)",
+      "Venus Aspecting Midheaven (MC) : Exact"
     ],
     "2027-03-02": [
       "Moon aspect Sun in 9th house",

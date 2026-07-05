@@ -6,7 +6,10 @@
       "Venus ruler of the 2nd House in the 8th House",
       "Venus ruler of the 7th House in the 8th house",
       "Mars in 8th (Dispositor)",
-      "Moon Transits the 5th House"
+      "Moon Transits the 5th House",
+      "Venus ruler of the 7th House in the 8th house",
+      "Mars in 8th (Dispositor)",
+      "Venus ruler of the 2nd House in the 8th House"
     ],
     "2026-06-20": [],
     "2026-06-21": [
@@ -32,7 +35,8 @@
       "Saturn ruler of the 11th House in the 10th House",
       "Saturn in 10th (Dispositor)",
       "Moon aspect Moon in 6th house",
-      "Moon ruler of the 4th House in the 6th House"
+      "Moon ruler of the 4th House in the 6th House",
+      "Mars aspect Venus in 8th house"
     ],
     "2026-06-24": [
       "Moon Transits the 7th House"
@@ -41,6 +45,9 @@
       "Mars aspect Venus in 8th house : Exact",
       "Venus ruler of the 2nd House in the 8th House",
       "Venus ruler of the 7th House in the 8th house",
+      "Mars in 8th (Dispositor)",
+      "Venus ruler of the 7th House in the 8th house",
+      "Venus ruler of the 2nd House in the 8th House",
       "Mars in 8th (Dispositor)"
     ],
     "2026-06-26": [
@@ -66,7 +73,12 @@
       "Moon Transits the 9th House",
       "Saturn in 10th (Dispositor)",
       "Sun ruler of the 5th House in the 9th House",
-      "Jupiter in 5th (Dispositor)"
+      "Jupiter in 5th (Dispositor)",
+      "Jupiter in 5th (Dispositor)",
+      "Sun aspect Sun in 9th house : Exact",
+      "Saturn in 10th (Dispositor)",
+      "Sun ruler of the 5th House in the 9th House",
+      "Jupiter Aspecting Midheaven (MC) : Exact"
     ],
     "2026-06-30": [
       "Moon aspect Sun in 9th house",
@@ -103,7 +115,8 @@
       "Moon Transits the 12th House",
       "Mars aspect Sun in 9th house : Starts",
       "Sun ruler of the 5th House in the 9th House",
-      "Jupiter in 5th (Dispositor)"
+      "Jupiter in 5th (Dispositor)",
+      "Mars aspect Sun in 9th house"
     ],
     "2026-07-07": [
       "Mercury Transits the 3rd House"
@@ -116,11 +129,14 @@
     "2026-07-09": [
       "Mars aspect Sun in 9th house : Exact",
       "Sun ruler of the 5th House in the 9th House",
-      "Jupiter in 5th (Dispositor)"
+      "Jupiter in 5th (Dispositor)",
+      "Jupiter in 5th (Dispositor)",
+      "Sun ruler of the 5th House in the 9th House"
     ],
     "2026-07-10": [
       "Moon Transits the 2nd House",
-      "Mars aspect Rahu in 9th house : Starts"
+      "Mars aspect Rahu in 9th house : Starts",
+      "Mars aspect Rahu in 9th house"
     ],
     "2026-07-11": [
       "Moon aspect Venus in 8th house",
@@ -152,7 +168,8 @@
       "Saturn ruler of the 10th House in the 10th House",
       "Saturn ruler of the 11th House in the 10th House",
       "Saturn in 10th (Dispositor)",
-      "Moon Transits the 4th House"
+      "Moon Transits the 4th House",
+      "Jupiter aspect Saturn in 10th house"
     ],
     "2026-07-15": [
       "Moon aspect Saturn in 10th house",
@@ -168,7 +185,8 @@
       "Mars aspect Jupiter in 5th house : Starts",
       "Jupiter ruler of the 9th House in the 5th House",
       "Jupiter ruler of the 12th House in the 5th House",
-      "Sun in 9th (Dispositor)"
+      "Sun in 9th (Dispositor)",
+      "Mars aspect Jupiter in 5th house"
     ],
     "2026-07-18": [
       "Mars aspect Mercury in 8th house : Starts",
@@ -177,7 +195,8 @@
       "Mars in 8th (Dispositor)",
       "Moon aspect Jupiter in 5th house",
       "Jupiter ruler of the 9th House in the 5th House",
-      "Jupiter ruler of the 12th House in the 5th House"
+      "Jupiter ruler of the 12th House in the 5th House",
+      "Mars aspect Mercury in 8th house"
     ],
     "2026-07-19": [
       "Moon Transits the 6th House"
@@ -185,7 +204,10 @@
     "2026-07-20": [
       "Mars aspect Jupiter in 5th house : Exact",
       "Jupiter ruler of the 9th House in the 5th House",
-      "Jupiter ruler of the 12th House in the 5th House"
+      "Jupiter ruler of the 12th House in the 5th House",
+      "Jupiter ruler of the 9th House in the 5th House",
+      "Jupiter ruler of the 12th House in the 5th House",
+      "Sun in 9th (Dispositor)"
     ]
   }
 }

@@ -17,9 +17,14 @@
       "Mars in 8th (Dispositor)",
       "Moon aspect Moon in 6th house",
       "Moon ruler of the 4th House in the 6th House",
-      "Moon Transits the 7th House"
+      "Moon Transits the 7th House",
+      "Mercury ruler of the 3rd House in the 8th House",
+      "Mercury ruler of the 6th House in the 8th House",
+      "Mars in 8th (Dispositor)"
     ],
     "2026-07-22": [
+      "Saturn in 10th (Dispositor)",
+      "Sun Aspecting Midheaven (MC) : Exact",
       "Saturn in 10th (Dispositor)"
     ],
     "2026-07-23": [
@@ -28,14 +33,14 @@
       "Jupiter ruler of the 12th House in the 5th House",
       "Sun in 9th (Dispositor)",
       "Venus aspect Jupiter in 5th house : Exact",
-      "Jupiter ruler of the 9th House in the 5th House",
-      "Jupiter ruler of the 12th House in the 5th House",
-      "Sun in 9th (Dispositor)",
       "Moon Transits the 8th House",
       "Mars aspect Mercury in 8th house : Ends",
       "Mercury ruler of the 3rd House in the 8th House",
       "Mercury ruler of the 6th House in the 8th House",
-      "Mars in 8th (Dispositor)"
+      "Mars in 8th (Dispositor)",
+      "Sun in 9th (Dispositor)",
+      "Jupiter ruler of the 12th House in the 5th House",
+      "Jupiter ruler of the 9th House in the 5th House"
     ],
     "2026-07-24": [
       "Moon aspect Venus in 8th house",
@@ -68,7 +73,11 @@
       "Mars ruler of the 1st House in the 8th House",
       "Mars ruler of the 8th House in the 8th House",
       "Mars in 8th (Dispositor)",
-      "Moon Transits the 10th House"
+      "Moon Transits the 10th House",
+      "Saturn in 10th (Dispositor)",
+      "Mars aspect Mars in 8th house",
+      "Saturn ruler of the 11th House in the 10th House",
+      "Saturn ruler of the 10th House in the 10th House"
     ],
     "2026-07-29": [
       "Sun aspect Saturn in 10th house : Exact",
@@ -76,8 +85,9 @@
       "Saturn ruler of the 11th House in the 10th House",
       "Saturn in 10th (Dispositor)",
       "Moon aspect Saturn in 10th house",
-      "Saturn ruler of the 10th House in the 10th House",
-      "Saturn ruler of the 11th House in the 10th House"
+      "Saturn ruler of the 11th House in the 10th House",
+      "Saturn in 10th (Dispositor)",
+      "Saturn ruler of the 10th House in the 10th House"
     ],
     "2026-07-30": [],
     "2026-07-31": [
@@ -85,7 +95,10 @@
       "Mars ruler of the 1st House in the 8th House",
       "Mars ruler of the 8th House in the 8th House",
       "Mars in 8th (Dispositor)",
-      "Moon Transits the 11th House"
+      "Moon Transits the 11th House",
+      "Mars ruler of the 8th House in the 8th House",
+      "Mars ruler of the 1st House in the 8th House",
+      "Mars in 8th (Dispositor)"
     ],
     "2026-08-01": [
       "Venus Transits the 6th House",
@@ -122,14 +135,17 @@
       "Saturn in 10th (Dispositor)",
       "Moon aspect Mercury in 8th house",
       "Mercury ruler of the 3rd House in the 8th House",
-      "Mercury ruler of the 6th House in the 8th House"
+      "Mercury ruler of the 6th House in the 8th House",
+      "Mars Aspecting Midheaven (MC)"
     ],
     "2026-08-09": [
       "Moon aspect Mars in 8th house",
       "Mars ruler of the 1st House in the 8th House",
       "Mars ruler of the 8th House in the 8th House",
       "Moon Transits the 3rd House",
-      "Saturn in 10th (Dispositor)"
+      "Saturn in 10th (Dispositor)",
+      "Saturn in 10th (Dispositor)",
+      "Mercury Aspecting Midheaven (MC) : Exact"
     ],
     "2026-08-10": [
       "Moon aspect Sun in 9th house",
@@ -143,7 +159,9 @@
     ],
     "2026-08-11": [
       "Saturn in 10th (Dispositor)",
-      "Moon Transits the 4th House"
+      "Moon Transits the 4th House",
+      "Mars Aspecting Midheaven (MC) : Exact",
+      "Saturn in 10th (Dispositor)"
     ],
     "2026-08-12": [
       "Moon aspect Saturn in 10th house",
@@ -155,7 +173,10 @@
       "Mercury aspect Saturn in 10th house : Exact",
       "Saturn ruler of the 10th House in the 10th House",
       "Saturn ruler of the 11th House in the 10th House",
-      "Saturn in 10th (Dispositor)"
+      "Saturn in 10th (Dispositor)",
+      "Saturn ruler of the 11th House in the 10th House",
+      "Saturn in 10th (Dispositor)",
+      "Saturn ruler of the 10th House in the 10th House"
     ],
     "2026-08-14": [
       "Saturn in 10th (Dispositor)",
@@ -175,7 +196,8 @@
       "Mars aspect Saturn in 10th house : Starts",
       "Saturn ruler of the 10th House in the 10th House",
       "Saturn ruler of the 11th House in the 10th House",
-      "Saturn in 10th (Dispositor)"
+      "Saturn in 10th (Dispositor)",
+      "Mars aspect Saturn in 10th house"
     ],
     "2026-08-18": [],
     "2026-08-19": [],
@@ -188,7 +210,11 @@
       "Venus ruler of the 2nd House in the 8th House",
       "Venus ruler of the 7th House in the 8th house",
       "Mars aspect Saturn in 10th house : Exact",
-      "Saturn ruler of the 10th House in the 10th House"
+      "Saturn ruler of the 10th House in the 10th House",
+      "Saturn ruler of the 11th House in the 10th House",
+      "Saturn ruler of the 10th House in the 10th House",
+      "Mars aspect Sun in 9th house",
+      "Saturn in 10th (Dispositor)"
     ]
   }
 }

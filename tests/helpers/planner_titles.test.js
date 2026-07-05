@@ -83,4 +83,31 @@ describe('missingTitles', () => {
   test('empty expected list never reports missing', () => {
     expect(missingTitles([], ['anything'])).toEqual([]);
   });
+
+  test('fixture base title matches API title with phase suffix only', () => {
+    const missing = missingTitles(
+      ['Mars aspect Venus in 8th house'],
+      ['Mars aspect Venus in 8th house : Starts'],
+    );
+    expect(missing).toEqual([]);
+  });
+
+  test('fixture base title matches API : Exact and : Ends', () => {
+    expect(missingTitles(
+      ['Jupiter aspect Mercury in 8th house'],
+      ['Jupiter aspect Mercury in 8th house : Exact'],
+    )).toEqual([]);
+    expect(missingTitles(
+      ['Jupiter aspect Mercury in 8th house'],
+      ['Jupiter aspect Mercury in 8th house : Ends'],
+    )).toEqual([]);
+  });
+
+  test('fixture with phase suffix requires matching phase in API', () => {
+    const missing = missingTitles(
+      ['Mars aspect Venus in 8th house : Exact'],
+      ['Mars aspect Venus in 8th house : Starts'],
+    );
+    expect(missing).toEqual(['Mars aspect Venus in 8th house : Exact']);
+  });
 });
