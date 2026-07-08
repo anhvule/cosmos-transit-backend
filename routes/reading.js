@@ -17,6 +17,7 @@ const { getYearlySummary } = require('../services/varshaphal');
 const { getMonthlyPrediction } = require('../services/monthly-prediction');
 const { getWealthAnalysis } = require('../services/wealth-analysis');
 const { resolveTimezone, TimezoneError } = require('../services/timezone');
+const { legacyLensLookup, pandaLookup } = require('../services/interpretations');
 const favouritesDb = require('../db/favourites');
 const { createFavouritesService } = require('../services/favourites');
 const favouritesService = createFavouritesService(favouritesDb);
@@ -80,40 +81,6 @@ function getDashaDescriptions(mdPlanet, adPlanet, pdPlanet) {
     pdDesc: pd?.description || '',
   };
 }
-const investmentDb = require('../db/investment');
-const careerDb = require('../db/career');
-const relationshipDb = require('../db/relationship');
-const adviceDb = require('../db/advice');
-const foodDb = require('../db/food');
-
-// Pre-compile lookup statement for performance. Lookups are parameterized
-// on (name, ascendant); routes extract the native's ascendant from the
-// natal chart and pass it in. lookupEventWithFallback falls back to the
-// Aries-tagged row when the requested ascendant has no description seeded
-// yet — preserving the original single-interpretation behavior for any
-// ascendant whose dataset is incomplete.
-const LOOKUP_SQL = "SELECT description FROM events WHERE name = ? AND ascendant = ?";
-const lookupInvestmentEvent = investmentDb.prepare(LOOKUP_SQL);
-const lookupCareerEvent = careerDb.prepare(LOOKUP_SQL);
-const lookupRelationshipEvent = relationshipDb.prepare(LOOKUP_SQL);
-const lookupAdviceEvent = adviceDb.prepare(LOOKUP_SQL);
-const lookupFoodEvent = foodDb.prepare(LOOKUP_SQL);
-
-// New structured-template DB (db/cosmos.db). Used by /api/panda/* routes.
-// Lookup is by parsed structured key, not by name string.
-const cosmosDb = require('../db/cosmos');
-const { parseEventName } = require('../services/cosmos_event_parser');
-
-function getCosmosInterpretation(lens) {
-  // Accept (description, ascendant) to match the other lookup signatures,
-  // even though cosmos templates are chart-agnostic and ignore ascendant.
-  return (description, _ascendant) => {
-    const key = parseEventName(description);
-    if (!key) return '';
-    return cosmosDb.lookup(lens, key);
-  };
-}
-
 /**
  * Extract the ascendant sign (Aries/Taurus/.../Pisces) from a kerykeion
  * result. Defaults to 'Aries' if the natal chart is missing — that way
@@ -182,70 +149,6 @@ function natalRulerDescriptions(result) {
     out.add(`${lord} in ${houseOrdinal(lordPlanet.house)} (Dispositor)`);
   }
   return [...out];
-}
-
-/**
- * Lookup an event description, trying up to four name variants in order:
- *   1. The full description as-is (e.g. "Mars aspect Mercury in 8th house : Exact").
- *   2. The base name with the ": Exact/Starts/Ends" phase suffix stripped.
- *   3. Variant 1 with the "in Nth house" ⇄ "in the Nth house" phrasing toggled.
- *   4. Variant 2 with the same phrasing toggle.
- *
- * Variant 1 is the priority because the seed DBs now carry per-phase rows
- * (Starts / Exact / Ends with distinct copy). Variant 2 preserves the
- * original "any phase shares one description" behavior for older rows.
- * Variants 3 and 4 bridge engine output (which omits "the") with rows
- * seeded as "in the Nth house".
- */
-function lookupEventWithFallback(stmt, description, ascendant) {
-  const candidates = [description];
-
-  const base = baseEventName(description);
-  if (base !== description) candidates.push(base);
-
-  // Append the toggled-phrasing form of every existing candidate.
-  for (const c of [...candidates]) {
-    const alt = / in the \d+(?:st|nd|rd|th) house/i.test(c)
-      ? c.replace(/ in the (\d+(?:st|nd|rd|th) house)/i, ' in $1')
-      : c.replace(/ in (\d+(?:st|nd|rd|th) house)/i, ' in the $1');
-    if (alt !== c) candidates.push(alt);
-  }
-
-  // First pass: ascendant-specific rows (the user's actual sign).
-  for (const candidate of candidates) {
-    const row = stmt.get(candidate, ascendant);
-    if (row && row.description) return row.description;
-  }
-  // Fallback: Aries row, which is the seeded baseline. This keeps the
-  // legacy single-interpretation behavior for any ascendant whose
-  // descriptions aren't filled in yet.
-  if (ascendant !== 'Aries') {
-    for (const candidate of candidates) {
-      const row = stmt.get(candidate, 'Aries');
-      if (row && row.description) return row.description;
-    }
-  }
-  return '';
-}
-
-function getInvestmentEventInterpretation(description, ascendant) {
-  return lookupEventWithFallback(lookupInvestmentEvent, description, ascendant);
-}
-
-function getCareerEventInterpretation(description, ascendant) {
-  return lookupEventWithFallback(lookupCareerEvent, description, ascendant);
-}
-
-function getRelationshipEventInterpretation(description, ascendant) {
-  return lookupEventWithFallback(lookupRelationshipEvent, description, ascendant);
-}
-
-function getAdviceEventInterpretation(description, ascendant) {
-  return lookupEventWithFallback(lookupAdviceEvent, description, ascendant);
-}
-
-function getFoodEventInterpretation(description, ascendant) {
-  return lookupEventWithFallback(lookupFoodEvent, description, ascendant);
 }
 
 // Filter today's transit events using yesterday/tomorrow context for dedup.
@@ -766,20 +669,20 @@ function makePeriodHandler(periodKind, interpretationLookup) {
   };
 }
 
-router.post('/career', makeDebugHandler(getCareerEventInterpretation));
-router.post('/relationship', makeDebugHandler(getRelationshipEventInterpretation));
-router.post('/advice', makeDebugHandler(getAdviceEventInterpretation));
-router.post('/food', makeDebugHandler(getFoodEventInterpretation));
+router.post('/career', makeDebugHandler(legacyLensLookup('career')));
+router.post('/relationship', makeDebugHandler(legacyLensLookup('relationship')));
+router.post('/advice', makeDebugHandler(legacyLensLookup('advice')));
+router.post('/food', makeDebugHandler(legacyLensLookup('food')));
 
-// ── /api/panda/* routes (new cosmos.db structured-template DB) ──────
-// Same kerykeion call + same response shape as the legacy routes above,
-// but the interpretation is looked up via parsed structured key against
-// db/cosmos.db. Runs alongside the legacy routes; both can coexist.
-router.post('/panda/career',       makeDebugHandler(getCosmosInterpretation('career')));
-router.post('/panda/relationship', makeDebugHandler(getCosmosInterpretation('relationship')));
+// ── /api/panda/* routes ──────────────────────────────────────────────
+// Same kerykeion call + same response shape as the legacy routes above;
+// interpretation resolves ascendant-specific text first, then the
+// generic ('*') template set.
+router.post('/panda/career',       makeDebugHandler(pandaLookup('career')));
+router.post('/panda/relationship', makeDebugHandler(pandaLookup('relationship')));
 
-router.post('/investment-weekly', makePeriodHandler('week', getInvestmentEventInterpretation));
-router.post('/investment-monthly', makePeriodHandler('month', getInvestmentEventInterpretation));
+router.post('/investment-weekly', makePeriodHandler('week', legacyLensLookup('investment')));
+router.post('/investment-monthly', makePeriodHandler('month', legacyLensLookup('investment')));
 
 /**
  * POST /api/market-signal
