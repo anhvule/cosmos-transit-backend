@@ -9,7 +9,8 @@
     "test": "jest --verbose",
     "test:planner": "jest --verbose --runTestsByPath tests/verify_planner_career.test.js --testPathIgnorePatterns=/node_modules/ --testPathIgnorePatterns=/.claude/",
     "test:characterization": "jest --verbose --runTestsByPath tests/characterization.test.js --testPathIgnorePatterns=/node_modules/ --testPathIgnorePatterns=/.claude/",
-    "seed:all": "node db/seed_all_ascendants.js"
+    "seed": "node scripts/seed.js",
+    "seed:all": "node scripts/seed.js"
   },
   "keywords": [],
   "author": "",
