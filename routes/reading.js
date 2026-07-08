@@ -425,40 +425,6 @@ function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
         .map(e => e.description.replace(/\s*:\s*Ends$/, '').trim().toLowerCase()),
     );
 
-    // Build a set of approaching mc_aspect ":Exact" base descriptions present
-    // tomorrow. Mirrors the calendar logic: only approaching (not separating)
-    // mc_aspect :Exact days are the milestone; separating ones belong to :Ends.
-    const tomorrowMcExact = new Set(
-      (tomorrowResult.transitEvents || [])
-        .filter(e =>
-          e.type === 'mc_aspect' &&
-          (e.description || '').endsWith(': Exact') &&
-          e.separating === false &&
-          (typeof e.orb !== 'number' || e.orb < exactOrbCap(e)),
-        )
-        .map(e => e.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase()),
-    );
-
-    // MC aspect orb maps — pick the local-minimum (astronomical exact) day
-    // rather than first or last approaching day. Applied to ALL mc_aspect
-    // entries (slow + fast) since planner records a single :Exact day for both.
-    const buildMcOrbMap = (result) => {
-      const m = new Map();
-      for (const e of (result.transitEvents || [])) {
-        if (e.type !== 'mc_aspect') continue;
-        const d = e.description || '';
-        if (!d.endsWith(': Exact')) continue;
-        const base = d.replace(/\s*:\s*Exact$/, '').trim().toLowerCase();
-        if (typeof e.orb === 'number') {
-          const prev = m.get(base);
-          if (prev == null || e.orb < prev) m.set(base, e.orb);
-        }
-      }
-      return m;
-    };
-    const yesterdayMcOrbs = buildMcOrbMap(yesterdayResult);
-    const tomorrowMcOrbs = buildMcOrbMap(tomorrowResult);
-
     // Moon-aspect orb map — Moon aspects to natal planets fire on consecutive
     // days as Moon passes (~12°/day), but the planner records only the
     // local-minimum-orb day. Build a map of base-description → orb so today's
@@ -482,36 +448,19 @@ function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
     const yesterdayMoonOrbs = buildMoonOrbMap(yesterdayResult);
     const tomorrowMoonOrbs = buildMoonOrbMap(tomorrowResult);
 
-    // mc_aspect :Starts dedup — only fire on the FIRST day of the approach run
-    // (yesterday did not carry :Starts for this base). Without this, slow
-    // planets (Jupiter takes ~14 days to approach MC within orb) emit :Starts
-    // every day creating phantom events.
-    const yesterdayMcStarts = new Set(
-      (yesterdayResult.transitEvents || [])
-        .filter(e =>
-          e.type === 'mc_aspect' &&
-          (e.description || '').endsWith(': Starts'),
-        )
-        .map(e => e.description.replace(/\s*:\s*Starts$/, '').trim().toLowerCase()),
-    );
-    // mc_aspect :Ends dedup — only fire on the LAST day (tomorrow no longer
-    // carries :Ends for this base, within orb cap).
+    // mc_aspect :Ends orb cap — bounds the separating tail of the continuous
+    // chart-angle range (the planner's range END day is the last day under
+    // this cap).
     const mcEndsCap = (e) => {
-      // Jupiter-MC :Ends lands at orb ~3.06° (planner4 07-13). Tighten the
-      // dedup cap so the day after (orb ~3.28°) doesn't claim "last day".
+      // Jupiter-MC :Ends lands at orb ~3.06° on the range-end day (planner4
+      // 07-13; 2026 planner ICS shows the run as 06-14 → 07-13). Tighten the
+      // cap so the day after (orb ~3.28°) doesn't extend the range.
       if (e.transitPlanet === 'Jupiter') return 3.2;
       const isSlow = SLOW_PLANETS_SET.has(e.transitPlanet);
+      // Mars MC uses a wider cap because the Vedic 8th drishti (quincunx)
+      // separating tail sits at ~2°.
       return isSlow ? 3.5 : (e.transitPlanet === 'Mars' ? 2.5 : 1.5);
     };
-    const tomorrowMcEnds = new Set(
-      (tomorrowResult.transitEvents || [])
-        .filter(e =>
-          e.type === 'mc_aspect' &&
-          (e.description || '').endsWith(': Ends') &&
-          (typeof e.orb !== 'number' || e.orb < mcEndsCap(e)),
-        )
-        .map(e => e.description.replace(/\s*:\s*Ends$/, '').trim().toLowerCase()),
-    );
 
     // ascendant_aspect dedup: emit :Exact on the LAST day the aspect stays
     // within the 1° orb cap (matches the planner's convention — the final
@@ -640,35 +589,15 @@ function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
           if (t != null && e.orb - t.orb >= 0.2) return false;
         }
       }
-      // For mc_aspect :Exact — keep the local-minimum-orb day (the actual
-      // astronomical crossing day, which may be marked separating if the
-      // peak fell late in the day after kerykeion's noon snapshot).
-      if (e.type === 'mc_aspect' && desc.endsWith(': Exact')) {
-        const base = desc.replace(/\s*:\s*Exact$/, '').trim().toLowerCase();
-        if (typeof e.orb === 'number' && e.orb >= exactOrbCap(e)) return false;
-        if (typeof e.orb === 'number') {
-          const yOrb = yesterdayMcOrbs.get(base);
-          const tOrb = tomorrowMcOrbs.get(base);
-          if (yOrb != null && e.orb > yOrb) return false;
-          if (tOrb != null && e.orb > tOrb) return false;
-        }
-      }
-      // mc_aspect :Starts — first day of approach only.
-      if (e.type === 'mc_aspect' && desc.endsWith(': Starts')) {
-        const base = desc.replace(/\s*:\s*Starts$/, '').trim().toLowerCase();
-        if (yesterdayMcStarts.has(base)) return false;
-      }
-      // mc_aspect :Ends — last day of separating run only, within tight orb.
-      // Without an orb cap, slow planets emit :Ends every day for weeks at
-      // very wide orbs (Jupiter-MC at 9°+) creating phantom milestones.
+      // mc_aspect — the planner calendar shows chart-angle aspects as a
+      // CONTINUOUS range from the first approaching day to the last
+      // separating day within the :Ends orb cap (e.g. Jupiter-MC runs
+      // 06-14 → 07-13 in the 2026 planner ICS), so every in-orb day is
+      // kept. Python's phase labels bound the :Starts/:Exact windows;
+      // mcEndsCap bounds the separating tail (without it, slow planets
+      // emit :Ends for weeks at very wide orbs — Jupiter-MC at 9°+).
       if (e.type === 'mc_aspect' && desc.endsWith(': Ends')) {
-        const isSlow = SLOW_PLANETS_SET.has(e.transitPlanet);
-        // Mars MC uses wider cap because the Vedic 8th drishti (quincunx)
-        // separating tail sits at ~2°.
-        const cap = isSlow ? 3.5 : (e.transitPlanet === 'Mars' ? 2.5 : 1.5);
-        if (typeof e.orb === 'number' && e.orb >= cap) return false;
-        const base = desc.replace(/\s*:\s*Ends$/, '').trim().toLowerCase();
-        if (tomorrowMcEnds.has(base)) return false;
+        if (typeof e.orb === 'number' && e.orb >= mcEndsCap(e)) return false;
       }
       // ascendant_aspect :Exact — keep the LAST day within the 1° orb window
       // (the planner's "Exact day" for retrograde passes is the final sub-1°
