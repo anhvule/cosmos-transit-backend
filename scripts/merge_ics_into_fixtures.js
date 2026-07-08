@@ -7,7 +7,14 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { normalizeTitle } = require('../tests/helpers/planner_titles');
+const { normalizeTitle, stripPhaseSuffix } = require('../tests/helpers/planner_titles');
+
+// Dedupe key: phase qualifiers (": Starts" / ": Exact" / ": Ends") are
+// presentation detail — "X" and "X : Exact" are the same assertion under the
+// e2e matcher, so a day must carry at most one of them.
+function titleKey(title) {
+  return stripPhaseSuffix(normalizeTitle(title));
+}
 
 const ROOT = path.join(__dirname, '..');
 const FIXTURES_DIR = path.join(ROOT, 'tests', 'fixtures');
@@ -21,20 +28,33 @@ function cleanSummary(raw) {
   return s.replace(/\s+/g, ' ').trim();
 }
 
+function toDateStr(yyyymmdd) {
+  return `${yyyymmdd.slice(0, 4)}-${yyyymmdd.slice(4, 6)}-${yyyymmdd.slice(6, 8)}`;
+}
+
+function nextDate(dateStr) {
+  const d = new Date(`${dateStr}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
+}
+
 function parseIcs(text) {
   const events = [];
   const blocks = text.split(/BEGIN:VEVENT\r?\n/);
   for (const block of blocks.slice(1)) {
     const dtMatch = block.match(/^DTSTART(?:;[^:]*)?:(\d{8})/m);
+    const dtEndMatch = block.match(/^DTEND(?:;[^:]*)?:(\d{8})/m);
     const sumMatch = block.match(/^SUMMARY:(.+)$/m);
     if (!dtMatch || !sumMatch) continue;
-    const y = dtMatch[1].slice(0, 4);
-    const m = dtMatch[1].slice(4, 6);
-    const d = dtMatch[1].slice(6, 8);
-    const date = `${y}-${m}-${d}`;
     const title = cleanSummary(sumMatch[1]);
     if (!title) continue;
-    events.push({ date, title });
+    const start = toDateStr(dtMatch[1]);
+    // Multi-day events carry DTEND (exclusive per RFC 5545): the planner
+    // shows the event on EVERY day of [DTSTART, DTEND), so assert each day.
+    const endExclusive = dtEndMatch ? toDateStr(dtEndMatch[1]) : nextDate(start);
+    for (let date = start; date < endExclusive; date = nextDate(date)) {
+      events.push({ date, title });
+    }
   }
   return events;
 }
@@ -63,8 +83,8 @@ function fixtureForDate(fixtures, date) {
 }
 
 function hasTitle(titles, title) {
-  const norm = normalizeTitle(title);
-  return titles.some((t) => normalizeTitle(t) === norm);
+  const key = titleKey(title);
+  return titles.some((t) => titleKey(t) === key);
 }
 
 function main() {
@@ -117,7 +137,7 @@ function main() {
       const seen = new Set();
       const out = [];
       for (const t of f.data.days[date]) {
-        const key = normalizeTitle(t);
+        const key = titleKey(t);
         if (seen.has(key)) continue;
         seen.add(key);
         out.push(t);

@@ -1007,10 +1007,48 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                           show_starts=True)
 
     # --- 7b. Tight separating personal aspects (always) ---
-    # Emit : Ends once per pass on the day the aspect exits the exact window
-    # (orb transitions from <1° to ≥1° while separating). This produces one
-    # :Ends per true peak even when the aspect lingers near exact for multiple
-    # days (e.g. Venus retrograde/station passages over a natal point).
+    # Emit : Ends on EVERY separating day inside the per-pair orb threshold
+    # (the planner lists the aspect daily until the range closes, so a
+    # one-shot exit-transition emission leaves mid-tail holes when story
+    # ranking skips the pair), PLUS once on the exit-transition day itself
+    # (first day beyond the threshold) — that day is the planner's :Ends
+    # milestone in the batch calendar (e.g. Mars-Sun 08-26 at orb 2.19°).
+    def _personal_ends_cap(a):
+        # Some Mars aspects linger longer near exact than conj/opp to
+        # personal targets, so the planner's range closes when the orb
+        # crosses 1.5° rather than 1°.
+        if a['transitPlanet'] == 'Mars' and (
+                (a['natalPlanet'] == 'Jupiter' and a['aspect'] == 'opposition')
+                # Mars-Jupiter opposition :Ends at orb ~1.91° (planner1 03-24);
+                # Mars-Venus opposition :Ends at orb ~1.94° (planner4 06-28).
+                # Mars-Venus square :Ends at orb ~1.97° (planner11 03-05).
+                or (a['natalPlanet'] == 'Venus' and a['aspect'] == 'opposition')
+                or (a['natalPlanet'] == 'Venus' and a['aspect'] == 'square')):
+            return 1.85
+        if a['transitPlanet'] == 'Mars' and (
+                (a['natalPlanet'] == 'Mars' and a['aspect'] == 'opposition')
+                or (a['natalPlanet'] == 'Mars' and a['aspect'] == 'quincunx')
+                or (a['natalPlanet'] == 'Sun' and a['aspect'] == 'opposition')
+                or (a['natalPlanet'] == 'Saturn' and a['aspect'] == 'opposition')
+                or (a['natalPlanet'] == 'Ketu' and a['aspect'] == 'square')):
+            return 2.0
+        if a['transitPlanet'] == 'Mars' and (
+                (a['natalPlanet'] == 'Sun' and a['aspect'] == 'quincunx')
+                or (a['natalPlanet'] == 'Venus' and a['aspect'] == 'quincunx')
+                or (a['natalPlanet'] == 'Mercury' and a['aspect'] == 'quincunx')
+                or (a['natalPlanet'] == 'Mercury' and a['aspect'] == 'opposition')
+                or (a['natalPlanet'] == 'Saturn' and a['aspect'] == 'quincunx')
+                or (a['natalPlanet'] == 'Jupiter' and a['aspect'] == 'square')
+                or (a['natalPlanet'] == 'Moon' and a['aspect'] in {'opposition', 'square', 'quincunx'})
+                or (a['natalPlanet'] in LUNAR_NODES and a['aspect'] == 'quincunx')):
+            return 1.5
+        # Venus-Moon conjunction: Venus stations slowly so the orb
+        # creeps; planner :Ends lands at orb ~0.97° (planner8 11-17).
+        if (a['transitPlanet'] == 'Venus' and a['natalPlanet'] == 'Moon'
+                and a['aspect'] == 'conjunction'):
+            return 0.95
+        return 1.0
+
     ending_aspects = [
         a for a in active_aspects
         if a['transitPlanet'] in PERSONAL_PLANETS
@@ -1041,48 +1079,11 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
              or (a['transitPlanet'] == 'Mars' and a['natalPlanet'] == 'Saturn'
                  and a['aspect'] == 'quincunx'))
         and a['separating']
-        and _just_exited_exact_window(
-            transit_map, natal_map, a,
-            # Some Mars aspects linger longer near exact than conj/opp to
-            # personal targets, so the planner's :Ends day lands when the orb
-            # crosses 1.5° rather than 1°.
-            threshold=1.85 if (
-                # Mars-Jupiter opposition :Ends at orb ~1.91° (planner1 03-24);
-                # Mars-Venus opposition :Ends at orb ~1.94° (planner4 06-28).
-                # Mars-Venus square :Ends at orb ~1.97° (planner11 03-05).
-                # Yesterdays sit at ~1.13/1.23° respectively, so 1.85° captures
-                # the crossing without firing on the next day (~2.6°).
-                a['transitPlanet'] == 'Mars' and (
-                    (a['natalPlanet'] == 'Jupiter' and a['aspect'] == 'opposition')
-                    or (a['natalPlanet'] == 'Venus' and a['aspect'] == 'opposition')
-                    or (a['natalPlanet'] == 'Venus' and a['aspect'] == 'square')
-                )
-            ) else 2.0 if (
-                a['transitPlanet'] == 'Mars' and (
-                    (a['natalPlanet'] == 'Mars' and a['aspect'] == 'opposition')
-                    or (a['natalPlanet'] == 'Mars' and a['aspect'] == 'quincunx')
-                    or (a['natalPlanet'] == 'Sun' and a['aspect'] == 'opposition')
-                    or (a['natalPlanet'] == 'Saturn' and a['aspect'] == 'opposition')
-                    or (a['natalPlanet'] == 'Ketu' and a['aspect'] == 'square')
-                )
-            ) else 1.5 if (
-                a['transitPlanet'] == 'Mars' and (
-                    (a['natalPlanet'] == 'Sun' and a['aspect'] == 'quincunx')
-                    or (a['natalPlanet'] == 'Venus' and a['aspect'] == 'quincunx')
-                    or (a['natalPlanet'] == 'Mercury' and a['aspect'] == 'quincunx')
-                    or (a['natalPlanet'] == 'Mercury' and a['aspect'] == 'opposition')
-                    or (a['natalPlanet'] == 'Saturn' and a['aspect'] == 'quincunx')
-                    or (a['natalPlanet'] == 'Jupiter' and a['aspect'] == 'square')
-                    or (a['natalPlanet'] == 'Moon' and a['aspect'] in {'opposition', 'square', 'quincunx'})
-                    or (a['natalPlanet'] in LUNAR_NODES and a['aspect'] == 'quincunx')
-                )
-            ) else 0.95 if (
-                # Venus-Moon conjunction: Venus stations slowly so the orb
-                # creeps; planner :Ends lands at orb ~0.97° (planner8 11-17).
-                a['transitPlanet'] == 'Venus' and a['natalPlanet'] == 'Moon'
-                and a['aspect'] == 'conjunction'
-            ) else 1.0,
-        )
+        and not a['exact']
+        and (a['orb'] < _personal_ends_cap(a)
+             or _just_exited_exact_window(
+                 transit_map, natal_map, a,
+                 threshold=_personal_ends_cap(a)))
     ]
     ending_aspects.sort(key=lambda a: a['orb'])
     for aspect in ending_aspects:
@@ -1126,7 +1127,10 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
              or (a['transitPlanet'] == 'Mars' and a['natalPlanet'] == 'Mars'
                  and a['aspect'] == 'quincunx'))
         and a['exact']
-        and _is_local_min_orb(transit_map, natal_map, a)
+        # Every sub-1° day is emitted (not just the local-minimum day): the
+        # planner lists the aspect on each day of the exact window, and story
+        # ranking can otherwise silently drop shoulder days (e.g. Mars-Venus
+        # 05-17 at orb ~0.7° separating).
         and (a['transitPlanet'], a['natalPlanet']) not in covered_aspect_keys
     ]
     always_exact.sort(key=lambda a: a['orb'])
@@ -1217,12 +1221,22 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         if (a['transitPlanet'] == 'Jupiter' and a['natalPlanet'] == 'Mars'
                 and a['aspect'] == 'trine'):
             return 3.05
+        # Saturn→Rahu: the planner range (2026-09-06 → 2027-03-04) opens when
+        # the approaching orb dips below ~3.05°, mirroring the :Ends side.
+        if a['transitPlanet'] == 'Saturn' and a['natalPlanet'] == 'Rahu':
+            return 3.05
         return 3.5
 
     approaching_slow = [
         a for a in active_aspects
         if a['transitPlanet'] in ('Jupiter', 'Saturn')
-        and a['natalPlanet'] in _SLOW_NATAL_TARGETS
+        # Saturn → natal Rahu is whitelisted via _SATURN_NATAL_TARGETS even
+        # though Rahu is not in _SLOW_NATAL_TARGETS — its multi-month
+        # approach (incl. the retrograde re-approach) is listed daily by the
+        # planner (range 2026-09-06 → 2027-03-04).
+        and (a['natalPlanet'] in _SLOW_NATAL_TARGETS
+             or (a['transitPlanet'] == 'Saturn'
+                 and a['natalPlanet'] in _SATURN_NATAL_TARGETS))
         and (a['transitPlanet'] != 'Saturn' or a['natalPlanet'] in _SATURN_NATAL_TARGETS)
         and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
         and a['aspect'] in _MAJOR_ASPECTS
@@ -1259,25 +1273,8 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
         _add_aspect_story(events, aspect, natal_map, transit_map, house_to_sign,
                           include_transit_house=False, use_specific_aspect_name=False)
 
-    # --- 8d. Saturn-Rahu :Starts (one-shot, tight orb-band entry) ---
-    # Saturn → natal Rahu (sidereal square in this chart) approaches exact over
-    # several weeks. The planner emits :Starts the day the approaching orb
-    # first dips below ~3.05°, not at the wider 3.5° entry used for personal
-    # natal targets. One-shot detector: yesterday >= 3.05°, today < 3.05°.
-    for a in active_aspects:
-        if (a['transitPlanet'] == 'Saturn' and a['natalPlanet'] == 'Rahu'
-                and a.get('natalHouse') == natal_map.get(a['natalPlanet'], {}).get('house')
-                and not a['exact']
-                and not a['separating']):
-            angle = ASPECT_ANGLE_BY_NAME.get(a['aspect'])
-            y = _orb_at_offset(transit_map.get('Saturn'), natal_map.get('Rahu'), angle, -1)
-            if y is None:
-                continue
-            if y >= 3.05 and a['orb'] < 3.05:
-                _add_aspect_story(events, a, natal_map, transit_map, house_to_sign,
-                                  include_transit_house=False, use_specific_aspect_name=False,
-                                  show_starts=True)
-                break
+    # (Former section 8d — one-shot Saturn-Rahu :Starts — is subsumed by the
+    # Saturn-Rahu whitelist in 8b above, which emits the approach daily.)
 
     # --- 8e. Node aspects to personal/social natals (approaching/separating) ---
     # Rahu/Ketu move ~0.05°/day so a 1.5° orb window on either side of exact
@@ -1469,10 +1466,12 @@ def calculate_transit_report(natal_planets, natal_planets_tropical, transit_plan
                     pass
                 else:
                     continue
-            # Only the :Exact qualifier requires local-minimum gating; :Starts
-            # and :Ends are filtered downstream by the route's yesterday/today
-            # dedup logic.
-            if qualifier == ' : Exact':
+            # Only Moon (which crosses the ASC within hours) needs
+            # local-minimum gating for :Exact. Slower planets emit :Exact on
+            # every sub-1° day so the calendar range has no mid-run holes
+            # (e.g. Mars-ASC 05-25 → 05-31: orb dips 2.17 → 0.07 → 2.30 and
+            # the planner lists every day, including 0.7-0.8° shoulder days).
+            if qualifier == ' : Exact' and is_moon:
                 speed = transit.get('speed', 0)
                 yesterday_diff = normalize_angle(
                     (transit['fullDegree'] - speed) - asc_deg

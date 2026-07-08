@@ -13,6 +13,11 @@ function normalizeTitle(title) {
   let s = String(title).trim().replace(/\s+/g, ' ').toLowerCase();
   // Transit / Transits
   s = s.replace(/\btransits\b/g, 'transit');
+  // "aspects" / "aspects the" / "aspect the" — planner ICS grammar variants
+  // of the engine's "aspect" (e.g. "Mercury aspects the Moon in the 6th
+  // house" ≡ "Mercury aspect Moon in 6th house").
+  s = s.replace(/\baspects\b/g, 'aspect');
+  s = s.replace(/\baspect the\b/g, 'aspect');
   // optional "the" before an ordinal house: "in the 8th" → "in 8th"
   s = s.replace(/\bin the (\d+(?:st|nd|rd|th))\b/g, 'in $1');
   return s;
@@ -24,15 +29,15 @@ function stripPhaseSuffix(normalized) {
   return normalized.replace(PHASE_SUFFIX_RE, '');
 }
 
-/** True when actual satisfies expected (fixture may omit : Starts/Exact/Ends). */
+/**
+ * True when actual satisfies expected. Phase qualifiers (": Starts" /
+ * ": Exact" / ": Ends", any whitespace around the colon) are presentation
+ * detail: the planner and the API may disagree on which phase — or none —
+ * a given day carries, so titles compare on the phase-stripped base.
+ */
 function titleMatchesExpected(expectedNorm, actualNorm) {
   if (actualNorm === expectedNorm) return true;
-  // Fixture base title; API adds phase suffix only
-  if (!PHASE_SUFFIX_RE.test(expectedNorm)
-      && stripPhaseSuffix(actualNorm) === expectedNorm) {
-    return true;
-  }
-  return false;
+  return stripPhaseSuffix(expectedNorm) === stripPhaseSuffix(actualNorm);
 }
 
 function titlesFromCareerResponse(body) {

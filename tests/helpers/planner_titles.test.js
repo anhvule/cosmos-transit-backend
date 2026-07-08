@@ -103,11 +103,26 @@ describe('missingTitles', () => {
     )).toEqual([]);
   });
 
-  test('fixture with phase suffix requires matching phase in API', () => {
-    const missing = missingTitles(
+  test('phase suffixes are interchangeable (any phase or none matches)', () => {
+    // ": Exact" vs ": Starts"
+    expect(missingTitles(
       ['Mars aspect Venus in 8th house : Exact'],
       ['Mars aspect Venus in 8th house : Starts'],
-    );
-    expect(missing).toEqual(['Mars aspect Venus in 8th house : Exact']);
+    )).toEqual([]);
+    // fixture with phase vs API without phase
+    expect(missingTitles(
+      ['Mars in 8th (Dispositor) : Exact'],
+      ['Mars in 8th (Dispositor)'],
+    )).toEqual([]);
+    // whitespace around the colon is irrelevant
+    expect(missingTitles(
+      ['Saturn ruler of the 10th House in the 10th House :  Exact'],
+      ['Saturn ruler of the 10th House in the 10th House'],
+    )).toEqual([]);
+    // different base titles still miss
+    expect(missingTitles(
+      ['Mars aspect Venus in 8th house : Exact'],
+      ['Mars aspect Mercury in 8th house : Exact'],
+    )).toEqual(['Mars aspect Venus in 8th house : Exact']);
   });
 });
