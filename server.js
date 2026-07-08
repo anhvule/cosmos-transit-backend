@@ -3,7 +3,6 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
-const readingRouter = require('./routes/reading');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -35,7 +34,7 @@ app.get('/privacy', (req, res) => {
 });
 
 // Routes
-app.use('/api', readingRouter);
+app.use('/api', require('./routes/index'));
 
 app.listen(PORT, () => {
   console.log(`CosmicTransit API running on port ${PORT}`);
