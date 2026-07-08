@@ -133,6 +133,57 @@ function baseEventName(description) {
   return description.replace(/\s*:\s*(Exact|Starts|Ends)$/, '').trim();
 }
 
+// Sidereal sign order and classical sign lords, used to derive the complete
+// ruler/dispositor placement set from the natal chart (whole-sign houses).
+const SIGN_ORDER = [
+  'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo',
+  'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces',
+];
+const SIGN_LORDS = {
+  Aries: 'Mars', Taurus: 'Venus', Gemini: 'Mercury', Cancer: 'Moon',
+  Leo: 'Sun', Virgo: 'Mercury', Libra: 'Venus', Scorpio: 'Mars',
+  Sagittarius: 'Jupiter', Capricorn: 'Saturn', Aquarius: 'Saturn', Pisces: 'Jupiter',
+};
+const CLASSICAL_PLANETS = ['Sun', 'Moon', 'Mercury', 'Venus', 'Mars', 'Jupiter', 'Saturn'];
+
+// Matches the Python engine's ordinal() for house numbers (1st … 12th).
+function houseOrdinal(n) {
+  const r = n % 10;
+  if (n % 100 >= 11 && n % 100 <= 13) return `${n}th`;
+  return `${n}${r === 1 ? 'st' : r === 2 ? 'nd' : r === 3 ? 'rd' : 'th'}`;
+}
+
+/**
+ * Complete ruler/dispositor description set derivable from the natal chart:
+ * one "L ruler of the H House in the X House" line per house, and one
+ * "D in X (Dispositor)" line per classical planet's sign lord. These are
+ * permanent natal facts — the planner lists them every day — but the engine
+ * only emits the subset nested under that day's transit events, so a day
+ * whose surviving events don't touch a placement would otherwise lose it.
+ */
+function natalRulerDescriptions(result) {
+  const planets = (result && result.natalPlanets) || [];
+  const byName = new Map(planets.filter(p => p && p.name).map(p => [p.name, p]));
+  const asc = byName.get('Ascendant');
+  const ascIdx = asc ? SIGN_ORDER.indexOf(asc.sign) : -1;
+  if (ascIdx < 0) return [];
+  const out = new Set();
+  for (let h = 1; h <= 12; h++) {
+    const lord = SIGN_LORDS[SIGN_ORDER[(ascIdx + h - 1) % 12]];
+    const lordPlanet = byName.get(lord);
+    if (!lordPlanet || !lordPlanet.house) continue;
+    out.add(`${lord} ruler of the ${houseOrdinal(h)} House in the ${houseOrdinal(lordPlanet.house)} House`);
+  }
+  for (const name of CLASSICAL_PLANETS) {
+    const p = byName.get(name);
+    const lord = p && SIGN_LORDS[p.sign];
+    const lordPlanet = lord && byName.get(lord);
+    if (!lordPlanet || !lordPlanet.house) continue;
+    out.add(`${lord} in ${houseOrdinal(lordPlanet.house)} (Dispositor)`);
+  }
+  return [...out];
+}
+
 /**
  * Lookup an event description, trying up to four name variants in order:
  *   1. The full description as-is (e.g. "Mars aspect Mercury in 8th house : Exact").
@@ -230,20 +281,6 @@ function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
     // we only surface :Exact on the local-minimum orb day of the run.
     const NODE_PLANETS = new Set(['Rahu', 'Ketu']);
 
-    // Build a set of ":Exact" aspect base descriptions present tomorrow
-    // (within the orb cap). Any today :Exact with the same base is a
-    // continuation — drop it. Nodes are handled via local-minimum below.
-    const tomorrowExact = new Set(
-      (tomorrowResult.transitEvents || [])
-        .filter(e =>
-          e.type === 'aspect' &&
-          (e.description || '').endsWith(': Exact') &&
-          !NODE_PLANETS.has(e.transitPlanet) &&
-          (typeof e.orb !== 'number' || e.orb < exactOrbCap(e)),
-        )
-        .map(e => e.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase()),
-    );
-
     // For node aspects: map base description → orb on yesterday/tomorrow.
     // Today's :Exact is kept only if today_orb ≤ yesterday_orb AND
     // today_orb ≤ tomorrow_orb (local minimum of the node's slow approach).
@@ -264,32 +301,6 @@ function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
     };
     const yesterdayNodeOrbs = buildNodeOrbMap(yesterdayResult);
     const tomorrowNodeOrbs = buildNodeOrbMap(tomorrowResult);
-
-    // Slow-planet orb map: same local-minimum strategy as nodes. Jupiter/Saturn
-    // :Exact windows (within exactOrbCap 0.6°) can span 4-6 days, so "last day
-    // of run" dedup lands 2-3 days after the astronomical exact. Local-minimum
-    // picks the astronomical peak, matching planner convention (e.g. Jupiter
-    // trine natal Venus :Exact on minimum-orb day, not window-end day).
-    const buildSlowOrbMap = (result) => {
-      const m = new Map();
-      for (const e of (result.transitEvents || [])) {
-        if (e.type !== 'aspect') continue;
-        // Include all non-node aspects (slow + fast-to-slow + fast-to-fast).
-        // Local-min picks the astronomical peak day, matching planner
-        // convention which always selects the closest-orb day for :Exact.
-        if (NODE_PLANETS.has(e.transitPlanet) || NODE_PLANETS.has(e.natalPlanet)) continue;
-        const d = e.description || '';
-        if (!d.endsWith(': Exact')) continue;
-        const base = d.replace(/\s*:\s*Exact$/, '').trim().toLowerCase();
-        if (typeof e.orb === 'number') {
-          const prev = m.get(base);
-          if (prev == null || e.orb < prev) m.set(base, e.orb);
-        }
-      }
-      return m;
-    };
-    const yesterdaySlowOrbs = buildSlowOrbMap(yesterdayResult);
-    const tomorrowSlowOrbs = buildSlowOrbMap(tomorrowResult);
 
     // Build set of node-aspect bases present on a given day (either :Starts,
     // :Exact, or :Ends).  Used to decide whether today's :Starts is the first
@@ -582,19 +593,12 @@ function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
           const tOrb = tomorrowNodeOrbs.get(base);
           if (yOrb != null && e.orb > yOrb) return false;
           if (tOrb != null && e.orb > tOrb) return false;
-        } else {
-          // All non-node aspects (slow + fast-to-slow + fast-to-fast) use
-          // local-min. Planner picks the day of closest orb, not the last
-          // day inside the cap.
-          if (typeof e.orb === 'number') {
-            const yOrb = yesterdaySlowOrbs.get(base);
-            const tOrb = tomorrowSlowOrbs.get(base);
-            if (yOrb != null && e.orb > yOrb) return false;
-            if (tOrb != null && e.orb > tOrb) return false;
-          } else if (tomorrowExact.has(base)) {
-            return false;
-          }
         }
+        // Non-node aspects: keep every day within the :Exact orb cap. The
+        // planner lists an ongoing tight aspect on each day it stays inside
+        // the cap (e.g. Uranus conjunct Venus across a multi-week separating
+        // run, Jupiter aspect Mercury on the approach day before the true
+        // minimum), so local-minimum-only dedup drops planner-expected days.
       }
       // For aspect :Ends — only keep the last day of the run within
       // ENDS_ORB_CAP so multi-day separating tails collapse to a single
@@ -707,6 +711,15 @@ function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
       orphanRulers.push(r);
     }
   }
+  // Beyond re-homing orphans, guarantee the COMPLETE natal ruler/dispositor
+  // set every day: the engine only nests placements under events that touch
+  // them, so a day whose events skip a natal house loses those permanent
+  // facts (the planner still lists them).
+  for (const description of natalRulerDescriptions(todayResult)) {
+    if (survivingRulerDescs.has(description) || seenOrphan.has(description)) continue;
+    seenOrphan.add(description);
+    orphanRulers.push({ type: 'ruler', description });
+  }
   if (orphanRulers.length) {
     if (transitEvents.length) {
       const carrier = transitEvents[0];
@@ -714,6 +727,32 @@ function computeFilteredEvents(yesterdayResult, todayResult, tomorrowResult) {
     } else {
       transitEvents.push({ type: 'ruler_carrier', description: null, rulers: orphanRulers });
     }
+  }
+
+  // Day-boundary spillover: the engine snapshots each day around noon, while
+  // the planner attributes events occurring later that day to the same
+  // calendar date. A house ingress or fast-moving aspect landing between
+  // today's and tomorrow's snapshots therefore surfaces one day late. Pull in
+  // tomorrow's NEW house ingresses, Moon aspects, and separating :Exact
+  // aspects (whose crossing already happened before tomorrow's snapshot) so
+  // they also appear on the planner's calendar day.
+  const presentDescs = new Set(
+    transitEvents.map(e => (e.description || '').trim().toLowerCase()).filter(Boolean),
+  );
+  for (const e of (tomorrowResult.transitEvents || [])) {
+    const desc = (e.description || '').trim();
+    if (!desc || presentDescs.has(desc.toLowerCase())) continue;
+    const isNode = NODE_PLANETS.has(e.transitPlanet) || NODE_PLANETS.has(e.natalPlanet);
+    const spill =
+      e.type === 'transit_house'
+      || (e.type === 'aspect' && e.transitPlanet === 'Moon'
+          && !/:\s*(Exact|Starts|Ends)$/.test(desc))
+      || (e.type === 'aspect' && !isNode && desc.endsWith(': Exact')
+          && e.separating === true
+          && typeof e.orb === 'number' && e.orb < exactOrbCap(e));
+    if (!spill) continue;
+    presentDescs.add(desc.toLowerCase());
+    transitEvents.push({ ...e, rulers: [] });
   }
 
   return transitEvents;

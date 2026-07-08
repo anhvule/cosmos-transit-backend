@@ -7,9 +7,11 @@
  *
  * Run: `npm run test:planner` (excluded from default `npm test`).
  *
- * Known engine gaps (2026-07-04): ~15 days fail because career omits some
- * PDF rulers/dispositors (e.g. "Mars in 8th (Dispositor)", Venus rulers in
- * 8th). Fixtures keep PDF truth — do not drop titles to greenwash.
+ * Fixtures keep PDF truth — do not drop titles to greenwash. The former
+ * ~15-day engine gaps (missing rulers/dispositors, day-boundary Moon
+ * events/ingresses, non-local-min :Exact days) are closed by the full
+ * natal-ruler set, day-boundary spillover, and :Exact keep-within-cap
+ * rules in routes/reading.js computeFilteredEvents.
  */
 const fs = require('fs');
 const path = require('path');
