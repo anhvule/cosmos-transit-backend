@@ -1,3 +1,6 @@
+# Superpowers worktrees
+.worktrees/
+
 # Logs
 logs
 *.log

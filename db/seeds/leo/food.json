@@ -1,0 +1,4242 @@
+[
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Jupiter Aspecting Ascendant (ASC) : Ends",
+    "description": "Jupiter separating from Lagna aspect — wisdom-eating window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Jupiter Aspecting Ascendant (ASC) : Exact",
+    "description": "Jupiter exactly aspects your Lagna today — peak wisdom-eating day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Jupiter Aspecting Ascendant (ASC) : Starts",
+    "description": "Jupiter beginning to aspect your Lagna — wisdom-eating window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Jupiter Aspecting Ascendant (ASC)",
+    "description": "Jupiter aspecting your Lagna brings wisdom-and-expansion to visible eating. Body holds richness; watch portions."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Jupiter Aspecting Midheaven (MC) : Ends",
+    "description": "Jupiter separating from MC aspect — wisdom-cooking-public window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Jupiter Aspecting Midheaven (MC) : Exact",
+    "description": "Jupiter exactly aspects your MC today — peak wisdom-cooking-public day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Jupiter Aspecting Midheaven (MC) : Starts",
+    "description": "Jupiter beginning to aspect your MC — wisdom-cooking-public window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Jupiter Aspecting Midheaven (MC)",
+    "description": "Jupiter aspecting your MC opens wisdom-cooking-career window. Advisory cooking, mentor-led culinary moves land."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Ketu Aspecting Ascendant (ASC) : Ends",
+    "description": "Ketu separating from Lagna aspect — detached-eating window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Ketu Aspecting Ascendant (ASC) : Exact",
+    "description": "Ketu exactly aspects your Lagna today — peak detached-eating day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Ketu Aspecting Ascendant (ASC) : Starts",
+    "description": "Ketu beginning to aspect your Lagna — detached-eating window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Ketu Aspecting Ascendant (ASC)",
+    "description": "Ketu aspecting your Lagna brings detachment-amplification to eating. Identity loosens; simplicity surfaces."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Ketu Aspecting Midheaven (MC) : Ends",
+    "description": "Ketu separating from MC aspect — detached-cooking-public window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Ketu Aspecting Midheaven (MC) : Exact",
+    "description": "Ketu exactly aspects your MC today — peak detached-cooking-public day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Ketu Aspecting Midheaven (MC) : Starts",
+    "description": "Ketu beginning to aspect your MC — detached-cooking-public window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Ketu Aspecting Midheaven (MC)",
+    "description": "Ketu aspecting your MC opens detached-cooking-career window. Public-eating-image simplification favored."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Mars Aspecting Ascendant (ASC) : Ends",
+    "description": "Mars separating from Lagna aspect — assertive-eating window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Mars Aspecting Ascendant (ASC) : Exact",
+    "description": "Mars exactly aspects your Lagna today — peak decisive-eating day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Mars Aspecting Ascendant (ASC) : Starts",
+    "description": "Mars beginning to aspect your Lagna — assertive-eating window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Mars Aspecting Ascendant (ASC)",
+    "description": "Mars aspecting your Lagna lights up assertive-self-eating window. High Pitta heat — cool the system."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Mars Aspecting Midheaven (MC) : Ends",
+    "description": "Mars separating from MC aspect — decisive-cooking-public window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Mars Aspecting Midheaven (MC) : Exact",
+    "description": "Mars exactly aspects your MC today — peak decisive-cooking-public day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Mars Aspecting Midheaven (MC) : Starts",
+    "description": "Mars beginning to aspect your MC — decisive-cooking-public window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Mars Aspecting Midheaven (MC)",
+    "description": "Mars aspecting your MC opens decisive-cooking-public window. Aggressive cooking-career moves land."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Mercury Aspecting Ascendant (ASC) : Ends",
+    "description": "Mercury separating from Lagna aspect — articulate-eating window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Mercury Aspecting Ascendant (ASC) : Exact",
+    "description": "Mercury exactly aspects your Lagna today — peak articulate-eating day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Mercury Aspecting Ascendant (ASC) : Starts",
+    "description": "Mercury beginning to aspect your Lagna — articulate-eating window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Mercury Aspecting Ascendant (ASC)",
+    "description": "Mercury aspecting your Lagna lights up articulate-self-eating window. Speech and digestion both responsive."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Mercury Aspecting Midheaven (MC) : Ends",
+    "description": "Mercury separating from MC aspect — articulate-cooking-public window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Mercury Aspecting Midheaven (MC) : Exact",
+    "description": "Mercury exactly aspects your MC today — peak articulate-cooking-public day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Mercury Aspecting Midheaven (MC) : Starts",
+    "description": "Mercury beginning to aspect your MC — articulate-cooking-public window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Mercury Aspecting Midheaven (MC)",
+    "description": "Mercury aspecting your MC opens articulate-cooking-public window. Brand-led cooking writing, sales-pitch cooking content land."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Moon Aspecting Ascendant (ASC) : Ends",
+    "description": "Moon separating from Lagna aspect — emotional-eating window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Moon Aspecting Ascendant (ASC) : Exact",
+    "description": "Moon exactly aspects your Lagna today — peak emotional-eating day. Lead with warmth in cooking."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Moon Aspecting Ascendant (ASC) : Starts",
+    "description": "Moon beginning to aspect your Lagna — emotional-eating window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Moon Aspecting Ascendant (ASC)",
+    "description": "Moon aspecting your Lagna brings emotional-weather to appetite. Eat warm, eat seen, eat with care."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Moon Aspecting Midheaven (MC) : Ends",
+    "description": "Moon separating from MC aspect — emotional-public-eating window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Moon Aspecting Midheaven (MC) : Exact",
+    "description": "Moon exactly aspects your MC today — peak emotional-public-eating day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Moon Aspecting Midheaven (MC) : Starts",
+    "description": "Moon beginning to aspect your MC — emotional-public-eating window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Moon Aspecting Midheaven (MC)",
+    "description": "Moon aspecting your MC brings emotional-public-eating window. Hospitality softens; clients respond to your mood."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Rahu Aspecting Ascendant (ASC) : Ends",
+    "description": "Rahu separating from Lagna aspect — unconventional-eating window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Rahu Aspecting Ascendant (ASC) : Exact",
+    "description": "Rahu exactly aspects your Lagna today — peak unconventional-eating day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Rahu Aspecting Ascendant (ASC) : Starts",
+    "description": "Rahu beginning to aspect your Lagna — unconventional-eating window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Rahu Aspecting Ascendant (ASC)",
+    "description": "Rahu aspecting your Lagna brings unconventional-amplification to eating. Foreign-flavor experimentation favored."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Rahu Aspecting Midheaven (MC) : Ends",
+    "description": "Rahu separating from MC aspect — unconventional-cooking-public window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Rahu Aspecting Midheaven (MC) : Exact",
+    "description": "Rahu exactly aspects your MC today — peak unconventional-cooking-public day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Rahu Aspecting Midheaven (MC) : Starts",
+    "description": "Rahu beginning to aspect your MC — unconventional-cooking-public window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Rahu Aspecting Midheaven (MC)",
+    "description": "Rahu aspecting your MC opens unconventional-cooking-career window. Foreign-cooking moves favored."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Saturn Aspecting Ascendant (ASC) : Ends",
+    "description": "Saturn separating from Lagna aspect — disciplined-eating window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Saturn Aspecting Ascendant (ASC) : Exact",
+    "description": "Saturn exactly aspects your Lagna today — peak disciplined-eating day. Multi-year dietary commitment locks in."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Saturn Aspecting Ascendant (ASC) : Starts",
+    "description": "Saturn beginning to aspect your Lagna — disciplined-eating window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Saturn Aspecting Ascendant (ASC)",
+    "description": "Saturn aspecting your Lagna brings discipline-and-restructuring to eating. Diet tightens around what truly serves."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Saturn Aspecting Midheaven (MC) : Ends",
+    "description": "Saturn separating from MC aspect — disciplined-cooking-public window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Saturn Aspecting Midheaven (MC) : Exact",
+    "description": "Saturn exactly aspects your MC today — peak disciplined-cooking-public day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Saturn Aspecting Midheaven (MC) : Starts",
+    "description": "Saturn beginning to aspect your MC — disciplined-cooking-public window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Saturn Aspecting Midheaven (MC)",
+    "description": "Saturn aspecting your MC opens disciplined-cooking-public window. Multi-year cooking-career commitments land."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Sun Aspecting Ascendant (ASC) : Ends",
+    "description": "Sun separating from Lagna aspect — kingly-eating window closes. Lock in the daily-eating commitments."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Sun Aspecting Ascendant (ASC) : Exact",
+    "description": "Sun exactly aspects your Lagna today — peak kingly-eating day. Eat substantial, eat dignified, eat seen."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Sun Aspecting Ascendant (ASC) : Starts",
+    "description": "Sun begins to aspect your Lagna — kingly-eating window opens. Prepare warm cooked substantial meals."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Sun Aspecting Ascendant (ASC)",
+    "description": "Sun aspecting your Lagna lights up identity-eating window. Body wants substantial dignified meals; lead from warmth."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Sun Aspecting Midheaven (MC) : Ends",
+    "description": "Sun separating from MC aspect — career-eating window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Sun Aspecting Midheaven (MC) : Exact",
+    "description": "Sun exactly aspects your MC today — peak career-eating day. Make the brand-defining hospitality move."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Sun Aspecting Midheaven (MC) : Starts",
+    "description": "Sun beginning to aspect your MC — career-eating window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Sun Aspecting Midheaven (MC)",
+    "description": "Sun aspecting your MC lights up career-eating-visibility window. Hospitality, networking dinners, food-as-brand respond."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Venus Aspecting Ascendant (ASC) : Ends",
+    "description": "Venus separating from Lagna aspect — aesthetic-eating window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Venus Aspecting Ascendant (ASC) : Exact",
+    "description": "Venus exactly aspects your Lagna today — peak aesthetic-eating day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Venus Aspecting Ascendant (ASC) : Starts",
+    "description": "Venus beginning to aspect your Lagna — aesthetic-eating window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Venus Aspecting Ascendant (ASC)",
+    "description": "Venus aspecting your Lagna brings aesthetic-charisma to visible eating — magnetic-meal window. The table draws."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Venus Aspecting Midheaven (MC) : Ends",
+    "description": "Venus separating from MC aspect — aesthetic-cooking-public window closes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Venus Aspecting Midheaven (MC) : Exact",
+    "description": "Venus exactly aspects your MC today — peak aesthetic-cooking-public day."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Venus Aspecting Midheaven (MC) : Starts",
+    "description": "Venus beginning to aspect your MC — aesthetic-cooking-public window opens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Venus Aspecting Midheaven (MC)",
+    "description": "Venus aspecting your MC opens aesthetic-public-cooking window. Hospitality work, female-mentor culinary investments respond."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Jupiter in 5th house : Ends",
+    "description": "Jupiter-return aspect separating — 12-year wisdom-cooking-anchor window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Jupiter in 5th house : Exact",
+    "description": "Jupiter-return aspect exact — peak wisdom-cooking day of 12-year cycle."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Jupiter in 5th house : Starts",
+    "description": "Jupiter-return aspect approaching — prepare 12-year wisdom-cooking-anchor moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Jupiter aspect Jupiter in 5th house",
+    "description": "Jupiter-return aspect — once-every-12-years peak ceremonial-cooking-and-wisdom anchor. Best for: launching cooking-teaching practice, founding culinary-advisory firm, publishing cookbook."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Ketu in 12th house : Ends",
+    "description": "Jupiter-Ketu aspect separating — wisdom-detached-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Ketu in 12th house : Exact",
+    "description": "Jupiter-Ketu aspect exact — peak wisdom-detached-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Ketu in 12th house : Starts",
+    "description": "Jupiter-Ketu aspect approaching — prepare wisdom-detached-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Jupiter aspect Ketu in 12th house",
+    "description": "Jupiter-Ketu aspect lights up wisdom-detached-foreign-cooking window. Best for: foreign-spiritual cooking study, retreat-and-cooking-research."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Mars in 9th house : Ends",
+    "description": "Jupiter-Mars aspect separating — wisdom-dharma-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Mars in 9th house : Exact",
+    "description": "Jupiter-Mars aspect exact — peak wisdom-yogakaraka-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Mars in 9th house : Starts",
+    "description": "Jupiter-Mars aspect approaching — prepare wisdom-dharma-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Jupiter aspect Mars in 9th house",
+    "description": "Jupiter-Mars aspect lights up wisdom-and-dharma-cooking peak window. Best for: foreign-cuisine expansion with wisdom backing, principled-cooking publishing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Mercury in 2nd house : Ends",
+    "description": "Jupiter-Mercury aspect separating — wise-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Mercury in 2nd house : Exact",
+    "description": "Jupiter-Mercury aspect exact — peak wise-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Mercury in 2nd house : Starts",
+    "description": "Jupiter-Mercury aspect approaching — prepare wise-articulate-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Jupiter aspect Mercury in 2nd house",
+    "description": "Jupiter-Mercury aspect lights up wise-articulate-family-cooking window. Best for: family-wealth-with-cooking decisions."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Moon in 11th house : Ends",
+    "description": "Jupiter-Moon aspect separating — wisdom-network-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Moon in 11th house : Exact",
+    "description": "Jupiter-Moon aspect exact — peak wisdom-network-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Moon in 11th house : Starts",
+    "description": "Jupiter-Moon aspect approaching — prepare wisdom-network-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Jupiter aspect Moon in 11th house",
+    "description": "Jupiter-Moon aspect lights up wisdom-network-and-cooking-friendship window. Best for: peer-cohort wisdom-monetization in cooking, paid-cooking-newsletter expansion."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Rahu in 6th house : Ends",
+    "description": "Jupiter-Rahu aspect separating — wisdom-service-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Rahu in 6th house : Exact",
+    "description": "Jupiter-Rahu aspect exact — peak wisdom-service-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Rahu in 6th house : Starts",
+    "description": "Jupiter-Rahu aspect approaching — prepare wisdom-service-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Jupiter aspect Rahu in 6th house",
+    "description": "Jupiter-Rahu aspect lights up wisdom-service-victory-cooking window. Best for: regulatory-cooking-strategy with wisdom backing, foreign-clientele cooking expansion."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Saturn in 3rd house : Ends",
+    "description": "Jupiter-Saturn aspect separating — wisdom-structural-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Saturn in 3rd house : Exact",
+    "description": "Jupiter-Saturn aspect exact — peak wisdom-structural-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Saturn in 3rd house : Starts",
+    "description": "Jupiter-Saturn aspect approaching — prepare wisdom-structural-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Jupiter aspect Saturn in 3rd house",
+    "description": "Jupiter-Saturn aspect lights up wisdom-discipline-courage-in-cookbook-writing window. Best for: long-form cookbook publishing with wisdom backing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Sun in 1st house : Ends",
+    "description": "Jupiter-Sun aspect separating — wisdom-identity-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Sun in 1st house : Exact",
+    "description": "Jupiter-Sun aspect exact — peak wisdom-identity-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Sun in 1st house : Starts",
+    "description": "Jupiter-Sun aspect approaching — prepare wisdom-identity-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Jupiter aspect Sun in 1st house",
+    "description": "Jupiter-Sun aspect lights up wisdom-identity-eating window. Best for: founder-launches in cooking with wisdom backing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Venus in 10th house : Ends",
+    "description": "Jupiter-Venus aspect separating — wisdom-Malavya-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Venus in 10th house : Exact",
+    "description": "Jupiter-Venus aspect exact — peak wisdom-Malavya-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Venus in 10th house : Starts",
+    "description": "Jupiter-Venus aspect approaching — prepare wisdom-aesthetic-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Jupiter aspect Venus in 10th house",
+    "description": "Jupiter-Venus aspect lights up wisdom-aesthetic-cooking convergence window. Best for: brand-led culinary expansion with wisdom backing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Ketu aspect Jupiter in 5th house : Ends",
+    "description": "Ketu-Jupiter aspect separating — wisdom-detachment-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Ketu aspect Jupiter in 5th house : Exact",
+    "description": "Ketu-Jupiter aspect exact — peak detached-wisdom-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Ketu aspect Jupiter in 5th house : Starts",
+    "description": "Ketu-Jupiter aspect approaching — prepare detached-wisdom-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Ketu aspect Jupiter in 5th house",
+    "description": "Ketu-Jupiter aspect brings wisdom-detachment-cooking window. Creativity in cooking strips to essentials."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Ketu aspect Ketu in 12th house : Ends",
+    "description": "Ketu-return aspect separating — 18-year liberation-anchor-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Ketu aspect Ketu in 12th house : Exact",
+    "description": "Ketu-return aspect exact — peak spiritual-liberation-cooking day of 18-year cycle."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Ketu aspect Ketu in 12th house : Starts",
+    "description": "Ketu-return aspect approaching — prepare 18-year spiritual-liberation-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Ketu aspect Ketu in 12th house",
+    "description": "Ketu-return aspect — peak spiritual-liberation-cooking anchor of 18-year cycle. Behind-the-scenes cooking work deepens."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Ketu aspect Mars in 9th house : Ends",
+    "description": "Ketu-Mars aspect separating — dharma-detachment-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Ketu aspect Mars in 9th house : Exact",
+    "description": "Ketu-Mars aspect exact — peak detached-dharma-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Ketu aspect Mars in 9th house : Starts",
+    "description": "Ketu-Mars aspect approaching — prepare detached-dharma-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Ketu aspect Mars in 9th house",
+    "description": "Ketu-Mars aspect brings dharma-detachment-cooking window. Principled-cooking persists but feels detached from outcome."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Ketu aspect Mercury in 2nd house : Ends",
+    "description": "Ketu-Mercury aspect separating — speech-detachment-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Ketu aspect Mercury in 2nd house : Exact",
+    "description": "Ketu-Mercury aspect exact — peak detached-voice-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Ketu aspect Mercury in 2nd house : Starts",
+    "description": "Ketu-Mercury aspect approaching — prepare detached-voice-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Ketu aspect Mercury in 2nd house",
+    "description": "Ketu-Mercury aspect brings speech-and-cooking-money-detachment window. Voice work in cooking feels detached."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Ketu aspect Moon in 11th house : Ends",
+    "description": "Ketu-Moon aspect separating — detached-network-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Ketu aspect Moon in 11th house : Exact",
+    "description": "Ketu-Moon aspect exact — peak detached-network-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Ketu aspect Moon in 11th house : Starts",
+    "description": "Ketu-Moon aspect approaching — prepare detached-network-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Ketu aspect Moon in 11th house",
+    "description": "Ketu-Moon aspect brings cooking-network-detachment window. Cooking-friendships thin to essentials."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Ketu aspect Rahu in 6th house : Ends",
+    "description": "Ketu-Rahu nodal-flip aspect separating — service-rewiring-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Ketu aspect Rahu in 6th house : Exact",
+    "description": "Ketu-Rahu nodal-flip aspect exact — peak detached-service-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Ketu aspect Rahu in 6th house : Starts",
+    "description": "Ketu-Rahu nodal-flip aspect approaching — prepare detached-service-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Ketu aspect Rahu in 6th house",
+    "description": "Ketu-Rahu nodal-flip aspect — peak detachment-from-cooking-conflict amplification. Cooking-workplace-anxiety drops."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Ketu aspect Saturn in 3rd house : Ends",
+    "description": "Ketu-Saturn aspect separating — disciplined-detachment-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Ketu aspect Saturn in 3rd house : Exact",
+    "description": "Ketu-Saturn aspect exact — peak detached-structural-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Ketu aspect Saturn in 3rd house : Starts",
+    "description": "Ketu-Saturn aspect approaching — prepare detached-structural-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Ketu aspect Saturn in 3rd house",
+    "description": "Ketu-Saturn aspect brings disciplined-detachment-cookbook-writing window. Cooking-communication strips to essentials."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Ketu aspect Sun in 1st house : Ends",
+    "description": "Ketu-Sun aspect separating — detached-identity-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Ketu aspect Sun in 1st house : Exact",
+    "description": "Ketu-Sun aspect exact — peak detached-identity-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Ketu aspect Sun in 1st house : Starts",
+    "description": "Ketu-Sun aspect approaching — prepare detached-identity-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Ketu aspect Sun in 1st house",
+    "description": "Ketu-Sun aspect brings detachment-amplification-of-eating-identity window. Ego dissolves; simple-mystical eating surfaces."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Ketu aspect Venus in 10th house : Ends",
+    "description": "Ketu-Venus aspect separating — detached-career-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Ketu aspect Venus in 10th house : Exact",
+    "description": "Ketu-Venus aspect exact — peak detached-career-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Ketu aspect Venus in 10th house : Starts",
+    "description": "Ketu-Venus aspect approaching — prepare detached-career-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Ketu aspect Venus in 10th house",
+    "description": "Ketu-Venus aspect brings career-cooking-detachment window. Public-cooking-visibility feels detached."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Mars aspect Jupiter in 5th house : Ends",
+    "description": "Mars-Jupiter aspect separating — bold-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Mars aspect Jupiter in 5th house : Exact",
+    "description": "Mars-Jupiter aspect exact — peak bold-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Mars aspect Jupiter in 5th house : Starts",
+    "description": "Mars-Jupiter aspect approaching — prepare bold-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Mars aspect Jupiter in 5th house",
+    "description": "Mars-Jupiter aspect lights up bold-creative-cooking window. Best for: aggressive creative-food launches, decisive cooking-advisory pitches."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Mars aspect Ketu in 12th house : Ends",
+    "description": "Mars-Ketu aspect separating — hidden-action-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Mars aspect Ketu in 12th house : Exact",
+    "description": "Mars-Ketu aspect exact — peak hidden-conflict-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Mars aspect Ketu in 12th house : Starts",
+    "description": "Mars-Ketu aspect approaching — prepare hidden-action-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Mars aspect Ketu in 12th house",
+    "description": "Mars-Ketu aspect lights up hidden-conflict-cooking window. Avoid public food-confrontations; close private cooking projects with finality."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Mars aspect Mars in 9th house : Ends",
+    "description": "Mars-return aspect separating — yogakaraka-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Mars aspect Mars in 9th house : Exact",
+    "description": "Mars-return aspect exact — peak yogakaraka-cooking day. The dharma-fire fires fully; cool the body."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Mars aspect Mars in 9th house : Starts",
+    "description": "Mars-return aspect approaching — prepare dharma-warrior-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Mars aspect Mars in 9th house",
+    "description": "Mars-return aspect — annual peak warrior-cuisine anchor. Best for: foreign-action cuisine, principled-cooking confrontations, mentor-cooking visits."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Mars aspect Mercury in 2nd house : Ends",
+    "description": "Mars-Mercury aspect separating — sharp-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Mars aspect Mercury in 2nd house : Exact",
+    "description": "Mars-Mercury aspect exact — peak sharp-eating day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Mars aspect Mercury in 2nd house : Starts",
+    "description": "Mars-Mercury aspect approaching — prepare sharp-analytic-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Mars aspect Mercury in 2nd house",
+    "description": "Mars-Mercury aspect lights up sharp-analytic-eating window. Best for: hard-but-fair family-money cooking conversations."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Mars aspect Moon in 11th house : Ends",
+    "description": "Mars-Moon aspect separating — competitive-network-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Mars aspect Moon in 11th house : Exact",
+    "description": "Mars-Moon aspect exact — peak competitive-network-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Mars aspect Moon in 11th house : Starts",
+    "description": "Mars-Moon aspect approaching — prepare competitive-network-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Mars aspect Moon in 11th house",
+    "description": "Mars-Moon aspect lights up competitive-network-cooking window. Best for: peer-rivalry resolution through hosting, decisive friend-network cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Mars aspect Rahu in 6th house : Ends",
+    "description": "Mars-Rahu aspect separating — warrior-service-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Mars aspect Rahu in 6th house : Exact",
+    "description": "Mars-Rahu aspect exact — peak warrior-service-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Mars aspect Rahu in 6th house : Starts",
+    "description": "Mars-Rahu aspect approaching — prepare warrior-service-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Mars aspect Rahu in 6th house",
+    "description": "Mars-Rahu aspect lights up warrior-service-cooking window. Best for: tackling difficult-cooking-clients head-on, regulatory/compliance cooking fights."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Mars aspect Saturn in 3rd house : Ends",
+    "description": "Mars-Saturn aspect separating — bold-structural-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Mars aspect Saturn in 3rd house : Exact",
+    "description": "Mars-Saturn aspect exact — peak bold-structural-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Mars aspect Saturn in 3rd house : Starts",
+    "description": "Mars-Saturn aspect approaching — prepare bold-structural-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Mars aspect Saturn in 3rd house",
+    "description": "Mars-Saturn aspect lights up courageous-disciplined-cooking-writing window. Best for: bold-but-structured cookbook publications, decisive peer-cohort culinary leadership."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Mars aspect Sun in 1st house : Ends",
+    "description": "Mars-Sun aspect separating — assertive-identity-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Mars aspect Sun in 1st house : Exact",
+    "description": "Mars-Sun aspect exact — peak assertive-identity-eating day. Cool the system."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Mars aspect Sun in 1st house : Starts",
+    "description": "Mars-Sun aspect approaching — prepare assertive-identity-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Mars aspect Sun in 1st house",
+    "description": "Mars-Sun aspect lights up assertive-identity-eating window. Best for: bold dietary moves, decisive personal-brand-eating updates. High Pitta."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Mars aspect Venus in 10th house : Ends",
+    "description": "Mars-Venus aspect separating — assertive-aesthetic-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Mars aspect Venus in 10th house : Exact",
+    "description": "Mars-Venus aspect exact — peak assertive-aesthetic-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Mars aspect Venus in 10th house : Starts",
+    "description": "Mars-Venus aspect approaching — prepare assertive-aesthetic-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Mars aspect Venus in 10th house",
+    "description": "Mars-Venus aspect lights up assertive-aesthetic-cooking window. Best for: bold cooking-career moves, decisive female-mentor culinary outreach."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Mercury aspect Jupiter in 5th house : Ends",
+    "description": "Mercury-Jupiter aspect separating — wise-articulate-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Mercury aspect Jupiter in 5th house : Exact",
+    "description": "Mercury-Jupiter aspect exact — peak wise-articulate-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Mercury aspect Jupiter in 5th house : Starts",
+    "description": "Mercury-Jupiter aspect approaching — prepare wise-articulate-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Mercury aspect Jupiter in 5th house",
+    "description": "Mercury-Jupiter aspect lights up wise-articulate-cooking window. Best for: lecture-writing about food, advisory cooking documents."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Mercury aspect Ketu in 12th house : Ends",
+    "description": "Mercury-Ketu aspect separating — confidential-cooking-writing window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Mercury aspect Ketu in 12th house : Exact",
+    "description": "Mercury-Ketu aspect exact — peak confidential-cooking-writing day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Mercury aspect Ketu in 12th house : Starts",
+    "description": "Mercury-Ketu aspect approaching — prepare confidential-cooking-writing moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Mercury aspect Ketu in 12th house",
+    "description": "Mercury-Ketu aspect lights up confidential-foreign-detached-cookbook-writing window. Best for: ghostwritten cookbooks, dream-food journaling."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Mercury aspect Mars in 9th house : Ends",
+    "description": "Mercury-Mars aspect separating — sharp-foreign-cooking-writing window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Mercury aspect Mars in 9th house : Exact",
+    "description": "Mercury-Mars aspect exact — peak sharp-foreign-cooking-writing day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Mercury aspect Mars in 9th house : Starts",
+    "description": "Mercury-Mars aspect approaching — prepare sharp-foreign-cooking-writing moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Mercury aspect Mars in 9th house",
+    "description": "Mercury-Mars aspect lights up sharp-articulate-foreign-cuisine window. Best for: travel-food writing, principled-eating articles."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Mercury aspect Mercury in 2nd house : Ends",
+    "description": "Mercury-return aspect separating — annual voice-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Mercury aspect Mercury in 2nd house : Exact",
+    "description": "Mercury-return aspect exact — peak voice-eating day. Sign the family-recipe commitment."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Mercury aspect Mercury in 2nd house : Starts",
+    "description": "Mercury-return aspect approaching — prepare voice-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Mercury aspect Mercury in 2nd house",
+    "description": "Mercury-return aspect — annual articulate-precision-digestion anchor. Best for: family-recipe documentation, voice-led nutrition work."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Mercury aspect Moon in 11th house : Ends",
+    "description": "Mercury-Moon aspect separating — articulate-network-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Mercury aspect Moon in 11th house : Exact",
+    "description": "Mercury-Moon aspect exact — peak articulate-network-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Mercury aspect Moon in 11th house : Starts",
+    "description": "Mercury-Moon aspect approaching — prepare articulate-network-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Mercury aspect Moon in 11th house",
+    "description": "Mercury-Moon aspect lights up articulate-network-cooking window. Best for: peer-cohort recipe messaging, friend-cooking-network writing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Mercury aspect Rahu in 6th house : Ends",
+    "description": "Mercury-Rahu aspect separating — unconventional-cooking-analytic window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Mercury aspect Rahu in 6th house : Exact",
+    "description": "Mercury-Rahu aspect exact — peak unconventional-cooking-analytic day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Mercury aspect Rahu in 6th house : Starts",
+    "description": "Mercury-Rahu aspect approaching — prepare unconventional-cooking-analytic moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Mercury aspect Rahu in 6th house",
+    "description": "Mercury-Rahu aspect lights up unconventional-analytic-service-cooking window. Best for: documenting daily-eating protocols, foreign-cuisine memo-writing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Mercury aspect Saturn in 3rd house : Ends",
+    "description": "Mercury-Saturn aspect separating — structural-cookbook window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Mercury aspect Saturn in 3rd house : Exact",
+    "description": "Mercury-Saturn aspect exact — peak structural-cookbook day. Lock in long-form cookbook commitment."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Mercury aspect Saturn in 3rd house : Starts",
+    "description": "Mercury-Saturn aspect approaching — prepare structural-cookbook moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Mercury aspect Saturn in 3rd house",
+    "description": "Mercury-Saturn aspect — peak structural-cookbook-writing day of the chart. Best for: long-form recipe writing, peer-cohort cookbook commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Mercury aspect Sun in 1st house : Ends",
+    "description": "Mercury-Sun aspect separating — articulate-identity-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Mercury aspect Sun in 1st house : Exact",
+    "description": "Mercury-Sun aspect exact — peak articulate-identity-eating day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Mercury aspect Sun in 1st house : Starts",
+    "description": "Mercury-Sun aspect approaching — prepare articulate-identity-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Mercury aspect Sun in 1st house",
+    "description": "Mercury-Sun aspect lights up articulate-identity-eating window. Best for: voice-led cooking content, on-camera food work."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Mercury aspect Venus in 10th house : Ends",
+    "description": "Mercury-Venus aspect separating — articulate-aesthetic-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Mercury aspect Venus in 10th house : Exact",
+    "description": "Mercury-Venus aspect exact — peak articulate-aesthetic-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Mercury aspect Venus in 10th house : Starts",
+    "description": "Mercury-Venus aspect approaching — prepare articulate-aesthetic-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Mercury aspect Venus in 10th house",
+    "description": "Mercury-Venus aspect lights up articulate-aesthetic-cooking window. Best for: brand-led cooking writing, female-mentor culinary outreach."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Moon aspect Jupiter in 5th house : Ends",
+    "description": "Moon-Jupiter aspect separating — warm-wisdom-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Moon aspect Jupiter in 5th house : Exact",
+    "description": "Moon-Jupiter aspect exact — peak warm-wisdom-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Moon aspect Jupiter in 5th house : Starts",
+    "description": "Moon-Jupiter aspect approaching — prepare warm-wisdom-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Moon aspect Jupiter in 5th house",
+    "description": "Moon-Jupiter aspect lights up emotional-creative-cooking window. Best for: warm cooking with children/mentees, ritual food."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Moon aspect Ketu in 12th house : Ends",
+    "description": "Moon-Ketu aspect separating — warm-detached cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Moon aspect Ketu in 12th house : Exact",
+    "description": "Moon-Ketu aspect exact — peak warm-detached cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Moon aspect Ketu in 12th house : Starts",
+    "description": "Moon-Ketu aspect approaching — prepare warm-detached cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Moon aspect Ketu in 12th house",
+    "description": "Moon-Ketu aspect lights up emotional-detached-foreign-cooking window. Best for: warm-but-private foreign-friend recipe gifting."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Moon aspect Mars in 9th house : Ends",
+    "description": "Moon-Mars aspect separating — warm-principled eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Moon aspect Mars in 9th house : Exact",
+    "description": "Moon-Mars aspect exact — peak warm-principled eating day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Moon aspect Mars in 9th house : Starts",
+    "description": "Moon-Mars aspect approaching — prepare warm-principled eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Moon aspect Mars in 9th house",
+    "description": "Moon-Mars aspect lights up emotional-dharma-eating window. Best for: warm-but-principled mentor-meals."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Moon aspect Mercury in 2nd house : Ends",
+    "description": "Moon-Mercury aspect separating — warm-precision eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Moon aspect Mercury in 2nd house : Exact",
+    "description": "Moon-Mercury aspect exact — peak warm-precision eating day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Moon aspect Mercury in 2nd house : Starts",
+    "description": "Moon-Mercury aspect approaching — prepare warm-precision-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Moon aspect Mercury in 2nd house",
+    "description": "Moon-Mercury aspect lights up emotional-precision-eating window. Best for: tender family-cooking conversations."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Moon aspect Moon in 11th house : Ends",
+    "description": "Lunar-return aspect separating — network-warmth eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Moon aspect Moon in 11th house : Exact",
+    "description": "Lunar-return aspect exact — peak emotional-network-eating day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Moon aspect Moon in 11th house : Starts",
+    "description": "Lunar-return aspect approaching — prepare network-warmth eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Moon aspect Moon in 11th house",
+    "description": "Lunar-return aspect — emotional-network-eating anchor. Best for: peer-cohort cooking warmth, friend-network meal alignment."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Moon aspect Rahu in 6th house : Ends",
+    "description": "Moon-Rahu aspect separating — warm-service-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Moon aspect Rahu in 6th house : Exact",
+    "description": "Moon-Rahu aspect exact — peak warm-service-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Moon aspect Rahu in 6th house : Starts",
+    "description": "Moon-Rahu aspect approaching — prepare warm-service-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Moon aspect Rahu in 6th house",
+    "description": "Moon-Rahu aspect lights up emotional-service-cooking window. Watch for stress-eating during this 2-day window."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Moon aspect Saturn in 3rd house : Ends",
+    "description": "Moon-Saturn aspect separating — warm-disciplined cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Moon aspect Saturn in 3rd house : Exact",
+    "description": "Moon-Saturn aspect exact — peak warm-disciplined cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Moon aspect Saturn in 3rd house : Starts",
+    "description": "Moon-Saturn aspect approaching — prepare warm-disciplined cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Moon aspect Saturn in 3rd house",
+    "description": "Moon-Saturn aspect lights up emotional-disciplined-cooking window. Hard cooking-conversations softened by genuine care."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Moon aspect Sun in 1st house : Ends",
+    "description": "Moon-Sun aspect separating — emotional-identity-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Moon aspect Sun in 1st house : Exact",
+    "description": "Moon-Sun aspect exact — peak emotional-identity-eating day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Moon aspect Sun in 1st house : Starts",
+    "description": "Moon-Sun aspect approaching — prepare warm-identity-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Moon aspect Sun in 1st house",
+    "description": "Moon-Sun aspect lights up emotional-identity-eating window. 2-day window for warmth-led cooking."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Moon aspect Venus in 10th house : Ends",
+    "description": "Moon-Venus aspect separating — warm-aesthetic-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Moon aspect Venus in 10th house : Exact",
+    "description": "Moon-Venus aspect exact — peak warm-aesthetic-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Moon aspect Venus in 10th house : Starts",
+    "description": "Moon-Venus aspect approaching — prepare warm-aesthetic-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Moon aspect Venus in 10th house",
+    "description": "Moon-Venus aspect lights up emotional-aesthetic-cooking window. Best for: warm hospitality, female-mentor culinary check-ins."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Rahu aspect Jupiter in 5th house : Ends",
+    "description": "Rahu-Jupiter aspect separating — unconventional-wisdom-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Rahu aspect Jupiter in 5th house : Exact",
+    "description": "Rahu-Jupiter aspect exact — peak unconventional-wisdom-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Rahu aspect Jupiter in 5th house : Starts",
+    "description": "Rahu-Jupiter aspect approaching — prepare unconventional-wisdom-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Rahu aspect Jupiter in 5th house",
+    "description": "Rahu-Jupiter aspect brings wisdom-amplification with foreign/unconventional flavor in cooking. Viral cooking content."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Rahu aspect Ketu in 12th house : Ends",
+    "description": "Rahu-Ketu nodal-flip aspect separating — 18-month rewiring-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Rahu aspect Ketu in 12th house : Exact",
+    "description": "Rahu-Ketu nodal-flip aspect exact — peak foreign-mystical-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Rahu aspect Ketu in 12th house : Starts",
+    "description": "Rahu-Ketu nodal-flip aspect approaching — prepare foreign-mystical-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Rahu aspect Ketu in 12th house",
+    "description": "Rahu-Ketu nodal-flip aspect — peak foreign-mystical-loss cooking-amplification. Foreign-relocation cooking, retreat-cooking-research."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Rahu aspect Mars in 9th house : Ends",
+    "description": "Rahu-Mars aspect separating — foreign-dharma-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Rahu aspect Mars in 9th house : Exact",
+    "description": "Rahu-Mars aspect exact — peak foreign-dharma-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Rahu aspect Mars in 9th house : Starts",
+    "description": "Rahu-Mars aspect approaching — prepare foreign-dharma-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Rahu aspect Mars in 9th house",
+    "description": "Rahu-Mars aspect brings peak foreign-dharma-cooking-amplification window. Foreign-cooking surges, university-based cooking opportunities abroad."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Rahu aspect Mercury in 2nd house : Ends",
+    "description": "Rahu-Mercury aspect separating — unconventional-income-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Rahu aspect Mercury in 2nd house : Exact",
+    "description": "Rahu-Mercury aspect exact — peak unconventional-income-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Rahu aspect Mercury in 2nd house : Starts",
+    "description": "Rahu-Mercury aspect approaching — prepare unconventional-income-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Rahu aspect Mercury in 2nd house",
+    "description": "Rahu-Mercury aspect brings unconventional-income-and-speech amplification in cooking. Income surges through unusual cooking writing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Rahu aspect Moon in 11th house : Ends",
+    "description": "Rahu-Moon aspect separating — unconventional-network-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Rahu aspect Moon in 11th house : Exact",
+    "description": "Rahu-Moon aspect exact — peak unconventional-network-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Rahu aspect Moon in 11th house : Starts",
+    "description": "Rahu-Moon aspect approaching — prepare unconventional-network-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Rahu aspect Moon in 11th house",
+    "description": "Rahu-Moon aspect brings peak-gain-amplification-cooking-network window. Viral cooking-network growth, foreign-friend culinary collaborations."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Rahu aspect Rahu in 6th house : Ends",
+    "description": "Rahu-return aspect separating — 18-year competitive-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Rahu aspect Rahu in 6th house : Exact",
+    "description": "Rahu-return aspect exact — peak victory-over-cooking-enemies day of 18-year cycle."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Rahu aspect Rahu in 6th house : Starts",
+    "description": "Rahu-return aspect approaching — prepare 18-year competitive-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Rahu aspect Rahu in 6th house",
+    "description": "Rahu-return aspect — peak victory-over-cooking-enemies anchor of 18-year cycle. Cooking-competitive surges."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Rahu aspect Saturn in 3rd house : Ends",
+    "description": "Rahu-Saturn aspect separating — unconventional-structural-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Rahu aspect Saturn in 3rd house : Exact",
+    "description": "Rahu-Saturn aspect exact — peak unconventional-structural-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Rahu aspect Saturn in 3rd house : Starts",
+    "description": "Rahu-Saturn aspect approaching — prepare unconventional-structural-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Rahu aspect Saturn in 3rd house",
+    "description": "Rahu-Saturn aspect brings disciplined-yet-unconventional-cookbook-writing window. Foreign-cohort culinary leadership."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Rahu aspect Sun in 1st house : Ends",
+    "description": "Rahu-Sun aspect separating — identity-amplification-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Rahu aspect Sun in 1st house : Exact",
+    "description": "Rahu-Sun aspect exact — peak identity-amplification-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Rahu aspect Sun in 1st house : Starts",
+    "description": "Rahu-Sun aspect approaching — prepare unconventional-identity-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Rahu aspect Sun in 1st house",
+    "description": "Rahu-Sun aspect brings unconventional-amplification-of-eating-identity window. Visibility surges through unconventional eating channels."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Rahu aspect Venus in 10th house : Ends",
+    "description": "Rahu-Venus aspect separating — unconventional-MC-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Rahu aspect Venus in 10th house : Exact",
+    "description": "Rahu-Venus aspect exact — peak unconventional-MC-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Rahu aspect Venus in 10th house : Starts",
+    "description": "Rahu-Venus aspect approaching — prepare unconventional-MC-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Rahu aspect Venus in 10th house",
+    "description": "Rahu-Venus aspect brings career-amplification with unconventional/foreign flavor in cooking. Foreign-MC moves in cooking favored."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Saturn aspect Jupiter in 5th house : Ends",
+    "description": "Saturn-Jupiter aspect separating — Kantaka Shani cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Saturn aspect Jupiter in 5th house : Exact",
+    "description": "Saturn-Jupiter aspect exact — peak structural-creative-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Saturn aspect Jupiter in 5th house : Starts",
+    "description": "Saturn-Jupiter aspect approaching — prepare structural-creative-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Saturn aspect Jupiter in 5th house",
+    "description": "Saturn-Jupiter aspect brings discipline-to-creativity-and-cooking-wisdom window — Kantaka Shani phase. Build durable creative-cooking systems."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Saturn aspect Ketu in 12th house : Ends",
+    "description": "Saturn-Ketu aspect separating — Sade-Sati-closure-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Saturn aspect Ketu in 12th house : Exact",
+    "description": "Saturn-Ketu aspect exact — peak Sade-Sati-closure-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Saturn aspect Ketu in 12th house : Starts",
+    "description": "Saturn-Ketu aspect approaching — prepare structural-private-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Saturn aspect Ketu in 12th house",
+    "description": "Saturn-Ketu aspect brings discipline-to-detached-foreign-cooking window — final phase of Sade-Sati."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Saturn aspect Mars in 9th house : Ends",
+    "description": "Saturn-Mars aspect separating — structural-dharma-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Saturn aspect Mars in 9th house : Exact",
+    "description": "Saturn-Mars aspect exact — peak structural-dharma-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Saturn aspect Mars in 9th house : Starts",
+    "description": "Saturn-Mars aspect approaching — prepare structural-dharma-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Saturn aspect Mars in 9th house",
+    "description": "Saturn-Mars aspect brings discipline-and-friction-to-dharma-cooking window. Foreign-cooking demands more grind."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Saturn aspect Mercury in 2nd house : Ends",
+    "description": "Saturn-Mercury aspect separating — structural-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Saturn aspect Mercury in 2nd house : Exact",
+    "description": "Saturn-Mercury aspect exact — peak structural-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Saturn aspect Mercury in 2nd house : Starts",
+    "description": "Saturn-Mercury aspect approaching — prepare structural-voice-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Saturn aspect Mercury in 2nd house",
+    "description": "Saturn-Mercury aspect brings discipline-to-speech-and-savings-eating window. Family-financial-cooking responsibilities grow."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Saturn aspect Moon in 11th house : Ends",
+    "description": "Saturn-Moon aspect separating — Sade-Sati middle cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Saturn aspect Moon in 11th house : Exact",
+    "description": "Saturn-Moon aspect exact — peak Sade-Sati-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Saturn aspect Moon in 11th house : Starts",
+    "description": "Saturn-Moon aspect approaching — prepare structural-network-cooking moves. Sade-Sati middle phase opens."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Saturn aspect Moon in 11th house",
+    "description": "Saturn-Moon aspect brings discipline-to-network-and-cooking-friendship window — Sade-Sati middle phase."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Saturn aspect Rahu in 6th house : Ends",
+    "description": "Saturn-Rahu aspect separating — Ashtama-Shani-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Saturn aspect Rahu in 6th house : Exact",
+    "description": "Saturn-Rahu aspect exact — peak Ashtama-Shani-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Saturn aspect Rahu in 6th house : Starts",
+    "description": "Saturn-Rahu aspect approaching — prepare structural-service-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Saturn aspect Rahu in 6th house",
+    "description": "Saturn-Rahu aspect brings Ashtama Shani — discipline-to-service-and-conflict-cooking window. Outlast."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Saturn aspect Saturn in 3rd house : Ends",
+    "description": "Saturn-return aspect separating — 30-year structural-cookbook window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Saturn aspect Saturn in 3rd house : Exact",
+    "description": "Saturn-return aspect exact — peak structural-cookbook day of 30-year cycle."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Saturn aspect Saturn in 3rd house : Starts",
+    "description": "Saturn-return aspect approaching — prepare 30-year structural-cookbook moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Saturn aspect Saturn in 3rd house",
+    "description": "Saturn-return aspect — once-every-30-years peak strategic-discipline-cookbook anchor. Best for: structural cookbook overhauls, long-form cooking-publishing commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Saturn aspect Sun in 1st house : Ends",
+    "description": "Saturn-Sun aspect separating — disciplined-identity-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Saturn aspect Sun in 1st house : Exact",
+    "description": "Saturn-Sun aspect exact — peak disciplined-identity-eating day. Multi-year dietary commitment locks in."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Saturn aspect Sun in 1st house : Starts",
+    "description": "Saturn-Sun aspect approaching — prepare disciplined-identity-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Saturn aspect Sun in 1st house",
+    "description": "Saturn-Sun aspect brings discipline-and-restructuring-of-eating-identity window. Diet tightens around what truly serves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Saturn aspect Venus in 10th house : Ends",
+    "description": "Saturn-Venus aspect separating — structural-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Saturn aspect Venus in 10th house : Exact",
+    "description": "Saturn-Venus aspect exact — peak structural-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Saturn aspect Venus in 10th house : Starts",
+    "description": "Saturn-Venus aspect approaching — prepare structural-cooking-MC moves. Sade-Sati first phase opens."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Saturn aspect Venus in 10th house",
+    "description": "Saturn-Venus aspect brings discipline-and-MC-restructuring-of-cooking window — Sade-Sati first phase."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Sun aspect Jupiter in 5th house : Ends",
+    "description": "Sun-Jupiter aspect separating — wisdom-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Sun aspect Jupiter in 5th house : Exact",
+    "description": "Sun-Jupiter aspect exact — peak wisdom-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Sun aspect Jupiter in 5th house : Starts",
+    "description": "Sun-Jupiter aspect approaching — prepare wisdom-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Sun aspect Jupiter in 5th house",
+    "description": "Sun-Jupiter aspect lights up wisdom-creative-eating window. Best for: ceremonial cooking, mentor-meals, sweet-with-discipline."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Sun aspect Ketu in 12th house : Ends",
+    "description": "Sun-Ketu aspect separating — detached-foreign-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Sun aspect Ketu in 12th house : Exact",
+    "description": "Sun-Ketu aspect exact — peak detached-foreign-eating day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Sun aspect Ketu in 12th house : Starts",
+    "description": "Sun-Ketu aspect approaching — prepare detached-foreign-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Sun aspect Ketu in 12th house",
+    "description": "Sun-Ketu aspect lights up detached-foreign-spiritual-eating window. Best for: behind-the-scenes cooking work, foreign-retreat eating."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Sun aspect Mars in 9th house : Ends",
+    "description": "Sun-Mars aspect separating — dharma-fire-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Sun aspect Mars in 9th house : Exact",
+    "description": "Sun-Mars aspect exact — peak dharma-fire-eating day. Cool the system aggressively."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Sun aspect Mars in 9th house : Starts",
+    "description": "Sun-Mars aspect approaching — prepare dharma-fire-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Sun aspect Mars in 9th house",
+    "description": "Sun-Mars aspect lights up dharma-fire-eating window. Best for: foreign-cuisine moves, principled-eating commitments. Watch for Pitta inflammation."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Sun aspect Mercury in 2nd house : Ends",
+    "description": "Sun-Mercury aspect separating — voice-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Sun aspect Mercury in 2nd house : Exact",
+    "description": "Sun-Mercury aspect exact — peak voice-eating day. Deliver the authoritative cooking content."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Sun aspect Mercury in 2nd house : Starts",
+    "description": "Sun-Mercury aspect approaching — prepare voice-and-authority eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Sun aspect Mercury in 2nd house",
+    "description": "Sun-Mercury aspect lights up authoritative-speech-eating window. Best for: voice-led cooking content, family-bond authoritative meal moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Sun aspect Moon in 11th house : Ends",
+    "description": "Sun-Moon aspect separating — emotional-network-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Sun aspect Moon in 11th house : Exact",
+    "description": "Sun-Moon aspect exact — peak emotional-network-eating day. Host the friend-meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Sun aspect Moon in 11th house : Starts",
+    "description": "Sun-Moon aspect approaching — prepare warm-network-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Sun aspect Moon in 11th house",
+    "description": "Sun-Moon aspect lights up emotional-network-eating window. Best for: peer-cohort dinners, friend-cooking warmth."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Sun aspect Rahu in 6th house : Ends",
+    "description": "Sun-Rahu aspect separating — unconventional-service-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Sun aspect Rahu in 6th house : Exact",
+    "description": "Sun-Rahu aspect exact — peak unconventional-service-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Sun aspect Rahu in 6th house : Starts",
+    "description": "Sun-Rahu aspect approaching — prepare unconventional-service-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Sun aspect Rahu in 6th house",
+    "description": "Sun-Rahu aspect lights up unconventional-service-conflict-eating window. Best for: foreign-clientele dietary moves, regulatory-fight wins about food."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Sun aspect Saturn in 3rd house : Ends",
+    "description": "Sun-Saturn aspect separating — disciplined-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Sun aspect Saturn in 3rd house : Exact",
+    "description": "Sun-Saturn aspect exact — peak disciplined-courage-cooking day. Ship the long-form cookbook."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Sun aspect Saturn in 3rd house : Starts",
+    "description": "Sun-Saturn aspect approaching — prepare disciplined-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Sun aspect Saturn in 3rd house",
+    "description": "Sun-Saturn aspect lights up disciplined-courage-cooking window. Best for: long-form cookbook publishing, peer-cohort culinary leadership."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Sun aspect Sun in 1st house : Ends",
+    "description": "Solar-return aspect separating — annual identity-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Sun aspect Sun in 1st house : Exact",
+    "description": "Solar-return aspect exact today — peak identity-anchor eating day. Make the kingly dietary commitment."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Sun aspect Sun in 1st house : Starts",
+    "description": "Solar-return aspect approaching — prepare the identity-defining eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Sun aspect Sun in 1st house",
+    "description": "Solar-return aspect — annual identity-eating anchor. Best for: identity-defining dietary decisions near birthday season, kingly meal commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Sun aspect Venus in 10th house : Ends",
+    "description": "Sun-Venus aspect separating — aesthetic-authority eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Sun aspect Venus in 10th house : Exact",
+    "description": "Sun-Venus aspect exact — peak aesthetic-authority eating day. Launch the brand-cooking move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Sun aspect Venus in 10th house : Starts",
+    "description": "Sun-Venus aspect approaching — prepare brand-led culinary moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Sun aspect Venus in 10th house",
+    "description": "Sun-Venus aspect lights up authoritative-aesthetic-eating window. Best for: brand-led hospitality announcements, female-mentor culinary moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Venus aspect Jupiter in 5th house : Ends",
+    "description": "Venus-Jupiter aspect separating — joyful-creative-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Venus aspect Jupiter in 5th house : Exact",
+    "description": "Venus-Jupiter aspect exact — peak joyful-creative-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Venus aspect Jupiter in 5th house : Starts",
+    "description": "Venus-Jupiter aspect approaching — prepare joyful-creative-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Venus aspect Jupiter in 5th house",
+    "description": "Venus-Jupiter aspect lights up joyful-creative-cooking window. Best for: launching creative-food product, content with high charm, advisory cooking pitched as inspirational."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Venus aspect Ketu in 12th house : Ends",
+    "description": "Venus-Ketu aspect separating — refined-private-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Venus aspect Ketu in 12th house : Exact",
+    "description": "Venus-Ketu aspect exact — peak refined-private-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Venus aspect Ketu in 12th house : Starts",
+    "description": "Venus-Ketu aspect approaching — prepare refined-private-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Venus aspect Ketu in 12th house",
+    "description": "Venus-Ketu aspect lights up refined-foreign-mystical-cooking window. Best for: private-luxury food investments, foreign-aesthetic explorations."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Venus aspect Mars in 9th house : Ends",
+    "description": "Venus-Mars aspect separating — refined-dharma-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Venus aspect Mars in 9th house : Exact",
+    "description": "Venus-Mars aspect exact — peak refined-dharma-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Venus aspect Mars in 9th house : Starts",
+    "description": "Venus-Mars aspect approaching — prepare refined-dharma-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Venus aspect Mars in 9th house",
+    "description": "Venus-Mars aspect lights up refined-dharma-cooking window. Best for: travel-cuisine, polished-mentor cooking, dharmic-luxury food experiences."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Venus aspect Mercury in 2nd house : Ends",
+    "description": "Venus-Mercury aspect separating — beauty-precision eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Venus aspect Mercury in 2nd house : Exact",
+    "description": "Venus-Mercury aspect exact — peak beauty-precision eating day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Venus aspect Mercury in 2nd house : Starts",
+    "description": "Venus-Mercury aspect approaching — prepare beauty-precision-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Venus aspect Mercury in 2nd house",
+    "description": "Venus-Mercury aspect lights up beauty-and-precision-eating window. Best for: refined family-recipes, voice-led-tender-cooking."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Venus aspect Moon in 11th house : Ends",
+    "description": "Venus-Moon aspect separating — refined-network-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Venus aspect Moon in 11th house : Exact",
+    "description": "Venus-Moon aspect exact — peak refined-network-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Venus aspect Moon in 11th house : Starts",
+    "description": "Venus-Moon aspect approaching — prepare refined-network-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Venus aspect Moon in 11th house",
+    "description": "Venus-Moon aspect lights up refined-network-warmth-cooking window. Best for: peer-cohort beauty-cooking, network-cooking through aesthetic appeal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Venus aspect Rahu in 6th house : Ends",
+    "description": "Venus-Rahu aspect separating — refined-service-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Venus aspect Rahu in 6th house : Exact",
+    "description": "Venus-Rahu aspect exact — peak refined-service-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Venus aspect Rahu in 6th house : Starts",
+    "description": "Venus-Rahu aspect approaching — prepare refined-service-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Venus aspect Rahu in 6th house",
+    "description": "Venus-Rahu aspect lights up refined-service-conflict-cooking window. Best for: turning unpleasant-diet-task into refined-routine."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Venus aspect Saturn in 3rd house : Ends",
+    "description": "Venus-Saturn aspect separating — refined-structural-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Venus aspect Saturn in 3rd house : Exact",
+    "description": "Venus-Saturn aspect exact — peak refined-structural-cooking day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Venus aspect Saturn in 3rd house : Starts",
+    "description": "Venus-Saturn aspect approaching — prepare refined-structural-cooking moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Venus aspect Saturn in 3rd house",
+    "description": "Venus-Saturn aspect lights up refined-disciplined-cookbook-writing window. Best for: brand campaigns with cooking structure, beautifully-structured recipes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Venus aspect Sun in 1st house : Ends",
+    "description": "Venus-Sun aspect separating — aesthetic-identity-eating window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Venus aspect Sun in 1st house : Exact",
+    "description": "Venus-Sun aspect exact — peak aesthetic-identity-eating day."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Venus aspect Sun in 1st house : Starts",
+    "description": "Venus-Sun aspect approaching — prepare aesthetic-identity-eating moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Venus aspect Sun in 1st house",
+    "description": "Venus-Sun aspect lights up aesthetic-charisma-eating window. Best for: photo-shoots-with-food, brand-identity-warmth releases."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Venus aspect Venus in 10th house : Ends",
+    "description": "Venus-return aspect separating — annual Malavya-cooking window closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Venus aspect Venus in 10th house : Exact",
+    "description": "Venus-return aspect exact — peak Malavya-cooking day. Make the brand-defining hospitality move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Venus aspect Venus in 10th house : Starts",
+    "description": "Venus-return aspect approaching — prepare brand-defining hospitality moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Venus aspect Venus in 10th house",
+    "description": "Venus-return aspect — annual peak Malavya-yoga hospitality anchor. Best for: hospitality launches, MC-defining cooking moves."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Jupiter",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Jupiter in 5th (Dispositor)",
+    "description": "Your natal Jupiter in own sign Sagittarius in the 5th is self-disposing — the wise-teacher of nourishment is sovereign in the ritual/sweet/ceremonial throne. Best foods: prasad, ghee, raw honey (moderation), sweet ripe fruits, dates, warm spiced milk, festival foods, ceremonial cooking. Children-related cooking carries blessing. The shadow: sweet-over-indulgence — Jupiter expansion meets Pitta heat = sugar-fire. Honor the sweet, don't worship it."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Mars",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Mars in 9th (Dispositor)",
+    "description": "Your natal Mars in own sign Aries in the 9th is self-disposing — the dharmic-warrior-fire of digestion is sovereign. The agni (digestive fire) is exceptionally strong, but the strength is a responsibility, not a license. Best foods: principled-foreign cuisines, mentor-cooked traditional foods, university-style robust meals, dharmic-ritual foods. The shadow: over-spicing as expression of fire; channel the heat into action, not into the food."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Mercury",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Mercury in 2nd (Dispositor)",
+    "description": "Your natal Mercury in own sign Virgo in the 2nd disposes himself plus Moon (11H) — analytical-precision-digestion anchors both your family-table eating and your friendship-meal articulation. When this dispositor activates, food advancement comes through careful sourcing, herbs-as-medicine, vegetables-as-foundation, grains-prepared-properly. Industries: bitter greens, astringent vegetables, fresh herbs, whole grains, well-cooked legumes. The shadow: food-anxiety dressed as analysis. Trust the body, not the spreadsheet."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Moon",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Moon in 11th (Dispositor)",
+    "description": "Your natal Moon in Gemini in the 11th disposes Ketu (12H) — articulate-friendship-meal anchors your detached-foreign-spiritual-eating-past. Best for: friendship-cooking, online-recipe-community work, peer-cohort dinners, foreign-friend culinary exchange. The Ketu-12H link gives detachment from old food-attachments — the body releases past-life food karmas. The shadow: emotional-eating in friendship contexts; not every cohort-meal needs to be a feast."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Saturn",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Saturn in 3rd (Dispositor)",
+    "description": "Your natal Saturn exalted in Libra in the 3rd disposes Rahu (6H) — the disciplined-eating engine anchors your unconventional-service edge. When this dispositor activates, food advancement comes through structured-meal-timing, fair-portion discipline, and unusual-but-disciplined eating protocols (intermittent fasting, structured cleanses, regulated meal windows). Industries: bitter-astringent foods, balancing condiments, mediated-flavor profiles. The Rahu-6H link allows unusual diet experiments to actually work for you."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Sun",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Sun in 1st (Dispositor)",
+    "description": "Your natal Sun in own sign Leo in the 1st is self-disposing — the kingly-Pitta body is sovereign. The body answers to no fad, trend, or fashion-diet. Honor the Pitta nature: cooling foods, mid-day larger meal (when digestion is strongest), proper hydration, avoidance of excessive heat-foods. The shadow: pride that ignores the body's actual signals — when the body says \"no more chili,\" respect the king of your own metabolism. Sovereignty includes listening."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Venus",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Venus in 10th (Dispositor)",
+    "description": "Your natal Venus in own sign Taurus in the 10th disposes himself plus Saturn (3H) — the aesthetic-MC body anchors your disciplined-eating-communication. The Malavya-body holds Kapha-richness well from quality sources. Best foods: well-sourced dairy, hand-aged grains, slow-cooked stews, sensual-but-clean ingredients. Female-mentor cooking advice carries weight. The shadow: luxurious-eating that drifts into Kapha-stagnation; balance with daily movement."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "ends",
+    "display_name": "Pluto conjunct Saturn : Ends",
+    "description": "Pluto separating from Saturn conjunction — cooking-power-transformation window closes."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "exact",
+    "display_name": "Pluto conjunct Saturn : Exact",
+    "description": "Pluto exactly conjoins your natal exalted Saturn today — peak cooking-power-rebirth day."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "starts",
+    "display_name": "Pluto conjunct Saturn : Starts",
+    "description": "Pluto beginning to conjoin your natal exalted Saturn — cooking-power-transformation window opens."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "window",
+    "display_name": "Pluto conjunct Saturn",
+    "description": "Transit Pluto activating your natal exalted Saturn (3H) brings deep-transformation to your disciplined-cooking-communication engine. Old approach to recipe documentation/cooking-correspondence dies; new disciplined-power emerges. Multi-year window."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "ends",
+    "display_name": "Uranus conjunct Venus : Ends",
+    "description": "Uranus separating from Venus conjunction — cooking-aesthetic-shock window closes."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "exact",
+    "display_name": "Uranus conjunct Venus : Exact",
+    "description": "Uranus exactly conjoins your natal Venus in 10H today — peak cooking-aesthetic-shock day."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "starts",
+    "display_name": "Uranus conjunct Venus : Starts",
+    "description": "Uranus beginning to conjoin your natal Venus in 10H — cooking-aesthetic-shock window opens."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "window",
+    "display_name": "Uranus conjunct Venus",
+    "description": "Transit Uranus activating your natal own-sign Venus (10H) brings shock-transformation to your aesthetic-cooking-career engine. Old approach to public hospitality dies; new unconventional-cooking-aesthetic emerges. Multi-year window."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 1,
+    "lord_house": 1,
+    "phase": "window",
+    "display_name": "Sun ruler of the 1st House in the 1st House",
+    "description": "Your Lagna lord Sun in own sign Leo in the 1st makes the body strongly Pitta-dominant — heat-driven metabolism, sharp digestion, fiery vitality. Cool the system as a daily principle: coconut water, milk-with-cardamom, sweet ripe fruits, leafy greens, ghee. Avoid excess chili, fried food, alcohol, sour fermented food, and red meat in summer. The body looks for the king-food: substantial, dignified, cooked with care — not snacks-on-the-run. Eat sitting, eat seen, eat with respect for the kingly metabolism."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 10,
+    "lord_house": 10,
+    "phase": "window",
+    "display_name": "Venus ruler of the 10th House in the 10th House",
+    "description": "Your 10th lord Venus in own sign Taurus in the 10th forms Malavya-yoga in the food domain too — public-eating, hospitality, beautifully-presented meals, restaurant-craft, dairy, sweet-luxurious foods all carry career capital. The body holds Kapha-richness well when it comes from quality sources: grass-fed dairy, hand-made cheese, well-aged grains, hand-cooked sweets. Avoid: industrial dairy, processed sweets, low-quality oils. The Malavya body responds to refinement, not abundance for its own sake."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 10,
+    "lord_house": 3,
+    "phase": "window",
+    "display_name": "Venus ruler of the 3rd House in the 10th House",
+    "description": "Your 3rd lord Venus in own sign Taurus in the 10th wires sibling-meals, peer-cohort dining, and short-trip eating into the career-aesthetic engine. Networking dinners, business-luncheon decisions, and aesthetic restaurant choices double as career investments. Choose substance over spectacle — Taurus-Venus rewards the slow-cooked, the well-sourced, the ingredient that has earned its place. Public eating is partly performance; pack snacks for between, the body wants regular fuel."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 11,
+    "lord_house": 12,
+    "phase": "window",
+    "display_name": "Moon ruler of the 12th House in the 11th House",
+    "description": "Your 12th lord Moon in Gemini in the 11th means foreign-food-discoveries, online-cooking-communities, and behind-the-scenes-meal-prep all feed your friendship-network and gain channel. Late-night snacking, dream-food (food in dreams indicates karma), and sleep-affecting-meals are real factors. The Moon in Gemini is verbally-articulate about food — you talk through your meals. The shadow: emotional-eating in social contexts; protect your sleep by closing the kitchen earlier than you think."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 2,
+    "lord_house": 11,
+    "phase": "window",
+    "display_name": "Mercury ruler of the 11th House in the 2nd House",
+    "description": "Your 11th lord Mercury in own sign Virgo in the 2nd channels gain-from-friends and elder-sibling-energy through articulate family-table eating. Friendship-meals, peer-cohort-dinners, older-sibling-recipes, paid-newsletter-cooking-content all carry both nourishment and gain. Document the family recipes early; they become the income-generating cookbook later. The shadow: friendship-cooking that drains time; not every friend-of-friend meal needs your hosting."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 2,
+    "lord_house": 2,
+    "phase": "window",
+    "display_name": "Mercury ruler of the 2nd House in the 2nd House",
+    "description": "Your 2nd lord Mercury in own sign Virgo in the 2nd routes nourishment through analytical-precision digestion. The body knows exactly what it likes: bitter greens, astringent vegetables, whole grains, fresh herbs, cooked legumes. You are the rare Leo native whose body responds to vegetables and herbs as if to medicine. The shadow: Virgo-Mercury can drift into food-anxiety and over-analysis of every bite. Trust the body's clear voice. Family-meals favored over solo-eating."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 3,
+    "lord_house": 6,
+    "phase": "window",
+    "display_name": "Saturn ruler of the 6th House in the 3rd House",
+    "description": "Your 6th lord Saturn exalted in Libra in the 3rd means daily-routine eating, conflict-with-food, and digestive discipline are mastered through disciplined fair structure. You can hold a clean diet for long periods when needed. Set fair eating times, fair portions, and the body cooperates beautifully. Industries-of-discipline (intermittent fasting, structured cleanses, regulated meal-timing) work for you. The shadow: rigid food rules that become punishing — the exalted Saturn rewards fairness, including self-fairness."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 3,
+    "lord_house": 7,
+    "phase": "window",
+    "display_name": "Saturn ruler of the 7th House in the 3rd House",
+    "description": "Your 7th lord Saturn exalted in Libra in the 3rd routes partnership-eating and shared-meal-dynamics through articulate fair-terms. Couple-meal-times, shared-grocery-systems, and household food-policies become long-term structural agreements. Spouse-cooking-vs-spouse-eating dynamics resolve through written-out agreements (literal or implied). Long marriages with shared food cultures favored — develop the joint cookbook of habits early."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 5,
+    "lord_house": 5,
+    "phase": "window",
+    "display_name": "Jupiter ruler of the 5th House in the 5th House",
+    "description": "Your 5th lord Jupiter in own sign Sagittarius in the 5th makes ritual-food, ceremonial-eating, and sweet treats deeply nourishing. Festival meals, prasad, ghee, raw honey (in moderation), sweet ripe fruits, dates, and warm spiced milk all carry blessing for this placement. Children-related eating (cooking with/for kids, school-lunch packing, mentee meals) is unusually nourishing. The shadow: over-indulgence in sweets — Jupiter expansion meets Pitta heat = sugar-fire. Honor the sweet, don't worship it."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 5,
+    "lord_house": 8,
+    "phase": "window",
+    "display_name": "Jupiter ruler of the 8th House in the 5th House",
+    "description": "Your 8th lord Jupiter in own sign Sagittarius in the 5th routes hidden-resources, transformation, and joint-finance-eating through romance-and-children-and-wisdom. Sudden food-windfalls (inherited recipes, unexpected feasts, ceremonial-bounty), spouse's-side family-recipes, occult-or-ancestral food traditions all flow here. Best for: ritual-food research, fasting-for-spiritual-purpose, depth-cooking-as-meditation. The shadow: occult-flavored over-indulgence; trust depth-of-tradition, not just exotic-newness."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 9,
+    "lord_house": 4,
+    "phase": "window",
+    "display_name": "Mars ruler of the 4th House in the 9th House",
+    "description": "Your 4th lord Mars in own sign Aries in the 9th means home-food and emotional-foundation eating route through dharmic-and-foreign channels. Mother's recipes carry warrior-energy; family-food traditions are principle-driven. Foreign cuisines pull strongly — the body finds nourishment in distant cooking traditions. Travel-food is unusually compatible. The shadow: hot food + travel + Pitta body = inflammation. Carry coconut water and ghee on long journeys."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 9,
+    "lord_house": 9,
+    "phase": "window",
+    "display_name": "Mars ruler of the 9th House in the 9th House",
+    "description": "Your 9th lord Mars in own sign Aries in the 9th is the dharmic-warrior-fire of digestion — your agni (digestive fire) is exceptionally strong. You can digest what would defeat others. Foreign cuisines, principled-eating-philosophies, university-cafeteria robust meals, mentor-cooked food, dharmic-ritual foods all nourish unusually. The shadow: the strong agni invites over-spicing, over-frying, over-doing — Pitta inflammation results. Earn the right to your fire by cooling the system regularly."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 1st House",
+    "description": "Jupiter transit through Leo (your Lagna) is once-every-12-years peak personal-expansion eating window. Body holds richness well during this 12 months — but watch Pitta-and-Kapha balance. Best for: founder-launches in food, brand-expansion through hospitality."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 10th House",
+    "description": "Jupiter transit through your 10th (Taurus) joins your own-sign natal Venus — peak career-aesthetic-cooking convergence. Best for: brand-led culinary expansion, MC-defining hospitality announcements, female-mentor cooking investments."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 11th House",
+    "description": "Jupiter transit through your 11th (Gemini) crosses your natal Moon — peak-gain-and-articulate-network-cooking window. Best for: monetizing-peer-cooking-networks at scale, paid-newsletter cooking expansion, older-sibling joint cooking ventures."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 12th House",
+    "description": "Jupiter transit through your 12th (Cancer) joins your natal Ketu — wisdom-into-private-cooking-realm window. Best for: foreign-spiritual cooking study, retreat-and-cooking-research, behind-the-scenes culinary wisdom-building."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 2nd House",
+    "description": "Jupiter transit through your 2nd (Virgo) crosses your natal Mercury — wise-articulate-family-meal window. Best for: family-wealth cooking decisions, voice-led-cooking expansion, savings-discipline through home-cooking."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 3rd House",
+    "description": "Jupiter transit through your 3rd (Libra) joins your exalted natal Saturn — wisdom-discipline-cookbook window. Best for: long-form cookbook publishing, peer-mentor cooking work, structured cohort culinary leadership."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 4th House",
+    "description": "Jupiter transit through your 4th (Scorpio) brings wisdom into food-foundations — home/mother/real-estate kitchen expansion. Best for: relocation cooking decisions, real-estate kitchen purchases, mother-figure cooking conversations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 5th House",
+    "description": "Jupiter transit through your 5th (Sagittarius) returns to own-sign natal placement — peak ceremonial-cooking-and-wisdom window of the 12-year cycle. Best for: launching a cooking-teaching practice, founding a culinary advisory firm, publishing a cookbook, ceremonial-food-launches."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 6th House",
+    "description": "Jupiter transit through your 6th (Capricorn) is Jupiter debilitated joining natal Rahu — service-grind-cooking window. Best for: building stamina through difficult-cooking-work, taking on cooking-assignments others avoided. Wisdom-from-discomfort."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 7th House",
+    "description": "Jupiter transit through your 7th (Aquarius) opposite Lagna — peak-partnership-cooking-expansion window. Best for: business-cooking partner search, marriage-meal formalization, major-cooking-client signing, board-level hospitality work."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 8th House",
+    "description": "Jupiter transit through your 8th (Pisces) is Jupiter exalted in transformation house — peak hidden-wisdom-and-cooking-windfall window. Best for: equity-events in food business, inheritance-recipe work, ancestral-cooking research expansion."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 9th House",
+    "description": "Jupiter transit through your 9th (Aries) joins your own-sign yogakaraka Mars — wisdom-and-dharma-cooking peak. Best for: foreign-cuisine expansion, principled-cooking publishing, mentor-cooking-circle work, university-based food opportunities."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Ketu Transits the 1st House",
+    "description": "Ketu transit through Leo (your Lagna) is once-every-18-years identity-detachment cooking window. Ego dissolves; mystical-foreign-spiritual eating identity surfaces. Best for: shedding outdated cooking patterns."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Ketu Transits the 10th House",
+    "description": "Ketu transit through your 10th (Taurus) joins your own-sign natal Venus — career-cooking-detachment window. Public-cooking-visibility feels detached."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Ketu Transits the 11th House",
+    "description": "Ketu transit through your 11th (Gemini) crosses your natal Moon — cooking-network-detachment window. Cooking-friendships thin to essentials."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Ketu Transits the 12th House",
+    "description": "Ketu transit through your 12th (Cancer) returns to own natal placement — peak spiritual-liberation-cooking window of the 18-year cycle. Behind-the-scenes cooking work deepens."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Ketu Transits the 2nd House",
+    "description": "Ketu transit through your 2nd (Virgo) crosses your natal Mercury — speech-detachment-and-cooking-money-renunciation window. Voice work in cooking feels detached, family-cooking-money matters feel meaningless."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Ketu Transits the 3rd House",
+    "description": "Ketu transit through your 3rd (Libra) joins your exalted natal Saturn — disciplined-detachment-cooking window. Communication about food strips to essentials."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Ketu Transits the 4th House",
+    "description": "Ketu transit through your 4th (Scorpio) brings kitchen-foundation-detachment — home/mother/family/real-estate kitchen matters feel detached or are renounced."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Ketu Transits the 5th House",
+    "description": "Ketu transit through your 5th (Sagittarius) joins your own-sign Jupiter — wisdom-detachment-cooking window. Creativity in cooking strips to essentials."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Ketu Transits the 6th House",
+    "description": "Ketu transit through your 6th (Capricorn) joins your natal Rahu — peak detachment-from-cooking-conflict window. Cooking-workplace-conflicts dissolve through detachment."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Ketu Transits the 7th House",
+    "description": "Ketu transit through your 7th (Aquarius) opposite Lagna — partnership-cooking-detachment window. Spouse-cooking dynamics may feel emotionally distant."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Ketu Transits the 8th House",
+    "description": "Ketu transit through your 8th (Pisces) brings deep-mystical-cooking-detachment — equity-events feel surreal, inheritance-recipes feel unimportant."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Ketu Transits the 9th House",
+    "description": "Ketu transit through your 9th (Aries) joins your own-sign yogakaraka Mars — dharma-detachment-cooking window. Principled-cooking persists but feels detached from outcome."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Mars Transits the 1st House",
+    "description": "Mars transit through Leo (your Lagna) lights up assertive-self-eating — high heat. Watch Pitta-inflammation: avoid chili-overload, fried foods, alcohol, fermented foods. Best for: fitness-led eating decisions, decisive-diet moves, deadline-fueling meals."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Mars Transits the 10th House",
+    "description": "Mars transit through your 10th (Taurus) is Mars debilitated — public-aggression about food backfires. Best for: brand-firmness-through-cooking, design-decisive-food moves, female-mentor culinary consultations, slow-but-certain hospitality advancement."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Mars Transits the 11th House",
+    "description": "Mars transit through your 11th (Gemini) crosses your natal Moon — competitive-network-cooking window. Best for: peer-rivalry resolution through hosting, decisive friend-network cooking moves, monetizing community through bold cooking."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Mars Transits the 12th House",
+    "description": "Mars transit through your 12th (Cancer) is Mars debilitated joining natal Ketu — hidden-conflict-cooking window. Avoid: public food-confrontations. Best for: closing private cooking projects with finality, foreign-action behind-the-scenes food work."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Mars Transits the 2nd House",
+    "description": "Mars transit through your 2nd (Virgo) crosses your natal Mercury — sharp-analytic-eating window. Best for: aggressive sales-pitches over food, decisive financial-meal moves, hard-edged-but-fair family-money cooking conversations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Mars Transits the 3rd House",
+    "description": "Mars transit through your 3rd (Libra) joins your exalted natal Saturn — disciplined-courage-eating window. Best for: courageous documentation about food, decisive peer-cohort cooking leadership, bold-but-fair short-form food content."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Mars Transits the 4th House",
+    "description": "Mars transit through your 4th (Scorpio) is Mars' own sign in the foundation house — intense home-cooking window. Best for: kitchen-renovation, real-estate-kitchen decisions, family-business cooking confrontations. The 4H Mars adds spice; balance Pitta."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Mars Transits the 5th House",
+    "description": "Mars transit through your 5th (Sagittarius) joins your own-sign Jupiter — courageous-creative-cooking window. Best for: bold creative-food launches, aggressive cooking-advisory pitches, athletic-cooking work, children-related cooking-action."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Mars Transits the 6th House",
+    "description": "Mars transit through your 6th (Capricorn) joins your natal Rahu — service-conflict-warrior cooking window. Best for: tackling difficult-clients with food strategy, regulatory-fights about food, fitness-routine-eating intensification."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Mars Transits the 7th House",
+    "description": "Mars transit through your 7th (Aquarius) opposite Lagna — partnership-cooking-conflict window. Tensions about food/diet/kitchen with partner surface. Best for: clearing the air through direct-but-respectful cooking conversations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Mars Transits the 8th House",
+    "description": "Mars transit through your 8th (Pisces) is the warrior in deep water — sudden food-events window. Avoid: public food-arguments, surface-aggression about diet. Best for: behind-closed-doors meal negotiation, decisive private kitchen moves."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Mars Transits the 9th House",
+    "description": "Mars transit through your 9th (Aries) returns to your own-sign yogakaraka Mars — peak warrior-cuisine window of the year. Best for: foreign-action cuisine, principled-cooking confrontations, publishing-fierce-food content, mentor-cooking visits, dharmic-launch cooking announcements."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Mercury Transits the 1st House",
+    "description": "Mercury transit through Leo (your Lagna) lights up articulate-self-eating window. Best for: voice-led cooking content, on-camera food work, written first-person food articles, identity-aligned dietary decisions."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Mercury Transits the 10th House",
+    "description": "Mercury transit through your 10th (Taurus) joins your own-sign natal Venus — articulate-aesthetic-public-cooking window. Best for: brand-led cooking content, sales-pitches involving hospitality, female-mentor culinary outreach, public-facing food writing."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Mercury Transits the 11th House",
+    "description": "Mercury transit through your 11th (Gemini) is Mercury's own sign joining your natal Moon — peak articulate-friendship-cooking window. Best for: paid-newsletter-cooking, peer-cohort recipe sharing, online-cooking-community releases, older-sibling-cookbook collaboration."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Mercury Transits the 12th House",
+    "description": "Mercury transit through your 12th (Cancer) joins your natal Ketu — confidential-foreign-mind-cooking window. Best for: behind-the-scenes recipe writing, foreign-correspondence about food, ghostwritten cookbooks, dream-food journaling."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Mercury Transits the 2nd House",
+    "description": "Mercury transit through your 2nd (Virgo) joins your own-sign natal Mercury — peak articulate-precision-digestion window. Best for: detailed family-financial-meal planning, voice-led nutrition work, family-recipe documentation, technical-writing about food."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Mercury Transits the 3rd House",
+    "description": "Mercury transit through your 3rd (Libra) joins your exalted natal Saturn — peak disciplined-meal-communication window. Best for: long-form recipe writing, peer-cohort cookbook commitments, fair-terms cooking-collaborations. The strongest food-writing window of the year."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Mercury Transits the 4th House",
+    "description": "Mercury transit through your 4th (Scorpio) drives food-communication into deep waters — research, hidden recipes, mother-family conversation about food, real-estate-kitchen documentation. Best for: confidential cooking-research, ancestral-recipe rediscovery."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Mercury Transits the 5th House",
+    "description": "Mercury transit through your 5th (Sagittarius) joins your own-sign Jupiter — wise-articulate-cooking window. Best for: lecture-writing about food, advisory cooking documents, mentor-recipe articulation, children-cooking communication, intellectual-food presentations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Mercury Transits the 6th House",
+    "description": "Mercury transit through your 6th (Capricorn) joins your natal Rahu — analytic-service-eating window. Best for: documenting daily-eating protocols, conflict-resolution about food (kitchen/diet conversations), foreign-cuisine memo-writing. The shadow: cutting messages about food."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Mercury Transits the 7th House",
+    "description": "Mercury transit through your 7th (Aquarius) opposite Lagna — partnership-meal-communication window. Best for: defining-the-diet conversations, contract-style meal commitments, unusual-but-clear shared-eating structures."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Mercury Transits the 8th House",
+    "description": "Mercury transit through your 8th (Pisces) is Mercury debilitated — food-communication enters mystical/diffuse waters. Best for: poetic-confidential recipe writing, occult-cooking research. Avoid: signing detailed dietary agreements."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Mercury Transits the 9th House",
+    "description": "Mercury transit through your 9th (Aries) joins your own-sign yogakaraka Mars — sharp-articulate-foreign-cuisine window. Best for: travel-food writing, principled-eating articles, mentor-recipe outreach, university-related food work."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Moon Transits the 1st House",
+    "description": "Moon transit through Leo (your Lagna) puts emotional weather on appetite — eat warm, eat seen, eat with care during this 2-day window. Avoid emotional-eating decisions when stressed. Cooking-as-care for self lands."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Moon Transits the 10th House",
+    "description": "Moon transit through your 10th (Taurus) joins your own-sign natal Venus — emotional-aesthetic-public-eating window. Best for: warm hospitality, networking-dinners with care, female-mentor culinary check-ins, well-sourced dairy."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Moon Transits the 11th House",
+    "description": "Moon transit through your 11th (Gemini) crosses your natal Moon — lunar-return emotional-friendship-meal window. Best for: peer-cohort dining, friend-recipe-sharing, older-sibling check-ins over food."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Moon Transits the 12th House",
+    "description": "Moon transit through your 12th (Cancer) is Moon's own sign in the loss/foreign house — deeply-private eating window. Best for: solitude-eating, retreat-food, sleep-supporting evening meals, foreign-friend recipe gifting. Avoid: late heavy meals."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Moon Transits the 2nd House",
+    "description": "Moon transit through your 2nd (Virgo) crosses your natal Mercury — emotional-precision-eating window. Best for: tender family-meals, voice-led cooking content, warm-precision herbs (chamomile, mint, fennel). The voice and digestion both responsive."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Moon Transits the 3rd House",
+    "description": "Moon transit through your 3rd (Libra) crosses your exalted natal Saturn — emotional-fair-eating window. Best for: sibling-cohort dining, balanced-flavor meals, mediated-portion control. Communication-with-loved-ones over food lands."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Moon Transits the 4th House",
+    "description": "Moon transit through your 4th (Scorpio) is the Moon's debilitation — emotional-foundation low. Avoid: heavy meals, alcohol, fermented foods. Best for: simple home-cooking, light vegetable broth, journaling-while-eating-alone. Protect digestion through simplicity."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Moon Transits the 5th House",
+    "description": "Moon transit through your 5th (Sagittarius) joins your own-sign Jupiter — emotional-ceremonial-eating window. Best for: joyful-cooking with children/mentees, ritual-food, dating-meals with depth. The sweet meets the warm."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Moon Transits the 6th House",
+    "description": "Moon transit through your 6th (Capricorn) crosses your natal Rahu — emotional-service-grind eating window. Watch for stress-eating during this 2-day window. Best for: serving food to others (caregiving, friend-help cooking), structured fasting if practiced."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Moon Transits the 7th House",
+    "description": "Moon transit through your 7th (Aquarius) opposite Lagna — emotional-partnership-meal window. Best for: warm shared-meals, partner-aware cooking, formalizing dietary commitments together. The mirror is active around food."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Moon Transits the 8th House",
+    "description": "Moon transit through your 8th (Pisces) is deep-water-eating window. Best for: depth-research about food sensitivities, ancestral recipe contemplation. Avoid: heavy-meal experimentation, surface-trendy diets. The intimacy is internal."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Moon Transits the 9th House",
+    "description": "Moon transit through your 9th (Aries) joins your own-sign yogakaraka Mars — emotional-dharma-eating window. Best for: foreign-cuisine with mentor, principled-warm meals, father-figure cooking, travel-food with intention."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Rahu Transits the 1st House",
+    "description": "Rahu transit through Leo (your Lagna) is the once-every-18-years identity-amplification window. Cooking-wise: visibility surges through unconventional/foreign/technology-driven cooking channels. Best for: identity-pivots in cooking, foreign-cooking relocation."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Rahu Transits the 10th House",
+    "description": "Rahu transit through your 10th (Taurus) joins your own-sign natal Venus — career-amplification with unconventional/foreign flavor in cooking. Foreign-MC moves in cooking."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Rahu Transits the 11th House",
+    "description": "Rahu transit through your 11th (Gemini) crosses your natal Moon — peak-gain-amplification window in cooking-network. Viral cooking-network growth, foreign-friend culinary collaborations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Rahu Transits the 12th House",
+    "description": "Rahu transit through your 12th (Cancer) joins your natal Ketu — peak foreign-mystical-loss window in cooking. Foreign-relocation, behind-the-scenes cooking pivots, retreat-and-research."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Rahu Transits the 2nd House",
+    "description": "Rahu transit through your 2nd (Virgo) crosses your natal Mercury — unconventional-income-and-speech amplification in cooking. Cooking-income surges through unusual writing, foreign-language cookbook work."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Rahu Transits the 3rd House",
+    "description": "Rahu transit through your 3rd (Libra) joins your exalted natal Saturn — disciplined-yet-unconventional-courage cooking window. Best for: viral-but-structured cooking content, foreign-cohort culinary leadership."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Rahu Transits the 4th House",
+    "description": "Rahu transit through your 4th (Scorpio) brings unconventional kitchen-foundation-disruption — foreign-relocation, technology-driven kitchen overhauls, mother-cooking-relationship pivots."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Rahu Transits the 5th House",
+    "description": "Rahu transit through your 5th (Sagittarius) joins your own-sign Jupiter — wisdom-amplification with foreign/unconventional flavor in cooking. Viral cooking content, foreign-cooking-teaching."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Rahu Transits the 6th House",
+    "description": "Rahu transit through your 6th (Capricorn) returns to natal Rahu placement — peak victory-over-cooking-enemies window. Cooking-competitive surges, regulatory-fight wins about food."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Rahu Transits the 7th House",
+    "description": "Rahu transit through your 7th (Aquarius) opposite Lagna — unconventional-cooking-partnership window. Best for: foreign-cooking-partnerships, technology-driven joint cooking ventures."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Rahu Transits the 8th House",
+    "description": "Rahu transit through your 8th (Pisces) brings sudden-foreign-cooking-windfalls and transformation through unusual channels. Unexpected cooking-equity events, foreign-cooking-inheritance."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Rahu Transits the 9th House",
+    "description": "Rahu transit through your 9th (Aries) joins your own-sign yogakaraka Mars — peak foreign-dharma-cooking-amplification window. Foreign-cooking surges, university-based cooking opportunities abroad."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Saturn Transits the 1st House",
+    "description": "Saturn transit through Leo (your Lagna) is the once-every-30-years tapasya — peak self-discipline-eating window. Body demands restriction, structure, simpler diet. Excellent for: long-term dietary commitments, structural body-restoration moves."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Saturn Transits the 10th House",
+    "description": "Saturn transit through your 10th (Taurus) joins your own-sign natal Venus and starts Sade-Sati first phase — career-restructuring-cooking window. Best for: long-term-MC cooking commitments, structural-brand cooking work."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Saturn Transits the 11th House",
+    "description": "Saturn transit through your 11th (Gemini) crosses your natal Moon and is the Sade-Sati peak — emotional-network-cooking restructuring window. Friend-cooking-network thins to those who matter."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Saturn Transits the 12th House",
+    "description": "Saturn transit through your 12th (Cancer) is Saturn debilitated joining natal Ketu and ends Sade-Sati. Best for: closing chapters with finality, multi-year private cooking commitments, foreign-research with patience."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Saturn Transits the 2nd House",
+    "description": "Saturn transit through your 2nd (Virgo) crosses your natal Mercury — disciplined-speech-and-savings-eating window. Sade-Sati second phase. Family-financial-cooking responsibilities grow."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Saturn Transits the 3rd House",
+    "description": "Saturn transit through your 3rd (Libra) returns to natal exalted Saturn placement — peak strategic-discipline-cooking window of the 30-year cycle. Best for: structural cookbook overhauls, long-form cooking-publishing commitments."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Saturn Transits the 4th House",
+    "description": "Saturn transit through your 4th (Scorpio) tests home-kitchen foundations. Best for: structural home-kitchen overhauls, real-estate kitchen commitments, family-business kitchen restructuring."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Saturn Transits the 5th House",
+    "description": "Saturn transit through your 5th (Sagittarius) joins your own-sign Jupiter and triggers Kantaka Shani — disciplined-creativity-cooking window with operational stress. Best for: building durable creative-cooking systems."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Saturn Transits the 6th House",
+    "description": "Saturn transit through your 6th (Capricorn) is Saturn in own sign joining your natal Rahu and is Ashtama Shani — peak service-grind cooking and hidden-stress window. Outlast."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Saturn Transits the 7th House",
+    "description": "Saturn transit through your 7th (Aquarius) is Saturn in own sign opposite Lagna — partnership-cooking-discipline window. Best for: long-term-cooking-partnership formalization, structured-shared-meal decisions, multi-year client-cooking work."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Saturn Transits the 8th House",
+    "description": "Saturn transit through your 8th (Pisces) is structural-transformation cooking window. Best for: ancestral cookbook research, multi-year occult-cooking study, audit-and-compliance food expansion."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Saturn Transits the 9th House",
+    "description": "Saturn transit through your 9th (Aries) is Saturn debilitated joining your own-sign yogakaraka Mars — disciplined-dharma-cooking window with friction. Foreign-cooking demands more grind."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Sun Transits the 1st House",
+    "description": "Sun transit through Leo (your Lagna) is peak heat-amplification on the body. The Pitta runs hot during this 4-week window — coconut water, cooling herbs (coriander, cilantro), milk, sweet ripe fruits, ghee, leafy greens. Avoid: chili, fried foods, alcohol, sour fermented foods. Eat the larger meal at midday, lighter at night. Skin sensitivity may rise."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Sun Transits the 10th House",
+    "description": "Sun transit through your 10th (Taurus) is technically debilitated for the Sun but joins your own-sign natal Venus — refined-public-eating window. Best for: hospitality-meals, networking-dinners with quality, brand-eating moves, female-mentor culinary consultations, well-sourced dairy. Avoid: macho-eating posturing."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Sun Transits the 11th House",
+    "description": "Sun transit through your 11th (Gemini) joins your natal Moon — articulate-friendship-meal window. Best for: peer-cohort dinners, friend-introductions over food, paid-newsletter-cooking content, older-sibling-recipe sharing. The voice and the table both alive."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Sun Transits the 12th House",
+    "description": "Sun transit through your 12th (Cancer) joins your natal Ketu — past-life-food karma surfaces. Best for: foreign-cuisine encounters, retreat-food, sleep-protective evening meals, charity-cooking, behind-the-scenes meal prep. Avoid: late heavy meals; close the kitchen earlier."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Sun Transits the 2nd House",
+    "description": "Sun transit through your 2nd (Virgo) joins your natal Mercury — vocal-precision-digestion window. Best for: voice-supporting foods (warm spiced milk, ghee, soothing throat herbs), family-table eating with intention, careful financial-meal-planning. Speech and digestion both peak; the throat is sensitive — avoid cold dry foods."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Sun Transits the 3rd House",
+    "description": "Sun transit through your 3rd (Libra) joins your exalted natal Saturn — disciplined-fair-eating window. Best for: structured meal timing, sibling-cohort dining, peer-cohort cooking. Libra balances Pitta well — bitter-astringent vegetables, balanced flavors, mediated heat. Avoid: extreme one-flavor diets during this window."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Sun Transits the 4th House",
+    "description": "Sun transit through your 4th (Scorpio) tests home-cooking and family-food foundations. Best for: deep-spice exploration (in moderation), mother-cooking sessions, home-pantry overhauls, real-estate decisions about kitchens. Scorpio amplifies hidden-food-sensitivities — listen to allergic responses."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Sun Transits the 5th House",
+    "description": "Sun transit through your 5th (Sagittarius) joins your own-sign Jupiter — peak ceremonial-and-sweet-food window. Best for: festival cooking, prasad preparation, ritual-meal hosting, dating-meals (joyful eating with romantic partner), children-cooking. Honor the sweet without over-indulging."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Sun Transits the 6th House",
+    "description": "Sun transit through your 6th (Capricorn) joins your natal Rahu — daily-grind-eating window. Best for: structured intermittent fasting, regulated meal protocols, foreign-flavor experimentation, competitor-style food discipline. The shadow: skipping meals from career-busy-ness. Pack the lunch."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Sun Transits the 7th House",
+    "description": "Sun transit through your 7th (Aquarius) opposite Lagna — partnership-meal window. Best for: shared-meal negotiations with the partner, formalizing dietary agreements, unusual-but-clear meal structures. The body cools slightly in this opposition; balance with warm cooked foods."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Sun Transits the 8th House",
+    "description": "Sun transit through your 8th (Pisces) demands depth in food choices. Best for: confidential-research about food sensitivities, occult-cooking traditions, ancestral recipe rediscovery. Avoid: surface-trendy diets — the audience is internal. Hidden food-allergies may surface."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Sun Transits the 9th House",
+    "description": "Sun transit through your 9th (Aries) joins your own-sign yogakaraka Mars — peak warrior-fire-digestion window. Best for: foreign-cuisine exploration, principled-eating commitments, mentor-cooked-meal seeking, university-cafeteria-robust meals, travel-food adventure. Watch for Pitta-flare from too much fire-on-fire."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Venus Transits the 1st House",
+    "description": "Venus transit through Leo (your Lagna) brings aesthetic-charisma to your visible eating — magnetic-meal window. Best for: photo-shoots-with-food, charm-led-hosting, romantic-creative-cooking content. People are drawn to your table."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Venus Transits the 10th House",
+    "description": "Venus transit through your 10th (Taurus) is Venus' own sign returning to your natal placement — peak Malavya-yoga food window. Best for: hospitality-launches, design-led food releases, female-mentor culinary investments, MC-defining hospitality moves."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Venus Transits the 11th House",
+    "description": "Venus transit through your 11th (Gemini) crosses your natal Moon — refined-network-warmth-cooking window. Best for: peer-creative cooking collaborations, paid-community cooking launches, beautifully-written newsletters, network-monetization through aesthetic appeal."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Venus Transits the 12th House",
+    "description": "Venus transit through your 12th (Cancer) joins your natal Ketu — dreamy-romantic-foreign-private cooking window. Best for: private-luxury food investments, foreign-aesthetic explorations, sleep-environment-supporting meals."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Venus Transits the 2nd House",
+    "description": "Venus transit through your 2nd (Virgo) crosses your natal Mercury — beauty-and-precision-eating window. Best for: refined family-recipes, polished food-bond gestures, voice-led-tender-cooking. Quality over quantity."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Venus Transits the 3rd House",
+    "description": "Venus transit through your 3rd (Libra) is Venus' own sign joining your exalted natal Saturn — peak refined-disciplined-cookbook-writing window. Best for: writing the beautiful long recipe, sibling-cohort cooking-refinement, peer-cohort culinary collaborations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Venus Transits the 4th House",
+    "description": "Venus transit through your 4th (Scorpio) is Venus debilitated — beauty-in-deep-waters cooking. Best for: confidential-elegant home-cooking, mother-family aesthetic-care meals made privately, real-estate-with-partner kitchen decisions of substance."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Venus Transits the 5th House",
+    "description": "Venus transit through your 5th (Sagittarius) joins your own-sign Jupiter — peak joyful-creative-cooking window. Best for: launching a creative-food product, content with high charm, advisory cooking pitched as inspirational, dating-meals with high charm."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Venus Transits the 6th House",
+    "description": "Venus transit through your 6th (Capricorn) joins your natal Rahu — refined-service-eating window. Best for: turning unpleasant-diet-task into refined-routine, beautifying daily-eating systems, female-friend cooking reconciliations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Venus Transits the 7th House",
+    "description": "Venus transit through your 7th (Aquarius) opposite Lagna — partnership-aesthetic-meal window. Best for: formalizing-shared-meal-aesthetics, marriage-meal proposals, unconventional-but-beautiful dining-structures."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Venus Transits the 8th House",
+    "description": "Venus transit through your 8th (Pisces) is Venus exalted in transformation house — refined-depth-eating window. Best for: shared-finance-elegant dining, occult-cooking aesthetic, ancestral-recipe rediscovery with grace, depth-trust meal conversations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Venus Transits the 9th House",
+    "description": "Venus transit through your 9th (Aries) joins your own-sign yogakaraka Mars — refined-dharma-cooking window. Best for: travel-cuisine, polished-mentor cooking, dharmic-luxury food experiences, university-related design-food work."
+  }
+]

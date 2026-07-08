@@ -18,7 +18,9 @@ npm start                   # node server.js
 npm test                    # jest (excludes verify_planner_career.test.js — see below)
 npx jest tests/dasha        # run a single test file/pattern
 npm run test:planner        # runs ONLY verify_planner_career.test.js (e2e vs. real PDF planner fixtures)
-npm run seed:all            # node db/seed_all_ascendants.js — reseed all per-ascendant description DBs
+npm run test:characterization  # 108 engine-backed snapshot tests (excluded from npm test)
+npm run seed                # node scripts/seed.js — rebuild db/cosmos.db from db/seeds/*.json
+npm run seed:all            # alias for npm run seed
 ```
 
 Python side (kerykeion engine + varshaphal, under `.venv`):
@@ -34,7 +36,9 @@ removed), `PYTHON_BIN` (defaults to `python3`), `PORT`.
 
 ### Request flow
 
-`server.js` mounts `routes/reading.js` under `/api`. Every reading endpoint
+`server.js` mounts `routes/index.js` (composing
+`routes/{readings,dasha,market,insights,favourites}.js`) under `/api`.
+`routes/reading.js` is a compatibility re-export. Every reading endpoint
 calls `services/astrology_kerykeion_bridge.js`, which spawns
 `services/astrology_kerykeion.py` as a child process per request (JSON over
 stdin/stdout; `--json` for a single date, `--json-batch` for many dates in
@@ -44,12 +48,9 @@ and emits a flat list of transit "events" (aspects, house ingresses, MC/ASC
 aspects, ruler/dispositor placements), each tagged with a `phase` qualifier
 (`: Starts` / `: Exact` / `: Ends`) where applicable.
 
-### The dedup/milestone layer (routes/reading.js)
+### The dedup/milestone layer (services/event-filter.js)
 
-Python emits an event on *every day* it's in orb; `routes/reading.js` is
-responsible for collapsing that into single calendar-milestone days (the
-"first day of approach", "day of closest orb", "last day separating"), by
-comparing today's events against yesterday's and tomorrow's. This logic
+Python emits an event on *every day* it's in orb; `services/event-filter.js`
 (`computeFilteredEvents`, plus the batch-mode equivalent in
 `astrology_kerykeion_bridge.js`'s `getMatchingDatesForMonth`) is the most
 subtle part of the codebase: slow planets (Jupiter/Saturn), lunar nodes
@@ -59,25 +60,21 @@ real planner report PDFs (see `tests/fixtures/plannerN.json` and
 `tests/verify_planner_career.test.js`). Don't simplify these orb caps
 without re-running `npm run test:planner`.
 
-### Two parallel interpretation-lookup systems
+### Unified interpretations
 
-- **Legacy per-lens SQLite DBs** (`db/career.js`, `relationship.js`,
-  `investment.js`, `advice.js`, `food.js`): flat tables keyed by
-  `(event name, ascendant)`. Lookup falls back to the Aries row when the
-  requested ascendant has no seeded description yet
-  (`lookupEventWithFallback` in `routes/reading.js`). Backs
-  `/api/career`, `/api/relationship`, `/api/advice`, `/api/food`.
-- **Structured template DB** (`db/cosmos.db`, accessed via `db/cosmos.js`):
-  keyed by a parsed structured key (`kind`, `transit_planet`, `natal_planet`,
-  `target_house`, `target_angle`, `special_label`, `lord_house`, `phase`)
-  rather than a name string. `services/cosmos_event_parser.js` converts the
-  engine's English event-name strings (e.g. `"Mars aspect Venus in 9th
-  house : Exact"`) into that key. Backs `/api/panda/career` and
-  `/api/panda/relationship`, running alongside the legacy routes (not a
-  replacement yet).
+Single sparse `interpretations` table in `db/cosmos.db`, keyed by
+(ascendant, lens, structured key). JSON seeds under `db/seeds/` are the
+source of truth; `npm run seed` rebuilds the DB. Engine event-name strings
+are parsed at the boundary by `services/cosmos_event_parser.js`;
+`services/interpretations.js` walks ascendant fallback chains:
+`[ascendant, 'Aries', '*']` for lens routes (`/api/career`, etc.) and
+`[ascendant, '*']` for panda routes, with per-ascendant phase→window
+fallback inside each step. Legacy `*_events.db` files and seed JS remain on
+disk as reference but nothing at runtime reads them. Adding an ascendant =
+author `db/seeds/<ascendant>/<lens>.json` files and run `npm run seed`.
 
-New per-native description seeding for the legacy DBs follows
-`SEEDING_GUIDE.md`.
+Per-native description authoring for new charts still follows the chart
+computation sections of `SEEDING_GUIDE.md` (§1–2, §6).
 
 ### Dasha / market-timing stack
 
@@ -87,11 +84,11 @@ Sookshmadasha from the natal Moon's sidereal longitude.
 against natal placements (`db/dasha-descriptions.json` supplies static
 MD/AD/PD text). `/api/caution-dates` and `/api/market-signal(-weekly)`
 evaluate these same rules against a small panel of bundled, publicly-attested
-birth charts (see comments in `routes/reading.js` for the current panel and
-why birth-time accuracy matters here) rather than the requesting user's
-chart — this is a market-wide signal, not a personal one. Transit overlays on
-dasha were tested empirically and dropped (no accuracy lift over natal-only);
-don't re-add without re-validating.
+birth charts (see comments in `routes/dasha.js` and `routes/market.js` for
+the current panel and why birth-time accuracy matters here) rather than the
+requesting user's chart — this is a market-wide signal, not a personal one.
+Transit overlays on dasha were tested empirically and dropped (no accuracy
+lift over natal-only); don't re-add without re-validating.
 
 ### Other independent services
 

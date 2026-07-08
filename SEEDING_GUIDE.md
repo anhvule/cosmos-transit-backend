@@ -1,5 +1,13 @@
 # Per-Ascendant Description Seeding Guide
 
+> **NOTE (2026-07):** This guide documents the *legacy* per-lens SQLite
+> seeding flow. Runtime now reads the unified `interpretations` table in
+> `db/cosmos.db`, built from JSON seeds under `db/seeds/` by `npm run seed`.
+> To add a new ascendant today: author `db/seeds/<ascendant>/<lens>.json`
+> (same entry shape as the existing files) and run `npm run seed`.
+> Sections 1–2 (birth-chart computation) and §6 (reference charts) remain
+> accurate and useful.
+
 This guide tells another agent (or you, in a future session) how to fill in
 the per-ascendant event descriptions for a new native — given their birth
 data, you produce ~530 chart-specific descriptions across one or more

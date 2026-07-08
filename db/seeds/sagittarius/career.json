@@ -1,0 +1,4242 @@
+[
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Jupiter Aspecting Ascendant (ASC) : Ends",
+    "description": "Self-expansion window closes. Lock in the title, the public commitment."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Jupiter Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak self-expansion day. Accept the elevation, declare the ambition, take the public role."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Jupiter Aspecting Ascendant (ASC) : Starts",
+    "description": "Self-expansion window opens. Plan the public-mantle assumption."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Jupiter Aspecting Ascendant (ASC)",
+    "description": "Wisdom-expansion of persona. Take the role-elevation; declare the larger ambition."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Jupiter Aspecting Midheaven (MC) : Ends",
+    "description": "Career-expansion window closes. Convert offers into binding commitments."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Jupiter Aspecting Midheaven (MC) : Exact",
+    "description": "Peak career-expansion day. Accept the chief-of-something role."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Jupiter Aspecting Midheaven (MC) : Starts",
+    "description": "Career-expansion window opens. Brief the senior network."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Jupiter Aspecting Midheaven (MC)",
+    "description": "Peak career-expansion. Take the chief role, the prestige offer, the board appointment."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Ketu Aspecting Ascendant (ASC) : Ends",
+    "description": "Stripping window closes. Move forward leaner."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Ketu Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak stripping day. Sit with the dissolution; do not leap."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Ketu Aspecting Ascendant (ASC) : Starts",
+    "description": "Stripping window opens. The pull to step away rises."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Ketu Aspecting Ascendant (ASC)",
+    "description": "Identity-stripping. The old wise-teacher persona feels empty."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Ketu Aspecting Midheaven (MC) : Ends",
+    "description": "Career-eclipse window closes. Move forward to the cleaner platform."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Ketu Aspecting Midheaven (MC) : Exact",
+    "description": "Peak career-eclipse day. The role dissolves quietly. Don't cling."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Ketu Aspecting Midheaven (MC) : Starts",
+    "description": "Career-eclipse window begins. Don't over-defend a role wanting to end."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Ketu Aspecting Midheaven (MC)",
+    "description": "Visibility eclipse. Promotions stall; recognition feels hollow."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Mars Aspecting Ascendant (ASC) : Ends",
+    "description": "Action-self window closes. Lock in the action; channel residual energy into discipline."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Mars Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak action-self day. Take the founder action, sign the bold paper, lead the charge."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Mars Aspecting Ascendant (ASC) : Starts",
+    "description": "Action-self window opens. Prepare the bold move; train the body."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Mars Aspecting Ascendant (ASC)",
+    "description": "Bold, body-anchored self-action; founder declarations; warrior moves."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Mars Aspecting Midheaven (MC) : Ends",
+    "description": "Career-action window closes. Convert moves into permanent positions."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Mars Aspecting Midheaven (MC) : Exact",
+    "description": "Peak career-action day. Launch, demand, lead."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Mars Aspecting Midheaven (MC) : Starts",
+    "description": "Career-action window opens. Prepare the bold play."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Mars Aspecting Midheaven (MC)",
+    "description": "Bold, decisive career action. Launch flagship initiatives; demand title-bumps; lead competitive pitches."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Mercury Aspecting Ascendant (ASC) : Ends",
+    "description": "Mind-on-self window closes. Lock in the personal-brand commitments."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Mercury Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak self-communication day. Send the bold intro letter, publish the personal post."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Mercury Aspecting Ascendant (ASC) : Starts",
+    "description": "Mind-on-self window opens. Refresh the CV, the bio, the founder-story."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Mercury Aspecting Ascendant (ASC)",
+    "description": "Sharp self-communication. Best for personal-brand updates, teacher-narrative refresh."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Mercury Aspecting Midheaven (MC) : Ends",
+    "description": "Career-communication window closes. Convert messaging into commitment."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Mercury Aspecting Midheaven (MC) : Exact",
+    "description": "Peak career-communication day. Publish, present, send the formal update."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Mercury Aspecting Midheaven (MC) : Starts",
+    "description": "Career-communication window opens. Prepare the public message."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Mercury Aspecting Midheaven (MC)",
+    "description": "Sharp career-communication. Press releases, all-hands updates, status memos."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Moon Aspecting Ascendant (ASC) : Ends",
+    "description": "Emotional-self window closes. The wave passes fast; lock in connections."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Moon Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak emotional-self day. Public mood favors you; warm presentations land."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Moon Aspecting Ascendant (ASC) : Starts",
+    "description": "Emotional-self window opens. Prepare to be felt, not just seen."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Moon Aspecting Ascendant (ASC)",
+    "description": "Emotional charge on persona; warm public reception possible."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Moon Aspecting Midheaven (MC) : Ends",
+    "description": "Emotional career window closes. Move warm leads into formal commitments."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Moon Aspecting Midheaven (MC) : Exact",
+    "description": "Peak emotional career day. Take the warm-toned client meeting, the empathetic team-talk."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Moon Aspecting Midheaven (MC) : Starts",
+    "description": "Emotional career window opens. Senior-network warmth rises."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Moon Aspecting Midheaven (MC)",
+    "description": "Emotional charge on public reputation; warm career news possible."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Rahu Aspecting Ascendant (ASC) : Ends",
+    "description": "Reinvention window closes. Decide which experiments to keep."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Rahu Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak reinvention day. Take the unconventional move — but check basics."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Rahu Aspecting Ascendant (ASC) : Starts",
+    "description": "Reinvention window begins. Sudden ambition surfaces."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Rahu Aspecting Ascendant (ASC)",
+    "description": "Chaotic identity expansion; foreign or unconventional self emerges. Watch obsession."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Rahu Aspecting Midheaven (MC) : Ends",
+    "description": "Career-reinvention window closes. Lock in legitimate pivots; release illusory ones."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Rahu Aspecting Midheaven (MC) : Exact",
+    "description": "Peak career-reinvention day. Take the bold pivot — verify integrity."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Rahu Aspecting Midheaven (MC) : Starts",
+    "description": "Career-reinvention window begins. Vet unconventional offers carefully."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Rahu Aspecting Midheaven (MC)",
+    "description": "Chaotic visibility expansion. Sudden promotions, unconventional opportunities, foreign career pull."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Saturn Aspecting Ascendant (ASC) : Ends",
+    "description": "Structural-self window closes. What survived is permanent."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Saturn Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak structural-self day. The reckoning is acute. Hold steady."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Saturn Aspecting Ascendant (ASC) : Starts",
+    "description": "Structural-self window opens. Eliminate vanity commitments; prepare for slow grind."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Saturn Aspecting Ascendant (ASC)",
+    "description": "Heavy structural pressure on body and identity. Slow down, simplify, build for permanence."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Saturn Aspecting Midheaven (MC) : Ends",
+    "description": "Career-discipline window closes. Convert effort into title or compensation."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Saturn Aspecting Midheaven (MC) : Exact",
+    "description": "Peak career-discipline day. The promotion delayed; the foundation laid."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Saturn Aspecting Midheaven (MC) : Starts",
+    "description": "Career-discipline window opens. Structure work for years."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Saturn Aspecting Midheaven (MC)",
+    "description": "Public work tested for staying power. Slow recognition; foundation-laying."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Sun Aspecting Ascendant (ASC) : Ends",
+    "description": "Visibility window closes. Convert visibility into a binding title or formal recognition."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Sun Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak visibility day. Take the stage, declare the role, accept the public mantle."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Sun Aspecting Ascendant (ASC) : Starts",
+    "description": "Visibility window opens. Polish public-facing materials; prepare the principle-anchored pitch."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Sun Aspecting Ascendant (ASC)",
+    "description": "Visibility radiates through the wise-self persona. Best for teaching declarations, public-mantle assumption, founder-as-guru debut."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Sun Aspecting Midheaven (MC) : Ends",
+    "description": "Career-visibility window closes. Lock in any title or compensation moves before momentum fades."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Sun Aspecting Midheaven (MC) : Exact",
+    "description": "Peak career-visibility day. Take the elevation, lead the pitch, accept the prestige role."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Sun Aspecting Midheaven (MC) : Starts",
+    "description": "Career-visibility window opens. Plan the upward move; brief the boss."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Sun Aspecting Midheaven (MC)",
+    "description": "Peak career-visibility window. Launch flagship initiatives; demand title-elevation."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Venus Aspecting Ascendant (ASC) : Ends",
+    "description": "Charm-self window closes. Convert warmth into binding agreements."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Venus Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak charm day. Make the warm ask, take the social meeting, deliver the persuasion."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Venus Aspecting Ascendant (ASC) : Starts",
+    "description": "Charm-self window opens. Prepare the diplomatic outreach."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Venus Aspecting Ascendant (ASC)",
+    "description": "Warmth on the persona. Charm-asks favored; the smile lands."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Venus Aspecting Midheaven (MC) : Ends",
+    "description": "Aesthetic-career window closes. Lock in design commitments."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Venus Aspecting Midheaven (MC) : Exact",
+    "description": "Peak aesthetic-career day. Launch the campaign, present the redesign."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Venus Aspecting Midheaven (MC) : Starts",
+    "description": "Aesthetic-career window opens. Plan the brand refresh, the visual update."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Venus Aspecting Midheaven (MC)",
+    "description": "Softens the public face. Brand campaigns, design-led PR, beauty-driven status moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Jupiter in 1st house : Ends",
+    "description": "Self-blessing window closes. Lock in the public commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Jupiter in 1st house : Exact",
+    "description": "Peak self-blessing day. Accept the elevation, declare the ambition, take the public role."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Jupiter in 1st house : Starts",
+    "description": "Self-blessing window opens. Plan the public-mantle assumption."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Jupiter aspect Jupiter in 1st house",
+    "description": "Jupiter return aspect — annual-tier expansion of self, persona, founder identity. Take the role expansion, accept the public mantle, declare the bigger ambition."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Ketu in 12th house : Ends",
+    "description": "Dissolution-blessing window closes. Lock in the foreign commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Ketu in 12th house : Exact",
+    "description": "Peak dissolution-blessing day. Take the foreign-channel offer; sign the hidden mandate."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Ketu in 12th house : Starts",
+    "description": "Dissolution-blessing window opens. Plan the foreign sabbatical or retreat."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Jupiter aspect Ketu in 12th house",
+    "description": "Wisdom on the dissolution-zone. Foreign-fortune favor, hidden-patron emergence, retreat-led work blesses."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Mars in 5th house : Ends",
+    "description": "Creative-blessing window closes. Lock in the creative commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Mars in 5th house : Exact",
+    "description": "Peak creative-blessing day. Take the visible authority position; sign the speculative paper."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Mars in 5th house : Starts",
+    "description": "Creative-blessing window opens. Plan the year's flagship creative move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Jupiter aspect Mars in 5th house",
+    "description": "Wisdom on creative authority. Major creative-launch favor; mentee placements; advisory ascensions; speculative wins (verify each)."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Mercury in 10th house : Ends",
+    "description": "MC-blessing window closes. Lock in the title and board commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Mercury in 10th house : Exact",
+    "description": "Peak MC-blessing day. Accept the chief role; take the board seat."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Mercury in 10th house : Starts",
+    "description": "MC-blessing window opens. Polish the executive-track materials."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Jupiter aspect Mercury in 10th house",
+    "description": "Wisdom at MC. Peak career-zenith windows; chief-of-something invitations; board appointments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Moon in 8th house : Ends",
+    "description": "Transformation-blessing window closes. Lock in the chapter-ending commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Moon in 8th house : Exact",
+    "description": "Peak transformation-blessing day. Sign the inheritance papers; close the succession."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Moon in 8th house : Starts",
+    "description": "Transformation-blessing window opens. Prepare for chapter-ending favor."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Jupiter aspect Moon in 8th house",
+    "description": "Wisdom into transformation. Inheritance, severance, equity favorably resolves; longevity wins; restructuring brings authority."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Rahu in 6th house : Ends",
+    "description": "Service-blessing window closes. Lock in the service-victory commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Rahu in 6th house : Exact",
+    "description": "Peak service-blessing day. Win the dispute through wisdom rather than force."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Rahu in 6th house : Starts",
+    "description": "Service-blessing window opens. Reframe the conflict as teaching."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Jupiter aspect Rahu in 6th house",
+    "description": "Wisdom on obsessive service. Difficult clients become teachers; debt resolution favors you; HR-leadership advances. Health watch."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Saturn in 2nd house : Ends",
+    "description": "Income-blessing window closes. Lock in the income commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Saturn in 2nd house : Exact",
+    "description": "Peak income-blessing day. Sign the compensation lift; close the family-money matter."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Saturn in 2nd house : Starts",
+    "description": "Income-blessing window opens. Prepare the structural case."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Jupiter aspect Saturn in 2nd house",
+    "description": "Wisdom on slow-income. Compensation cases close in your favor; family-wealth structuring expands; vocal-craft compounds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Sun in 9th house : Ends",
+    "description": "Dharma-blessing window closes. Lock in the foreign and ethical commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-blessing day. Sign the international deal, accept the senior blessing, declare the principle."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Sun in 9th house : Starts",
+    "description": "Dharma-blessing window opens. Brief the senior mentor; plan the foreign move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Jupiter aspect Sun in 9th house",
+    "description": "Wisdom-blessing on dharma in own sign. Among the most blessed windows of any twelve-year cycle. Foreign-fortune visibility, judicial wins, publishing breakthroughs, mentor-blessings."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Venus in 11th house : Ends",
+    "description": "Gain-blessing window closes. Lock in the gain commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Venus in 11th house : Exact",
+    "description": "Peak gain-blessing day. Accept the bonus, the equity, the board seat."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Venus in 11th house : Starts",
+    "description": "Gain-blessing window opens. Brief the senior network."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Jupiter aspect Venus in 11th house",
+    "description": "Wisdom on the gain zone. Bonus pools compound, equity vesting accelerates, board appointments arrive."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Ketu aspect Jupiter in 1st house : Ends",
+    "description": "Self-eclipse window closes. Move forward leaner."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Ketu aspect Jupiter in 1st house : Exact",
+    "description": "Peak self-eclipse day. Sit with the dissolution; do not leap."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Ketu aspect Jupiter in 1st house : Starts",
+    "description": "Self-eclipse window opens. The pull to step away rises."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Ketu aspect Jupiter in 1st house",
+    "description": "Identity-stripping. The wise-self question itself dissolves; the founder-teacher persona feels empty. Sit; do not over-rebuild."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Ketu aspect Ketu in 12th house : Ends",
+    "description": "Dissolution-return window closes. Move forward leaner and freer."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Ketu aspect Ketu in 12th house : Exact",
+    "description": "Peak dissolution-return day. The pilgrimage or retreat lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Ketu aspect Ketu in 12th house : Starts",
+    "description": "Dissolution-return window opens. The foreign-pull rises."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Ketu aspect Ketu in 12th house",
+    "description": "Ketu return aspect on its own placement — foreign, devotional dissolution at peak. Pilgrimage-pull strong; pleasure-spending evaporates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Ketu aspect Mars in 5th house : Ends",
+    "description": "Creative-eclipse window closes. The new creative chapter begins quieter."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Ketu aspect Mars in 5th house : Exact",
+    "description": "Peak creative-eclipse day. Old creative ambition feels finished."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Ketu aspect Mars in 5th house : Starts",
+    "description": "Creative-eclipse window opens. The fame-pull cools."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Ketu aspect Mars in 5th house",
+    "description": "Creative-authority eclipse. Old creative ambition feels hollow; mentee-pull fades; speculation loses charge. Sit with the boredom."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Ketu aspect Mercury in 10th house : Ends",
+    "description": "MC-eclipse window closes. Move forward to the cleaner platform."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Ketu aspect Mercury in 10th house : Exact",
+    "description": "Peak MC-eclipse day. The role dissolves quietly. Don't cling."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Ketu aspect Mercury in 10th house : Starts",
+    "description": "MC-eclipse window opens. Don't over-defend a role wanting to end."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Ketu aspect Mercury in 10th house",
+    "description": "Career eclipse. Old roles feel hollow; promotions feel weightless; layoffs happen quietly. The chief-role identity gets stripped."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Ketu aspect Moon in 8th house : Ends",
+    "description": "Transformation-eclipse window closes. New chapter begins lean."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Ketu aspect Moon in 8th house : Exact",
+    "description": "Peak transformation-eclipse day. Old chapter ends abruptly."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Ketu aspect Moon in 8th house : Starts",
+    "description": "Transformation-eclipse window opens. Prepare for fast chapter-endings."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Ketu aspect Moon in 8th house",
+    "description": "Transformation acceleration. Old chapters end abruptly; inheritance, severance closes; regulatory cases dissolve."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Ketu aspect Rahu in 6th house : Ends",
+    "description": "Service-eclipse window closes. The clean-board is what remains."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Ketu aspect Rahu in 6th house : Exact",
+    "description": "Peak service-eclipse day. The old rival drops out of the picture."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Ketu aspect Rahu in 6th house : Starts",
+    "description": "Service-eclipse window opens. Old enmities cool."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Ketu aspect Rahu in 6th house",
+    "description": "Nodal axis eclipse on service. Old conflicts dissolve without victory; debts forgiven or written off; HR cases close quietly."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Ketu aspect Saturn in 2nd house : Ends",
+    "description": "Income-eclipse window closes. The slow rail still runs underneath."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Ketu aspect Saturn in 2nd house : Exact",
+    "description": "Peak income-eclipse day. Income feels meaningless. Sit with it."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Ketu aspect Saturn in 2nd house : Starts",
+    "description": "Income-eclipse window opens. The income-meaning evaporates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Ketu aspect Saturn in 2nd house",
+    "description": "Detachment from income, voice, family-finance. Income feels meaningless; family-money matters dissolve. Don't panic-renegotiate."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Ketu aspect Sun in 9th house : Ends",
+    "description": "Dharma-eclipse window closes. Move forward leaner."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Ketu aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-eclipse day. The old guru-relationship dissolves quietly."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Ketu aspect Sun in 9th house : Starts",
+    "description": "Dharma-eclipse window opens. The pull to step away from old principles rises."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Ketu aspect Sun in 9th house",
+    "description": "Dharma detachment. Old gurus feel finished; foreign-fortune ambitions cool; principle-without-attachment ripens."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Ketu aspect Venus in 11th house : Ends",
+    "description": "Gain-eclipse window closes. The clean-network is what remains."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Ketu aspect Venus in 11th house : Exact",
+    "description": "Peak gain-eclipse day. Old friend drifts; bonus feels weightless."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Ketu aspect Venus in 11th house : Starts",
+    "description": "Gain-eclipse window opens. The network purifies."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Ketu aspect Venus in 11th house",
+    "description": "Deep purification of network and gains motivations. Friends drift, bonuses feel weightless, ambitions purify."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Mars aspect Jupiter in 1st house : Ends",
+    "description": "Wise-action window closes. Lock in the public commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Mars aspect Jupiter in 1st house : Exact",
+    "description": "Peak wise-action day. Take the principled founder action."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Mars aspect Jupiter in 1st house : Starts",
+    "description": "Wise-action window opens. Prepare the principled bold move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Mars aspect Jupiter in 1st house",
+    "description": "Action on the wise-self. Founder-as-teacher declarations; principled body-anchored bold moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Mars aspect Ketu in 12th house : Ends",
+    "description": "Dissolution-action window closes. Lock in the foreign commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Mars aspect Ketu in 12th house : Exact",
+    "description": "Peak dissolution-action day. Make the foreign-back-channel move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Mars aspect Ketu in 12th house : Starts",
+    "description": "Dissolution-action window opens. Prepare the hidden push."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Mars aspect Ketu in 12th house",
+    "description": "Action on the dissolution-zone. Behind-scenes power plays, foreign-trade fights, hospitality-industry sharp moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Mars aspect Mars in 5th house : Ends",
+    "description": "Creative-warrior window closes. Lock in the creative commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Mars aspect Mars in 5th house : Exact",
+    "description": "Peak creative-warrior day. Lead the creative charge; sign the bold paper."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Mars aspect Mars in 5th house : Starts",
+    "description": "Creative-warrior window opens. Train; prepare the bold creative push."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Mars aspect Mars in 5th house",
+    "description": "Mars return aspect — peak creative-warrior charge. Launch the founder creative move, take the calculated speculative leap."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Mars aspect Mercury in 10th house : Ends",
+    "description": "MC-action window closes. Convert moves into permanent positions."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Mars aspect Mercury in 10th house : Exact",
+    "description": "Peak MC-action day. Launch, demand, lead."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Mars aspect Mercury in 10th house : Starts",
+    "description": "MC-action window opens. Prepare the bold play."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Mars aspect Mercury in 10th house",
+    "description": "Action at MC. Among the strongest career-action windows of any two-year cycle. Launch the flagship; demand the elevation."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Mars aspect Moon in 8th house : Ends",
+    "description": "Transformation-action window closes. Lock in the chapter-ending commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Mars aspect Moon in 8th house : Exact",
+    "description": "Peak transformation-action day. Lead the restructuring; sign the succession papers."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Mars aspect Moon in 8th house : Starts",
+    "description": "Transformation-action window opens. Prepare for the chapter-ending push."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Mars aspect Moon in 8th house",
+    "description": "Action on the transformation chamber. Surgical succession battles, decisive audit fights, restructuring leadership."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Mars aspect Rahu in 6th house : Ends",
+    "description": "Service-action window closes. Lock in the wins."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Mars aspect Rahu in 6th house : Exact",
+    "description": "Peak service-action day. Lead the regulatory charge; close the rival case."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Mars aspect Rahu in 6th house : Starts",
+    "description": "Service-action window opens. Sharpen the strategy."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Mars aspect Rahu in 6th house",
+    "description": "Action on obsessive service. Win the long workplace dispute, settle the debt aggressively, defeat the rival."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Mars aspect Saturn in 2nd house : Ends",
+    "description": "Slow-income-action window closes. Lock in the income commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Mars aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-income-action day. Make the salary push."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Mars aspect Saturn in 2nd house : Starts",
+    "description": "Slow-income-action window opens. Prepare the data-backed case."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Mars aspect Saturn in 2nd house",
+    "description": "Action on slow-income. Heated income battles; aggressive salary asks possible but data-back them."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Mars aspect Sun in 9th house : Ends",
+    "description": "Dharma-action window closes. Lock in the foreign commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Mars aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-action day. File the foreign motion; lead the principled charge."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Mars aspect Sun in 9th house : Starts",
+    "description": "Dharma-action window opens. Train; prepare the principled bold move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Mars aspect Sun in 9th house",
+    "description": "Action on the dharma engine. Bold foreign-engagement push, principled certification fight, decisive judicial action."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Mars aspect Venus in 11th house : Ends",
+    "description": "Gain-action window closes. Lock in the gain commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Mars aspect Venus in 11th house : Exact",
+    "description": "Peak gain-action day. Make the bonus push; close the board-position conversation."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Mars aspect Venus in 11th house : Starts",
+    "description": "Gain-action window opens. Prepare the structured ask."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Mars aspect Venus in 11th house",
+    "description": "Action on the gains zone. Assertive bonus negotiations, board-position asks, profit-share fights."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Mercury aspect Jupiter in 1st house : Ends",
+    "description": "Wise-mind window closes. Lock in the public commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Mercury aspect Jupiter in 1st house : Exact",
+    "description": "Peak wise-mind day. Publish the principled personal piece."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Mercury aspect Jupiter in 1st house : Starts",
+    "description": "Wise-mind window opens. Draft the teacher-narrative."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Mercury aspect Jupiter in 1st house",
+    "description": "Sharp mind on the wise-self. Teacher-narrative refresh, founder-as-guru intro letter, principle-anchored personal post."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Mercury aspect Ketu in 12th house : Ends",
+    "description": "Dissolution-mind window closes. Lock in the confidential commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Mercury aspect Ketu in 12th house : Exact",
+    "description": "Peak dissolution-mind day. Send the off-the-record briefing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Mercury aspect Ketu in 12th house : Starts",
+    "description": "Dissolution-mind window opens. Prepare the confidential document."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Mercury aspect Ketu in 12th house",
+    "description": "Sharp mind on the dissolution-zone. Confidential briefings, NDAs, off-record foreign-correspondence; watch for leaks."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Mercury aspect Mars in 5th house : Ends",
+    "description": "Creative-mind window closes. Lock in the creative paperwork."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Mercury aspect Mars in 5th house : Exact",
+    "description": "Peak creative-mind day. Send the punchy creative pitch."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Mercury aspect Mars in 5th house : Starts",
+    "description": "Creative-mind window opens. Draft the bold brief."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Mercury aspect Mars in 5th house",
+    "description": "Sharp mind on creative authority. The bold creative brief, the founder-style speculative memo, the punchy mentee-coaching note."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Mercury aspect Mercury in 10th house : Ends",
+    "description": "Career-zenith communication window closes. Convert messaging into commitment."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Mercury aspect Mercury in 10th house : Exact",
+    "description": "Peak career-zenith communication day. Publish the platform-defining piece; deliver the top-tier briefing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Mercury aspect Mercury in 10th house : Starts",
+    "description": "Career-zenith communication window opens. Polish the public message."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Mercury aspect Mercury in 10th house",
+    "description": "Mercury return aspect — peak career-zenith communication. Press releases, executive memos, top-tier briefings."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Mercury aspect Moon in 8th house : Ends",
+    "description": "Transformation-mind window closes. Lock in the depth-paperwork."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Mercury aspect Moon in 8th house : Exact",
+    "description": "Peak transformation-mind day. Ship the forensic report; deliver the due-diligence finding."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Mercury aspect Moon in 8th house : Starts",
+    "description": "Transformation-mind window opens. Prepare the depth-document."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Mercury aspect Moon in 8th house",
+    "description": "Sharp mind on transformation. Forensic reports, due diligence, regulatory responses, taxation drafts; emotional intelligence on the disclosure."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Mercury aspect Rahu in 6th house : Ends",
+    "description": "Service-mind window closes. Lock in the technical commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Mercury aspect Rahu in 6th house : Exact",
+    "description": "Peak service-mind day. Ship the audit, file the regulatory motion."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Mercury aspect Rahu in 6th house : Starts",
+    "description": "Service-mind window opens. Sharpen the case file."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Mercury aspect Rahu in 6th house",
+    "description": "Sharp mind on obsessive service. Audit reports, regulatory filings, debt-recovery letters, technical specs at peak."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Mercury aspect Saturn in 2nd house : Ends",
+    "description": "Slow-income-mind window closes. Lock in the income paperwork."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Mercury aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-income-mind day. File the compensation paper."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Mercury aspect Saturn in 2nd house : Starts",
+    "description": "Slow-income-mind window opens. Draft the structural salary case."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Mercury aspect Saturn in 2nd house",
+    "description": "Sharp mind on slow-income. Compensation memos, structural salary cases, family-money paperwork."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Mercury aspect Sun in 9th house : Ends",
+    "description": "Dharma-mind window closes. Lock in the foreign and ethical paperwork."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Mercury aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-mind day. File the foreign motion; ship the judicial brief."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Mercury aspect Sun in 9th house : Starts",
+    "description": "Dharma-mind window opens. Prepare the foreign-or-judicial document."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Mercury aspect Sun in 9th house",
+    "description": "Sharp mind on dharma. Foreign correspondence, philosophical drafts, judicial filings, certification-paperwork peak."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Mercury aspect Venus in 11th house : Ends",
+    "description": "Gain-mind window closes. Lock in the gain-paperwork."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Mercury aspect Venus in 11th house : Exact",
+    "description": "Peak gain-mind day. Send the precise board-position letter; deliver the senior-mentor case."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Mercury aspect Venus in 11th house : Starts",
+    "description": "Gain-mind window opens. Draft the senior-network ask."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Mercury aspect Venus in 11th house",
+    "description": "Sharp mind on the gains zone. Structured outreach to senior allies; precise board-position written asks."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Moon aspect Jupiter in 1st house : Ends",
+    "description": "Wise-warmth window closes. Lock in warm public commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Moon aspect Jupiter in 1st house : Exact",
+    "description": "Peak wise-warmth day. Take the heart-led teaching engagement."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Moon aspect Jupiter in 1st house : Starts",
+    "description": "Wise-warmth window opens. Prepare the warm teacher-tone."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Moon aspect Jupiter in 1st house",
+    "description": "Emotional warmth on the wise-self. The body reads as approachable; teaching-conversations land with care."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Moon aspect Ketu in 12th house : Ends",
+    "description": "Dissolution-warmth window closes. Move forward warmer-but-leaner."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Moon aspect Ketu in 12th house : Exact",
+    "description": "Peak dissolution-warmth day. Take the warm foreign call; honor the retreat impulse."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Moon aspect Ketu in 12th house : Starts",
+    "description": "Dissolution-warmth window opens. Sleep more; write privately."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Moon aspect Ketu in 12th house",
+    "description": "Emotional charge on the dissolution-zone. Foreign-friend warmth, retreat-tone, behind-scenes empathetic work."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Moon aspect Mars in 5th house : Ends",
+    "description": "Creative-warmth window closes. Lock in the creative commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Moon aspect Mars in 5th house : Exact",
+    "description": "Peak creative-warmth day. Make the heart-led creative pitch; take the warm mentee call."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Moon aspect Mars in 5th house : Starts",
+    "description": "Creative-warmth window opens. Soften the creative direction."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Moon aspect Mars in 5th house",
+    "description": "Emotional charge on creative authority. Heart-led creative push; protégé-warmth wave; mentee-emotional-conversation favored."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Moon aspect Mercury in 10th house : Ends",
+    "description": "Emotion-on-MC window closes. Lock in the warm top-tier commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Moon aspect Mercury in 10th house : Exact",
+    "description": "Peak day for empathetic top-tier communication. Hold the warm exec 1:1."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Moon aspect Mercury in 10th house : Starts",
+    "description": "Emotion-on-MC window opens. Soften the executive tone."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Moon aspect Mercury in 10th house",
+    "description": "Emotional intelligence at MC. Empathetic press releases, warm executive briefings, the heart-led status memo."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Moon aspect Moon in 8th house : Ends",
+    "description": "Transformation-emotion window closes. Lock in the chapter-ending commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Moon aspect Moon in 8th house : Exact",
+    "description": "Peak transformation-emotion day. Hold the succession conversation; take the inheritance call."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Moon aspect Moon in 8th house : Starts",
+    "description": "Transformation-emotion window opens. Prepare for the deep-water wave."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Moon aspect Moon in 8th house",
+    "description": "Monthly transformation-emotion peak. Inheritance, succession, occult-research conversations land with emotional weight."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Moon aspect Rahu in 6th house : Ends",
+    "description": "Service-warmth window closes. Lock in the empathetic commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Moon aspect Rahu in 6th house : Exact",
+    "description": "Peak service-warmth day. Hold the empathetic 1:1 with the difficult colleague."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Moon aspect Rahu in 6th house : Starts",
+    "description": "Service-warmth window opens. Soften the conflict tone."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Moon aspect Rahu in 6th house",
+    "description": "Emotional charge on obsessive service. Empathetic HR work, soft conflict-resolution; watch sympathetic alliance under Rahu shadow."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Moon aspect Saturn in 2nd house : Ends",
+    "description": "Slow-income-emotion window closes. Lock in the warm income commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Moon aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-income-emotion day. Hold the warm family-finance conversation."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Moon aspect Saturn in 2nd house : Starts",
+    "description": "Slow-income-emotion window opens. Soften the income tone."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Moon aspect Saturn in 2nd house",
+    "description": "Emotional weight on slow-income. Family-money conversations land with warmth; the structural salary case soften-closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Moon aspect Sun in 9th house : Ends",
+    "description": "Dharma-warmth window closes. Lock in warm mentor-commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Moon aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-warmth day. Make the heart-led principled call."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Moon aspect Sun in 9th house : Starts",
+    "description": "Dharma-warmth window opens. Soften the principled tone."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Moon aspect Sun in 9th house",
+    "description": "Emotional charge on dharma. Warm mentor-conversations, principled emotional pitches, foreign-call warmth."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Moon aspect Venus in 11th house : Ends",
+    "description": "Gain-warmth window closes. Lock in the warm gain commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Moon aspect Venus in 11th house : Exact",
+    "description": "Peak gain-warmth day. Accept the warm bonus call, the board invitation made over coffee."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Moon aspect Venus in 11th house : Starts",
+    "description": "Gain-warmth window opens. Reach out to the senior-female allies."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Moon aspect Venus in 11th house",
+    "description": "Emotional warmth on the gain zone. Senior-female mentor reaches out; bonus or board-news arrives wrapped in care."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Rahu aspect Jupiter in 1st house : Ends",
+    "description": "Self-obsession window closes. Decide which experiments to keep."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Rahu aspect Jupiter in 1st house : Exact",
+    "description": "Peak self-obsession day. Take the unconventional move — but check basics."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Rahu aspect Jupiter in 1st house : Starts",
+    "description": "Self-obsession window opens. Beware identity hijack."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Rahu aspect Jupiter in 1st house",
+    "description": "Obsessive self-reinvention. New persona, new ambition, new founder identity. Verify each leap against close-circle counsel."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Rahu aspect Ketu in 12th house : Ends",
+    "description": "Dissolution-obsession window closes. Keep the dharmic foreign gains."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Rahu aspect Ketu in 12th house : Exact",
+    "description": "Peak dissolution-obsession day. The foreign-channel leap presents — verify integrity."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Rahu aspect Ketu in 12th house : Starts",
+    "description": "Dissolution-obsession window opens. Beware spectacular hidden offers."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Rahu aspect Ketu in 12th house",
+    "description": "Nodal axis obsession on dissolution. Foreign relocation, hidden-patron pursuits, retreat-driven careers. Verify each path."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Rahu aspect Mars in 5th house : Ends",
+    "description": "Creative-obsession window closes. Keep what was anchored to dharma."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Rahu aspect Mars in 5th house : Exact",
+    "description": "Peak creative-obsession day. The bold leap presents — verify integrity twice."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Rahu aspect Mars in 5th house : Starts",
+    "description": "Creative-obsession window opens. Beware spectacle-over-substance."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Rahu aspect Mars in 5th house",
+    "description": "Eighteen-month peak ambition window for creative fame, speculative obsession, mentee-frenzy. Verify integrity before each leap."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Rahu aspect Mercury in 10th house : Ends",
+    "description": "MC-obsession window closes. Lock in legitimate pivots; release illusory ones."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Rahu aspect Mercury in 10th house : Exact",
+    "description": "Peak MC-obsession day. The bold career pivot presents — verify integrity."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Rahu aspect Mercury in 10th house : Starts",
+    "description": "MC-obsession window opens. Vet incoming offers."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Rahu aspect Mercury in 10th house",
+    "description": "Obsessive career-elevation push. Sudden promotion offers, foreign career-pull, unconventional executive offers. Vet the legitimacy."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Rahu aspect Moon in 8th house : Ends",
+    "description": "Transformation-obsession window closes. Keep the grounded gains."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Rahu aspect Moon in 8th house : Exact",
+    "description": "Peak transformation-obsession day. The chapter-ending leap presents — verify."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Rahu aspect Moon in 8th house : Starts",
+    "description": "Transformation-obsession window opens. Beware emotional distortion."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Rahu aspect Moon in 8th house",
+    "description": "Obsessive transformation. Sudden inheritance, regulatory obsession, occult deep-dive. Stay grounded."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Rahu aspect Rahu in 6th house : Ends",
+    "description": "Service-victory window closes. Lock in the wins."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Rahu aspect Rahu in 6th house : Exact",
+    "description": "Peak service-victory day. Defeat the rival; settle the debt; close the regulatory case."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Rahu aspect Rahu in 6th house : Starts",
+    "description": "Service-victory window opens. Sharpen the strategy."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Rahu aspect Rahu in 6th house",
+    "description": "Rahu return aspect on its own placement — favorable for dramatic enemy-defeat, big debt-recovery, regulatory victory, HR transformation."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Rahu aspect Saturn in 2nd house : Ends",
+    "description": "Income-obsession window closes. Trust the slow rail."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Rahu aspect Saturn in 2nd house : Exact",
+    "description": "Peak income-obsession day. The big income leap presents — verify integrity."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Rahu aspect Saturn in 2nd house : Starts",
+    "description": "Income-obsession window opens. Beware get-rich-quick."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Rahu aspect Saturn in 2nd house",
+    "description": "Obsessive ambition around income. Get-rich-quick schemes promise to short-circuit the slow rail; the Saturn discipline is what compounds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Rahu aspect Sun in 9th house : Ends",
+    "description": "Dharma-obsession window closes. Keep what was anchored; release what was vanity."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Rahu aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-obsession day. The bold foreign leap presents — verify integrity twice."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Rahu aspect Sun in 9th house : Starts",
+    "description": "Dharma-obsession window opens. Beware the spectacular guru."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Rahu aspect Sun in 9th house",
+    "description": "Foreign-fortune obsession on dharma. International expansion, foreign certification, controversial guru. Vet the dharma channel."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Rahu aspect Venus in 11th house : Ends",
+    "description": "Gain-obsession window closes. Keep the clean gains."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Rahu aspect Venus in 11th house : Exact",
+    "description": "Peak gain-obsession day. The bonus or equity event lands — verify."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Rahu aspect Venus in 11th house : Starts",
+    "description": "Gain-obsession window opens. Audit network for integrity."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Rahu aspect Venus in 11th house",
+    "description": "Obsessive gain-and-network chapter. Career-defining bonus events, equity revaluations, board-positioning. Stay clean."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Saturn aspect Jupiter in 1st house : Ends",
+    "description": "Self-discipline window closes. What survived is permanent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Saturn aspect Jupiter in 1st house : Exact",
+    "description": "Peak self-discipline day. The reckoning is acute. Hold steady."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Saturn aspect Jupiter in 1st house : Starts",
+    "description": "Self-discipline window opens. Eliminate vanity commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Saturn aspect Jupiter in 1st house",
+    "description": "Multi-year structural pressure on body, persona, founder identity. Health discipline, persona simplification, slow founder-craft."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Saturn aspect Ketu in 12th house : Ends",
+    "description": "Dissolution-discipline window closes. The disciplined hidden-channel is permanent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Saturn aspect Ketu in 12th house : Exact",
+    "description": "Peak dissolution-discipline day. The foreign sabbatical formalizes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Saturn aspect Ketu in 12th house : Starts",
+    "description": "Dissolution-discipline window opens. Audit the foreign and pleasure budgets."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Saturn aspect Ketu in 12th house",
+    "description": "Multi-year discipline on foreign, hidden, devotional channels. Sabbaticals turn structural; foreign work formalizes; pleasure-spending audits itself."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Saturn aspect Mars in 5th house : Ends",
+    "description": "Creative-discipline window closes. What earned was earned."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Saturn aspect Mars in 5th house : Exact",
+    "description": "Peak creative-discipline day. The slow creative commitment lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Saturn aspect Mars in 5th house : Starts",
+    "description": "Creative-discipline window opens. Audit the speculative book."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Saturn aspect Mars in 5th house",
+    "description": "Creative authority is tested by structural delay. Mentee relationships restructure; speculation must be tightly disciplined; fame-pull cools."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Saturn aspect Mercury in 10th house : Ends",
+    "description": "MC-discipline window closes. Convert effort into title or compensation."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Saturn aspect Mercury in 10th house : Exact",
+    "description": "Peak MC-discipline day. The chief role lands; the long structure crystallizes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Saturn aspect Mercury in 10th house : Starts",
+    "description": "MC-discipline window opens. Polish the long-game executive materials."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Saturn aspect Mercury in 10th house",
+    "description": "The 2.5-year window that seeds the next 30-year career chapter. Take the chief role; commit to the long structure."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Saturn aspect Moon in 8th house : Ends",
+    "description": "Transformation-discipline window closes. The new structure holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Saturn aspect Moon in 8th house : Exact",
+    "description": "Peak transformation-discipline day. Sign the chapter-ending papers."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Saturn aspect Moon in 8th house : Starts",
+    "description": "Transformation-discipline window opens. Prepare for the chapter-ending grind."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Saturn aspect Moon in 8th house",
+    "description": "Major life-restructuring with deep emotional charge. Inheritance, severance, regulatory chapters open and close. Patience compounds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Saturn aspect Rahu in 6th house : Ends",
+    "description": "Service-discipline window closes. The slow win is permanent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Saturn aspect Rahu in 6th house : Exact",
+    "description": "Peak service-discipline day. The regulatory or HR transformation crystallizes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Saturn aspect Rahu in 6th house : Starts",
+    "description": "Service-discipline window opens. Prepare for the long case."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Saturn aspect Rahu in 6th house",
+    "description": "Best multi-year window for building audit and regulatory authority, settling long-debt cases, leading HR transformation. Slow and structural."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Saturn aspect Saturn in 2nd house : Ends",
+    "description": "Income-discipline window closes. The new income foundation is permanent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Saturn aspect Saturn in 2nd house : Exact",
+    "description": "Peak income-discipline day. The structural salary case settles after delay."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Saturn aspect Saturn in 2nd house : Starts",
+    "description": "Income-discipline window opens. Prepare for slow but real wage growth."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Saturn aspect Saturn in 2nd house",
+    "description": "Saturn return-aspect on slow-income. The slowest, most permanent income lift of the decade. Multi-year discipline on family-finance compounds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Saturn aspect Sun in 9th house : Ends",
+    "description": "Dharma-discipline window closes. What survived is permanent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Saturn aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-discipline day. The principle is tested. Hold steady."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Saturn aspect Sun in 9th house : Starts",
+    "description": "Dharma-discipline window opens. Prepare for the slow ethical reckoning."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Saturn aspect Sun in 9th house",
+    "description": "Structural test of dharma. Father-figure relationship restructures; gurus age; principles tested in the body. Slow visa or certification process."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Saturn aspect Venus in 11th house : Ends",
+    "description": "Gain-discipline window closes. The clean-network is what remains."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Saturn aspect Venus in 11th house : Exact",
+    "description": "Peak gain-discipline day. The structured bonus or board commitment lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Saturn aspect Venus in 11th house : Starts",
+    "description": "Gain-discipline window opens. Audit the network for what is dharmic."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Saturn aspect Venus in 11th house",
+    "description": "Disciplined, structural gains. Bonus pools formalize; profit-share systematizes; board appointments crystallize."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Sun aspect Jupiter in 1st house : Ends",
+    "description": "Wise-self window closes. Lock in the public commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Sun aspect Jupiter in 1st house : Exact",
+    "description": "Peak wise-self day. Accept the teacher-elevation, declare the larger principle."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Sun aspect Jupiter in 1st house : Starts",
+    "description": "Wise-self window opens. Polish the public-mantle materials."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Sun aspect Jupiter in 1st house",
+    "description": "Solar light on the wise-self in lagna. The body radiates teacher-authority; public-mantle assumption favored."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Sun aspect Ketu in 12th house : Ends",
+    "description": "Foreign-detached window closes. Move forward with cleaner intent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Sun aspect Ketu in 12th house : Exact",
+    "description": "Peak foreign-detached day. The recognition lands and feels weightless. Sit with it."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Sun aspect Ketu in 12th house : Starts",
+    "description": "Foreign-detached window opens. Prepare for muted recognition."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Sun aspect Ketu in 12th house",
+    "description": "Solar light on the foreign-detached zone. Behind-scenes recognition arrives but feels weightless; foreign-channel news lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Sun aspect Mars in 5th house : Ends",
+    "description": "Creative-fire window closes. Lock in the creative commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Sun aspect Mars in 5th house : Exact",
+    "description": "Peak creative-fire day. Lead the launch, take the bold creative action."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Sun aspect Mars in 5th house : Starts",
+    "description": "Creative-fire window opens. Train the body; prepare the bold creative move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Sun aspect Mars in 5th house",
+    "description": "Solar fire on creative authority. Founder declarations on the visible creative project, mentee-direction calls, calculated speculative leaps."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Sun aspect Mercury in 10th house : Ends",
+    "description": "Career-zenith window closes. Lock in the title and compensation moves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Sun aspect Mercury in 10th house : Exact",
+    "description": "Peak career-zenith day. Accept the elevation, take the chief role, deliver the platform-defining announcement."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Sun aspect Mercury in 10th house : Starts",
+    "description": "Career-zenith window opens. Polish the executive-track materials."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Sun aspect Mercury in 10th house",
+    "description": "Solar fire on the career-zenith engine. Press releases, executive briefings, top-tier announcements peak."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Sun aspect Moon in 8th house : Ends",
+    "description": "Transformation-visibility window closes. Lock in the chapter-ending commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Sun aspect Moon in 8th house : Exact",
+    "description": "Peak day for visible transformation work. Take the succession seat, sign the inheritance papers, lead the restructuring."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Sun aspect Moon in 8th house : Starts",
+    "description": "Transformation-visibility window opens. Prepare for inheritance or succession conversations."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Sun aspect Moon in 8th house",
+    "description": "Visibility through transformation, inheritance, succession. Restructuring news arrives with emotional weight."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Sun aspect Rahu in 6th house : Ends",
+    "description": "Service-victory window closes. Lock in the wins; release the cases that don't fit."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Sun aspect Rahu in 6th house : Exact",
+    "description": "Peak service-victory day. Defeat the rival; settle the debt; file the regulatory move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Sun aspect Rahu in 6th house : Starts",
+    "description": "Service-victory window opens. Sharpen the case file."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Sun aspect Rahu in 6th house",
+    "description": "Solar fire on the obsessive-service zone. Win the long-running adversary case; the regulatory victory lands; the debt-recovery push closes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Sun aspect Saturn in 2nd house : Ends",
+    "description": "Slow-income window closes. Lock in the income commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Sun aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-income day. Sign the compensation paper; close the family-money case."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Sun aspect Saturn in 2nd house : Starts",
+    "description": "Slow-income window opens. Prepare the structural salary case."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Sun aspect Saturn in 2nd house",
+    "description": "Solar fire on the slow-income engine. The structural salary case finally lights; family-money matters resolve in writing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Sun aspect Sun in 9th house : Ends",
+    "description": "Dharma-window closes. Lock in the year's foreign and ethical commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Sun aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-authority day. Sign the international deal, accept the senior blessing, declare the principle."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Sun aspect Sun in 9th house : Starts",
+    "description": "Annual dharma-window opens. Plan the year's flagship principled move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Sun aspect Sun in 9th house",
+    "description": "Birthday-window ego activation in the dharma engine. Best for foreign-fortune moves, judicial wins, publishing breakthroughs, mentor-led elevations."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Sun aspect Venus in 11th house : Ends",
+    "description": "Gain-visibility window closes. Lock in the gain commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Sun aspect Venus in 11th house : Exact",
+    "description": "Peak gain-day. Accept the bonus, sign the equity, take the board seat."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Sun aspect Venus in 11th house : Starts",
+    "description": "Gain-visibility window opens. Brief the senior network; prepare the board ask."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Sun aspect Venus in 11th house",
+    "description": "Solar light on the gains zone. Bonus announcements, equity events, board-news arrives."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Venus aspect Jupiter in 1st house : Ends",
+    "description": "Wise-charm window closes. Lock in the warm public commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Venus aspect Jupiter in 1st house : Exact",
+    "description": "Peak wise-charm day. Make the warm principled ask."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Venus aspect Jupiter in 1st house : Starts",
+    "description": "Wise-charm window opens. Prepare the warm teacher outreach."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Venus aspect Jupiter in 1st house",
+    "description": "Warmth on the wise-self. Client-facing teacher-warmth, charm-asks where principle is also visible."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Venus aspect Ketu in 12th house : Ends",
+    "description": "Dissolution-warmth window closes. Lock in the foreign commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Venus aspect Ketu in 12th house : Exact",
+    "description": "Peak dissolution-warmth day. Take the foreign-warmth call; honor the hidden patron."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Venus aspect Ketu in 12th house : Starts",
+    "description": "Dissolution-warmth window opens. Plan the foreign trip; honor the retreat impulse."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Venus aspect Ketu in 12th house",
+    "description": "Warmth on the dissolution-zone. Hidden patrons surface, foreign-charm offers land, retreat-warmth."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Venus aspect Mars in 5th house : Ends",
+    "description": "Creative-warmth window closes. Lock in the creative commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Venus aspect Mars in 5th house : Exact",
+    "description": "Peak creative-warmth day. Launch the beautiful creative product."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Venus aspect Mars in 5th house : Starts",
+    "description": "Creative-warmth window opens. Plan the aesthetic launch."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Venus aspect Mars in 5th house",
+    "description": "Warmth on creative authority. Aesthetic creative output, advisory income, mentor-protégé warmth at peak."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Venus aspect Mercury in 10th house : Ends",
+    "description": "MC-warmth window closes. Lock in the design commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Venus aspect Mercury in 10th house : Exact",
+    "description": "Peak MC-warmth day. Launch the campaign; present the redesign."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Venus aspect Mercury in 10th house : Starts",
+    "description": "MC-warmth window opens. Plan the brand refresh."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Venus aspect Mercury in 10th house",
+    "description": "Warmth at MC. Brand campaigns, design-led PR, beauty-driven status moves; the public face softens."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Venus aspect Moon in 8th house : Ends",
+    "description": "Transformation-warmth window closes. Lock in the warm chapter-ending commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Venus aspect Moon in 8th house : Exact",
+    "description": "Peak transformation-warmth day. Hold the gentle inheritance conversation."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Venus aspect Moon in 8th house : Starts",
+    "description": "Transformation-warmth window opens. Soften the chapter-ending tone."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Venus aspect Moon in 8th house",
+    "description": "Warmth on the transformation chamber. Diplomatic inheritance, gentle severance, warm restructuring conversations."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Venus aspect Rahu in 6th house : Ends",
+    "description": "Service-warmth window closes. Lock in the warm service commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Venus aspect Rahu in 6th house : Exact",
+    "description": "Peak service-warmth day. Hold the warm 1:1 with the rival."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Venus aspect Rahu in 6th house : Starts",
+    "description": "Service-warmth window opens. Soften the conflict tone."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Venus aspect Rahu in 6th house",
+    "description": "Warmth on obsessive service. Difficult colleague becomes receptive ally; gentle conflict-resolution favored."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Venus aspect Saturn in 2nd house : Ends",
+    "description": "Slow-income-warmth window closes. Lock in the warm income commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Venus aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-income-warmth day. Make the warm salary ask; close the family-money matter softly."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Venus aspect Saturn in 2nd house : Starts",
+    "description": "Slow-income-warmth window opens. Soften the income-ask tone."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Venus aspect Saturn in 2nd house",
+    "description": "Warmth on slow-income. Salary asks land softer; family-finance conversations close with diplomatic ease."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Venus aspect Sun in 9th house : Ends",
+    "description": "Dharma-warmth window closes. Lock in foreign and ethical commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Venus aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-warmth day. Take the foreign call, the mentor meal, the principled lunch."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Venus aspect Sun in 9th house : Starts",
+    "description": "Dharma-warmth window opens. Plan the foreign trip; brief the senior mentor."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Venus aspect Sun in 9th house",
+    "description": "Warmth on the dharma engine. Graceful foreign-engagement, ethical advisory, publishing diplomacy."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Venus aspect Venus in 11th house : Ends",
+    "description": "Gain-return window closes. Lock in the gain commitments."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Venus aspect Venus in 11th house : Exact",
+    "description": "Peak gain-return day. Accept the warm bonus, the board call, the equity event."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Venus aspect Venus in 11th house : Starts",
+    "description": "Gain-return window opens. Reach out to the senior-female mentors."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Venus aspect Venus in 11th house",
+    "description": "Venus return aspect — peak gain-and-network warmth. Bonus and equity events favored; senior-female allies open doors."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Jupiter",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Jupiter in 1st (Dispositor)",
+    "description": "When this engine fires, the wise-self is sovereign. Take the public-mantle move, accept the teacher-elevation, declare the larger principle. Industries: education, advisory, judiciary, religion-adjacent leadership, foreign affairs, founder-as-guru roles. The body itself carries the authority."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Mars",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Mars in 5th (Dispositor)",
+    "description": "When this engine fires, creative authority and speculative leverage activate. The principal-artist move, the founder bet, the protégé-direction call. Industries: principal-creator roles, sports management, military-style creative leadership, education with sharp pedagogy. The shadow: aggressive speculation that turns into gambling — pair the leap with research."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Mercury",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Mercury in 10th (Dispositor)",
+    "description": "When this engine fires, expect surgical-precision wins at career-zenith — the audit that lands the title, the analysis that wins the chief role, the document that becomes the platform. Industries: chief-of-staff, technical leadership, audit-and-compliance, top-tier consulting, regulatory architecture. The voice in the brief is the voice that gets the chair."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Moon",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Moon in 8th (Dispositor)",
+    "description": "When this engine fires, career news arrives through transformation, inheritance, succession, occult research, restructurings. The chaos is the offer in disguise. Industries: forensic, occult-research, longevity science, regulatory navigation, turnaround consulting, trust-and-inheritance work. Emotional fluency in the depths is what gets you the seat at the dark-time table."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Saturn",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Saturn in 2nd (Dispositor)",
+    "description": "When this engine fires, slow structural income wins land. The salary case settles in your favor after delay; the family-money matter resolves; the long-deferred wage growth ratchets up a step. Industries: government, infrastructure, conservative wealth management, audit, traditional banking. Trust the slow rail; the bitter ones who quit pre-curve never see the lift."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Sun",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Sun in 9th (Dispositor)",
+    "description": "When this engine fires, career advances through dharmic action, foreign engagement, and senior-mentor blessings. Industries: judiciary, publishing, religion-adjacent leadership, foreign affairs, top-tier education, ethics-led founder roles. Visa wins, judicial victories, certification breakthroughs, mentor-driven promotions all cluster here. The shadow: principle that turns into superiority — wisdom that condescends costs you the room."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Venus",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Venus in 11th (Dispositor)",
+    "description": "When this engine fires, gain channels open through aesthetic, diplomatic, female-mentor circuits. Bonus pools, equity events, board appointments, profit-share — all favored. Industries: design and luxury, hospitality leadership, women-led network advancement, art-market work, philanthropic boards. The senior female mentor delivers the decisive call."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "ends",
+    "display_name": "Pluto conjunct Saturn : Ends",
+    "description": "The income-transformation chapter completes. You emerge with rebuilt earning foundation and a permanent professional structure that survives industry shocks."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "exact",
+    "display_name": "Pluto conjunct Saturn : Exact",
+    "description": "Peak structural-transformation day for income. The old wage system breaks; the new one is forced into being. Hold the line; you are the structurally-patient one in a panicking room."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "starts",
+    "display_name": "Pluto conjunct Saturn : Starts",
+    "description": "Multi-year structural reckoning begins on your income engine. Old salary frameworks, family-money structures, and traditional banking arrangements dismantle. Position for the long transformation."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "window",
+    "display_name": "Pluto conjunct Saturn",
+    "description": "Generational structural reckoning hitting your slow-income engine. Industry-wide hierarchies collapse; the salary structures of your field rewrite. You hold authority where peers panic — your structural patience is the asset. Multi-year platform transformation; you emerge with rebuilt income foundation."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "ends",
+    "display_name": "Uranus conjunct Venus : Ends",
+    "description": "Disruption window closes on gains channel. Integrate the changes; release the experiments that didn't hold."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "exact",
+    "display_name": "Uranus conjunct Venus : Exact",
+    "description": "Peak surprise day for gains. The unexpected equity event lands; the board call arrives; the senior-female mentor delivers an unannounced lift. Decide fast but with discipline."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "starts",
+    "display_name": "Uranus conjunct Venus : Starts",
+    "description": "Sudden disruption window opens on gains and networks. Expect surprise bonus news, unexpected board invitations, abrupt mentor-relationship shifts."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "window",
+    "display_name": "Uranus conjunct Venus",
+    "description": "Sudden disruption in the gain-and-network channel. Unexpected bonus revaluations; surprise board invitations; abrupt shifts in the senior-female-mentor network; equity events that nobody saw coming. Change reads as freedom."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 1,
+    "lord_house": 1,
+    "phase": "window",
+    "display_name": "Jupiter ruler of the 1st House in the 1st House",
+    "description": "You are built to be the wise one in the room — the teacher, the principle-bearer, the long-arc visionary. Career compounds through education, advisory work, judiciary, religion-adjacent roles, foreign affairs, NGO leadership, philosophy, ethics-led consulting, publishing, founder-as-guru roles. The body itself reads as authoritative; people defer because there is gravity in the persona, not because of title. Self-employment is the natural truth — institutions house you for a chapter, not a career. The shadow: principle that drifts into pontification. Stay in the trenches with the work; wisdom must be paid for in delivery, not just declared."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 1,
+    "lord_house": 4,
+    "phase": "window",
+    "display_name": "Jupiter ruler of the 4th House in the 1st House",
+    "description": "Foundation, home, mother, and real-estate stack directly onto your persona — you are the home-base, the family-anchor, the wise center your relatives orbit. Career fortune is enhanced when work happens from a thoughtfully-chosen residence rather than a generic office. Real estate, education-related properties, family-business under your direction, work-from-home founder roles all native. Mother-figures and senior women in the family open doors. The shadow: identity-fused with the family role to the point that personal ambition gets postponed for decades."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 10,
+    "lord_house": 10,
+    "phase": "window",
+    "display_name": "Mercury ruler of the 10th House in the 10th House",
+    "description": "Career-zenith is governed by precision, articulate analysis, structured communication, and detail-mastery — the strongest single career placement in your chart. Industries: chief-of-staff and consigliere roles, technical leadership, audit-and-compliance leadership, financial-analysis at executive tier, editorial leadership, agency principal, top-tier consulting, regulatory architecture. Public reputation crystallizes around the precise document, the careful brief, the surgical analysis. The shadow: perfectionism that delays the announcement — ship the imperfect draft; the career compound runs on velocity multiplied by precision, not precision alone."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 10,
+    "lord_house": 7,
+    "phase": "window",
+    "display_name": "Mercury ruler of the 7th House in the 10th House",
+    "description": "Spouse, principal client, and major counterparty all show up through career-public channels. The 7th lord at the MC means partnership IS career; the most important deals of your life are also the most public, and the principal partner is often a peer-professional met through formal work. Industries: business development, partnership structuring, agency principal, JV architect, deal-attorney, exec-level diplomatic roles. The shadow: marrying the brand — when the partnership and the work are the same engine, ending one ends the other; build personal capital outside the joint account."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 11,
+    "lord_house": 11,
+    "phase": "window",
+    "display_name": "Venus ruler of the 11th House in the 11th House",
+    "description": "Bonuses, equity, board appointments, profit-share, and elder-friend networks are sovereign in their own house — wealth and gains compound through aesthetic, diplomatic, female-mentor channels. Industries: design and luxury at scale, fashion and beauty as gain channels, hospitality leadership, art-market work, women-in-tech and women-in-finance networks, philanthropic boards. Senior female mentors deliver decisive lifts at every career stage. The shadow: gains that come too easily get spent too easily — build a hard savings ritual that the soft gain channel cannot touch."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 11,
+    "lord_house": 6,
+    "phase": "window",
+    "display_name": "Venus ruler of the 6th House in the 11th House",
+    "description": "Daily-grind work, conflicts, debts, and competition route into network-and-gains channels. The difficult colleague becomes a future ally; the long-running case settles into a referral; the workplace dispute clarifies who your true peers are. Industries: HR, mediation, healing professions, audit, conflict-resolution practice, dispute-mediation in luxury or design contexts. Female peers, women-led networks, and senior-woman alliances are how the gain shows up. The shadow: enmeshing service with friendship — clean boundaries with friends-who-are-clients pay you longer than blurred ones."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 2,
+    "lord_house": 2,
+    "phase": "window",
+    "display_name": "Saturn ruler of the 2nd House in the 2nd House",
+    "description": "Income, voice, and family-finance run on slow, structural, irrevocable rails. Wage growth is gradual but final — what you earn does not get clawed back. Industries: government, infrastructure, mining, traditional banking, audit, real assets, regulatory practice, archive-and-records work, conservative wealth management. Family-money matters resolve on multi-year timescales; the inheritance lands when it is supposed to, not when you push for it. Salary negotiations close in writing and after delay. The shadow: under-paid early years that breed bitterness — trust the long compound; the bitter ones quit before the curve turns up."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 2,
+    "lord_house": 3,
+    "phase": "window",
+    "display_name": "Saturn ruler of the 3rd House in the 2nd House",
+    "description": "Effort, peer-leadership, and short-form communication route directly into income. The methodical document, the disciplined sales sequence, the long-form report — these are what pay. Younger colleagues respond to structured authority; impulsive cohorts do not. Excellent for: technical writing, financial reporting, regulatory drafts, methodical sales, sibling-business arrangements where you are the structured one. The shadow: peer-relationships that turn cold under structural rigor — soften the edges with deliberate warmth."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 5,
+    "lord_house": 12,
+    "phase": "window",
+    "display_name": "Mars ruler of the 12th House in the 5th House",
+    "description": "Foreign work, hidden mandates, retreat-driven engagements, and behind-the-scenes labor route into creative-speculative-protégé output. The book written on sabbatical, the creative project incubated abroad, the speculative bet placed during retreat — these produce the visible 5H wins. Industries: foreign creative-direction, sabbatical-fueled venture work, retreat-incubated startups, expat advisory roles. The shadow: pleasure-spending on travel that drains the speculative budget — discipline the foreign expense, not the foreign engagement."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 5,
+    "lord_house": 5,
+    "phase": "window",
+    "display_name": "Mars ruler of the 5th House in the 5th House",
+    "description": "Creative authority, speculation, and protégé-leadership are governed by sharp, decisive, body-anchored action. You are the principal artist who ships, the founder who makes the speculative call without committee, the mentor whose feedback is direct and useful. Industries: principal-creator roles, sports management, military-style creative leadership, founder of a creative practice, education with a sharp pedagogy, athletic mentorship, kids-and-teens work where you respect them rather than coddle. The shadow: speculation that turns aggressive — gambling-style risk; verify each leap with research, not adrenaline."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 8,
+    "lord_house": 8,
+    "phase": "window",
+    "display_name": "Moon ruler of the 8th House in the 8th House",
+    "description": "Transformation, inheritance, occult research, and sudden-change work are sovereign in their own house. You navigate restructurings, succession battles, and chaos windows where peers panic — your emotional fluency in the depths is what wins the chair. Industries: forensic work, occult research, longevity science, psychotherapy, regulatory navigation through scandals, turnaround consulting, inheritance and trust law, insurance, depth-research publishing. Female counterparts in these fields trust you faster than men. The shadow: emotional over-investment in chaos itself — do not become addicted to the storm; learn to stand down once the chapter has closed."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 9,
+    "lord_house": 9,
+    "phase": "window",
+    "display_name": "Sun ruler of the 9th House in the 9th House",
+    "description": "Dharma, foreign expansion, higher learning, and mentor-led elevation are sovereign in their own field — the supreme career-fortune engine of the chart. Industries: judiciary, publishing, religion-adjacent leadership, foreign affairs, education at the highest tier, ethics consulting, founder-as-philosopher roles. Father-figure mentors arrive at every career stage carrying maps. International work, certification, judicial proceedings, and pilgrimage-style sabbaticals all favor you across the lifetime. The shadow: principled rigidity that refuses pragmatic compromise — wisdom must remain porous; the dharma is alive, not a rule-book."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 1st House",
+    "description": "Jupiter return to own sign in lagna — the most blessed annual window of any twelve-year cycle. Take the role expansion, accept the public mantle, declare the bigger ambition. Body itself feels expansive; weight gain probable."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 10th House",
+    "description": "Jupiter on natal Mercury at MC — peak career-zenith year. Take the chief-of-something role, accept the prestige offer, demand the elevation. Wisdom-and-precision combine into platform."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 11th House",
+    "description": "Jupiter on natal Venus — wisdom-blessing on the gain zone. Bonus pools, equity vesting, board appointments compound. Senior-female mentors deliver decisive lifts."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 12th House",
+    "description": "Jupiter on natal Ketu — peak foreign, devotional year. Foreign sabbatical, retreat-led work, hidden-patron emergence, charitable career-mandates. The dharma deepens."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 2nd House",
+    "description": "Jupiter on natal Saturn — wisdom-blessing on slow income. Compensation cases, family-wealth structuring, vocal authority all expand. The structural rail finally gets a lift."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 3rd House",
+    "description": "Wisdom on writing, peers, short-burst effort. Major publication, high-value peer relationships, mentee placements favored. Empty-house transit; the expansion is tactical, not destination-shaping."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 4th House",
+    "description": "Jupiter return to own sign in 4H — peak home, family, real-estate expansion year. Buy the home, deepen with mother, invest in the office. Hamsa-style window for foundation work."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 5th House",
+    "description": "Jupiter on natal Mars — major creative-launch year. Mentee placements, advisory ascensions, speculative wins (verify each). Take the visible authority position you have been declining."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 6th House",
+    "description": "Jupiter on natal Rahu — wisdom into service-and-conflict zone. Difficult clients become teachers; debt resolution favored; HR-leadership advances. Health watch — wisdom in the service house tends toward weight gain."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 7th House",
+    "description": "Wisdom into partnership zone. Anchor JV, marriage-of-business-and-personal partnership, prestige-client signing. The 7L Mercury watches — keep the contract precise."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 8th House",
+    "description": "Jupiter on natal Moon — wisdom into the transformation chamber. Inheritance, severance, equity favorably resolves; longevity wins; restructuring brings authority."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 9th House",
+    "description": "Jupiter on natal Sun in own sign — among the most blessed career windows of any twelve-year cycle. Foreign expansion, certification, judicial wins, publishing breakthroughs, guru-blessings."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Ketu Transits the 1st House",
+    "description": "Ketu over natal Jupiter — eighteen-month identity-stripping window. The wise-self question itself dissolves; the founder-teacher persona feels empty. Sit with it; do not over-rebuild."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Ketu Transits the 10th House",
+    "description": "Ketu over natal Mercury at MC — career eclipse window. Old roles feel hollow; promotions feel weightless; layoffs happen quietly. The chief-role identity gets stripped."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Ketu Transits the 11th House",
+    "description": "Ketu over natal Venus — eighteen-month deep purification of network and gains motivations. Friends drift, bonuses feel weightless, ambitions purify."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Ketu Transits the 12th House",
+    "description": "Ketu return to its own placement — foreign, devotional dissolution at peak. Pilgrimage-pull strong; pleasure-spending evaporates; old hidden-patron channels close."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Ketu Transits the 2nd House",
+    "description": "Ketu over natal Saturn — detachment from income, voice, family-finance. Income feels meaningless; family-money matters dissolve. Don't panic-renegotiate; the slow rail still runs underneath."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Ketu Transits the 3rd House",
+    "description": "Detachment from peers, writing, short-effort zone. Solo deep-work favored; team-coordination misfires."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Ketu Transits the 4th House",
+    "description": "Home and mother detachment. Sell-property impulses, mother's independence, leave-the-city signals."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Ketu Transits the 5th House",
+    "description": "Ketu over natal Mars — creative-authority eclipse. Old creative ambition feels hollow; mentee-pull fades; speculation loses charge. Sit with the boredom."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Ketu Transits the 6th House",
+    "description": "Ketu opposite Rahu (returning to its own placement) — service detachment. Old conflicts dissolve without victory; debts forgiven or written off; HR cases close quietly."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Ketu Transits the 7th House",
+    "description": "Partnership detachment. Old JVs unwind; spouse or partner needs space; counterparties withdraw."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Ketu Transits the 8th House",
+    "description": "Ketu over natal Moon — transformation acceleration with emotional dissolution. Old chapters end abruptly; inheritance, severance closes; regulatory cases dissolve."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Ketu Transits the 9th House",
+    "description": "Ketu over natal Sun — dharma detachment. Old gurus feel finished; foreign-fortune ambitions cool; principle-without-attachment ripens."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Mars Transits the 1st House",
+    "description": "One of the most powerful self-and-action windows of any two-year cycle — Mars on natal Jupiter sharpens wisdom into delivery. Launch the founder-as-teacher move, sign the principle-anchored bold paper."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Mars Transits the 10th House",
+    "description": "Mars on natal Mercury at MC — among the strongest career-action windows of any two-year cycle. Launch the flagship, demand the title bump, lead the competitive pitch. The voice has fire."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Mars Transits the 11th House",
+    "description": "Mars on natal Venus — assertive gain push with diplomatic edge. Bonus negotiations, board-position asks, profit-share fights. Win it, but lead with charm."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Mars Transits the 12th House",
+    "description": "Mars on natal Ketu — heated foreign, hidden-channel zone. Behind-scenes power plays, foreign-trade fights. Sleep loss possible; the Ketu undertow drains rest."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Mars Transits the 2nd House",
+    "description": "Mars on natal Saturn — heated income battles. Aggressive salary asks possible but data-back them; impulse can backfire here. Watch sharp speech; throat and dental care."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Mars Transits the 3rd House",
+    "description": "Fierce effort and communication window. Best for shipping under deadline, executing the technical sprint, defending the document. Empty-house Aquarius transit; the energy is contrarian-tactical."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Mars Transits the 4th House",
+    "description": "Heated home-base disputes flare and resolve. Excellent for decisive real-estate action; watch family arguments. Empty-house Pisces transit; emotional water meeting Mars fire — softer surfaces, sharper undercurrents."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Mars Transits the 5th House",
+    "description": "Mars return to own sign on natal Mars — hot creative-speculative drive at maximum charge. Best for pushing through a stalled creative project, taking the calculated investment risk, asserting authority over mentees. Verify before leaping — the volume amplifies; one of the highest-charge windows of any two-year cycle."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Mars Transits the 6th House",
+    "description": "Mars on natal Rahu — favorable service combat. Win the workplace dispute, settle the debt aggressively, defeat a rival client. Health watch; the Rahu-undertow can turn a clean fight into an obsessive feud."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Mars Transits the 7th House",
+    "description": "Friction in partnerships. Hard to negotiate cleanly; defer the contract close seven to ten days if possible. The 7L is your career partner; protect the relationship over the immediate point."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Mars Transits the 8th House",
+    "description": "Mars on natal Moon — surgical action in the transformation chamber. Restructurings, succession battles, audit fights. You hold steady where others panic — emotional Mars-Moon synergy."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Mars Transits the 9th House",
+    "description": "Mars on natal Sun — bold dharma-action window. Foreign-engagement push, certification fight, judicial action favored. Father-figure mentors back the principled move."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Mercury Transits the 1st House",
+    "description": "Mind-on-self window — Mercury joining natal Jupiter in lagna. Best for teacher-style outreach, the wise-founder narrative refresh, the assertive intro letter that leads with principle."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Mercury Transits the 10th House",
+    "description": "Mercury return to own + exalted at MC — peak career-communication window of any quarter. Press releases, all-hands updates, formal status memos, executive briefings. The strongest writing window of your year."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Mercury Transits the 11th House",
+    "description": "Mercury on natal Venus — graceful network communication. Best for structured outreach to senior allies, female-mentor letters, board-position written asks. The voice is diplomatic and useful."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Mercury Transits the 12th House",
+    "description": "Mercury on natal Ketu — confidential, devotional, foreign correspondence window. NDAs, off-the-record briefings, foreign-client emails. Watch for leaks; the Ketu-undertow can release more than intended."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Mercury Transits the 2nd House",
+    "description": "Mercury on natal Saturn — disciplined, well-structured income communication. Excellent for salary cases, contract paperwork, family-finance emails, slow-and-final negotiations. The slow voice closes the deal."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Mercury Transits the 3rd House",
+    "description": "Peak writing, effort, peer-leadership window of any quarter. Empty house — the sign is Aquarius; the mind goes long-form, structural, slightly contrarian. Ship the document, publish the analysis."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Mercury Transits the 4th House",
+    "description": "Emotionally attuned home, family, real-estate paperwork. Best for lease drafts, mother-correspondence, family-business communications. Soft Pisces tone; verify details twice."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Mercury Transits the 5th House",
+    "description": "Mercury on natal Mars — bold, dramatic creative communication. Pitch the speculative idea, draft the punchy creative brief, write the mentee-coaching note. Verify before sending — the volume runs hot."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Mercury Transits the 6th House",
+    "description": "Mercury on natal Rahu — peak surgical-mind window of any quarter. Audit reports, regulatory filings, debt-recovery letters, technical specs. The mind sees what others miss. The shadow: obsessive over-analysis; ship before refining the seventh time."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Mercury Transits the 7th House",
+    "description": "Mercury return to its own sign — diplomatic, balanced contract communication. Best for partnership term-sheets, formal JV drafts, the precise mediation letter. Yogakaraka-Mercury at peak verbal acuity."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Mercury Transits the 8th House",
+    "description": "Mercury on natal Moon — investigative depth-writing with emotional charge. Forensic reports, due diligence, regulatory responses, taxation drafts. Confidentiality matters; emotional intelligence earns the disclosure."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Mercury Transits the 9th House",
+    "description": "Mercury on natal Sun — visionary writing window. Foreign correspondence, philosophical drafts, judicial filings. Strong on principle, weak on detail — pair with a checklist; verify the dates and case-numbers."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Moon Transits the 1st House",
+    "description": "Two-day window of emotional charge on the wise-self. The body reads as warm and approachable; people lean in. Best for warm leadership moments, expressive teaching presentations, identity-aligned announcements."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Moon Transits the 10th House",
+    "description": "Emotional charge on public reputation — Moon on natal Mercury at MC. The room reads you; opening line, posture, and dress matter more than usual today. Excellent for warm-toned announcements."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Moon Transits the 11th House",
+    "description": "Emotional warmth in the gain-and-network zone — Moon on natal Venus. Reach out, accept the invite, make the warm ask of the senior-female mentor."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Moon Transits the 12th House",
+    "description": "Emotional charge on foreign, devotional, hidden zones — Moon on natal Ketu. Sleep more, write privately, take the bath; behind-scenes warmth compounds. The audience is internal."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Moon Transits the 2nd House",
+    "description": "Emotional charge on slow-income, voice, family-finance. Speak with measured warmth; the salary conversation lands softer. Family-money matters resolve through quiet emotional honesty."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Moon Transits the 3rd House",
+    "description": "Emotional charge on writing, peers, short bursts. Send the warm-toned email; make the call that needs to land softly; soften the methodical document with a personal note."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Moon Transits the 4th House",
+    "description": "Peak monthly home-emotional days — empty-house transit channels emotion straight into family-foundation. Work from home, host the team meal, take the family-related call. Mother-channel news arrives."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Moon Transits the 5th House",
+    "description": "Emotional charge on creative authority — Moon visiting your natal Mars in the 5th. Channel the depth into a creative push; protégé-warmth wave; avoid impulsive speculation, the volume amplifies emotion to dangerous levels."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Moon Transits the 6th House",
+    "description": "Emotional charge on the service-and-conflict zone — joining Rahu. Empathetic HR work, mentoring juniors, settling a conflict softly. Avoid harsh subordinate corrections; the obsessive Rahu-undertow will turn the message into a wound."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Moon Transits the 7th House",
+    "description": "Emotional charge on partnerships. Read the partner mood before pushing terms; warmth wins what aggression loses. Best for warming a cold negotiation."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Moon Transits the 8th House",
+    "description": "Moon return to its own sign in the 8H — deep-water emotional window with structural charge. Sensitive to organizational mood around restructuring; defer non-urgent decisions two days. Best for inheritance, succession, occult-depth conversations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Moon Transits the 9th House",
+    "description": "Emotional pull toward dharma — Moon on your natal Sun. Big-vision dreams; mentor-conversations land warm; foreign-work check-ins favored. Capture the dreams; defer the heavy decisions."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Rahu Transits the 1st House",
+    "description": "Rahu over natal Jupiter — eighteen-month obsessive self-reinvention. New persona, new ambition, new founder identity. Verify each leap against close-circle counsel; the wise-self can be hijacked by spectacle."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Rahu Transits the 10th House",
+    "description": "Rahu over natal Mercury at MC — obsessive career-elevation push. Sudden promotion offers, foreign career-pull, unconventional executive offers. Vet the legitimacy."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Rahu Transits the 11th House",
+    "description": "Rahu over natal Venus — obsessive gain-and-network chapter. Career-defining bonus events, equity revaluations, board-positioning. Stay clean; temptation to game it is high."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Rahu Transits the 12th House",
+    "description": "Rahu over natal Ketu — obsessive foreign, devotional, hidden chapter. Foreign relocation, hidden-patron pursuits, retreat-driven careers. The nodal-axis squeeze; verify each path."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Rahu Transits the 2nd House",
+    "description": "Rahu over natal Saturn — obsessive ambition around income. Be careful of get-rich-quick schemes that promise to short-circuit the slow rail; the Saturn discipline is what compounds, not the Rahu shortcut."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Rahu Transits the 3rd House",
+    "description": "Obsessive communication push. Viral content, mass outreach, ambition-driven peer maneuvering. Verify before publishing; reputation is at stake."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Rahu Transits the 4th House",
+    "description": "Obsessive home, real-estate, mother chapter. Foreign relocation pull strong; mother-related obsession; major property bet possible."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Rahu Transits the 5th House",
+    "description": "Rahu over natal Mars — eighteen-month peak ambition window for creative fame, speculative obsession, mentee-frenzy. Verify integrity before each leap; the volume can drown the principle."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Rahu Transits the 6th House",
+    "description": "Rahu return to its own placement — favorable for dramatic enemy-defeat, big debt-recovery, regulatory victory, HR transformation. The shadow is at home in the service house; this is when you win."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Rahu Transits the 7th House",
+    "description": "Obsessive partnership chapter. Foreign partner pull, unconventional JVs, controversial alliances. Verify carefully — the 7L Mercury wants precision, the Rahu pulls for spectacle."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Rahu Transits the 8th House",
+    "description": "Rahu over natal Moon — obsessive transformation chapter. Sudden inheritance, regulatory obsession, occult deep-dive. Stay grounded; the emotional Moon-Rahu combination distorts perception."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Rahu Transits the 9th House",
+    "description": "Rahu over natal Sun — foreign-fortune obsession. International expansion, foreign certification, controversial guru. Vet the dharma channel; the principled Sun can be drafted into spectacle."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Saturn Transits the 1st House",
+    "description": "Saturn over natal Jupiter in lagna — multi-year structural pressure on body, persona, founder identity. Health discipline, persona simplification, slow founder-craft. Don't expect speed; expect permanence."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Saturn Transits the 10th House",
+    "description": "Saturn over natal Mercury at MC — the 2.5-year window that seeds the next 30-year career chapter. Take the chief role; commit to the long structure. There is no faster route through this gate."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Saturn Transits the 11th House",
+    "description": "Saturn over natal Venus — disciplined, structural gains. Bonus pools formalize; profit-share systematizes; board appointments crystallize. The network purges what is no longer dharmic."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Saturn Transits the 12th House",
+    "description": "Saturn over natal Ketu — multi-year discipline on foreign, hidden, devotional channels. Sabbaticals turn structural; foreign work formalizes; pleasure-spending audits itself."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Saturn Transits the 2nd House",
+    "description": "Saturn return to own sign — multi-year discipline on income, voice, family-finance. Slow but real wage growth; family-financial restructuring; vocal-craft compounding. The slowest, most permanent income lift of the decade."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Saturn Transits the 3rd House",
+    "description": "Saturn in own sign Aquarius — multi-year discipline on writing, peers, effort. Builds long-form authorship, peer authority, sibling-relations restructuring. The methodical document period of the decade."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Saturn Transits the 4th House",
+    "description": "Heavy emotional and home weight; mother-related responsibility intensifies; real-estate decisions feel structural. The home foundation is being rebuilt for a longer life. Expect 2.5 years of gravity."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Saturn Transits the 5th House",
+    "description": "Saturn over natal Mars — creative authority is tested by structural delay. Mentee relationships restructure; speculation must be tightly disciplined; the fame-pull cools into something earned."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Saturn Transits the 6th House",
+    "description": "Saturn over natal Rahu — best multi-year window for building audit and regulatory authority, settling long-debt cases, leading HR transformation. Slow and structural; every move accrues credit."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Saturn Transits the 7th House",
+    "description": "Multi-year structural test of partnerships. Long-arc business unions; the spouse or partner ages alongside you in the work. Slow legal proceedings."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Saturn Transits the 8th House",
+    "description": "Saturn over natal Moon — major life-restructuring window with deep emotional charge. Inheritance, severance, regulatory chapters open and close. Hold steady; patience compounds."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Saturn Transits the 9th House",
+    "description": "Saturn over natal Sun — multi-year discipline on dharma, foreign, teacher domain. Slow visa or certification process; gurus age; principles tested in the body. Father-figure relationship restructures."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Sun Transits the 1st House",
+    "description": "Annual peak window for the wise-self in lagna. Authority radiates; the body feels lit; teaching-style presentations, founder-as-guru pitches, public-mantle assumptions all land with extra weight. Best four-week window of the year for declaring a larger principle, taking on a public teaching role, leading a wisdom-driven launch."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Sun Transits the 10th House",
+    "description": "Annual peak career-visibility window — Sun on your natal Mercury at MC. Best for launching the flagship initiative, demanding the title bump, leading the competitive pitch, accepting the chief-of-something role. The room reads you as the senior-track candidate. Documents and analyses land."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Sun Transits the 11th House",
+    "description": "Solar fire on the gains-and-network zone with your natal Venus. Bonus pool conversations, equity true-ups, board invitations, female-mentor advocacy. Senior allies of every gender open doors but the women open the bigger doors. Make the gain ask in person."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Sun Transits the 12th House",
+    "description": "Public visibility dims — Sun on your natal Ketu in the 12H. Behind-the-scenes work, foreign correspondence, confidential mandates, retreats favored. Quiet authority compounds out of sight. Best for white papers, off-balance-sheet structuring, next-quarter strategy. Avoid major-launch attempts."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Sun Transits the 2nd House",
+    "description": "Solar light on the slow-income engine. Excellent for negotiating compensation in writing, locking the long-deferred salary commitment, advancing a family-money case. Speak with structural authority; the voice carries weight when the data is laid out cleanly."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Sun Transits the 3rd House",
+    "description": "Solar courage on writing, peers, short bursts of effort. Ship the document, send the bold proposal, push the methodical sales sequence. Younger colleagues respond when authority is paired with structure. Good window for sibling-business or peer-cohort moves."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Sun Transits the 4th House",
+    "description": "Solar fire on home, mother, real-estate, and family-foundation. Real-estate decisions, mother-related career conversations, family-business inflection. Authority through home-base; visible work-from-home phase. Watch chest and heart fatigue."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Sun Transits the 5th House",
+    "description": "Annual return-style activation of creative-authority and speculative drive — Sun joining your natal Mars territory. Best four-week window for launching the creative project, taking on a public mentor role, accepting an advisory seat, pitching the speculative idea. Father-figures and senior males notice you."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Sun Transits the 6th House",
+    "description": "Solar fire on technical execution and adversary-defeat — joining your natal Rahu in the service house. Best window for the long-deferred audit, the hard HR conversation, the regulatory filing, the debt-recovery action. Adversaries weaken in your favor; the obsessive long case finally breaks."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Sun Transits the 7th House",
+    "description": "Solar fire opposite the lagna — partnership-and-public-deal visibility. Spouse, business partner, principal client dynamics light up. Sign the anchor partnership, demand the JV terms, formalize the deal. Watch ego friction with counterparties — they will read it as posture before they read it as principle."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Sun Transits the 8th House",
+    "description": "Solar light in the transformation chamber on your natal Moon. Career decisions take on surgical edge — succession, regulatory navigation, restructuring. Inheritance, severance, equity events surface. The chaos here is structural promotion in disguise; emotional fluency in the depths is your edge."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Sun Transits the 9th House",
+    "description": "Annual peak dharma window — Sun returning to its own sign in its own house. The most powerful four-week window of the year for international stage talks, publishing, certification, judicial proceedings, mentor-driven moves. Father-figure or senior guru delivers a decisive blessing or test."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Venus Transits the 1st House",
+    "description": "Warmth on the wise-self — Venus on natal Jupiter. Excellent for client-facing meetings, branding updates, charm-driven asks where the principle is also visible. The smile lands; people remember you well."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Venus Transits the 10th House",
+    "description": "Venus on natal Mercury at MC — softens the public face into refined craft. Best for design-driven public projects, brand campaigns, PR moves, female-stakeholder communication."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Venus Transits the 11th House",
+    "description": "Venus return to own sign — peak gain-and-network window of any quarter. Bonus and equity events favored; female mentors and senior allies open doors; aesthetic-network advancement crests."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Venus Transits the 12th House",
+    "description": "Venus on natal Ketu — annual peak window for foreign, luxury, devotional channels. Hidden patrons surface, foreign offers land, retreats and pilgrimages enrich the career. Soft-spending caution."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Venus Transits the 2nd House",
+    "description": "Soft income, voice, family-finance window — Venus on natal Saturn. Salary asks land softer; expert commentary attracts paid offers. Indulgence in food and throat-care; structural-yet-warm negotiations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Venus Transits the 3rd House",
+    "description": "Graceful writing and peer-communication. Sales correspondence, mentoring conversations, sibling-business diplomacy favored. Empty-house transit; the warmth amplifies because there is no resident planet to filter it."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Venus Transits the 4th House",
+    "description": "Beautiful home, real-estate, mother window. Sign the lease, beautify the office, host the gathering, call mother. Empty-house transit; pure foundation-warmth."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Venus Transits the 5th House",
+    "description": "Venus on natal Mars — peak creative-aesthetic visibility. Best for launching aesthetic creative output, advisory income, mentor-protégé warmth. Speculation favored if grounded; the creative product gets the female-stakeholder nod."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Venus Transits the 6th House",
+    "description": "Venus on natal Rahu — diplomatic service excellence with an obsessive undertone. HR work, team-building, conflict resolution all favored. The difficult colleague becomes the receptive ally — but watch unhealthy alliance-formation under the Rahu shadow."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Venus Transits the 7th House",
+    "description": "Peak partnership window — Venus opposite lagna. Sign the JV, formalize the long-pending alliance, close the anchor client. Spouse or partner brings career luck. The deal closes warm."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Venus Transits the 8th House",
+    "description": "Venus on natal Moon — diplomatic navigation of inheritance, severance, equity events. Excellent for negotiating a fair restructuring or settlement; emotional fluency carries the room."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Venus Transits the 9th House",
+    "description": "Venus on natal Sun — graceful foreign engagement, ethical advisory, publishing diplomacy. Travel for work feels lucky and warm. Mentor-meals, judicial-network warmth."
+  }
+]

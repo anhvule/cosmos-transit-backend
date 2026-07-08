@@ -33,6 +33,17 @@ function parseEventName(name) {
 
   let m;
 
+  // eclipse: "Solar Eclipse in 7th house" — Capricorn relationship seeds only
+  m = baseName.match(/^(Solar|Lunar)\s+Eclipse\s+in\s+(\d+)(?:st|nd|rd|th)\s+house\s*$/i);
+  if (m) {
+    return {
+      kind: 'outer_special',
+      special_label: `${cap(m[1])}-Eclipse`,
+      target_house: ordToInt(m[2]),
+      phase,
+    };
+  }
+
   // outer_special: "Pluto conjunct Saturn" | "Uranus conjunct Venus"
   m = baseName.match(/^(Pluto|Uranus)\s+conjunct\s+(Saturn|Venus)\s*$/i);
   if (m) {
@@ -66,6 +77,17 @@ function parseEventName(name) {
     };
   }
 
+  // transit_house (short): "Jupiter in 7th house" — relationship seeds omit "Transits the"
+  m = baseName.match(/^(\w+)\s+in\s+(\d+)(?:st|nd|rd|th)\s+house\s*$/i);
+  if (m) {
+    return {
+      kind: 'transit_house',
+      transit_planet: cap(m[1]),
+      target_house: ordToInt(m[2]),
+      phase,
+    };
+  }
+
   // ruler: "X ruler of the Nth House in the Mth House" — planet inferred from
   //         ascendant in cosmos.db, so only lord_house and target_house matter.
   m = baseName.match(/^(\w+)\s+ruler\s+of\s+the\s+(\d+)(?:st|nd|rd|th)\s+House\s+in\s+the\s+(\d+)(?:st|nd|rd|th)\s+House\s*$/i);
@@ -89,10 +111,10 @@ function parseEventName(name) {
     };
   }
 
-  // aspect: "X aspect Y in Nth house" / "... in the Nth house"
+  // aspect: "X aspect Y in Nth house" / "... aspects the Y in the Nth house"
   // The natal_house is informational for the engine — cosmos templates are
   // chart-agnostic so we discard it for the lookup.
-  m = baseName.match(/^(\w+)\s+aspect\s+(\w+)(?:\s+in\s+(?:the\s+)?\d+(?:st|nd|rd|th)\s+house)?\s*$/i);
+  m = baseName.match(/^(\w+)\s+aspects?\s+(?:the\s+)?(\w+)(?:\s+in\s+(?:the\s+)?\d+(?:st|nd|rd|th)\s+house)?\s*$/i);
   if (m) {
     return {
       kind: 'aspect',
