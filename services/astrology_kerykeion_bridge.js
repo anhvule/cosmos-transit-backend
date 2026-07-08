@@ -314,14 +314,38 @@ async function getMatchingDatesForMonth(birthData, month, events) {
         (typeof e.orb !== 'number' || e.orb < exactOrbCap(e))
       ) {
         const base = e.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase();
-        const nextHasIt = nextDate && (results[nextDate] || []).some(ne =>
-          ne.type === 'aspect' &&
-          (ne.description || '').endsWith(': Exact') &&
-          (typeof ne.orb !== 'number' || ne.orb < exactOrbCap(ne)) &&
-          ne.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase() === base,
-        );
-        if (!nextHasIt) {
-          exactLastDay.add(`${date}|${base}`);
+        if (SLOW_PLANETS_SET.has(e.transitPlanet)) {
+          // Slow planets: last day of the sub-0.6° run (planner convention).
+          const nextHasIt = nextDate && (results[nextDate] || []).some(ne =>
+            ne.type === 'aspect' &&
+            (ne.description || '').endsWith(': Exact') &&
+            (typeof ne.orb !== 'number' || ne.orb < exactOrbCap(ne)) &&
+            ne.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase() === base,
+          );
+          if (!nextHasIt) {
+            exactLastDay.add(`${date}|${base}`);
+          }
+        } else if (typeof e.orb === 'number') {
+          // Fast planets: the engine emits :Exact on every sub-1° day of the
+          // pass, but the planner's milestone is the local-minimum-orb day
+          // (e.g. Mars-Sun 08-23 at 0.25°, not the separating 08-24 at 0.9°).
+          const neighborOrb = (d) => {
+            if (!d) return null;
+            let min = null;
+            for (const ne of results[d] || []) {
+              if (ne.type !== 'aspect') continue;
+              if (!(ne.description || '').endsWith(': Exact')) continue;
+              if (ne.description.replace(/\s*:\s*Exact$/, '').trim().toLowerCase() !== base) continue;
+              if (typeof ne.orb !== 'number') continue;
+              if (min == null || ne.orb < min) min = ne.orb;
+            }
+            return min;
+          };
+          const prevOrb = neighborOrb(batchDates[i - 1]);
+          const nextOrb = neighborOrb(nextDate);
+          if ((prevOrb == null || e.orb <= prevOrb) && (nextOrb == null || e.orb <= nextOrb)) {
+            exactLastDay.add(`${date}|${base}`);
+          }
         }
       }
       // ── MC/ASC aspects: only APPROACHING :Exact days (not separating) ──
