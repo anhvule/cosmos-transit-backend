@@ -1,0 +1,4242 @@
+[
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Jupiter Aspecting Ascendant (ASC) : Ends",
+    "description": "Body-expansion window closes. The wisdom integrates."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Jupiter Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak body-expansion day. Honor the festival-meal blessing."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Jupiter Aspecting Ascendant (ASC) : Starts",
+    "description": "Body-expansion window opens. Plan the traditional-meal expansion."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Jupiter Aspecting Ascendant (ASC)",
+    "description": "Body-expansion. Generous appetite; honor with traditional sattvic food."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Jupiter Aspecting Midheaven (MC) : Ends",
+    "description": "MC-expansion window closes. The tradition holds."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Jupiter Aspecting Midheaven (MC) : Exact",
+    "description": "Peak MC-expansion day. Host the wisdom-meal."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Jupiter Aspecting Midheaven (MC) : Starts",
+    "description": "MC-expansion window opens. Plan the executive-meal tradition."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Jupiter",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Jupiter Aspecting Midheaven (MC)",
+    "description": "Career-eating expansion. Press-meal tradition deepens."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Ketu Aspecting Ascendant (ASC) : Ends",
+    "description": "Body-stripping window closes. Move forward leaner."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Ketu Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak body-stripping day. Sit with the dissolution."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Ketu Aspecting Ascendant (ASC) : Starts",
+    "description": "Body-stripping window opens. The pull to step away rises."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Ketu Aspecting Ascendant (ASC)",
+    "description": "Body-identity stripping. Old eating-self feels empty."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Ketu Aspecting Midheaven (MC) : Ends",
+    "description": "MC-eclipse window closes. Move forward to a cleaner practice."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Ketu Aspecting Midheaven (MC) : Exact",
+    "description": "Peak MC-eclipse day. The protocol dissolves quietly."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Ketu Aspecting Midheaven (MC) : Starts",
+    "description": "MC-eclipse window begins. Don't over-defend a protocol wanting to end."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Ketu",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Ketu Aspecting Midheaven (MC)",
+    "description": "Public-eating eclipse. Old career-meal protocols feel hollow."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Mars Aspecting Ascendant (ASC) : Ends",
+    "description": "Body-fire window closes. The cooling protocol releases."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Mars Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak body-fire day. Cooling foods only; walk after meals."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Mars Aspecting Ascendant (ASC) : Starts",
+    "description": "Body-fire window opens. Reduce chili, alcohol, red meat."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Mars Aspecting Ascendant (ASC)",
+    "description": "Body-fire on the system. Cool with cucumber, mint, coconut, fennel."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Mars Aspecting Midheaven (MC) : Ends",
+    "description": "MC-action window closes. The protocol holds."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Mars Aspecting Midheaven (MC) : Exact",
+    "description": "Peak MC-action day. Take the bold press-meal."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Mars Aspecting Midheaven (MC) : Starts",
+    "description": "MC-action window opens. Plan the executive-meal push."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mars",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Mars Aspecting Midheaven (MC)",
+    "description": "Sharp public-eating action. Career-meal launches; voice-care urgency."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Mercury Aspecting Ascendant (ASC) : Ends",
+    "description": "Body-mind window closes. Lock in the protocol."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Mercury Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak body-mind day. Update the food protocol."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Mercury Aspecting Ascendant (ASC) : Starts",
+    "description": "Body-mind window opens. Review the diet design."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Mercury Aspecting Ascendant (ASC)",
+    "description": "Sharp self-eating analysis. Audit the staple food list."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Mercury Aspecting Midheaven (MC) : Ends",
+    "description": "MC-mind window closes. The protocol holds."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Mercury Aspecting Midheaven (MC) : Exact",
+    "description": "Peak MC-mind day. Lock in voice-care and meal-prep."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Mercury Aspecting Midheaven (MC) : Starts",
+    "description": "MC-mind window opens. Plan the executive-meal protocol."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Mercury",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Mercury Aspecting Midheaven (MC)",
+    "description": "Sharp public-eating planning. Career-meal precision-design."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Moon Aspecting Ascendant (ASC) : Ends",
+    "description": "Body-emotion window closes. The warmth integrates."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Moon Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak body-emotion day. Mother-recipe meal favored."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Moon Aspecting Ascendant (ASC) : Starts",
+    "description": "Body-emotion window opens. Soften the food choices."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Moon Aspecting Ascendant (ASC)",
+    "description": "Emotional-body charge. Eat with extra warmth and self-care."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Moon Aspecting Midheaven (MC) : Ends",
+    "description": "MC-emotion window closes. The precision-mind warms."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Moon Aspecting Midheaven (MC) : Exact",
+    "description": "Peak MC-emotion day. Eat lightly before public engagements."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Moon Aspecting Midheaven (MC) : Starts",
+    "description": "MC-emotion window opens. Soften the executive-meal tone."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Moon",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Moon Aspecting Midheaven (MC)",
+    "description": "Emotional charge on public-eating. Soft pace at career-meals."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Rahu Aspecting Ascendant (ASC) : Ends",
+    "description": "Body-reinvention window closes. Decide which experiments to keep."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Rahu Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak body-reinvention day. Take the unconventional move — but check basics."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Rahu Aspecting Ascendant (ASC) : Starts",
+    "description": "Body-reinvention window begins. Sudden diet ambition."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Rahu Aspecting Ascendant (ASC)",
+    "description": "Chaotic body-and-eating expansion; foreign or unconventional self emerges. Watch obsession."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Rahu Aspecting Midheaven (MC) : Ends",
+    "description": "MC-reinvention window closes. Lock in legitimate pivots."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Rahu Aspecting Midheaven (MC) : Exact",
+    "description": "Peak MC-reinvention day. Take the bold pivot — verify integrity."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Rahu Aspecting Midheaven (MC) : Starts",
+    "description": "MC-reinvention window begins. Vet unconventional career-meal protocols."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Rahu",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Rahu Aspecting Midheaven (MC)",
+    "description": "Chaotic public-eating expansion. Sudden voice-care obsessions."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Saturn Aspecting Ascendant (ASC) : Ends",
+    "description": "Body-discipline window closes. The structure holds."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Saturn Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak body-discipline day. Lock in the structural diet."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Saturn Aspecting Ascendant (ASC) : Starts",
+    "description": "Body-discipline window opens. Eliminate vanity foods."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Saturn Aspecting Ascendant (ASC)",
+    "description": "Body-discipline. Slow simplification; structural eating habits."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Saturn Aspecting Midheaven (MC) : Ends",
+    "description": "MC-discipline window closes. The practice is permanent."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Saturn Aspecting Midheaven (MC) : Exact",
+    "description": "Peak MC-discipline day. The protocol crystallizes."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Saturn Aspecting Midheaven (MC) : Starts",
+    "description": "MC-discipline window opens. Structure the career-meal practice."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Saturn",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Saturn Aspecting Midheaven (MC)",
+    "description": "Public-eating discipline tested. Slow recognition; foundation-laying."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Sun Aspecting Ascendant (ASC) : Ends",
+    "description": "Body-visibility window closes. The protocol stays in place."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Sun Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak body-visibility day. Lock in the eating discipline."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Sun Aspecting Ascendant (ASC) : Starts",
+    "description": "Body-visibility window opens. Plan the cleansing protocol."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Sun Aspecting Ascendant (ASC)",
+    "description": "Visibility on the body. Body-care peaks; honor digestion this week."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Sun Aspecting Midheaven (MC) : Ends",
+    "description": "Public-eating window closes. The discipline holds."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Sun Aspecting Midheaven (MC) : Exact",
+    "description": "Peak public-eating day. Voice-care, light midday meal."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Sun Aspecting Midheaven (MC) : Starts",
+    "description": "Public-eating window opens. Plan the executive-meal precision."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Sun",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Sun Aspecting Midheaven (MC)",
+    "description": "Visibility on public-eating. Career-meal precision matters."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "ends",
+    "display_name": "Venus Aspecting Ascendant (ASC) : Ends",
+    "description": "Body-charm window closes. The aesthetic integrates."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "exact",
+    "display_name": "Venus Aspecting Ascendant (ASC) : Exact",
+    "description": "Peak body-charm day. Make the beautiful meal."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "starts",
+    "display_name": "Venus Aspecting Ascendant (ASC) : Starts",
+    "description": "Body-charm window opens. Plan the elegant home meal."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "ASC",
+    "phase": "window",
+    "display_name": "Venus Aspecting Ascendant (ASC)",
+    "description": "Aesthetic-pleasure peaks on the body. Beautiful-and-nourishing meals favored."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "ends",
+    "display_name": "Venus Aspecting Midheaven (MC) : Ends",
+    "description": "MC-charm window closes. The polish remains."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "exact",
+    "display_name": "Venus Aspecting Midheaven (MC) : Exact",
+    "description": "Peak MC-charm day. Host the elegant career-dinner."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "starts",
+    "display_name": "Venus Aspecting Midheaven (MC) : Starts",
+    "description": "MC-charm window opens. Plan the aesthetic career-meal."
+  },
+  {
+    "kind": "angle_aspect",
+    "transit_planet": "Venus",
+    "target_angle": "MC",
+    "phase": "window",
+    "display_name": "Venus Aspecting Midheaven (MC)",
+    "description": "Aesthetic public-eating. Brand-meal polish; press-restaurant warmth."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Jupiter in 1st house : Ends",
+    "description": "Body-blessing window closes. The wisdom integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Jupiter in 1st house : Exact",
+    "description": "Peak body-blessing day. Honor the festival-meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Jupiter in 1st house : Starts",
+    "description": "Body-blessing window opens. Plan the tradition."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Jupiter aspect Jupiter in 1st house",
+    "description": "Jupiter return aspect — annual-tier expansion of the wise-self body. Generous appetite; traditional sattvic food."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Ketu in 12th house : Ends",
+    "description": "Retreat-blessing window closes. Carry the lessons home."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Ketu in 12th house : Exact",
+    "description": "Peak retreat-blessing day. Honor the pilgrimage food."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Ketu in 12th house : Starts",
+    "description": "Retreat-blessing window opens. Plan the foreign sabbatical."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Jupiter aspect Ketu in 12th house",
+    "description": "Wisdom on retreat-eating. Foreign sabbatical resets digestion; pilgrimage food restores."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Mars in 5th house : Ends",
+    "description": "Creative-eating blessing window closes. The tradition holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Mars in 5th house : Exact",
+    "description": "Peak creative-eating blessing day. Host the protégé feast."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Mars in 5th house : Starts",
+    "description": "Creative-eating blessing window opens. Plan the celebration."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Jupiter aspect Mars in 5th house",
+    "description": "Wisdom on creative-eating. Children-related food tradition; mentor-protégé feasts."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Mercury in 10th house : Ends",
+    "description": "MC-blessing window closes. The protocol holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Mercury in 10th house : Exact",
+    "description": "Peak MC-blessing day. Voice-care wisdom integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Mercury in 10th house : Starts",
+    "description": "MC-blessing window opens. Polish the executive-meal protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Jupiter aspect Mercury in 10th house",
+    "description": "Wisdom at MC. Peak career-eating expansion; voice-care wisdom."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Moon in 8th house : Ends",
+    "description": "Emotional-eating blessing window closes. The wisdom holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Moon in 8th house : Exact",
+    "description": "Peak emotional-eating blessing day. The deep pattern releases."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Moon in 8th house : Starts",
+    "description": "Emotional-eating blessing window opens. Prepare for pattern-resolution."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Jupiter aspect Moon in 8th house",
+    "description": "Wisdom into emotional-eating. Stress-food patterns favorably resolve; deep food-meditation."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Rahu in 6th house : Ends",
+    "description": "Cleansing-blessing window closes. The mastery integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Rahu in 6th house : Exact",
+    "description": "Peak cleansing-blessing day. The healing protocol lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Rahu in 6th house : Starts",
+    "description": "Cleansing-blessing window opens. Reframe the gut-issue as teaching."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Jupiter aspect Rahu in 6th house",
+    "description": "Wisdom on the digestive-engine. Difficult food-issues become teachers; healing-protocol mastery."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Saturn in 2nd house : Ends",
+    "description": "Slow-eating blessing window closes. The tradition compounds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-eating blessing day. Honor the family-recipe tradition."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Saturn in 2nd house : Starts",
+    "description": "Slow-eating blessing window opens. Plan the pantry expansion."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Jupiter aspect Saturn in 2nd house",
+    "description": "Wisdom on slow-eating. Family-recipe inheritance; structural pantry expansion."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Sun in 9th house : Ends",
+    "description": "Dharma-blessing window closes. The wisdom integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-blessing day. Honor the festival-meal blessing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Sun in 9th house : Starts",
+    "description": "Dharma-blessing window opens. Plan the traditional menu."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Jupiter aspect Sun in 9th house",
+    "description": "Wisdom-blessing on dharma-eating in own sign. Among the most blessed food-windows of any twelve-year cycle."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Jupiter aspect Venus in 11th house : Ends",
+    "description": "Group-blessing window closes. The tradition holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Jupiter aspect Venus in 11th house : Exact",
+    "description": "Peak group-blessing day. Host the wisdom-meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Jupiter aspect Venus in 11th house : Starts",
+    "description": "Group-blessing window opens. Plan the wisdom-feast."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Jupiter",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Jupiter aspect Venus in 11th house",
+    "description": "Wisdom-blessing on group-eating. Friend-network feasts; senior-female-mentor table."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Ketu aspect Jupiter in 1st house : Ends",
+    "description": "Body-stripping window closes. Move forward leaner."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Ketu aspect Jupiter in 1st house : Exact",
+    "description": "Peak body-stripping day. Sit with the dissolution."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Ketu aspect Jupiter in 1st house : Starts",
+    "description": "Body-stripping window opens. The pull to step away rises."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Ketu aspect Jupiter in 1st house",
+    "description": "Body-identity stripping. Old eating-self feels empty."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Ketu aspect Ketu in 12th house : Ends",
+    "description": "Retreat-return window closes. Move forward leaner."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Ketu aspect Ketu in 12th house : Exact",
+    "description": "Peak retreat-return day. The pilgrimage food lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Ketu aspect Ketu in 12th house : Starts",
+    "description": "Retreat-return window opens. The foreign-pull rises."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Ketu aspect Ketu in 12th house",
+    "description": "Ketu return aspect on its own placement — foreign, retreat, hidden-eating dissolution at peak."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Ketu aspect Mars in 5th house : Ends",
+    "description": "Performance-eclipse window closes. The new chapter begins quieter."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Ketu aspect Mars in 5th house : Exact",
+    "description": "Peak performance-eclipse day. Old creative-eating feels finished."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Ketu aspect Mars in 5th house : Starts",
+    "description": "Performance-eclipse window opens. The old protocol fades."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Ketu aspect Mars in 5th house",
+    "description": "Performance-eating eclipse. Old creative-food protocols feel hollow."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Ketu aspect Mercury in 10th house : Ends",
+    "description": "MC-eclipse window closes. Move forward to a cleaner practice."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Ketu aspect Mercury in 10th house : Exact",
+    "description": "Peak MC-eclipse day. The protocol dissolves quietly."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Ketu aspect Mercury in 10th house : Starts",
+    "description": "MC-eclipse window opens. Don't over-defend a protocol wanting to end."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Ketu aspect Mercury in 10th house",
+    "description": "Career-eating eclipse. Old career-meal protocols feel hollow."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Ketu aspect Moon in 8th house : Ends",
+    "description": "Emotional-eating eclipse window closes. New pattern begins lean."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Ketu aspect Moon in 8th house : Exact",
+    "description": "Peak emotional-eating eclipse day. Old pattern ends abruptly."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Ketu aspect Moon in 8th house : Starts",
+    "description": "Emotional-eating eclipse window opens. Prepare for fast endings."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Ketu aspect Moon in 8th house",
+    "description": "Emotional-eating acceleration of dissolution. Old stress-food patterns end abruptly."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Ketu aspect Rahu in 6th house : Ends",
+    "description": "Cleansing-eclipse window closes. The clean-board is what remains."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Ketu aspect Rahu in 6th house : Exact",
+    "description": "Peak cleansing-eclipse day. Old gut-issue drops out."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Ketu aspect Rahu in 6th house : Starts",
+    "description": "Cleansing-eclipse window opens. Old chronic complaints fade."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Ketu aspect Rahu in 6th house",
+    "description": "Nodal axis eclipse on the digestive-engine. Old gut-issues dissolve without resolution."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Ketu aspect Saturn in 2nd house : Ends",
+    "description": "Slow-eating eclipse window closes. The slow rail still runs."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Ketu aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-eating eclipse day. Sit with the dissolution."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Ketu aspect Saturn in 2nd house : Starts",
+    "description": "Slow-eating eclipse window opens. The meaning evaporates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Ketu aspect Saturn in 2nd house",
+    "description": "Detachment from slow-eating. Old food-routines feel meaningless."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Ketu aspect Sun in 9th house : Ends",
+    "description": "Dharma-eclipse window closes. Move forward leaner."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Ketu aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-eclipse day. The old ritual dissolves quietly."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Ketu aspect Sun in 9th house : Starts",
+    "description": "Dharma-eclipse window opens. Old traditions feel finished."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Ketu aspect Sun in 9th house",
+    "description": "Dharma-eating detachment. Old ceremonial-food traditions feel finished."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Ketu aspect Venus in 11th house : Ends",
+    "description": "Group-eclipse window closes. The clean-gatherings remain."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Ketu aspect Venus in 11th house : Exact",
+    "description": "Peak group-eclipse day. Old gathering feels finished."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Ketu aspect Venus in 11th house : Starts",
+    "description": "Group-eclipse window opens. The gatherings purify."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Ketu",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Ketu aspect Venus in 11th house",
+    "description": "Deep purification of friend-eating. Group meals feel weightless."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Mars aspect Jupiter in 1st house : Ends",
+    "description": "Body-fire window closes. The protocol releases."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Mars aspect Jupiter in 1st house : Exact",
+    "description": "Peak body-fire day. Cooling foods only; walk after meals."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Mars aspect Jupiter in 1st house : Starts",
+    "description": "Body-fire window opens. Reduce chili, alcohol, red meat."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Mars aspect Jupiter in 1st house",
+    "description": "Action on the wise-self body. Heat rises; cool with cucumber, mint, coconut."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Mars aspect Ketu in 12th house : Ends",
+    "description": "Retreat-action window closes. The discipline integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Mars aspect Ketu in 12th house : Exact",
+    "description": "Peak retreat-action day. Honor with discipline."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Mars aspect Ketu in 12th house : Starts",
+    "description": "Retreat-action window opens. Prepare the disciplined response."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Mars aspect Ketu in 12th house",
+    "description": "Action on retreat-eating. Hidden food-cravings flare; sleep-loss possible."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Mars aspect Mars in 5th house : Ends",
+    "description": "Performance-action window closes. The cooling integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Mars aspect Mars in 5th house : Exact",
+    "description": "Peak performance-action day. Heart-care foods; cooling regulators only."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Mars aspect Mars in 5th house : Starts",
+    "description": "Performance-action window opens. Cool the system in advance."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Mars aspect Mars in 5th house",
+    "description": "Mars return aspect — peak performance-eating fire. Heart-care; cooling regulators; avoid late-night party-eating."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Mars aspect Mercury in 10th house : Ends",
+    "description": "MC-action window closes. The protocol holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Mars aspect Mercury in 10th house : Exact",
+    "description": "Peak MC-action day. Launch the emergency voice-care protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Mars aspect Mercury in 10th house : Starts",
+    "description": "MC-action window opens. Prepare the bold protocol move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Mars aspect Mercury in 10th house",
+    "description": "Action at MC. Strong public-eating action; voice-care emergency protocols."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Mars aspect Moon in 8th house : Ends",
+    "description": "Emotional-eating action window closes. The structure holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Mars aspect Moon in 8th house : Exact",
+    "description": "Peak emotional-eating action day. Sign the new shared-grocery agreement."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Mars aspect Moon in 8th house : Starts",
+    "description": "Emotional-eating action window opens. Prepare the protocol restructure."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Mars aspect Moon in 8th house",
+    "description": "Action on emotional-eating. Restructure the stress-food protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Mars aspect Rahu in 6th house : Ends",
+    "description": "Cleansing-action window closes. Reintroduce gradually."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Mars aspect Rahu in 6th house : Exact",
+    "description": "Peak cleansing-action day. Begin the elimination."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Mars aspect Rahu in 6th house : Starts",
+    "description": "Cleansing-action window opens. Prepare the strict protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Mars aspect Rahu in 6th house",
+    "description": "Action on the digestive-engine. Aggressive elimination diet; the strict reset lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Mars aspect Saturn in 2nd house : Ends",
+    "description": "Slow-eating action window closes. The cooling integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Mars aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-eating action day. Honey, ghee, soothing teas."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Mars aspect Saturn in 2nd house : Starts",
+    "description": "Slow-eating action window opens. Prepare cooling herbs."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Mars aspect Saturn in 2nd house",
+    "description": "Action on slow-eating. Sharp speech-and-eating; watch acidity and dental issues."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Mars aspect Sun in 9th house : Ends",
+    "description": "Dharma-eating action window closes. The shift integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Mars aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-eating action day. Take the bold tradition-aligned move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Mars aspect Sun in 9th house : Starts",
+    "description": "Dharma-eating action window opens. Prepare the bold dietary shift."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Mars aspect Sun in 9th house",
+    "description": "Action on dharma-eating. Foreign-food adventures; principled diet shifts."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Mars aspect Venus in 11th house : Ends",
+    "description": "Group-action window closes. The new gathering-pattern holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Mars aspect Venus in 11th house : Exact",
+    "description": "Peak group-action day. Make the meal-reset move."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Mars aspect Venus in 11th house : Starts",
+    "description": "Group-action window opens. Prepare the structured meal-ask."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mars",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Mars aspect Venus in 11th house",
+    "description": "Action on group-eating. Lead the friend-network meal; reset the gathering-menu."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Mercury aspect Jupiter in 1st house : Ends",
+    "description": "Body-mind window closes. Lock in the protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Mercury aspect Jupiter in 1st house : Exact",
+    "description": "Peak body-mind day. Update the food protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Mercury aspect Jupiter in 1st house : Starts",
+    "description": "Body-mind window opens. Review the staple foods."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Mercury aspect Jupiter in 1st house",
+    "description": "Sharp mind on the wise-self body. Audit the staple-list; refresh the food-philosophy."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Mercury aspect Ketu in 12th house : Ends",
+    "description": "Retreat-mind window closes. The patterns release."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Mercury aspect Ketu in 12th house : Exact",
+    "description": "Peak retreat-mind day. Name the hidden habits."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Mercury aspect Ketu in 12th house : Starts",
+    "description": "Retreat-mind window opens. Document the patterns."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Mercury aspect Ketu in 12th house",
+    "description": "Sharp mind on retreat-eating. Hidden snack-habits surface; foreign-restaurant private notes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Mercury aspect Mars in 5th house : Ends",
+    "description": "Performance-eating mind window closes. The plan executes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Mercury aspect Mars in 5th house : Exact",
+    "description": "Peak performance-eating mind day. Lock in the pre-event nutrition."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Mercury aspect Mars in 5th house : Starts",
+    "description": "Performance-eating mind window opens. Design the protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Mercury aspect Mars in 5th house",
+    "description": "Sharp mind on performance-eating. Pre-event nutrition design; calculated supplement protocols."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Mercury aspect Mercury in 10th house : Ends",
+    "description": "Career-eating mind window closes. The discipline holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Mercury aspect Mercury in 10th house : Exact",
+    "description": "Peak career-eating mind day. Lock in the precision."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Mercury aspect Mercury in 10th house : Starts",
+    "description": "Career-eating mind window opens. Polish the protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Mercury aspect Mercury in 10th house",
+    "description": "Mercury return aspect — peak career-eating precision. Voice-care protocols, executive-meal precision-design."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Mercury aspect Moon in 8th house : Ends",
+    "description": "Emotional-eating mind window closes. The pattern is named."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Mercury aspect Moon in 8th house : Exact",
+    "description": "Peak emotional-eating mind day. Identify the trigger pattern."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Mercury aspect Moon in 8th house : Starts",
+    "description": "Emotional-eating mind window opens. Begin the journal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Mercury aspect Moon in 8th house",
+    "description": "Sharp mind on emotional-eating. Stress-food journaling; trigger-research."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Mercury aspect Rahu in 6th house : Ends",
+    "description": "Cleansing-mind window closes. The data integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Mercury aspect Rahu in 6th house : Exact",
+    "description": "Peak cleansing-mind day. Begin the documented elimination."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Mercury aspect Rahu in 6th house : Starts",
+    "description": "Cleansing-mind window opens. Document the diet."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Mercury aspect Rahu in 6th house",
+    "description": "Sharp mind on the digestive-engine. Audit triggers; design the elimination protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Mercury aspect Saturn in 2nd house : Ends",
+    "description": "Slow-eating mind window closes. The structure holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Mercury aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-eating mind day. Refresh the spice-pantry."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Mercury aspect Saturn in 2nd house : Starts",
+    "description": "Slow-eating mind window opens. Plan the family-food budget."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Mercury aspect Saturn in 2nd house",
+    "description": "Sharp mind on slow-eating. Disciplined planning of the eating-week."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Mercury aspect Sun in 9th house : Ends",
+    "description": "Dharma-eating mind window closes. The knowledge integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Mercury aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-eating mind day. Document the tradition."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Mercury aspect Sun in 9th house : Starts",
+    "description": "Dharma-eating mind window opens. Read about traditional diets."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Mercury aspect Sun in 9th house",
+    "description": "Sharp mind on dharma-eating. Foreign-cuisine research, ceremonial-tradition documentation."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Mercury aspect Venus in 11th house : Ends",
+    "description": "Group-eating mind window closes. The plan executes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Mercury aspect Venus in 11th house : Exact",
+    "description": "Peak group-eating mind day. Send the precise invitations."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Mercury aspect Venus in 11th house : Starts",
+    "description": "Group-eating mind window opens. Plan the gathering."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Mercury",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Mercury aspect Venus in 11th house",
+    "description": "Sharp mind on group-eating. Hosting decisions; gathering-menu design."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Moon aspect Jupiter in 1st house : Ends",
+    "description": "Body-warmth window closes. The wisdom integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Moon aspect Jupiter in 1st house : Exact",
+    "description": "Peak body-warmth day. Honor the family blessing-meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Moon aspect Jupiter in 1st house : Starts",
+    "description": "Body-warmth window opens. Plan the traditional meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Moon aspect Jupiter in 1st house",
+    "description": "Emotional warmth on the wise-self body. Traditional sattvic food soothes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Moon aspect Ketu in 12th house : Ends",
+    "description": "Retreat-warmth window closes. The integration begins."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Moon aspect Ketu in 12th house : Exact",
+    "description": "Peak retreat-warmth day. Warm milk-and-spice rituals."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Moon aspect Ketu in 12th house : Starts",
+    "description": "Retreat-warmth window opens. Plan the soft food."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Moon aspect Ketu in 12th house",
+    "description": "Emotional charge on retreat-eating. Sleep more; eat lightly; comfort-food cravings rise."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Moon aspect Mars in 5th house : Ends",
+    "description": "Performance-warmth window closes. The cooling integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Moon aspect Mars in 5th house : Exact",
+    "description": "Peak performance-warmth day. Cucumber, mint, fennel; gentle pace."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Moon aspect Mars in 5th house : Starts",
+    "description": "Performance-warmth window opens. Cool the system."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Moon aspect Mars in 5th house",
+    "description": "Emotional charge on performance-eating. Cooling regulators; soft pace."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Moon aspect Mercury in 10th house : Ends",
+    "description": "Career-eating warmth window closes. The precision-mind warms."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Moon aspect Mercury in 10th house : Exact",
+    "description": "Peak career-eating warmth day. Eat lightly before engagements."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Moon aspect Mercury in 10th house : Starts",
+    "description": "Career-eating warmth window opens. Plan light meals."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Moon aspect Mercury in 10th house",
+    "description": "Emotional charge on career-eating. Soften the executive-meal pace."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Moon aspect Moon in 8th house : Ends",
+    "description": "Emotional-eating window closes. The patterns integrate."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Moon aspect Moon in 8th house : Exact",
+    "description": "Peak emotional-eating day. Soothing food only; no high-stakes eating."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Moon aspect Moon in 8th house : Starts",
+    "description": "Emotional-eating window opens. Audit triggers."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Moon aspect Moon in 8th house",
+    "description": "Monthly emotional-eating peak. Stress-cravings spike; honor upstream emotional climate."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Moon aspect Rahu in 6th house : Ends",
+    "description": "Cleansing-warmth window closes. The integration begins."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Moon aspect Rahu in 6th house : Exact",
+    "description": "Peak cleansing-warmth day. Gentle gut-care; no extreme protocols."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Moon aspect Rahu in 6th house : Starts",
+    "description": "Cleansing-warmth window opens. Soften the elimination tone."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Moon aspect Rahu in 6th house",
+    "description": "Emotional charge on the digestive-engine. Soft elimination of irritants for two days."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Moon aspect Saturn in 2nd house : Ends",
+    "description": "Slow-eating-warmth window closes. The structure holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Moon aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-eating-warmth day. Hold the warm family-finance-and-food conversation."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Moon aspect Saturn in 2nd house : Starts",
+    "description": "Slow-eating-warmth window opens. Soften the food tone."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Moon aspect Saturn in 2nd house",
+    "description": "Emotional weight on slow-eating. Family-recipe medicine; warm structural meals."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Moon aspect Sun in 9th house : Ends",
+    "description": "Dharma-eating warmth window closes. The warmth integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Moon aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-eating warmth day. Mother-recipe meal at the family table."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Moon aspect Sun in 9th house : Starts",
+    "description": "Dharma-eating warmth window opens. Soften the food choices."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Moon aspect Sun in 9th house",
+    "description": "Emotional charge on dharma-eating. Sattvic, ceremonial, traditional foods soothe."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Moon aspect Venus in 11th house : Ends",
+    "description": "Group-warmth window closes. The friendship-food integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Moon aspect Venus in 11th house : Exact",
+    "description": "Peak group-warmth day. Host or attend the gathering."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Moon aspect Venus in 11th house : Starts",
+    "description": "Group-warmth window opens. Reach out."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Moon",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Moon aspect Venus in 11th house",
+    "description": "Emotional warmth on group-eating. Friend-network meals; mentor-table."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Rahu aspect Jupiter in 1st house : Ends",
+    "description": "Body-obsession window closes. Decide which experiments to keep."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Rahu aspect Jupiter in 1st house : Exact",
+    "description": "Peak body-obsession day. Take the unconventional move — but check basics."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Rahu aspect Jupiter in 1st house : Starts",
+    "description": "Body-obsession window opens. Beware identity hijack."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Rahu aspect Jupiter in 1st house",
+    "description": "Obsessive body-and-eating reinvention. New diet, new body, new self."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Rahu aspect Ketu in 12th house : Ends",
+    "description": "Retreat-obsession window closes. Keep dharmic foreign gains."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Rahu aspect Ketu in 12th house : Exact",
+    "description": "Peak retreat-obsession day. Verify integrity."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Rahu aspect Ketu in 12th house : Starts",
+    "description": "Retreat-obsession window opens. Beware spectacular hidden offers."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Rahu aspect Ketu in 12th house",
+    "description": "Nodal axis obsession on retreat-eating. Foreign-cuisine relocation, hidden-pleasure pursuits."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Rahu aspect Mars in 5th house : Ends",
+    "description": "Performance-obsession window closes. Keep what was anchored."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Rahu aspect Mars in 5th house : Exact",
+    "description": "Peak performance-obsession day. Verify integrity twice."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Rahu aspect Mars in 5th house : Starts",
+    "description": "Performance-obsession window opens. Beware spectacle-over-substance."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Rahu aspect Mars in 5th house",
+    "description": "Eighteen-month peak ambition window for performance-eating, children-feeding-philosophy. Verify each leap."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Rahu aspect Mercury in 10th house : Ends",
+    "description": "MC-obsession window closes. Lock in legitimate protocols."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Rahu aspect Mercury in 10th house : Exact",
+    "description": "Peak MC-obsession day. The bold pivot presents — verify."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Rahu aspect Mercury in 10th house : Starts",
+    "description": "MC-obsession window opens. Vet incoming protocols."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Rahu aspect Mercury in 10th house",
+    "description": "Obsessive career-eating push. Sudden voice-care obsession; unconventional public-meal protocols."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Rahu aspect Moon in 8th house : Ends",
+    "description": "Emotional-eating obsession window closes. Keep grounded gains."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Rahu aspect Moon in 8th house : Exact",
+    "description": "Peak emotional-eating obsession day. The big leap presents — verify."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Rahu aspect Moon in 8th house : Starts",
+    "description": "Emotional-eating obsession window opens. Beware extreme protocols."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Rahu aspect Moon in 8th house",
+    "description": "Obsessive emotional-eating. Sudden food-allergy revelation, regulatory food-obsession."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Rahu aspect Rahu in 6th house : Ends",
+    "description": "Cleansing-victory window closes. Lock in the wins."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Rahu aspect Rahu in 6th house : Exact",
+    "description": "Peak cleansing-victory day. The big resolution lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Rahu aspect Rahu in 6th house : Starts",
+    "description": "Cleansing-victory window opens. Sharpen the strategy."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Rahu aspect Rahu in 6th house",
+    "description": "Rahu return aspect — favorable for dramatic digestive transformation, big gut-issue resolution."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Rahu aspect Saturn in 2nd house : Ends",
+    "description": "Slow-eating obsession window closes. Trust the slow rail."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Rahu aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-eating obsession day. The big leap presents — verify."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Rahu aspect Saturn in 2nd house : Starts",
+    "description": "Slow-eating obsession window opens. Beware crash-diets."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Rahu aspect Saturn in 2nd house",
+    "description": "Obsessive ambition around slow-eating. Watch crash-diet logic."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Rahu aspect Sun in 9th house : Ends",
+    "description": "Foreign-cuisine obsession window closes. Keep what was anchored."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Rahu aspect Sun in 9th house : Exact",
+    "description": "Peak foreign-cuisine obsession day. The bold leap presents — verify integrity."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Rahu aspect Sun in 9th house : Starts",
+    "description": "Foreign-cuisine obsession window opens. Beware the spectacular guru-diet."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Rahu aspect Sun in 9th house",
+    "description": "Foreign-cuisine obsession. International expansion, foreign-diet adoption, controversial guru-food-system."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Rahu aspect Venus in 11th house : Ends",
+    "description": "Group-obsession window closes. Keep clean gatherings."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Rahu aspect Venus in 11th house : Exact",
+    "description": "Peak group-obsession day. The big gathering-news lands — verify."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Rahu aspect Venus in 11th house : Starts",
+    "description": "Group-obsession window opens. Audit network for integrity."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Rahu",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Rahu aspect Venus in 11th house",
+    "description": "Obsessive friend-network eating. Group-meal dynamics intensify."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Saturn aspect Jupiter in 1st house : Ends",
+    "description": "Body-discipline window closes. What survived is permanent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Saturn aspect Jupiter in 1st house : Exact",
+    "description": "Peak body-discipline day. The reckoning is acute. Hold steady."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Saturn aspect Jupiter in 1st house : Starts",
+    "description": "Body-discipline window opens. Eliminate vanity foods."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Saturn aspect Jupiter in 1st house",
+    "description": "Multi-year structural pressure on body and digestion. Slow simplification of diet."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Saturn aspect Ketu in 12th house : Ends",
+    "description": "Retreat-discipline window closes. The disciplined hidden-channel is permanent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Saturn aspect Ketu in 12th house : Exact",
+    "description": "Peak retreat-discipline day. The structural sabbatical pattern lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Saturn aspect Ketu in 12th house : Starts",
+    "description": "Retreat-discipline window opens. Audit the foreign-and-pleasure budgets."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Saturn aspect Ketu in 12th house",
+    "description": "Multi-year discipline on retreat-eating. Sabbaticals turn structural; hidden habits audit themselves."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Saturn aspect Mars in 5th house : Ends",
+    "description": "Performance-discipline window closes. What earned was earned."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Saturn aspect Mars in 5th house : Exact",
+    "description": "Peak performance-discipline day. The slow protocol commitment lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Saturn aspect Mars in 5th house : Starts",
+    "description": "Performance-discipline window opens. Audit the speculative diet."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Saturn aspect Mars in 5th house",
+    "description": "Performance-eating tested by structural delay. Children-eating restructures; speculation in diet must be tightly disciplined."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Saturn aspect Mercury in 10th house : Ends",
+    "description": "MC-discipline window closes. The practice is permanent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Saturn aspect Mercury in 10th house : Exact",
+    "description": "Peak MC-discipline day. The protocol crystallizes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Saturn aspect Mercury in 10th house : Starts",
+    "description": "MC-discipline window opens. Polish the long-game protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Saturn aspect Mercury in 10th house",
+    "description": "The 2.5-year window where career-eating discipline crystallizes into permanent practice."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Saturn aspect Moon in 8th house : Ends",
+    "description": "Emotional-eating discipline window closes. The new structure holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Saturn aspect Moon in 8th house : Exact",
+    "description": "Peak emotional-eating discipline day. Sign the new agreement."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Saturn aspect Moon in 8th house : Starts",
+    "description": "Emotional-eating discipline window opens. Prepare for the chapter-ending grind."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Saturn aspect Moon in 8th house",
+    "description": "Major emotional-eating restructuring with deep weight. In-law food-traditions integrate."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Saturn aspect Rahu in 6th house : Ends",
+    "description": "Cleansing-discipline window closes. The slow win is permanent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Saturn aspect Rahu in 6th house : Exact",
+    "description": "Peak cleansing-discipline day. The body-system transformation crystallizes."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Saturn aspect Rahu in 6th house : Starts",
+    "description": "Cleansing-discipline window opens. Prepare for the long protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Saturn aspect Rahu in 6th house",
+    "description": "Best multi-year window for resolving long-running digestive issues, settling chronic gut concerns."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Saturn aspect Saturn in 2nd house : Ends",
+    "description": "Slow-eating discipline window closes. The new foundation is permanent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Saturn aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-eating discipline day. Lock in the structure."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Saturn aspect Saturn in 2nd house : Starts",
+    "description": "Slow-eating discipline window opens. Prepare the methodical routine."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Saturn aspect Saturn in 2nd house",
+    "description": "Saturn return-aspect on slow-eating. The structural meal-routine of the decade."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Saturn aspect Sun in 9th house : Ends",
+    "description": "Dharma-discipline window closes. What survived is permanent."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Saturn aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-discipline day. The principle is tested in the kitchen."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Saturn aspect Sun in 9th house : Starts",
+    "description": "Dharma-discipline window opens. Prepare for the slow tradition reckoning."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Saturn aspect Sun in 9th house",
+    "description": "Structural test of dharma-eating. Slow ceremonial-tradition formalization; principles tested."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Saturn aspect Venus in 11th house : Ends",
+    "description": "Group-discipline window closes. The clean-network is what remains."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Saturn aspect Venus in 11th house : Exact",
+    "description": "Peak group-discipline day. The structured ritual lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Saturn aspect Venus in 11th house : Starts",
+    "description": "Group-discipline window opens. Audit the gatherings for what is dharmic."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Saturn",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Saturn aspect Venus in 11th house",
+    "description": "Disciplined structural group-eating. Friend-network meals formalize; the network purges."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Sun aspect Jupiter in 1st house : Ends",
+    "description": "Body-wisdom window closes. The wisdom integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Sun aspect Jupiter in 1st house : Exact",
+    "description": "Peak body-wisdom day. Honor the festival blessing."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Sun aspect Jupiter in 1st house : Starts",
+    "description": "Body-wisdom window opens. Plan the traditional menu."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Sun aspect Jupiter in 1st house",
+    "description": "Solar light on the wise-self body. Generous appetite; traditional sattvic food."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Sun aspect Ketu in 12th house : Ends",
+    "description": "Retreat-eating window closes. Carry the lessons home."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Sun aspect Ketu in 12th house : Exact",
+    "description": "Peak retreat-eating day. Honor the foreign-meal reset."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Sun aspect Ketu in 12th house : Starts",
+    "description": "Retreat-eating window opens. Plan the foreign trip."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Sun aspect Ketu in 12th house",
+    "description": "Solar light on retreat-eating. Foreign cuisine, hospital diets, hotel meals dominate."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Sun aspect Mars in 5th house : Ends",
+    "description": "Performance-eating window closes. The discipline holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Sun aspect Mars in 5th house : Exact",
+    "description": "Peak performance-eating day. Light midday; cooling regulators; no late party-food."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Sun aspect Mars in 5th house : Starts",
+    "description": "Performance-eating window opens. Plan the pre-event nutrition."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Sun aspect Mars in 5th house",
+    "description": "Solar fire on creative-performance eating. Performance-fuel; cooling regulators."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Sun aspect Mercury in 10th house : Ends",
+    "description": "Career-eating window closes. The discipline holds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Sun aspect Mercury in 10th house : Exact",
+    "description": "Peak career-eating day. Lock in the protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Sun aspect Mercury in 10th house : Starts",
+    "description": "Career-eating window opens. Polish the voice-care and meal-prep protocols."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Sun aspect Mercury in 10th house",
+    "description": "Solar fire on career-eating precision. Voice-care, executive-meal protocols at peak."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Sun aspect Moon in 8th house : Ends",
+    "description": "Emotional-eating window closes. The patterns integrate."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Sun aspect Moon in 8th house : Exact",
+    "description": "Peak emotional-eating day. Soothing food rituals only."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Sun aspect Moon in 8th house : Starts",
+    "description": "Emotional-eating window opens. Audit upstream emotional triggers."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Sun aspect Moon in 8th house",
+    "description": "Visibility on emotional-eating. Stress-food patterns surface; deep food-meditation favored."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Sun aspect Rahu in 6th house : Ends",
+    "description": "Cleansing window closes. Reintroduce gradually."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Sun aspect Rahu in 6th house : Exact",
+    "description": "Peak cleansing day. Start the strict reset."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Sun aspect Rahu in 6th house : Starts",
+    "description": "Cleansing window opens. Plan the elimination protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Sun aspect Rahu in 6th house",
+    "description": "Solar fire on the digestive-engine. Best window for elimination diet, parasite cleanse, gut audit."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Sun aspect Saturn in 2nd house : Ends",
+    "description": "Slow-eating window closes. The discipline compounds."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Sun aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-eating day. Honor the family-recipe ritual."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Sun aspect Saturn in 2nd house : Starts",
+    "description": "Slow-eating window opens. Lock in the structural meal-routine."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Sun aspect Saturn in 2nd house",
+    "description": "Solar fire on slow-eating habits. Voice-care, throat-and-bone health discipline."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Sun aspect Sun in 9th house : Ends",
+    "description": "Dharma-eating window closes. The protocol integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Sun aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-eating day. Honor the ceremonial meal; eat the festival food."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Sun aspect Sun in 9th house : Starts",
+    "description": "Dharma-eating window opens. Plan the year's flagship sattvic protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Sun aspect Sun in 9th house",
+    "description": "Solar return on dharma-eating. Sattvic food, ceremonial meals, foreign-cuisine adventures favored."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Sun aspect Venus in 11th house : Ends",
+    "description": "Group-eating window closes. The friendship-food integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Sun aspect Venus in 11th house : Exact",
+    "description": "Peak group-eating day. Host or attend the warm gathering."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Sun aspect Venus in 11th house : Starts",
+    "description": "Group-eating window opens. Plan the gathering."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Sun",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Sun aspect Venus in 11th house",
+    "description": "Solar light on group-eating. Friend-network meals, senior-female-mentor lunches favored."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "ends",
+    "display_name": "Venus aspect Jupiter in 1st house : Ends",
+    "description": "Body-charm window closes. The aesthetic integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "exact",
+    "display_name": "Venus aspect Jupiter in 1st house : Exact",
+    "description": "Peak body-charm day. Make the beautiful, nourishing meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "starts",
+    "display_name": "Venus aspect Jupiter in 1st house : Starts",
+    "description": "Body-charm window opens. Plan the elegant home meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Jupiter",
+    "phase": "window",
+    "display_name": "Venus aspect Jupiter in 1st house",
+    "description": "Warmth on the wise-self body. Aesthetic-pleasure peaks; honor the gallbladder."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "ends",
+    "display_name": "Venus aspect Ketu in 12th house : Ends",
+    "description": "Retreat-warmth window closes. The discipline returns."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "exact",
+    "display_name": "Venus aspect Ketu in 12th house : Exact",
+    "description": "Peak retreat-warmth day. Honor the hidden food-pleasure."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "starts",
+    "display_name": "Venus aspect Ketu in 12th house : Starts",
+    "description": "Retreat-warmth window opens. Plan the foreign trip."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Ketu",
+    "phase": "window",
+    "display_name": "Venus aspect Ketu in 12th house",
+    "description": "Warmth on retreat-eating. Foreign-cuisine, retreat-meal, private-pleasure window."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "ends",
+    "display_name": "Venus aspect Mars in 5th house : Ends",
+    "description": "Performance-warmth window closes. The aesthetic integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "exact",
+    "display_name": "Venus aspect Mars in 5th house : Exact",
+    "description": "Peak performance-warmth day. Host the beautiful date-meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "starts",
+    "display_name": "Venus aspect Mars in 5th house : Starts",
+    "description": "Performance-warmth window opens. Plan the aesthetic-meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mars",
+    "phase": "window",
+    "display_name": "Venus aspect Mars in 5th house",
+    "description": "Warmth on performance-eating. Romantic-creative meal aesthetic; mentor-protégé warm meals."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "ends",
+    "display_name": "Venus aspect Mercury in 10th house : Ends",
+    "description": "Career-meal warmth window closes. The polish remains."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "exact",
+    "display_name": "Venus aspect Mercury in 10th house : Exact",
+    "description": "Peak career-meal warmth day. Host the elegant career-dinner."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "starts",
+    "display_name": "Venus aspect Mercury in 10th house : Starts",
+    "description": "Career-meal warmth window opens. Plan the aesthetic-meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Mercury",
+    "phase": "window",
+    "display_name": "Venus aspect Mercury in 10th house",
+    "description": "Warmth at MC. Aesthetic career-meals; press-engagement dining."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "ends",
+    "display_name": "Venus aspect Moon in 8th house : Ends",
+    "description": "Emotional-eating warmth window closes. The rituals integrate."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "exact",
+    "display_name": "Venus aspect Moon in 8th house : Exact",
+    "description": "Peak emotional-eating warmth day. Warm milk-and-spice; soft food."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "starts",
+    "display_name": "Venus aspect Moon in 8th house : Starts",
+    "description": "Emotional-eating warmth window opens. Soften the rituals."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Moon",
+    "phase": "window",
+    "display_name": "Venus aspect Moon in 8th house",
+    "description": "Warmth on emotional-eating. Soothing rituals; soft shared-meals."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "ends",
+    "display_name": "Venus aspect Rahu in 6th house : Ends",
+    "description": "Cleansing-warmth window closes. The protocol integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "exact",
+    "display_name": "Venus aspect Rahu in 6th house : Exact",
+    "description": "Peak cleansing-warmth day. The aesthetic detox lands."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "starts",
+    "display_name": "Venus aspect Rahu in 6th house : Starts",
+    "description": "Cleansing-warmth window opens. Plan the beautiful protocol."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Rahu",
+    "phase": "window",
+    "display_name": "Venus aspect Rahu in 6th house",
+    "description": "Warmth on the digestive-engine. Aesthetic clean-eating protocol; beautifully-presented healing meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "ends",
+    "display_name": "Venus aspect Saturn in 2nd house : Ends",
+    "description": "Slow-eating warmth window closes. The structure holds warmly."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "exact",
+    "display_name": "Venus aspect Saturn in 2nd house : Exact",
+    "description": "Peak slow-eating warmth day. Honor the structural meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "starts",
+    "display_name": "Venus aspect Saturn in 2nd house : Starts",
+    "description": "Slow-eating warmth window opens. Soften the food tone."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Saturn",
+    "phase": "window",
+    "display_name": "Venus aspect Saturn in 2nd house",
+    "description": "Warmth on slow-eating. Indulgent-but-disciplined; high-quality slow meal."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "ends",
+    "display_name": "Venus aspect Sun in 9th house : Ends",
+    "description": "Dharma-eating warmth window closes. The tradition integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "exact",
+    "display_name": "Venus aspect Sun in 9th house : Exact",
+    "description": "Peak dharma-eating warmth day. Host or attend the warm tradition."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "starts",
+    "display_name": "Venus aspect Sun in 9th house : Starts",
+    "description": "Dharma-eating warmth window opens. Plan the festival."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Sun",
+    "phase": "window",
+    "display_name": "Venus aspect Sun in 9th house",
+    "description": "Warmth on dharma-eating. Festival meals, traditional gatherings, foreign-cuisine warmth."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "ends",
+    "display_name": "Venus aspect Venus in 11th house : Ends",
+    "description": "Group-warmth window closes. The friendship-food integrates."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "exact",
+    "display_name": "Venus aspect Venus in 11th house : Exact",
+    "description": "Peak group-warmth day. Host the warm gathering."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "starts",
+    "display_name": "Venus aspect Venus in 11th house : Starts",
+    "description": "Group-warmth window opens. Reach out to allies."
+  },
+  {
+    "kind": "aspect",
+    "transit_planet": "Venus",
+    "natal_planet": "Venus",
+    "phase": "window",
+    "display_name": "Venus aspect Venus in 11th house",
+    "description": "Venus return aspect — peak group-eating warmth. Friend-network gatherings; senior-female-mentor lunches."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Jupiter",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Jupiter in 1st (Dispositor)",
+    "description": "When this engine fires, generous appetite expands easily. Discipline the celebration-eating; honor liver and gallbladder. Bitter greens, lemon water in the morning, fenugreek seed water. Walk after every major meal."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Mars",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Mars in 5th (Dispositor)",
+    "description": "When this engine fires, the body burns hot. Cool the system: cucumber, mint, coconut, watermelon, fennel water, coriander. Avoid red meat, alcohol, chili, vinegar, deep-fried during peaks. Walk after meals; do not stack sharp workouts on heavy meals."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Mercury",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Mercury in 10th (Dispositor)",
+    "description": "When this engine fires, the precision-eating protocol pays. Light protein-grain-vegetable at noon, lighter dinner before 7pm, no late snacking. The voice and mind sharpen on a clean stomach."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Moon",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Moon in 8th (Dispositor)",
+    "description": "When this engine fires, run an emotional-eating audit. Stress-cravings rise; check upstream for in-law tensions, shared-resource anxiety, intimacy strain. The food choice is downstream of the emotional climate. Soothing rituals (warm milk, mother-recipe meal) regulate."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Saturn",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Saturn in 2nd (Dispositor)",
+    "description": "When this engine fires, regularity is the medicine. Same meals at same times for two weeks; the system stabilizes. Warm cooked food; minimal raw; steady protein; oils and warming spices for joints (ginger, turmeric, sesame)."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Sun",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Sun in 9th (Dispositor)",
+    "description": "When this engine fires, traditional sattvic food restores balance. Ghee, basmati, lightly spiced dal, warm milk, dates, almonds. Eat at family or community gatherings. Beware over-eating in celebration mode — the appetite expands easily here."
+  },
+  {
+    "kind": "dispositor",
+    "natal_planet": "Venus",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Venus in 11th (Dispositor)",
+    "description": "When this engine fires, group meals dominate. Choose contexts that match your body — traditional, well-prepared, vegetarian-leaning gatherings over party-restaurant chains. Aesthetic AND nutritious; not one over the other."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "ends",
+    "display_name": "Pluto conjunct Saturn : Ends",
+    "description": "The eating-transformation chapter completes. You emerge with rebuilt food foundation and permanent practice."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "exact",
+    "display_name": "Pluto conjunct Saturn : Exact",
+    "description": "Peak structural-transformation day for eating habits. The old protocol breaks; the new one is forced into being."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "starts",
+    "display_name": "Pluto conjunct Saturn : Starts",
+    "description": "Multi-year structural reckoning begins on speech and slow-eating habits. Old family-food frameworks dismantle. Position for the long transformation."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Pluto-Saturn",
+    "phase": "window",
+    "display_name": "Pluto conjunct Saturn",
+    "description": "Generational structural reckoning hitting your slow-eating engine. Family-food traditions, voice-care, throat-and-bone health — all undergo deep transformation. You hold the structural patience as peers panic."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "ends",
+    "display_name": "Uranus conjunct Venus : Ends",
+    "description": "Disruption window closes. Integrate the changes."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "exact",
+    "display_name": "Uranus conjunct Venus : Exact",
+    "description": "Peak surprise day for group-eating. The unexpected gathering lands."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "starts",
+    "display_name": "Uranus conjunct Venus : Starts",
+    "description": "Sudden disruption window opens on group-eating. Expect surprise invitations."
+  },
+  {
+    "kind": "outer_special",
+    "special_label": "Uranus-Venus",
+    "phase": "window",
+    "display_name": "Uranus conjunct Venus",
+    "description": "Sudden disruption in friend-network eating. Unexpected gathering invitations; surprise restaurant openings; abrupt mentor-meal shifts."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 1,
+    "lord_house": 1,
+    "phase": "window",
+    "display_name": "Jupiter ruler of the 1st House in the 1st House",
+    "description": "Generous appetite, expansive build, warm digestion that handles rich food in youth and tells the truth about it later. Liver and gallbladder are the central organs; bile flow is the engine of your metabolism. Best foods: warm whole grains, ghee in moderation, traditional dal-rice-vegetable, lightly spiced (cumin, turmeric, fennel, ginger), bitter greens (bitter gourd, dandelion, mustard greens) to support liver. Avoid: heavy oily food combined with sweet drinks (this combination ages the Sagittarius body fast), excess dairy late at night, deep-fried, late dinners. Move daily — the hip-and-thigh storage is real."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 1,
+    "lord_house": 4,
+    "phase": "window",
+    "display_name": "Jupiter ruler of the 4th House in the 1st House",
+    "description": "Home is the kitchen, and the kitchen is the body. The dwelling's pantry is medicinal; mother's recipes nourish more than restaurant equivalents. Cook at home most days; the act of cooking itself is the medicine. Best practice: own a well-stocked spice drawer; rotate seasonal vegetables; honor the family-recipe inheritance. Eating-out as primary diet erodes this body within months."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 10,
+    "lord_house": 10,
+    "phase": "window",
+    "display_name": "Mercury ruler of the 10th House in the 10th House",
+    "description": "Career-zenith eating: you do your sharpest work on a precise, light, well-timed midday meal. Best: protein-grain-vegetable at noon, lighter dinner before 7pm, no late snacking. Vocal-care matters because the voice is the career-instrument; ghee, honey, ginger tea support. Avoid: heavy oily foods before key public engagements; the voice loses clarity for hours after."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 10,
+    "lord_house": 7,
+    "phase": "window",
+    "display_name": "Mercury ruler of the 7th House in the 10th House",
+    "description": "Public-facing meals — client lunches, conference banquets, formal dinners — are part of your career rhythm. The voice in negotiation runs better on a clean stomach; over-eating before the high-stakes meeting blurs the precision. Best: light protein-and-grain at midday before public engagements; full meal afterward. Avoid: alcohol at career-defining lunches; the precision-mind dulls fast."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 11,
+    "lord_house": 11,
+    "phase": "window",
+    "display_name": "Venus ruler of the 11th House in the 11th House",
+    "description": "Friendship-eating is part of the gain channel. Group dinners, network lunches, women-led gatherings carry weight. The shadow: too many group meals erode the home-cooking ritual that actually feeds you — cap social dining; reserve at least 5 home meals per week. Aesthetic dining is a Venus-pleasure; choose beauty AND nutrition, not one over the other."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 11,
+    "lord_house": 6,
+    "phase": "window",
+    "display_name": "Venus ruler of the 6th House in the 11th House",
+    "description": "Daily-grind eating routes through friend-and-network channels — group meals, work lunches, gatherings hosted by the senior-female mentor. Eating-as-social-connection is a real channel for you. Best: select group-meal contexts that match your body (vegetarian-leaning, traditional, well-prepared) over party-restaurant chains. The shadow: aesthetic enjoyment of food (Venus) running ahead of digestive fitness (6H) — the dessert that is beautiful is not always digestible; choose by body, not by photo."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 2,
+    "lord_house": 2,
+    "phase": "window",
+    "display_name": "Saturn ruler of the 2nd House in the 2nd House",
+    "description": "A structured, slow, traditional eater. The same staple foods at the same times for years builds the metabolism. Bones, teeth, and throat are governed here — they need warm, oily, well-spiced food in middle age. Best: warm whole grains, sesame, ghee, well-cooked vegetables, bone broth, traditional dal. Avoid: cold raw salads as a staple, irregular meal timing, snacking between meals. Family-recipe dishes carry medicinal weight — the body recognizes what it grew up on."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 2,
+    "lord_house": 3,
+    "phase": "window",
+    "display_name": "Saturn ruler of the 3rd House in the 2nd House",
+    "description": "Effort and short-burst stress drive eating choices. The disciplined cohort-meal, the structured working lunch, the methodical breakfast routine — these are how food shows up in your active hours. Stick to a small set of clean staples; don't reinvent the diet weekly. The shadow: methodical eating that turns rigid — leave 20% flexibility for spontaneous family meals."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 5,
+    "lord_house": 12,
+    "phase": "window",
+    "display_name": "Mars ruler of the 12th House in the 5th House",
+    "description": "Foreign trips, retreats, pilgrimages produce the best digestive resets of your year — the change of food, water, and rhythm clears what a clinic cannot. The shadow: pleasure-eating on travel that undoes the reset; arrive disciplined. Hidden eating patterns (late-night, bedroom-snacking, hotel-room service) need conscious management; the Ketu-12H undertow drains structure."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 5,
+    "lord_house": 5,
+    "phase": "window",
+    "display_name": "Mars ruler of the 5th House in the 5th House",
+    "description": "Performance metabolism. When you have a creative push, the body burns clean and the appetite is sharp; when the spotlight is off, the same fire turns inward and you skip meals or under-fuel. Heart-and-bones need consistent attention; warm cooked food, good fats, golden milk, ghee, dates, almonds. Avoid heart-stressors (excess salt, processed meat, deep-fried). The Mars-edge: occasional acidity, sudden food sensitivities under high stress — switch to cooling foods (coconut, cucumber, mint, fennel) when the heat rises."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 8,
+    "lord_house": 8,
+    "phase": "window",
+    "display_name": "Moon ruler of the 8th House in the 8th House",
+    "description": "Sudden food reactions — allergies, intolerances, abrupt sensitivities — surface from emotional depth rather than physical cause. Stress, in-law dynamics, shared-resource anxiety go straight to the gut. When something flares, look upstream to emotional triggers as well as ingredients. Fasting suits you in disciplined doses (regular intermittent fasting); reckless skipping inflames the Moon-Saturn-axis. Soothing emotional rituals around food (warm milk before bed, mother-recipe meals during stress) regulate the nervous-emotional-digestive axis."
+  },
+  {
+    "kind": "ruler",
+    "target_house": 9,
+    "lord_house": 9,
+    "phase": "window",
+    "display_name": "Sun ruler of the 9th House in the 9th House",
+    "description": "Generous appetite for traditional, sattvic, ceremonial food. You can eat large portions of rich traditional fare at festivals and feel blessed by it — but the body remembers, especially as the years stack. Best foods: ghee, basmati, lightly spiced dal, warm milk, dates, almonds, ceremonial sattvic dishes. Best practices: eat the largest meal at midday; lighter dinner; no late food. Pilgrimage and foreign-trip food often reset the system."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 1st House",
+    "description": "Jupiter return in own sign in lagna — most blessed annual food-window of any twelve-year cycle. Body expands; weight gain probable; honor with disciplined celebration. The wise-self body craves traditional sattvic."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 10th House",
+    "description": "Jupiter on natal Mercury at MC — peak career-eating expansion. The voice-care protocol pays; the career-meal ritual deepens."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 11th House",
+    "description": "Jupiter on natal Venus — wisdom-blessing on group-eating. Friend-network feasts; senior-female-mentor table; gathering-tradition deepens."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 12th House",
+    "description": "Jupiter on natal Ketu — peak foreign, retreat, private-eating year. Foreign sabbatical resets digestion; pilgrimage food restores; hidden patron offers feasts."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 2nd House",
+    "description": "Jupiter on natal Saturn — wisdom-blessing on slow-income food. Family-recipe inheritance; structural pantry expansion; vocal-care wisdom."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 3rd House",
+    "description": "Wisdom on cohort-eating. Sibling food-tradition deepening; peer-circle culinary expansion; food-related travel with siblings."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 4th House",
+    "description": "Jupiter return in own sign in 4H — peak home-kitchen expansion year. Renovate the kitchen; expand the pantry; deepen the family-recipe collection."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 5th House",
+    "description": "Jupiter on natal Mars — major creative-eating expansion. Children-related food tradition; mentor-protégé feasts; performance-nutrition wisdom."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 6th House",
+    "description": "Jupiter on natal Rahu — wisdom in the digestive zone. Difficult food-issues become teachers; healing-protocol mastery; HR-of-the-body wisdom. Health watch — wisdom in 6H expands waistline."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 7th House",
+    "description": "Wisdom into shared-meal zone. Anchor partner-eating ritual; deepen the shared-grocery-and-cooking practice."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 8th House",
+    "description": "Jupiter on natal Moon — wisdom into emotional-eating chamber. Stress-food patterns favorably resolve; in-law food traditions integrate; deep food-meditation."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Jupiter",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Jupiter Transits the 9th House",
+    "description": "Jupiter on natal Sun in own sign — among the most blessed food-windows of any twelve-year cycle. Foreign-cuisine expansion, ceremonial-feast wisdom, traditional-diet deepening."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Ketu Transits the 1st House",
+    "description": "Ketu over natal Jupiter — eighteen-month identity-stripping window. Old food-identity feels empty; the wise-self body question dissolves. Sit; do not over-rebuild."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Ketu Transits the 10th House",
+    "description": "Ketu over natal Mercury at MC — career-eating eclipse. Old career-meal protocols feel hollow; voice-care fades."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Ketu Transits the 11th House",
+    "description": "Ketu over natal Venus — eighteen-month deep purification of friend-eating. Group meals feel weightless; gathering-rituals purify."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Ketu Transits the 12th House",
+    "description": "Ketu return on its own placement — foreign, retreat, hidden-eating dissolution at peak. Pilgrimage-pull strong; pleasure-eating evaporates; old hidden food-channels close."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Ketu Transits the 2nd House",
+    "description": "Ketu over natal Saturn — detachment from speech-and-eating. Old food-routines feel meaningless; family-recipe inheritance dissolves. Don't panic-renovate."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Ketu Transits the 3rd House",
+    "description": "Detachment from cohort-eating. Solo eating favored; group-meal coordination misfires."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Ketu Transits the 4th House",
+    "description": "Home and kitchen detachment. Sell-the-pantry impulses, mother's food-independence, leave-the-kitchen signals."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Ketu Transits the 5th House",
+    "description": "Ketu over natal Mars — performance-eating eclipse. Old creative-food protocols feel hollow; mentee-feeding fades; speculation in diet loses charge."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Ketu Transits the 6th House",
+    "description": "Ketu opposite Rahu — service-and-conflict food-detachment. Old gut-issues dissolve without resolution; chronic complaints fade; HR-of-body cases close quietly."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Ketu Transits the 7th House",
+    "description": "Shared-meal detachment. Old shared-eating routines unwind; partner needs food-space; counterparties withdraw."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Ketu Transits the 8th House",
+    "description": "Ketu over natal Moon — emotional-eating acceleration of dissolution. Old stress-food patterns end abruptly; in-law food-traditions dissolve."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Ketu",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Ketu Transits the 9th House",
+    "description": "Ketu over natal Sun — dharma-eating detachment. Old ceremonial-food traditions feel finished; foreign-cuisine ambitions cool."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Mars Transits the 1st House",
+    "description": "Mars on natal Jupiter — body-fire on the wise-self. Heat rises; cool the system: cucumber, mint, coconut, fennel, coriander. Avoid red meat, alcohol, chili, vinegar; the Jupiter-Mars combination over-heats easily."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Mars Transits the 10th House",
+    "description": "Mars on natal Mercury at MC — strong public-eating action. Career-meal launches; voice-care emergency protocols; press-engagement food-fixes."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Mars Transits the 11th House",
+    "description": "Mars on natal Venus — assertive group-eating push. Lead the friend-network meal; reset the gathering-menu."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Mars Transits the 12th House",
+    "description": "Mars on natal Ketu — heated foreign, retreat, private-eating. Hidden food-cravings flare; sleep-loss possible; honor with discipline."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Mars Transits the 2nd House",
+    "description": "Mars on natal Saturn — sharp speech-and-eating. Watch acidity, dental issues, jaw tension. Cooling herbs; soft food."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Mars Transits the 3rd House",
+    "description": "Sharp eating-effort window. Push the new diet; the willpower is up. Watch over-aggressive elimination protocols."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Mars Transits the 4th House",
+    "description": "Heated home-kitchen disputes — eating-related arguments at family table. Soften with cooking-together rituals."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Mars Transits the 5th House",
+    "description": "Mars return on natal Mars in own sign — peak performance-eating fire. Heart-care foods; cooling regulators; avoid late-night party-eating; the system burns hot."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Mars Transits the 6th House",
+    "description": "Mars on natal Rahu — favorable for aggressive digestive resets. Win the long gut-issue case; settle the food-allergy investigation; the strict elimination diet lands."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Mars Transits the 7th House",
+    "description": "Friction in shared meals. Hard to negotiate restaurant choices; defer the difficult food-conversation."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Mars Transits the 8th House",
+    "description": "Mars on natal Moon — surgical action on emotional-eating. Restructure the stress-food protocol; sign the shared-grocery agreement under pressure."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mars",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Mars Transits the 9th House",
+    "description": "Mars on natal Sun — bold dharma-eating action. Foreign-food adventures, principled diet shifts, ceremonial-meal action."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Mercury Transits the 1st House",
+    "description": "Mind-on-self eating — Mercury on natal Jupiter. Audit the food choices that feel most \"you\"; refresh the staple-list. The wise-self honors the body that holds the mind."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Mercury Transits the 10th House",
+    "description": "Mercury return at MC — peak public-eating precision. Career-meal planning; voice-care nutrition; press-engagement food-prep."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Mercury Transits the 11th House",
+    "description": "Mercury on natal Venus — graceful group-eating planning. Hosting decisions; gathering-menu design; senior-female-mentor restaurant choices."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Mercury Transits the 12th House",
+    "description": "Mercury on natal Ketu — confidential, private-eating planning. Hidden snack habits surface; retreat-meal research; foreign-restaurant private notes."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Mercury Transits the 2nd House",
+    "description": "Mercury on natal Saturn — disciplined planning of the eating-week. Best window for the structural meal-prep, the family-finance-and-food budget review, the careful spice-pantry refresh."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Mercury Transits the 3rd House",
+    "description": "Peak window for researching and planning the new eating protocol. Read the books; write the meal-plan; design the cohort-meal schedule."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Mercury Transits the 4th House",
+    "description": "Emotionally attuned home-kitchen planning. Recipe-collection from mother; family-cookbook updates; pantry-organization with care."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Mercury Transits the 5th House",
+    "description": "Mercury on natal Mars — sharp performance-eating planning. Pre-event nutrition design; calculated supplement protocols; children-eating documentation."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Mercury Transits the 6th House",
+    "description": "Mercury on natal Rahu — peak surgical-eating mind. Audit the diet; document triggers; design the elimination protocol with precision."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Mercury Transits the 7th House",
+    "description": "Mercury return in own sign — peak shared-eating diplomacy. Partner-meal-plans, shared-grocery-list discussions, restaurant-choice negotiations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Mercury Transits the 8th House",
+    "description": "Mercury on natal Moon — depth-research on emotional-eating. Stress-food journaling; shared-resource food-budget audit; in-law food preferences research."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Mercury",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Mercury Transits the 9th House",
+    "description": "Mercury on natal Sun — visionary food philosophy. Read about ayurveda, traditional diets, philosophical food systems. Foreign-cuisine research."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Moon Transits the 1st House",
+    "description": "Two-day window of body-emotion fusion — Moon on natal Jupiter. Eat with extra warmth and self-care; the body is sensitive but expansive. Wise-self eating: warm cooked, lightly spiced, mother-recipe leaning."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Moon Transits the 10th House",
+    "description": "Emotional charge on public-eating — Moon on natal Mercury at MC. Soften the pace at career-meals; eat lightly before public engagements; the precision-mind warms."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Moon Transits the 11th House",
+    "description": "Emotional warmth on the friend-network — Moon on natal Venus. Group meals warm; senior-female-mentor lunches favored; the gathering itself is the medicine."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Moon Transits the 12th House",
+    "description": "Emotional charge on retreat-eating — Moon on natal Ketu. Sleep more, eat lightly, honor private rituals. Comfort-food cravings rise; redirect to warm milk-and-spice."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Moon Transits the 2nd House",
+    "description": "Emotional charge on speech and intake — Moon on natal Saturn. Comfort-food cravings rise; choose something warm and nourishing rather than sweet-and-fast."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Moon Transits the 3rd House",
+    "description": "Emotional charge on cohort-meals. Sibling-eating, peer-circle gatherings; warm tone wins. Send the warm food-meeting invite."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Moon Transits the 4th House",
+    "description": "Monthly home-kitchen emotional peak. Cook at home; mother's recipes restore; family-table is medicinal these two days."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Moon Transits the 5th House",
+    "description": "Emotional charge on performance-eating — Moon on natal Mars. Watch impulsive food choices under emotional Mars-Moon flare. Soft cooling foods (cucumber, mint, coconut, fennel) regulate."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Moon Transits the 6th House",
+    "description": "Emotional charge on the digestive engine — Moon on natal Rahu. Stress flares the gut; soft elimination of obvious irritants for two days; avoid signing onto extreme cleanse protocols when emotional."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Moon Transits the 7th House",
+    "description": "Emotional charge on shared meals. Partner-mood reads through food choice; pick warm, soothing, agreed-upon dishes."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Moon Transits the 8th House",
+    "description": "Moon return in own sign in own house — peak emotional-digestive sensitivity. Stress-cravings spike; honor the upstream emotional climate. Avoid high-stakes eating during this two-day window."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Moon",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Moon Transits the 9th House",
+    "description": "Emotional pull toward dharma-eating — Moon on natal Sun. Sattvic and traditional foods soothe; ceremonial meals carry warmth. Generous appetite at festivals."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Rahu Transits the 1st House",
+    "description": "Rahu over natal Jupiter — eighteen-month obsessive body-and-eating reinvention. New diet, new body, new self. Verify each protocol against close-circle counsel."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Rahu Transits the 10th House",
+    "description": "Rahu over natal Mercury at MC — obsessive career-eating push. Sudden voice-care obsession; unconventional public-meal protocols."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Rahu Transits the 11th House",
+    "description": "Rahu over natal Venus — obsessive friend-network eating chapter. Group-meal dynamics intensify; reset moments; stay clean."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Rahu Transits the 12th House",
+    "description": "Rahu over natal Ketu — obsessive foreign, retreat, hidden-eating chapter. Foreign-cuisine relocation, hidden-pleasure pursuits, retreat-driven food reset. Verify each path."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Rahu Transits the 2nd House",
+    "description": "Rahu over natal Saturn — obsessive ambition around speech, voice, slow-income food. Watch crash-diet logic; the structural rail compounds; the Rahu shortcut backfires."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Rahu Transits the 3rd House",
+    "description": "Obsessive cohort-eating push. Viral diet-trends; mass-followed eating protocols; verify before committing."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Rahu Transits the 4th House",
+    "description": "Obsessive home-kitchen reinvention. Foreign cooking obsession; kitchen-renovation fervor; mother-recipe re-evaluation."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Rahu Transits the 5th House",
+    "description": "Rahu over natal Mars — eighteen-month peak ambition window for performance-eating, children-feeding-philosophy, mentee food-philosophy. Verify integrity before each leap."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Rahu Transits the 6th House",
+    "description": "Rahu return on its own placement — favorable for dramatic digestive transformation, big gut-issue resolution, body-system restructuring."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Rahu Transits the 7th House",
+    "description": "Obsessive shared-meal chapter. Foreign-cuisine partner-pull; unconventional shared-eating protocols; verify carefully."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Rahu Transits the 8th House",
+    "description": "Rahu over natal Moon — obsessive emotional-eating chapter. Sudden food-allergy revelation, regulatory food-obsession, occult-diet deep-dive."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Rahu",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Rahu Transits the 9th House",
+    "description": "Rahu over natal Sun — foreign-fortune food obsession. International cuisine expansion, foreign-diet adoption, controversial guru-food-system."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Saturn Transits the 1st House",
+    "description": "Saturn over natal Jupiter in lagna — multi-year structural pressure on body and digestion. Slow simplification of diet; weight discipline; permanent food-habit shifts."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Saturn Transits the 10th House",
+    "description": "Saturn over natal Mercury at MC — the 2.5-year window where the career-eating discipline crystallizes into permanent practice. Voice-care, public-meal protocols formalize."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Saturn Transits the 11th House",
+    "description": "Saturn over natal Venus — disciplined, structural group-eating. Friend-network meals formalize; gathering-rituals systematize; the network purges what doesn't serve."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Saturn Transits the 12th House",
+    "description": "Saturn over natal Ketu — multi-year discipline on foreign, retreat, hidden-eating. Sabbaticals turn structural; hidden food-habits audit themselves; pleasure-spending stabilizes."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Saturn Transits the 2nd House",
+    "description": "Saturn return in own sign in 2H — multi-year discipline on speech, voice, and slow-eating habits. The structural meal-routine of the decade. Throat and dental care."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Saturn Transits the 3rd House",
+    "description": "Saturn in own sign Aquarius — multi-year discipline on cohort-eating. Methodical food-rituals with siblings and peers."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Saturn Transits the 4th House",
+    "description": "Heavy emotional-home weight; mother-related food-responsibility intensifies; kitchen-renovation feels structural. The home foundation of food is being rebuilt."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Saturn Transits the 5th House",
+    "description": "Saturn over natal Mars — performance-eating tested by structural delay. Children-eating restructures; speculation in food (extreme diets) must be tightly disciplined."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Saturn Transits the 6th House",
+    "description": "Saturn over natal Rahu — best multi-year window for resolving long-running digestive issues, settling chronic gut concerns, leading body-system transformation. Slow and structural."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Saturn Transits the 7th House",
+    "description": "Multi-year structural test of shared meals. Long-arc partner-eating practices; the spouse ages alongside you in the food-routine."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Saturn Transits the 8th House",
+    "description": "Saturn over natal Moon — major emotional-eating restructuring with deep weight. Inheritance, in-law food-traditions integrate. Patience compounds."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Saturn",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Saturn Transits the 9th House",
+    "description": "Saturn over natal Sun — multi-year discipline on dharma-eating. Slow ceremonial-tradition formalization; principles tested in the kitchen; father-figure food-tradition restructures."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Sun Transits the 1st House",
+    "description": "Solar fire on the wise-self body — Sun on Jupiter in lagna. Heat rises; appetite peaks; liver and gallbladder respond. Cooling-bitter foods favored: bitter gourd, dandelion, lemon water, coconut. Avoid extra spice, alcohol, and heavy oily food this month."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Sun Transits the 10th House",
+    "description": "Solar fire on structural eating — Sun on natal Mercury at MC. Reset the daily schedule; lock in fixed meal times. The career-zenith month rewards precision-eating."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Sun Transits the 11th House",
+    "description": "Solar light on group-eating dynamics — Sun on natal Venus. Friend-network meals favored; senior-female-mentor lunches; group-celebration food. Watch detachment afterward; over-eating in celebration mode."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Sun Transits the 12th House",
+    "description": "Solar light on retreat-eating — Sun on natal Ketu. Foreign cuisine, hospital diets, hotel meals dominate. Hidden eating patterns surface; bedroom-snacking and late-night patterns visible."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Sun Transits the 2nd House",
+    "description": "Solar light on speech, voice, and what enters the mouth — Sun on Saturn in 2H. Vocal-care matters; honey, ghee, soothing teas. Avoid acid foods (citrus, tomato) if voice is in use; throat sensitivity rises."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Sun Transits the 3rd House",
+    "description": "Solar courage on the diet. Bold dietary changes possible. Push the new eating protocol; willpower is up; cohort-meal discipline lands well."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Sun Transits the 4th House",
+    "description": "Solar fire on the home kitchen. Cook at home; the hearth is medicinal this month. Mother's recipes restore. Pisces empty-house transit; the food-emotion link is soft and forgiving."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Sun Transits the 5th House",
+    "description": "Solar fire on creative-performance metabolism — Sun on natal Mars in 5H. Heart-care foods favored: warm milk, dates, almonds, ghee. Avoid late-night party-eating; the Mars-Sun fire over-heats easily."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Sun Transits the 6th House",
+    "description": "Solar fire on the digestive engine — Sun on natal Rahu in 6H. Best window of the year for a clean-eating reset, an elimination diet, a parasite cleanse, a gut audit. The Rahu obsession-window helps you stick to the protocol."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Sun Transits the 7th House",
+    "description": "Solar light on shared meals. Partner-related eating dynamics surface. Avoid alcohol-heavy social meals; sign-Gemini empty-house transit; the chatter at meals can override digestion."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Sun Transits the 8th House",
+    "description": "Solar fire in the transformation chamber — Sun on natal Moon. Sharp digestive resets; possible flare of old emotional-food triggers — handle softly. Stress-eating awareness peaks."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Sun",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Sun Transits the 9th House",
+    "description": "Solar return on dharma — Sun in own sign in own house. Sattvic-eating calls; pilgrimage food, ashram fare, traditional fast all favored. The most aligned eating window of the year."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 1,
+    "phase": "window",
+    "display_name": "Venus Transits the 1st House",
+    "description": "Warmth on the wise-self body — Venus on natal Jupiter. The body softens; aesthetic-pleasure eating peaks. Beautiful-and-nutritious meals favored; honor the gallbladder."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 10,
+    "phase": "window",
+    "display_name": "Venus Transits the 10th House",
+    "description": "Venus on natal Mercury at MC — softens public-eating. Aesthetic career-meals; press-engagement dining; brand-couple restaurant choices."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 11,
+    "phase": "window",
+    "display_name": "Venus Transits the 11th House",
+    "description": "Venus return to own sign — peak group-eating warmth. Friend-network gatherings, senior-female-mentor lunches, aesthetic group-dining."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 12,
+    "phase": "window",
+    "display_name": "Venus Transits the 12th House",
+    "description": "Venus on natal Ketu — annual peak foreign-cuisine, retreat-meal, private-pleasure window. Hidden food-pleasures surface; honor with discipline."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 2,
+    "phase": "window",
+    "display_name": "Venus Transits the 2nd House",
+    "description": "Soft income, voice, food window — Venus on natal Saturn. Indulgent-but-disciplined eating; the high-quality slow meal. Throat-care matters."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 3,
+    "phase": "window",
+    "display_name": "Venus Transits the 3rd House",
+    "description": "Graceful cohort-meal warmth. Sibling food-gatherings; peer-circle dining favored."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 4,
+    "phase": "window",
+    "display_name": "Venus Transits the 4th House",
+    "description": "Beautiful home, kitchen, mother window. Beautify the dining table; cook the elaborate family-recipe dish; host the gathering at home."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 5,
+    "phase": "window",
+    "display_name": "Venus Transits the 5th House",
+    "description": "Venus on natal Mars — peak romance-and-creative meal aesthetic. The beautiful date-meal, the creative-celebration dinner; mentor-protégé warm meals."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 6,
+    "phase": "window",
+    "display_name": "Venus Transits the 6th House",
+    "description": "Venus on natal Rahu — diplomatic digestive-care. The aesthetic clean-eating protocol; the beautifully-presented healing meal."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 7,
+    "phase": "window",
+    "display_name": "Venus Transits the 7th House",
+    "description": "Peak shared-meal window. Sign the partner-restaurant ritual; close the long-pending shared-grocery agreement; warm shared dining."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 8,
+    "phase": "window",
+    "display_name": "Venus Transits the 8th House",
+    "description": "Venus on natal Moon — diplomatic emotional-eating. Soothing rituals around shared meals, in-law dining; gentle warmth in food-charged conversations."
+  },
+  {
+    "kind": "transit_house",
+    "transit_planet": "Venus",
+    "target_house": 9,
+    "phase": "window",
+    "display_name": "Venus Transits the 9th House",
+    "description": "Venus on natal Sun — graceful ceremonial-eating. Festival meals, traditional gatherings, foreign-cuisine warmth, religious-occasion food."
+  }
+]
