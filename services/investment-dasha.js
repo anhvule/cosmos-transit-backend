@@ -174,6 +174,32 @@ function houseLord(lagnaSign, n) {
   return SIGN_RULERS[sign] || null;
 }
 
+function signRuler(sign) {
+  return SIGN_RULERS[sign] || null;
+}
+
+/** Classical parivartana (exchange): lordA in a sign ruled by lordB and vice versa. */
+function hasParivartana(natalMap, lagnaSign, houseA, houseB) {
+  const lordA = houseLord(lagnaSign, houseA);
+  const lordB = houseLord(lagnaSign, houseB);
+  if (!lordA || !lordB || lordA === lordB) return false;
+  const posA = natalMap[lordA]?.sign;
+  const posB = natalMap[lordB]?.sign;
+  if (!posA || !posB) return false;
+  return signRuler(posA) === lordB && signRuler(posB) === lordA;
+}
+
+function inKendraOrTrikona(house) {
+  return KENDRA_HOUSES.includes(house) || TRIKONA_HOUSES.includes(house);
+}
+
+/** SuddenGainSigns: Jupiter–Rahu conjunction in a kendra or trikona house. */
+function hasJupiterRahuKendraTrikona(natalMap) {
+  if (!sameSign(natalMap, 'Jupiter', 'Rahu')) return false;
+  const house = natalMap.Jupiter?.house;
+  return inKendraOrTrikona(house);
+}
+
 // ── Aspect helpers (Vedic graha drishti) ──────────────────────────────
 // Each planet aspects the 7th from itself; Mars also 4th and 8th,
 // Jupiter 5th and 9th, Saturn 3rd and 10th, and (per Brihat Parashara)
@@ -300,25 +326,30 @@ function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
       `${planet} in the ${ordinal(planetHouse)} house but unrestrained — no Jupiter or Venus aspecting / joining it. Per explogalore, an unrestrained ${planet} in a speculation house risks overconfidence and large losses.`,
     );
   } else {
-    if (planetHouse === 5) {
-      reasons.push(
-        `${planet} sits in the 5th house — Suta Bhava, the primary house of speculation, intelligence, and Purva Punya (lottery / windfalls)${isShadow ? restraintNote : ''}.`,
-      );
-    }
-    if (planetHouse === 11) {
-      reasons.push(
-        `${planet} sits in the 11th house — Labha Bhava, the house of gains, income, and fulfillment of desires${isShadow ? restraintNote : ''}.`,
-      );
-    }
-    if (planetHouse === 2) {
-      reasons.push(
-        `${planet} sits in the 2nd house — Dhana Bhava, controlling wealth accumulation and savings${isShadow ? restraintNote : ''}.`,
-      );
-    }
-    if (planetHouse === 9) {
-      reasons.push(
-        `${planet} sits in the 9th house — Bhagya Bhava, fortune and divine luck${isShadow ? restraintNote : ''}.`,
-      );
+    const skipGenericWealthPlacement =
+      (planet === 'Jupiter' && [5, 11].includes(planetHouse)) ||
+      (planet === 'Mercury' && planetHouse === 11);
+    if (!skipGenericWealthPlacement) {
+      if (planetHouse === 5) {
+        reasons.push(
+          `${planet} sits in the 5th house — Suta Bhava, the primary house of speculation, intelligence, and Purva Punya (lottery / windfalls)${isShadow ? restraintNote : ''}.`,
+        );
+      }
+      if (planetHouse === 11) {
+        reasons.push(
+          `${planet} sits in the 11th house — Labha Bhava, the house of gains, income, and fulfillment of desires${isShadow ? restraintNote : ''}.`,
+        );
+      }
+      if (planetHouse === 2) {
+        reasons.push(
+          `${planet} sits in the 2nd house — Dhana Bhava, controlling wealth accumulation and savings${isShadow ? restraintNote : ''}.`,
+        );
+      }
+      if (planetHouse === 9) {
+        reasons.push(
+          `${planet} sits in the 9th house — Bhagya Bhava, fortune and divine luck${isShadow ? restraintNote : ''}.`,
+        );
+      }
     }
   }
   if (planetHouse === 8) {
@@ -481,10 +512,31 @@ function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
       `Jupiter in the 11th house — Guru in Labha Bhava attracts unexpected profits and amplifies networking-driven gains (explogalore).`,
     );
   }
-  // Mercury in 11th — multiple revenue streams.
+  // Mercury in 11th — multiple revenue streams (Rule 6 covers placement;
+  // this adds the explogalore income-channel note).
   if (planet === 'Mercury' && planetHouse === 11) {
     reasons.push(
       `Mercury in the 11th house — Budh in Labha Bhava builds multiple revenue streams and analytical income channels (explogalore).`,
+    );
+  }
+
+  // 2L–11L parivartana — SuddenGainSigns wealth-yoga; fires when the dasha
+  // lord is one of the exchanging house lords.
+  const secondLord = houseLord(lagnaSign, 2);
+  const elevenLordPar = houseLord(lagnaSign, 11);
+  if (hasParivartana(natalMap, lagnaSign, 2, 11) &&
+      (planet === secondLord || planet === elevenLordPar)) {
+    reasons.push(
+      `2nd lord (${secondLord})–11th lord (${elevenLordPar}) parivartana — SuddenGainSigns wealth-yoga linking savings (2nd) with gains (11th).`,
+    );
+  }
+
+  // Jupiter–Rahu in kendra/trikona — SuddenGainSigns speculation yoga.
+  if ((planet === 'Jupiter' || planet === 'Rahu') &&
+      hasJupiterRahuKendraTrikona(natalMap)) {
+    const yogaHouse = natalMap.Jupiter?.house;
+    reasons.push(
+      `Jupiter–Rahu conjunction in the ${ordinal(yogaHouse)} house (${kendraTrikonaLabel(yogaHouse) || 'angular'}) — SuddenGainSigns speculation yoga for unexpected windfalls.`,
     );
   }
 
@@ -540,13 +592,13 @@ function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
   // Rule D1 — Mahadasha-level speculation friendly planets (Rahu, Mercury,
   // Mars). Only fires for the actual Mahadasha; sub-periods inherit the
   // generic placement/lordship logic above. Requires the planet to be
-  // well-placed (own / exalted / in 2/5/8/11) — a debilitated MD already
-  // returned early at the top of this function.
+  // well-placed (own / exalted / in 2/5/11) — 8th is excluded here
+  // because conservative mode treats Randhra as caution-only.
   if (level === 'mahadasha' && SPECULATION_MD_PLANETS.has(planet)) {
     const wellPlaced =
       dignity === 'exalted' ||
       dignity === 'own' ||
-      [2, 5, 8, 11].includes(planetHouse);
+      [2, 5, 11].includes(planetHouse);
     if (wellPlaced) {
       const placeNote = dignity === 'exalted'
         ? `exalted in ${planetSign}`
@@ -565,7 +617,7 @@ function evaluatePeriodForInvestment(planet, natalMap, opts = {}) {
       // Speculation-friendly MD planet but not well-placed → don't promote
       // but note why we didn't.
       warnings.push(
-        `${planet} Mahadasha is normally good for speculation, but here ${planet} is in the ${ordinal(planetHouse)} house and not in own / exalted / 2-5-8-11 — Dasha.docx requires "well-placed" for the period to deliver.`,
+        `${planet} Mahadasha is normally good for speculation, but here ${planet} is in the ${ordinal(planetHouse)} house and not in own / exalted / 2-5-11 — Dasha.docx requires "well-placed" for the period to deliver.`,
       );
     }
   }
