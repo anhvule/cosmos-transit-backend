@@ -1,0 +1,17 @@
+# Render Blueprint — deploys the API as a single Docker web service on the free
+# tier. Node + Python run in one container (see Dockerfile), so the per-request
+# Python subprocess engine and better-sqlite3 work unchanged.
+#
+# No secrets are required: a runtime grep of process.env shows the app only reads
+# PORT (injected by Render), ASTROLOGY_ENGINE, and PYTHON_BIN.
+services:
+  - type: web
+    name: cosmictransit-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: ASTROLOGY_ENGINE
+        value: kerykeion
+      - key: PYTHON_BIN
+        value: /opt/venv/bin/python
