@@ -67,7 +67,29 @@ investment, advice, food, gain, loss) for a new native, follow
 
 ## Deployment
 
-`Procfile` runs `node server.js` as the web process (Heroku-style).
+Deployed to [Render](https://render.com) as a single Docker web service (free
+tier). The `Dockerfile` bundles Node + a Python venv in one container, so the
+per-request Python subprocess engine, `better-sqlite3`, and `cosmos.db` all run
+unchanged — no serverless re-architecture needed.
+
+```bash
+# Local parity check before pushing:
+docker build -t cosmos .
+docker run --rm -p 3000:3000 -e PORT=3000 cosmos
+curl -s localhost:3000/health
+```
+
+To deploy: push the branch and create a **Blueprint** in Render pointing at this
+repo — it reads [`render.yaml`](render.yaml) (Docker runtime, `plan: free`,
+health check at `/health`). No secret env vars are required; the app reads only
+`PORT` (injected by Render), `ASTROLOGY_ENGINE`, and `PYTHON_BIN`, all set by the
+Dockerfile/blueprint.
+
+Caveats on the free tier: the instance sleeps after inactivity (first request may
+take ~30–60s to cold-start), the in-memory rate limiter resets per restart, and
+the container filesystem is ephemeral — so `db/favourites.db` resets on each
+redeploy (same as the previous Heroku setup). For durable favourites, add a
+Render persistent disk (paid) or move favourites to a hosted DB.
 
 ## License
 

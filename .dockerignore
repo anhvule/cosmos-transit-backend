@@ -1,0 +1,31 @@
+# Host-compiled artifacts — MUST be rebuilt inside the Linux image, never copied.
+.venv/
+node_modules/
+
+# VCS / tooling
+.git/
+.gitignore
+.worktrees/
+.claude/
+.pytest_cache/
+.DS_Store
+
+# Secrets & local env (values are set as host env vars, not baked into the image)
+.env
+.env.*
+!.env.example
+
+# Tests & fixtures (not needed at runtime)
+tests/
+docs/
+
+# Logs / runtime SQLite sidecars (regenerated at runtime)
+*.log
+db/favourites.db
+db/favourites.db-journal
+db/favourites.db-wal
+db/favourites.db-shm
+db/cosmos.db-wal
+db/cosmos.db-shm
+db/cosmos_seed.json
+db/cosmos_seed.md
