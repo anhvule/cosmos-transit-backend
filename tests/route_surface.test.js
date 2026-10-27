@@ -20,6 +20,7 @@ const KEEP_POST = [
   '/investment-weekly',
   '/market-signal',
   '/market-signal-weekly',
+  '/mind-energy-monthly',
   '/monthly-prediction',
   '/panda/career',
   '/panda/relationship',

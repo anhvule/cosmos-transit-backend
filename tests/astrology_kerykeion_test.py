@@ -1026,5 +1026,39 @@ def run_manual_test():
             print(f'  {e["description"]}')
 
 
+
+# ─── Batch mode: transit positions for the mind-energy scorer ────────────────
+
+class TestBatchTransitPositions:
+    """--json-batch also emits sidereal transit positions + the natal chart."""
+
+    def _run_batch(self, dates):
+        import json
+        import subprocess
+        script = os.path.join(os.path.dirname(__file__), '..', 'services', 'astrology_kerykeion.py')
+        payload = {**BIRTH_DATA_HCM, 'transitDates': dates}
+        proc = subprocess.run(
+            [sys.executable, script, '--json-batch'],
+            input=json.dumps(payload), capture_output=True, text=True, timeout=120,
+        )
+        assert proc.returncode == 0, proc.stderr
+        return json.loads(proc.stdout)
+
+    def test_emits_transit_positions_per_date(self):
+        out = self._run_batch(['2026-05-01', '2026-05-02'])
+        assert set(out['transitPositions']) == {'2026-05-01', '2026-05-02'}
+        day = out['transitPositions']['2026-05-01']
+        for body in ('Sun', 'Moon', 'Mercury', 'Mars', 'Jupiter', 'Saturn', 'Rahu', 'Ketu'):
+            pos = day[body]
+            assert 0 <= pos['siderealLon'] < 360
+            assert pos['sign']
+            assert 1 <= pos['house'] <= 12
+
+    def test_emits_natal_planets_and_keeps_existing_keys(self):
+        out = self._run_batch(['2026-05-01'])
+        names = {p['name'] for p in out['natalPlanets']}
+        assert {'Ascendant', 'Sun', 'Moon', 'Mars', 'Rahu', 'Ketu'} <= names
+        assert 'results' in out and 'planetHouses' in out and 'baselineEvents' in out
+
 if __name__ == '__main__':
     run_manual_test()
