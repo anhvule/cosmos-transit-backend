@@ -1959,8 +1959,26 @@ def _run_json_batch():
                 houses[p['name']] = _sign_to_house.get(sign_eod, 0)
             return houses
 
+        def transit_positions_for(transit_planets):
+            """Return {planet_name: {siderealLon, sign, house, speed}} for every
+            transit body, using the noon sidereal position. Consumers that need
+            dignity / tithi / nakshatra (e.g. the mind-energy scorer) read this
+            instead of re-deriving from tropical events."""
+            positions = {}
+            for p in transit_planets:
+                sid = p.get('sidereal_abs_pos')
+                sign = p.get('sidereal_sign') or p.get('sign')
+                positions[p['name']] = {
+                    'siderealLon': sid,
+                    'sign': sign,
+                    'house': _sign_to_house.get(sign, 0),
+                    'speed': p.get('speed', 0),
+                }
+            return positions
+
         results = {}
         planet_houses = {}   # date -> {planet: house}
+        transit_positions = {}  # date -> {planet: {siderealLon, sign, house, speed}}
         baseline_events = []  # events for the baseline date
 
         for date in all_dates:
@@ -1968,6 +1986,7 @@ def _run_json_batch():
                 _, _, transit = get_natal_transits(birth_data, date)
                 events = calculate_transit_report(sidereal, tropical, transit)
                 planet_houses[date] = planet_houses_for(transit)
+                transit_positions[date] = transit_positions_for(transit)
                 if date in transit_dates:
                     results[date] = events
                 elif date == baseline_date:
@@ -1980,6 +1999,8 @@ def _run_json_batch():
         print(json.dumps({
             'results': results,
             'planetHouses': planet_houses,
+            'transitPositions': transit_positions,
+            'natalPlanets': sidereal,
             'baselineEvents': baseline_events,
         }))
     except Exception as e:

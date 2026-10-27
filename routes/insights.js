@@ -3,6 +3,7 @@ const router = express.Router();
 const { calculateEssenceCycle } = require('../services/essence-cycle');
 const { getMonthlyPrediction } = require('../services/monthly-prediction');
 const { getWealthAnalysis } = require('../services/wealth-analysis');
+const { computeMonth } = require('../services/mind-energy');
 const { resolveTimezoneOrRespond } = require('./_helpers');
 
 /**
@@ -125,6 +126,50 @@ router.post('/wealth-analysis', async (req, res) => {
   } catch (error) {
     console.error('wealth-analysis error:', error.message);
     res.status(500).json({ error: 'Failed to compute wealth analysis. Please try again later.' });
+  }
+});
+
+/**
+ * POST /api/mind-energy-monthly
+ *
+ * Daily Vedic-astrology scores for one month, from the requesting user's own
+ * chart (natal placements + that day's sidereal transits + running dasha):
+ *   - overthinking: mental restlessness, 0-100 (higher = more restless)
+ *   - vitality:     mental stamina + physical energy, 0-100 (higher = stronger)
+ * Each day lists its top drivers (the rules that moved the scores).
+ *
+ * Request body: standard birth fields plus "month": "YYYY-MM".
+ *
+ * Response:
+ * {
+ *   "month": "2026-11",
+ *   "days": [{ "date": "2026-11-01", "overthinking": 62, "vitality": 41,
+ *              "drivers": [{ "metric": "vitality", "label": "...", "delta": -9 }] }]
+ * }
+ */
+router.post('/mind-energy-monthly', async (req, res) => {
+  try {
+    const { name, birthDate, birthTime, latitude, longitude, timezone, month } = req.body || {};
+
+    if (!name || !birthDate || !birthTime || latitude == null || longitude == null) {
+      return res.status(400).json({
+        error: 'Missing required fields: name, birthDate, birthTime, latitude, longitude',
+      });
+    }
+    if (!month || !/^\d{4}-(0[1-9]|1[0-2])$/.test(String(month))) {
+      return res.status(400).json({ error: 'month must be in YYYY-MM format' });
+    }
+    const tz = resolveTimezoneOrRespond(timezone, res);
+    if (!tz.ok) return;
+
+    const result = await computeMonth(
+      { birthDate, birthTime, latitude, longitude, timezone: tz.timezone },
+      String(month),
+    );
+    res.json(result);
+  } catch (error) {
+    console.error('mind-energy-monthly error:', error.message);
+    res.status(500).json({ error: 'Failed to compute mind & energy scores. Please try again later.' });
   }
 });
 

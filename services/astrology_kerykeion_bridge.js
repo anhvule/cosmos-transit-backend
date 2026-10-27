@@ -615,4 +615,5 @@ module.exports = {
   calculateTransitReport,
   getMatchingDatesForMonth,
   getInvestmentSignsForDates,
+  callPythonBatch,
 };
