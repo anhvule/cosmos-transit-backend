@@ -133,6 +133,44 @@ describe('scoreDay', () => {
     expect(delta(r, 'overthinking', /Antardasha of Rahu/)).toBe(WEIGHTS.dashaMoonNode.antardasha);
   });
 
+  test('all five metrics are clamped to 0–100', () => {
+    const r = score(quietTransit());
+    for (const m of ['overthinking', 'vitality', 'focus', 'irritability', 'steadiness']) {
+      expect(r[m]).toBeGreaterThanOrEqual(0);
+      expect(r[m]).toBeLessThanOrEqual(100);
+    }
+  });
+
+  test('Mars aspecting the Moon raises irritability and lowers steadiness', () => {
+    // Mars in Taurus aspects Scorpio (7th) — put the Moon there.
+    const r = score(quietTransit({ Moon: { sign: 'Scorpio', house: 8, siderealLon: 225, speed: 13 } }));
+    expect(delta(r, 'irritability', /Mars aspects the Moon/)).toBe(WEIGHTS.irritability.marsOnMoon);
+    expect(delta(r, 'steadiness', /Mars aspects the Moon/)).toBe(WEIGHTS.steadiness.marsOnMoon);
+  });
+
+  test('Mars conjunct Rahu (Angarak yoga) raises irritability', () => {
+    const r = score(quietTransit({ Mars: { sign: 'Aquarius', house: 11, siderealLon: 312, speed: 1 } }));
+    expect(delta(r, 'irritability', /Angarak/)).toBe(WEIGHTS.irritability.marsWithRahu);
+  });
+
+  test('Moon in a fixed sign raises focus', () => {
+    const r = score(quietTransit({ Moon: { sign: 'Leo', house: 5, siderealLon: 130, speed: 13 } }));
+    expect(delta(r, 'focus', /fixed sign/)).toBe(WEIGHTS.focus.moonFixedSign);
+  });
+
+  test('Mercury retrograde lowers focus', () => {
+    const base = score(quietTransit());
+    const r = score(quietTransit({ Mercury: { sign: 'Cancer', house: 4, siderealLon: 100, speed: -0.5 } }));
+    expect(delta(r, 'focus', /retrograde/)).toBe(WEIGHTS.focus.mercuryRetrograde);
+    expect(r.focus).toBeLessThan(base.focus);
+  });
+
+  test('debilitated transit Moon lowers steadiness', () => {
+    const r = score(quietTransit({ Moon: { sign: 'Scorpio', house: 8, siderealLon: 225, speed: 13 } }));
+    expect(delta(r, 'steadiness', /Transit Moon debilitated/)).toBe(-12);
+    expect(r.steadiness).toBeLessThan(BASE);
+  });
+
   test('quiet day stays at the base score', () => {
     const r = score(quietTransit());
     expect(Math.abs(r.overthinking - BASE)).toBeLessThanOrEqual(12);

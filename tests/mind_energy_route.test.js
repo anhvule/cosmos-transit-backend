@@ -31,7 +31,7 @@ describe('computeMonth (fake engine)', () => {
     };
   };
 
-  test('returns one entry per day with 0–100 scores and at most 5 drivers', async () => {
+  test('returns one entry per day with 0–100 scores and at most 8 drivers', async () => {
     const out = await computeMonth(
       { birthDate: '1991-12-29', birthTime: '13:30', latitude: 10, longitude: 106, timezone: 'Asia/Ho_Chi_Minh' },
       '2026-02', { callBatch: fakeBatch },
@@ -44,7 +44,7 @@ describe('computeMonth (fake engine)', () => {
       expect(d.overthinking).toBeLessThanOrEqual(100);
       expect(d.vitality).toBeGreaterThanOrEqual(0);
       expect(d.vitality).toBeLessThanOrEqual(100);
-      expect(d.drivers.length).toBeLessThanOrEqual(5);
+      expect(d.drivers.length).toBeLessThanOrEqual(8);
     }
   });
 
@@ -82,7 +82,7 @@ describe('POST /api/mind-energy-monthly', () => {
       expect(d.vitality).toBeGreaterThanOrEqual(0);
       expect(d.vitality).toBeLessThanOrEqual(100);
       for (const dr of d.drivers) {
-        expect(['overthinking', 'vitality']).toContain(dr.metric);
+        expect(['overthinking', 'vitality', 'focus', 'irritability', 'steadiness']).toContain(dr.metric);
         expect(typeof dr.label).toBe('string');
         expect(typeof dr.delta).toBe('number');
       }

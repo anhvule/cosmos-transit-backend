@@ -136,6 +136,9 @@ router.post('/wealth-analysis', async (req, res) => {
  * chart (natal placements + that day's sidereal transits + running dasha):
  *   - overthinking: mental restlessness, 0-100 (higher = more restless)
  *   - vitality:     mental stamina + physical energy, 0-100 (higher = stronger)
+ *   - focus:        mental clarity / concentration, 0-100 (higher = sharper)
+ *   - irritability: short temper / friction, 0-100 (higher = more irritable)
+ *   - steadiness:   emotional stability, 0-100 (higher = steadier)
  * Each day lists its top drivers (the rules that moved the scores).
  *
  * Request body: standard birth fields plus "month": "YYYY-MM".
@@ -144,6 +147,7 @@ router.post('/wealth-analysis', async (req, res) => {
  * {
  *   "month": "2026-11",
  *   "days": [{ "date": "2026-11-01", "overthinking": 62, "vitality": 41,
+ *              "focus": 55, "irritability": 48, "steadiness": 60,
  *              "drivers": [{ "metric": "vitality", "label": "...", "delta": -9 }] }]
  * }
  */
