@@ -133,6 +133,23 @@ describe('scoreDay', () => {
     expect(delta(r, 'overthinking', /Antardasha of Rahu/)).toBe(WEIGHTS.dashaMoonNode.antardasha);
   });
 
+  test('pratyantardasha of Saturn raises overthinking and lowers steadiness', () => {
+    const r = score(quietTransit(), { dasha: { pratyantardasha: { planet: 'Saturn' } } });
+    expect(delta(r, 'overthinking', /Pratyantardasha of Saturn/)).toBe(WEIGHTS.pratyantardasha.Saturn.overthinking);
+    expect(delta(r, 'steadiness', /Pratyantardasha of Saturn/)).toBe(WEIGHTS.pratyantardasha.Saturn.steadiness);
+  });
+
+  test('pratyantardasha of Mercury lifts focus', () => {
+    const r = score(quietTransit(), { dasha: { pratyantardasha: { planet: 'Mercury' } } });
+    expect(delta(r, 'focus', /Pratyantardasha of Mercury/)).toBe(WEIGHTS.pratyantardasha.Mercury.focus);
+  });
+
+  test('Saturn retrograde raises overthinking and lowers steadiness', () => {
+    const r = score(quietTransit({ Saturn: { sign: 'Pisces', house: 12, siderealLon: 340, speed: -0.05 } }));
+    expect(delta(r, 'overthinking', /Saturn retrograde/)).toBe(WEIGHTS.saturnRetrograde.overthinking);
+    expect(delta(r, 'steadiness', /Saturn retrograde/)).toBe(WEIGHTS.saturnRetrograde.steadiness);
+  });
+
   test('all five metrics are clamped to 0–100', () => {
     const r = score(quietTransit());
     for (const m of ['overthinking', 'vitality', 'focus', 'irritability', 'steadiness']) {
