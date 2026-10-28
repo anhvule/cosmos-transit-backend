@@ -114,6 +114,19 @@ const WEIGHTS = {
     Mercury: { focus: { debilitated: -6, exalted: 6, own: 4 } },
   },
   neechaBhangaFactor: 0.5,     // a cancelled debilitation keeps this share of its penalty
+  // ── slow background: shifts that last weeks, so months differ from each other ──
+  // Pratyantardasha (3rd-level dasha, ~1–3 months): lord -> metric -> delta.
+  pratyantardasha: {
+    Saturn:  { overthinking: 8, steadiness: -8, vitality: -4 },
+    Rahu:    { overthinking: 8, steadiness: -6 },
+    Ketu:    { overthinking: 6, focus: -4 },
+    Mars:    { irritability: 8, steadiness: -4 },
+    Sun:     { vitality: 5, irritability: 3 },
+    Mercury: { focus: 6, overthinking: -3 },
+    Jupiter: { steadiness: 6, overthinking: -6 },
+    Venus:   { steadiness: 5, irritability: -4 },
+  },
+  saturnRetrograde: { overthinking: 4, steadiness: -4 },
 };
 
 const NAKSHATRA_MALEFIC_LORDS = new Set(['Rahu', 'Ketu', 'Saturn']);
@@ -175,7 +188,7 @@ function dignityDrivers(drivers, planet, sign, table, frame, posOf, lagnaSign, m
  * @param {Object} ctx
  * @param {Object} ctx.natal    { [planet]: { sign, house } } incl. 'Ascendant'
  * @param {Object} ctx.transit  { [planet]: { sign, house, siderealLon, speed } }
- * @param {Object} [ctx.dasha]  { mahadasha: {planet}|null, antardasha: {planet}|null }
+ * @param {Object} [ctx.dasha]  { mahadasha, antardasha, pratyantardasha: {planet}|null }
  * @param {Object} [ctx.nakshatraLord] lord of the transit Moon's nakshatra
  * @returns {{ overthinking: number, vitality: number, focus: number,
  *             irritability: number, steadiness: number, drivers: Array }}
@@ -304,7 +317,17 @@ function scoreDay({ natal, transit, dasha = {}, nakshatraLord = null }) {
     }
   }
 
+  if (t.Saturn && t.Saturn.speed < 0) {
+    for (const [metric, delta] of Object.entries(WEIGHTS.saturnRetrograde)) {
+      add(drivers, metric, 'Saturn retrograde', delta);
+    }
+  }
+
   // ── dasha lords ──
+  const pdLord = dasha.pratyantardasha && dasha.pratyantardasha.planet;
+  for (const [metric, delta] of Object.entries(WEIGHTS.pratyantardasha[pdLord] || {})) {
+    add(drivers, metric, `Pratyantardasha of ${pdLord}`, delta);
+  }
   for (const level of ['antardasha', 'mahadasha']) {
     const lord = dasha[level] && dasha[level].planet;
     if (!lord) continue;
@@ -348,6 +371,20 @@ function scoreDay({ natal, transit, dasha = {}, nakshatraLord = null }) {
 
 const MAX_DRIVERS_PER_DAY = 8;
 
+/** Active dasha lords and the sub-period's span, so the app can mark period changes. */
+function periodOf(dasha) {
+  const lord = level => (dasha[level] && dasha[level].planet) || null;
+  const pd = dasha.pratyantardasha;
+  const day = d => (d ? new Date(d).toISOString().slice(0, 10) : null);
+  return {
+    mahadasha: lord('mahadasha'),
+    antardasha: lord('antardasha'),
+    pratyantardasha: lord('pratyantardasha'),
+    pratyantardashaStart: pd ? day(pd.startDate) : null,
+    pratyantardashaEnd: pd ? day(pd.endDate) : null,
+  };
+}
+
 function datesOfMonth(month) {
   const [year, mon] = month.split('-').map(Number);
   const days = new Date(Date.UTC(year, mon, 0)).getUTCDate();
@@ -387,7 +424,7 @@ async function computeMonth(birthData, month, deps = {}) {
   const days = dates.map(date => {
     const transit = (transitPositions || {})[date];
     if (!transit || !transit.Moon) {
-      return { date, overthinking: null, vitality: null, focus: null, irritability: null, steadiness: null, drivers: [] };
+      return { date, overthinking: null, vitality: null, focus: null, irritability: null, steadiness: null, period: null, drivers: [] };
     }
     const dasha = computeDashaAtDate(birthMoment, natalMoonLon, new Date(`${date}T12:00:00Z`));
     const nakshatraLord = transit.Moon.siderealLon != null ? getNakshatra(transit.Moon.siderealLon).lord : null;
@@ -399,6 +436,7 @@ async function computeMonth(birthData, month, deps = {}) {
       focus: r.focus,
       irritability: r.irritability,
       steadiness: r.steadiness,
+      period: periodOf(dasha),
       drivers: r.drivers.slice(0, MAX_DRIVERS_PER_DAY),
     };
   });
